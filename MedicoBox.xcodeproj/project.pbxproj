@@ -1,0 +1,978 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A491591214BAE6300917E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491590214BAE6300917E79 /* AppDelegate.swift */; };
+		3A491593214BAE6300917E79 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491592214BAE6300917E79 /* SignUpViewController.swift */; };
+		3A491596214BAE6300917E79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A491594214BAE6300917E79 /* Main.storyboard */; };
+		3A491598214BAE6C00917E79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A491597214BAE6C00917E79 /* Assets.xcassets */; };
+		3A49159B214BAE6C00917E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A491599214BAE6C00917E79 /* LaunchScreen.storyboard */; };
+		3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */; };
+		3A5F5FEB215907AB0072E1BB /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE8215907AA0072E1BB /* ExSlideMenuController.swift */; };
+		3A5F5FEC215907AB0072E1BB /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE9215907AA0072E1BB /* LeftViewController.swift */; };
+		3A5F5FF0215907CB0072E1BB /* ImageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F5FEE215907CB0072E1BB /* ImageHeaderView.xib */; };
+		3A5F5FF1215907CB0072E1BB /* ImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FEF215907CB0072E1BB /* ImageHeaderView.swift */; };
+		3A5F5FF52159080C0072E1BB /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FF32159080B0072E1BB /* HeaderCell.swift */; };
+		3A5F5FF62159080C0072E1BB /* SubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FF42159080B0072E1BB /* SubCell.swift */; };
+		3A5F5FFA215908490072E1BB /* DiabetesCareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FF8215908490072E1BB /* DiabetesCareCell.swift */; };
+		3A5F5FFB215908490072E1BB /* DiabetesCareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F5FF9215908490072E1BB /* DiabetesCareCell.xib */; };
+		3A5F5FFF215908690072E1BB /* ProductDetailBTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FFD215908690072E1BB /* ProductDetailBTableViewCell.swift */; };
+		3A5F6000215908690072E1BB /* ProductDetailBTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F5FFE215908690072E1BB /* ProductDetailBTableViewCell.xib */; };
+		3A5F600A215908F10072E1BB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6002215908F00072E1BB /* UIView.swift */; };
+		3A5F600B215908F10072E1BB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6003215908F10072E1BB /* String.swift */; };
+		3A5F600C215908F10072E1BB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6004215908F10072E1BB /* UIColor.swift */; };
+		3A5F600D215908F10072E1BB /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6005215908F10072E1BB /* UIViewController.swift */; };
+		3A5F600E215908F10072E1BB /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6006215908F10072E1BB /* UIApplication.swift */; };
+		3A5F600F215908F10072E1BB /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6007215908F10072E1BB /* UIImageView.swift */; };
+		3A5F6010215908F10072E1BB /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6008215908F10072E1BB /* UITableViewExtension.swift */; };
+		3A5F6011215908F10072E1BB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6009215908F10072E1BB /* UIImage.swift */; };
+		3A5F60152159092A0072E1BB /* DiabetesCareList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F60132159092A0072E1BB /* DiabetesCareList.swift */; };
+		3A5F60162159092A0072E1BB /* ProductDetailBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */; };
+		3A984C302150FEA50012E0C7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C2F2150FEA50012E0C7 /* SignInViewController.swift */; };
+		3A984C3A215106520012E0C7 /* DesignableShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C36215106520012E0C7 /* DesignableShadowView.swift */; };
+		3A984C3B215106520012E0C7 /* DesignableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C37215106520012E0C7 /* DesignableImage.swift */; };
+		3A984C3C215106520012E0C7 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C38215106520012E0C7 /* DesignableButton.swift */; };
+		3A984C3D215106520012E0C7 /* DesignableShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C39215106520012E0C7 /* DesignableShadowButton.swift */; };
+		3A984C4021510B100012E0C7 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C3F21510B100012E0C7 /* DesignableView.swift */; };
+		48B665765AF204F4112F2681 /* Pods_MedicoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4A7E8ED8CC561358F8B9D7 /* Pods_MedicoBox.framework */; };
+		CD364096215281B5008FEFA1 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364093215281B0008FEFA1 /* fa-solid-900.ttf */; };
+		CD364097215281B5008FEFA1 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364094215281B3008FEFA1 /* fa-brands-400.ttf */; };
+		CD364098215281B5008FEFA1 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364095215281B5008FEFA1 /* fa-regular-400.ttf */; };
+		CD8BF9292155F2A2005B7BBA /* ForgotPasswordFromMobileNoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF9282155F2A2005B7BBA /* ForgotPasswordFromMobileNoViewController.swift */; };
+		CD8BF92B2155F6E8005B7BBA /* SetNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92A2155F6E8005B7BBA /* SetNewPasswordViewController.swift */; };
+		CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */; };
+		CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */; };
+		CD9E043821589B5800F1C44C /* InstaOrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E043621589B5800F1C44C /* InstaOrdersListTableViewCell.swift */; };
+		CD9E043921589B5800F1C44C /* InstaOrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD9E043721589B5800F1C44C /* InstaOrdersListTableViewCell.xib */; };
+		CD9E043E2158AC9700F1C44C /* InstaOrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */; };
+		CDA18F7C2153C9BE00F2D1AA /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F722153C9B800F2D1AA /* OpenSans-BoldItalic.ttf */; };
+		CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F732153C9B900F2D1AA /* OpenSans-Italic.ttf */; };
+		CDA18F7E2153C9BE00F2D1AA /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F742153C9B900F2D1AA /* OpenSans-SemiboldItalic.ttf */; };
+		CDA18F7F2153C9BE00F2D1AA /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F752153C9BA00F2D1AA /* OpenSans-ExtraBold.ttf */; };
+		CDA18F802153C9BE00F2D1AA /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F762153C9BA00F2D1AA /* OpenSans-Semibold.ttf */; };
+		CDA18F812153C9BE00F2D1AA /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F772153C9BB00F2D1AA /* OpenSans-Bold.ttf */; };
+		CDA18F822153C9BE00F2D1AA /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F782153C9BB00F2D1AA /* OpenSans-Light.ttf */; };
+		CDA18F832153C9BE00F2D1AA /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F792153C9BC00F2D1AA /* OpenSans-Regular.ttf */; };
+		CDA18F842153C9BE00F2D1AA /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F7A2153C9BD00F2D1AA /* OpenSans-LightItalic.ttf */; };
+		CDA18F852153C9BE00F2D1AA /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F7B2153C9BD00F2D1AA /* OpenSans-ExtraBoldItalic.ttf */; };
+		CDA98BFB2153BAB100A02D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDA98BFA2153BAAD00A02D4D /* GoogleService-Info.plist */; };
+		CDDCA00021520C4500DC1202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC9FFF21520C4500DC1202 /* HomeViewController.swift */; };
+		CDDCA00A215217F800DC1202 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA007215217F700DC1202 /* FBSDKCoreKit.framework */; };
+		CDDCA00B215217F800DC1202 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA008215217F700DC1202 /* Bolts.framework */; };
+		CDDCA00C215217F800DC1202 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA009215217F700DC1202 /* FBSDKLoginKit.framework */; };
+		CDDCA0132152181400DC1202 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDDCA00E2152181200DC1202 /* GoogleSignIn.bundle */; };
+		CDDCA0142152181400DC1202 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA00F2152181200DC1202 /* GoogleSymbolUtilities.framework */; };
+		CDDCA0152152181400DC1202 /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA0102152181200DC1202 /* GoogleAppUtilities.framework */; };
+		CDDCA0162152181400DC1202 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA0112152181400DC1202 /* GoogleSignIn.framework */; };
+		CDDCA0172152181400DC1202 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA0122152181400DC1202 /* GoogleSignInDependencies.framework */; };
+		CDDCA01B2152189100DC1202 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA0192152189100DC1202 /* Constants.swift */; };
+		CDDCA01C2152189100DC1202 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA01A2152189100DC1202 /* Extension.swift */; };
+		CDDCA01E215219F500DC1202 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA01D215219F500DC1202 /* VerifyOTPViewController.swift */; };
+		CDDCA03821521C6900DC1202 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA03021521C6800DC1202 /* CoreGraphics.framework */; };
+		CDDCA03921521C6900DC1202 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA03121521C6800DC1202 /* MapKit.framework */; };
+		CDDCA03A21521C6900DC1202 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA03221521C6800DC1202 /* UserNotifications.framework */; };
+		CDDCA03B21521C6900DC1202 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA03321521C6800DC1202 /* AVFoundation.framework */; };
+		CDDCA03C21521C6900DC1202 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA03421521C6800DC1202 /* CoreFoundation.framework */; };
+		CDDCA03D21521C6900DC1202 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA03521521C6900DC1202 /* CoreLocation.framework */; };
+		CDDCA03E21521C6900DC1202 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA03621521C6900DC1202 /* QuartzCore.framework */; };
+		CDDCA03F21521C6900DC1202 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA03721521C6900DC1202 /* SystemConfiguration.framework */; };
+		CDDCA044215231A100DC1202 /* MedicoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA042215231A100DC1202 /* MedicoCollectionViewCell.swift */; };
+		CDDCA045215231A100DC1202 /* MedicoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */; };
+		CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */; };
+		CDDCA04A2152553500DC1202 /* FeaturedProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDCA0482152553400DC1202 /* FeaturedProductCollectionViewCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A49158D214BAE6300917E79 /* MedicoBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicoBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A491590214BAE6300917E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A491592214BAE6300917E79 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3A491595214BAE6300917E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A491597214BAE6C00917E79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A49159A214BAE6C00917E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3A49159C214BAE6C00917E79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
+		3A5F5FE8215907AA0072E1BB /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
+		3A5F5FE9215907AA0072E1BB /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		3A5F5FEE215907CB0072E1BB /* ImageHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageHeaderView.xib; sourceTree = "<group>"; };
+		3A5F5FEF215907CB0072E1BB /* ImageHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHeaderView.swift; sourceTree = "<group>"; };
+		3A5F5FF32159080B0072E1BB /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		3A5F5FF42159080B0072E1BB /* SubCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCell.swift; sourceTree = "<group>"; };
+		3A5F5FF8215908490072E1BB /* DiabetesCareCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabetesCareCell.swift; sourceTree = "<group>"; };
+		3A5F5FF9215908490072E1BB /* DiabetesCareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiabetesCareCell.xib; sourceTree = "<group>"; };
+		3A5F5FFD215908690072E1BB /* ProductDetailBTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailBTableViewCell.swift; sourceTree = "<group>"; };
+		3A5F5FFE215908690072E1BB /* ProductDetailBTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailBTableViewCell.xib; sourceTree = "<group>"; };
+		3A5F6002215908F00072E1BB /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		3A5F6003215908F10072E1BB /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3A5F6004215908F10072E1BB /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		3A5F6005215908F10072E1BB /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		3A5F6006215908F10072E1BB /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		3A5F6007215908F10072E1BB /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		3A5F6008215908F10072E1BB /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		3A5F6009215908F10072E1BB /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		3A5F60132159092A0072E1BB /* DiabetesCareList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabetesCareList.swift; sourceTree = "<group>"; };
+		3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailBViewController.swift; sourceTree = "<group>"; };
+		3A984C2F2150FEA50012E0C7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		3A984C36215106520012E0C7 /* DesignableShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableShadowView.swift; sourceTree = "<group>"; };
+		3A984C37215106520012E0C7 /* DesignableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImage.swift; sourceTree = "<group>"; };
+		3A984C38215106520012E0C7 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		3A984C39215106520012E0C7 /* DesignableShadowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableShadowButton.swift; sourceTree = "<group>"; };
+		3A984C3F21510B100012E0C7 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		4B4A7E8ED8CC561358F8B9D7 /* Pods_MedicoBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedicoBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		793E45A0F76C939F763806E3 /* Pods-MedicoBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicoBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox.release.xcconfig"; sourceTree = "<group>"; };
+		CD364093215281B0008FEFA1 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
+		CD364094215281B3008FEFA1 /* fa-brands-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.ttf"; sourceTree = "<group>"; };
+		CD364095215281B5008FEFA1 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
+		CD8BF9282155F2A2005B7BBA /* ForgotPasswordFromMobileNoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordFromMobileNoViewController.swift; sourceTree = "<group>"; };
+		CD8BF92A2155F6E8005B7BBA /* SetNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewPasswordViewController.swift; sourceTree = "<group>"; };
+		CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionViewController.swift; sourceTree = "<group>"; };
+		CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		CD9E043621589B5800F1C44C /* InstaOrdersListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaOrdersListTableViewCell.swift; sourceTree = "<group>"; };
+		CD9E043721589B5800F1C44C /* InstaOrdersListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstaOrdersListTableViewCell.xib; sourceTree = "<group>"; };
+		CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaOrdersListViewController.swift; sourceTree = "<group>"; };
+		CDA18F722153C9B800F2D1AA /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		CDA18F732153C9B900F2D1AA /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		CDA18F742153C9B900F2D1AA /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		CDA18F752153C9BA00F2D1AA /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CDA18F762153C9BA00F2D1AA /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		CDA18F772153C9BB00F2D1AA /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		CDA18F782153C9BB00F2D1AA /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		CDA18F792153C9BC00F2D1AA /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		CDA18F7A2153C9BD00F2D1AA /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		CDA18F7B2153C9BD00F2D1AA /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		CDA98BFA2153BAAD00A02D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CDDC9FFF21520C4500DC1202 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CDDCA007215217F700DC1202 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		CDDCA008215217F700DC1202 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		CDDCA009215217F700DC1202 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		CDDCA00E2152181200DC1202 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
+		CDDCA00F2152181200DC1202 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		CDDCA0102152181200DC1202 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppUtilities.framework; sourceTree = "<group>"; };
+		CDDCA0112152181400DC1202 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		CDDCA0122152181400DC1202 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
+		CDDCA0192152189100DC1202 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CDDCA01A2152189100DC1202 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		CDDCA01D215219F500DC1202 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
+		CDDCA03021521C6800DC1202 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CDDCA03121521C6800DC1202 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CDDCA03221521C6800DC1202 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		CDDCA03321521C6800DC1202 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CDDCA03421521C6800DC1202 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		CDDCA03521521C6900DC1202 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CDDCA03621521C6900DC1202 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CDDCA03721521C6900DC1202 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CDDCA042215231A100DC1202 /* MedicoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicoCollectionViewCell.swift; sourceTree = "<group>"; };
+		CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicoCollectionViewCell.xib; sourceTree = "<group>"; };
+		CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		CDDCA0482152553400DC1202 /* FeaturedProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		E2A5E03AB499BCF82AB59B1C /* Pods-MedicoBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicoBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A49158A214BAE6300917E79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDDCA0162152181400DC1202 /* GoogleSignIn.framework in Frameworks */,
+				CDDCA0152152181400DC1202 /* GoogleAppUtilities.framework in Frameworks */,
+				CDDCA0172152181400DC1202 /* GoogleSignInDependencies.framework in Frameworks */,
+				CDDCA00B215217F800DC1202 /* Bolts.framework in Frameworks */,
+				48B665765AF204F4112F2681 /* Pods_MedicoBox.framework in Frameworks */,
+				CDDCA0142152181400DC1202 /* GoogleSymbolUtilities.framework in Frameworks */,
+				CDDCA00C215217F800DC1202 /* FBSDKLoginKit.framework in Frameworks */,
+				CDDCA03821521C6900DC1202 /* CoreGraphics.framework in Frameworks */,
+				CDDCA03921521C6900DC1202 /* MapKit.framework in Frameworks */,
+				CDDCA03A21521C6900DC1202 /* UserNotifications.framework in Frameworks */,
+				CDDCA03B21521C6900DC1202 /* AVFoundation.framework in Frameworks */,
+				CDDCA03C21521C6900DC1202 /* CoreFoundation.framework in Frameworks */,
+				CDDCA03D21521C6900DC1202 /* CoreLocation.framework in Frameworks */,
+				CDDCA03E21521C6900DC1202 /* QuartzCore.framework in Frameworks */,
+				CDDCA03F21521C6900DC1202 /* SystemConfiguration.framework in Frameworks */,
+				CDDCA00A215217F800DC1202 /* FBSDKCoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E7B05BD303F510DD0A15FE0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2A5E03AB499BCF82AB59B1C /* Pods-MedicoBox.debug.xcconfig */,
+				793E45A0F76C939F763806E3 /* Pods-MedicoBox.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3A491584214BAE6200917E79 = {
+			isa = PBXGroup;
+			children = (
+				3A49158F214BAE6300917E79 /* MedicoBox */,
+				3A49158E214BAE6300917E79 /* Products */,
+				2E7B05BD303F510DD0A15FE0 /* Pods */,
+				72B313B06C02BD99EA86EB89 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3A49158E214BAE6300917E79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A49158D214BAE6300917E79 /* MedicoBox.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A49158F214BAE6300917E79 /* MedicoBox */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F6012215908F80072E1BB /* ExtensionFiles */,
+				3A5F5FED215907B10072E1BB /* SlideMenu */,
+				CD36409221528159008FEFA1 /* Fonts */,
+				CDDCA0182152186C00DC1202 /* CommonFiles */,
+				CDDCA00D2152180700DC1202 /* GoogleSDK */,
+				CDDCA006215217EA00DC1202 /* FBSDK */,
+				CDDCA00421520C7F00DC1202 /* CustomeCells */,
+				3A984C3E21510AA60012E0C7 /* IB Designable */,
+				CDDCA00221520C6500DC1202 /* AppDelegate */,
+				CDDCA00121520C4E00DC1202 /* UIViewControllers */,
+				CDDCA00521520CC700DC1202 /* UI and Storyboard */,
+				3A491597214BAE6C00917E79 /* Assets.xcassets */,
+				3A491599214BAE6C00917E79 /* LaunchScreen.storyboard */,
+				CDA98BFA2153BAAD00A02D4D /* GoogleService-Info.plist */,
+				3A49159C214BAE6C00917E79 /* Info.plist */,
+			);
+			path = MedicoBox;
+			sourceTree = "<group>";
+		};
+		3A5F5FED215907B10072E1BB /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F5FF7215908160072E1BB /* CustomTableCell */,
+				3A5F5FF2215907DB0072E1BB /* ImageViewHeader */,
+				3A5F5FE8215907AA0072E1BB /* ExSlideMenuController.swift */,
+				3A5F5FE9215907AA0072E1BB /* LeftViewController.swift */,
+				3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */,
+			);
+			path = SlideMenu;
+			sourceTree = "<group>";
+		};
+		3A5F5FF2215907DB0072E1BB /* ImageViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F5FEF215907CB0072E1BB /* ImageHeaderView.swift */,
+				3A5F5FEE215907CB0072E1BB /* ImageHeaderView.xib */,
+			);
+			path = ImageViewHeader;
+			sourceTree = "<group>";
+		};
+		3A5F5FF7215908160072E1BB /* CustomTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F5FF32159080B0072E1BB /* HeaderCell.swift */,
+				3A5F5FF42159080B0072E1BB /* SubCell.swift */,
+			);
+			path = CustomTableCell;
+			sourceTree = "<group>";
+		};
+		3A5F5FFC2159084F0072E1BB /* DiabetesCareCell */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F5FF8215908490072E1BB /* DiabetesCareCell.swift */,
+				3A5F5FF9215908490072E1BB /* DiabetesCareCell.xib */,
+			);
+			path = DiabetesCareCell;
+			sourceTree = "<group>";
+		};
+		3A5F60012159086F0072E1BB /* ProductDetailbViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F5FFD215908690072E1BB /* ProductDetailBTableViewCell.swift */,
+				3A5F5FFE215908690072E1BB /* ProductDetailBTableViewCell.xib */,
+			);
+			path = ProductDetailbViewCell;
+			sourceTree = "<group>";
+		};
+		3A5F6012215908F80072E1BB /* ExtensionFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F6003215908F10072E1BB /* String.swift */,
+				3A5F6006215908F10072E1BB /* UIApplication.swift */,
+				3A5F6004215908F10072E1BB /* UIColor.swift */,
+				3A5F6009215908F10072E1BB /* UIImage.swift */,
+				3A5F6007215908F10072E1BB /* UIImageView.swift */,
+				3A5F6008215908F10072E1BB /* UITableViewExtension.swift */,
+				3A5F6002215908F00072E1BB /* UIView.swift */,
+				3A5F6005215908F10072E1BB /* UIViewController.swift */,
+			);
+			path = ExtensionFiles;
+			sourceTree = "<group>";
+		};
+		3A5F6017215909300072E1BB /* ProductDetailB */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */,
+			);
+			path = ProductDetailB;
+			sourceTree = "<group>";
+		};
+		3A5F6018215909400072E1BB /* Diabeties Care List */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F60132159092A0072E1BB /* DiabetesCareList.swift */,
+			);
+			path = "Diabeties Care List";
+			sourceTree = "<group>";
+		};
+		3A5F6019215909530072E1BB /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				CDDC9FFF21520C4500DC1202 /* HomeViewController.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		3A5F601A215909660072E1BB /* OTP class */ = {
+			isa = PBXGroup;
+			children = (
+				CDDCA01D215219F500DC1202 /* VerifyOTPViewController.swift */,
+			);
+			path = "OTP class";
+			sourceTree = "<group>";
+		};
+		3A984C3E21510AA60012E0C7 /* IB Designable */ = {
+			isa = PBXGroup;
+			children = (
+				3A984C3F21510B100012E0C7 /* DesignableView.swift */,
+				3A984C38215106520012E0C7 /* DesignableButton.swift */,
+				3A984C37215106520012E0C7 /* DesignableImage.swift */,
+				3A984C39215106520012E0C7 /* DesignableShadowButton.swift */,
+				3A984C36215106520012E0C7 /* DesignableShadowView.swift */,
+			);
+			path = "IB Designable";
+			sourceTree = "<group>";
+		};
+		72B313B06C02BD99EA86EB89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDDCA03321521C6800DC1202 /* AVFoundation.framework */,
+				CDDCA03421521C6800DC1202 /* CoreFoundation.framework */,
+				CDDCA03021521C6800DC1202 /* CoreGraphics.framework */,
+				CDDCA03521521C6900DC1202 /* CoreLocation.framework */,
+				CDDCA03121521C6800DC1202 /* MapKit.framework */,
+				CDDCA03621521C6900DC1202 /* QuartzCore.framework */,
+				CDDCA03721521C6900DC1202 /* SystemConfiguration.framework */,
+				CDDCA03221521C6800DC1202 /* UserNotifications.framework */,
+				4B4A7E8ED8CC561358F8B9D7 /* Pods_MedicoBox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD36409221528159008FEFA1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CDA18F862153C9C600F2D1AA /* OpenSans */,
+				CDA18F712153C98B00F2D1AA /* FontAwsome */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CD8BF92C21560B8C005B7BBA /* Product Description */ = {
+			isa = PBXGroup;
+			children = (
+				CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */,
+				CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */,
+			);
+			path = "Product Description";
+			sourceTree = "<group>";
+		};
+		CD9E043521589AE500F1C44C /* InstaOrdersListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CD9E043621589B5800F1C44C /* InstaOrdersListTableViewCell.swift */,
+				CD9E043721589B5800F1C44C /* InstaOrdersListTableViewCell.xib */,
+			);
+			path = InstaOrdersListTableViewCell;
+			sourceTree = "<group>";
+		};
+		CD9E043A2158AC2300F1C44C /* InstaOrders */ = {
+			isa = PBXGroup;
+			children = (
+				CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */,
+			);
+			path = InstaOrders;
+			sourceTree = "<group>";
+		};
+		CD9E043B2158AC3900F1C44C /* Set Password */ = {
+			isa = PBXGroup;
+			children = (
+				CD8BF9282155F2A2005B7BBA /* ForgotPasswordFromMobileNoViewController.swift */,
+				CD8BF92A2155F6E8005B7BBA /* SetNewPasswordViewController.swift */,
+			);
+			path = "Set Password";
+			sourceTree = "<group>";
+		};
+		CD9E043C2158AC5800F1C44C /* Sign Up & Sign In */ = {
+			isa = PBXGroup;
+			children = (
+				3A491592214BAE6300917E79 /* SignUpViewController.swift */,
+				3A984C2F2150FEA50012E0C7 /* SignInViewController.swift */,
+			);
+			path = "Sign Up & Sign In";
+			sourceTree = "<group>";
+		};
+		CDA18F712153C98B00F2D1AA /* FontAwsome */ = {
+			isa = PBXGroup;
+			children = (
+				CD364094215281B3008FEFA1 /* fa-brands-400.ttf */,
+				CD364095215281B5008FEFA1 /* fa-regular-400.ttf */,
+				CD364093215281B0008FEFA1 /* fa-solid-900.ttf */,
+			);
+			path = FontAwsome;
+			sourceTree = "<group>";
+		};
+		CDA18F862153C9C600F2D1AA /* OpenSans */ = {
+			isa = PBXGroup;
+			children = (
+				CDA18F772153C9BB00F2D1AA /* OpenSans-Bold.ttf */,
+				CDA18F722153C9B800F2D1AA /* OpenSans-BoldItalic.ttf */,
+				CDA18F752153C9BA00F2D1AA /* OpenSans-ExtraBold.ttf */,
+				CDA18F7B2153C9BD00F2D1AA /* OpenSans-ExtraBoldItalic.ttf */,
+				CDA18F732153C9B900F2D1AA /* OpenSans-Italic.ttf */,
+				CDA18F782153C9BB00F2D1AA /* OpenSans-Light.ttf */,
+				CDA18F7A2153C9BD00F2D1AA /* OpenSans-LightItalic.ttf */,
+				CDA18F792153C9BC00F2D1AA /* OpenSans-Regular.ttf */,
+				CDA18F762153C9BA00F2D1AA /* OpenSans-Semibold.ttf */,
+				CDA18F742153C9B900F2D1AA /* OpenSans-SemiboldItalic.ttf */,
+			);
+			path = OpenSans;
+			sourceTree = "<group>";
+		};
+		CDDCA00121520C4E00DC1202 /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F6018215909400072E1BB /* Diabeties Care List */,
+				3A5F6017215909300072E1BB /* ProductDetailB */,
+				3A5F6019215909530072E1BB /* HomeView */,
+				3A5F601A215909660072E1BB /* OTP class */,
+				CD9E043C2158AC5800F1C44C /* Sign Up & Sign In */,
+				CD9E043B2158AC3900F1C44C /* Set Password */,
+				CD9E043A2158AC2300F1C44C /* InstaOrders */,
+				CD8BF92C21560B8C005B7BBA /* Product Description */,
+			);
+			path = UIViewControllers;
+			sourceTree = "<group>";
+		};
+		CDDCA00221520C6500DC1202 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3A491590214BAE6300917E79 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		CDDCA00421520C7F00DC1202 /* CustomeCells */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F60012159086F0072E1BB /* ProductDetailbViewCell */,
+				3A5F5FFC2159084F0072E1BB /* DiabetesCareCell */,
+				CD9E043521589AE500F1C44C /* InstaOrdersListTableViewCell */,
+				CDDCA046215254C800DC1202 /* FeaturedProductCollectionView */,
+				CDDCA0412152311A00DC1202 /* MedicoCollectionView */,
+			);
+			path = CustomeCells;
+			sourceTree = "<group>";
+		};
+		CDDCA00521520CC700DC1202 /* UI and Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				3A491594214BAE6300917E79 /* Main.storyboard */,
+			);
+			path = "UI and Storyboard";
+			sourceTree = "<group>";
+		};
+		CDDCA006215217EA00DC1202 /* FBSDK */ = {
+			isa = PBXGroup;
+			children = (
+				CDDCA008215217F700DC1202 /* Bolts.framework */,
+				CDDCA007215217F700DC1202 /* FBSDKCoreKit.framework */,
+				CDDCA009215217F700DC1202 /* FBSDKLoginKit.framework */,
+			);
+			path = FBSDK;
+			sourceTree = "<group>";
+		};
+		CDDCA00D2152180700DC1202 /* GoogleSDK */ = {
+			isa = PBXGroup;
+			children = (
+				CDDCA0102152181200DC1202 /* GoogleAppUtilities.framework */,
+				CDDCA00E2152181200DC1202 /* GoogleSignIn.bundle */,
+				CDDCA0112152181400DC1202 /* GoogleSignIn.framework */,
+				CDDCA0122152181400DC1202 /* GoogleSignInDependencies.framework */,
+				CDDCA00F2152181200DC1202 /* GoogleSymbolUtilities.framework */,
+			);
+			path = GoogleSDK;
+			sourceTree = "<group>";
+		};
+		CDDCA0182152186C00DC1202 /* CommonFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CDDCA0192152189100DC1202 /* Constants.swift */,
+				CDDCA01A2152189100DC1202 /* Extension.swift */,
+			);
+			path = CommonFiles;
+			sourceTree = "<group>";
+		};
+		CDDCA0412152311A00DC1202 /* MedicoCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				CDDCA042215231A100DC1202 /* MedicoCollectionViewCell.swift */,
+				CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */,
+			);
+			path = MedicoCollectionView;
+			sourceTree = "<group>";
+		};
+		CDDCA046215254C800DC1202 /* FeaturedProductCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */,
+				CDDCA0482152553400DC1202 /* FeaturedProductCollectionViewCell.xib */,
+			);
+			path = FeaturedProductCollectionView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A49158C214BAE6300917E79 /* MedicoBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A49159F214BAE6C00917E79 /* Build configuration list for PBXNativeTarget "MedicoBox" */;
+			buildPhases = (
+				76F85DB49A90B3155E8E1B99 /* [CP] Check Pods Manifest.lock */,
+				3A491589214BAE6300917E79 /* Sources */,
+				3A49158A214BAE6300917E79 /* Frameworks */,
+				3A49158B214BAE6300917E79 /* Resources */,
+				5524A2E582BC684828A3CEAE /* [CP] Embed Pods Frameworks */,
+				4474A8D4DDCB3CD1EF571E0A /* [CP] Copy Pods Resources */,
+				CD9BC1C62153715D001DA01D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MedicoBox;
+			productName = MedicoBox;
+			productReference = 3A49158D214BAE6300917E79 /* MedicoBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A491585214BAE6200917E79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Aiprous;
+				TargetAttributes = {
+					3A49158C214BAE6300917E79 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 3A491588214BAE6200917E79 /* Build configuration list for PBXProject "MedicoBox" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A491584214BAE6200917E79;
+			productRefGroup = 3A49158E214BAE6300917E79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A49158C214BAE6300917E79 /* MedicoBox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A49158B214BAE6300917E79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDA98BFB2153BAB100A02D4D /* GoogleService-Info.plist in Resources */,
+				CDA18F7E2153C9BE00F2D1AA /* OpenSans-SemiboldItalic.ttf in Resources */,
+				CDA18F812153C9BE00F2D1AA /* OpenSans-Bold.ttf in Resources */,
+				3A5F5FF0215907CB0072E1BB /* ImageHeaderView.xib in Resources */,
+				CDDCA045215231A100DC1202 /* MedicoCollectionViewCell.xib in Resources */,
+				CDA18F822153C9BE00F2D1AA /* OpenSans-Light.ttf in Resources */,
+				CDDCA0132152181400DC1202 /* GoogleSignIn.bundle in Resources */,
+				CDA18F7C2153C9BE00F2D1AA /* OpenSans-BoldItalic.ttf in Resources */,
+				CDA18F852153C9BE00F2D1AA /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				3A5F6000215908690072E1BB /* ProductDetailBTableViewCell.xib in Resources */,
+				3A49159B214BAE6C00917E79 /* LaunchScreen.storyboard in Resources */,
+				CD364098215281B5008FEFA1 /* fa-regular-400.ttf in Resources */,
+				3A491598214BAE6C00917E79 /* Assets.xcassets in Resources */,
+				CD364097215281B5008FEFA1 /* fa-brands-400.ttf in Resources */,
+				CDA18F802153C9BE00F2D1AA /* OpenSans-Semibold.ttf in Resources */,
+				3A5F5FFB215908490072E1BB /* DiabetesCareCell.xib in Resources */,
+				CDA18F7F2153C9BE00F2D1AA /* OpenSans-ExtraBold.ttf in Resources */,
+				CDDCA04A2152553500DC1202 /* FeaturedProductCollectionViewCell.xib in Resources */,
+				CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */,
+				CDA18F842153C9BE00F2D1AA /* OpenSans-LightItalic.ttf in Resources */,
+				3A491596214BAE6300917E79 /* Main.storyboard in Resources */,
+				CD9E043921589B5800F1C44C /* InstaOrdersListTableViewCell.xib in Resources */,
+				CDA18F832153C9BE00F2D1AA /* OpenSans-Regular.ttf in Resources */,
+				CD364096215281B5008FEFA1 /* fa-solid-900.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4474A8D4DDCB3CD1EF571E0A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5524A2E582BC684828A3CEAE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76F85DB49A90B3155E8E1B99 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MedicoBox-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD9BC1C62153715D001DA01D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 01fd8dabe0af9bef533a8380dc631e36af0ac545 6aecf1ef0b69c28f9a16e1b8f23f7a8b33ab4f172b57b7a89e9ee90f5228977b";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A491589214BAE6300917E79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5F60152159092A0072E1BB /* DiabetesCareList.swift in Sources */,
+				CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */,
+				3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */,
+				3A984C4021510B100012E0C7 /* DesignableView.swift in Sources */,
+				3A5F600E215908F10072E1BB /* UIApplication.swift in Sources */,
+				3A984C3A215106520012E0C7 /* DesignableShadowView.swift in Sources */,
+				3A5F60162159092A0072E1BB /* ProductDetailBViewController.swift in Sources */,
+				3A5F600A215908F10072E1BB /* UIView.swift in Sources */,
+				3A5F6010215908F10072E1BB /* UITableViewExtension.swift in Sources */,
+				CD9E043E2158AC9700F1C44C /* InstaOrdersListViewController.swift in Sources */,
+				3A5F5FEB215907AB0072E1BB /* ExSlideMenuController.swift in Sources */,
+				CD8BF9292155F2A2005B7BBA /* ForgotPasswordFromMobileNoViewController.swift in Sources */,
+				3A5F5FFF215908690072E1BB /* ProductDetailBTableViewCell.swift in Sources */,
+				3A491593214BAE6300917E79 /* SignUpViewController.swift in Sources */,
+				CDDCA044215231A100DC1202 /* MedicoCollectionViewCell.swift in Sources */,
+				3A984C3B215106520012E0C7 /* DesignableImage.swift in Sources */,
+				3A5F600B215908F10072E1BB /* String.swift in Sources */,
+				3A5F5FEC215907AB0072E1BB /* LeftViewController.swift in Sources */,
+				3A5F600D215908F10072E1BB /* UIViewController.swift in Sources */,
+				3A5F5FF52159080C0072E1BB /* HeaderCell.swift in Sources */,
+				CDDCA01C2152189100DC1202 /* Extension.swift in Sources */,
+				CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */,
+				3A491591214BAE6300917E79 /* AppDelegate.swift in Sources */,
+				CDDCA01B2152189100DC1202 /* Constants.swift in Sources */,
+				3A5F5FFA215908490072E1BB /* DiabetesCareCell.swift in Sources */,
+				3A5F5FF62159080C0072E1BB /* SubCell.swift in Sources */,
+				3A5F600C215908F10072E1BB /* UIColor.swift in Sources */,
+				3A5F5FF1215907CB0072E1BB /* ImageHeaderView.swift in Sources */,
+				CD8BF92B2155F6E8005B7BBA /* SetNewPasswordViewController.swift in Sources */,
+				CDDCA00021520C4500DC1202 /* HomeViewController.swift in Sources */,
+				3A984C302150FEA50012E0C7 /* SignInViewController.swift in Sources */,
+				CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */,
+				CD9E043821589B5800F1C44C /* InstaOrdersListTableViewCell.swift in Sources */,
+				3A984C3C215106520012E0C7 /* DesignableButton.swift in Sources */,
+				3A984C3D215106520012E0C7 /* DesignableShadowButton.swift in Sources */,
+				3A5F6011215908F10072E1BB /* UIImage.swift in Sources */,
+				3A5F600F215908F10072E1BB /* UIImageView.swift in Sources */,
+				CDDCA01E215219F500DC1202 /* VerifyOTPViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3A491594214BAE6300917E79 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A491595214BAE6300917E79 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3A491599214BAE6C00917E79 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A49159A214BAE6C00917E79 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A49159D214BAE6C00917E79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3A49159E214BAE6C00917E79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A4915A0214BAE6C00917E79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2A5E03AB499BCF82AB59B1C /* Pods-MedicoBox.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MedicoBox/FBSDK",
+					"$(PROJECT_DIR)/MedicoBox/GoogleSDK",
+				);
+				INFOPLIST_FILE = MedicoBox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiprous.MedicoBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A4915A1214BAE6C00917E79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 793E45A0F76C939F763806E3 /* Pods-MedicoBox.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MedicoBox/FBSDK",
+					"$(PROJECT_DIR)/MedicoBox/GoogleSDK",
+				);
+				INFOPLIST_FILE = MedicoBox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiprous.MedicoBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A491588214BAE6200917E79 /* Build configuration list for PBXProject "MedicoBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A49159D214BAE6C00917E79 /* Debug */,
+				3A49159E214BAE6C00917E79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A49159F214BAE6C00917E79 /* Build configuration list for PBXNativeTarget "MedicoBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A4915A0214BAE6C00917E79 /* Debug */,
+				3A4915A1214BAE6C00917E79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A491585214BAE6200917E79 /* Project object */;
+}

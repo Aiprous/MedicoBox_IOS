@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>933962831921-69lur6r05vu1hdlvqbdm18nn50epasf9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.933962831921-69lur6r05vu1hdlvqbdm18nn50epasf9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec</string>
+	<key>GCM_SENDER_ID</key>
+	<string>933962831921</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.aiprous.MedicoBox</string>
+	<key>PROJECT_ID</key>
+	<string>medico-217009</string>
+	<key>STORAGE_BUCKET</key>
+	<string>medico-217009.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:933962831921:ios:eed206bb869f9d30</string>
+	<key>DATABASE_URL</key>
+	<string>https://medico-217009.firebaseio.com</string>
+</dict>
+</plist>
