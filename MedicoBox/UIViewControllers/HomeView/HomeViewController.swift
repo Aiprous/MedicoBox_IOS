@@ -27,6 +27,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isNavigationBarHidden = true;
         /// Search Bar Design Style
         if let textfield = medicoSearchBar.value(forKey: "searchField") as? UITextField {
             
@@ -157,16 +158,22 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         {
             let cell = collectionView.cellForItem(at: indexPath) as! MedicoCollectionViewCell
             
-            let Controller = self.storyboard?.instantiateViewController(withIdentifier: PRODUCT_DESC_VCID)
-            self.navigationController?.pushViewController(Controller!, animated: true)
+            if(cell.lblTitleMedico.text == "INSTA ORDERS"){
+                
+                let Controller = self.storyboard?.instantiateViewController(withIdentifier: INSTA_ORDERS_LIST_VCID)
+                self.navigationController?.pushViewController(Controller!, animated: true)
+                
+            }else {
+                
+                let Controller = self.storyboard?.instantiateViewController(withIdentifier: PRODUCT_DESC_VCID)
+                self.navigationController?.pushViewController(Controller!, animated: true)
+            }
             
         }
         else if(collectionView == FeaturedProductsCollectionView)
         {
             let cell = collectionView.cellForItem(at: indexPath) as! FeaturedProductCollectionViewCell
-            
-            
-            
+
         }
     }
     
@@ -185,6 +192,8 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     
         return value;
     }
+    
+    //MARK:- FSPager Delegate And DataSource
     
 //    var imagesNameArray = NSArray();
         fileprivate var imageNames = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"]
@@ -391,10 +400,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     }
     
     @IBAction func menuBtnAction(_ sender: Any) {
-        
-//        self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
-//        self.addRightBarButtonWithImage(UIImage(named: "ic_notifications_black_24dp")!)
-//        self.addTitleSearchBar()
+
         self.toggleLeft()
         self.slideMenuController()?.removeLeftGestures()
         self.slideMenuController()?.removeRightGestures()

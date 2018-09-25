@@ -33,6 +33,8 @@
 		3A5F6011215908F10072E1BB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6009215908F10072E1BB /* UIImage.swift */; };
 		3A5F60152159092A0072E1BB /* DiabetesCareList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F60132159092A0072E1BB /* DiabetesCareList.swift */; };
 		3A5F60162159092A0072E1BB /* ProductDetailBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */; };
+		3A5F601D21592E840072E1BB /* InstaOrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F601B21592E830072E1BB /* InstaOrdersListTableViewCell.xib */; };
+		3A5F601E21592E840072E1BB /* InstaOrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F601C21592E830072E1BB /* InstaOrdersListTableViewCell.swift */; };
 		3A984C302150FEA50012E0C7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C2F2150FEA50012E0C7 /* SignInViewController.swift */; };
 		3A984C3A215106520012E0C7 /* DesignableShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C36215106520012E0C7 /* DesignableShadowView.swift */; };
 		3A984C3B215106520012E0C7 /* DesignableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C37215106520012E0C7 /* DesignableImage.swift */; };
@@ -47,8 +49,6 @@
 		CD8BF92B2155F6E8005B7BBA /* SetNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92A2155F6E8005B7BBA /* SetNewPasswordViewController.swift */; };
 		CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */; };
 		CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */; };
-		CD9E043821589B5800F1C44C /* InstaOrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E043621589B5800F1C44C /* InstaOrdersListTableViewCell.swift */; };
-		CD9E043921589B5800F1C44C /* InstaOrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD9E043721589B5800F1C44C /* InstaOrdersListTableViewCell.xib */; };
 		CD9E043E2158AC9700F1C44C /* InstaOrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */; };
 		CDA18F7C2153C9BE00F2D1AA /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F722153C9B800F2D1AA /* OpenSans-BoldItalic.ttf */; };
 		CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F732153C9B900F2D1AA /* OpenSans-Italic.ttf */; };
@@ -116,6 +116,8 @@
 		3A5F6009215908F10072E1BB /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		3A5F60132159092A0072E1BB /* DiabetesCareList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabetesCareList.swift; sourceTree = "<group>"; };
 		3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailBViewController.swift; sourceTree = "<group>"; };
+		3A5F601B21592E830072E1BB /* InstaOrdersListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstaOrdersListTableViewCell.xib; sourceTree = "<group>"; };
+		3A5F601C21592E830072E1BB /* InstaOrdersListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrdersListTableViewCell.swift; sourceTree = "<group>"; };
 		3A984C2F2150FEA50012E0C7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3A984C36215106520012E0C7 /* DesignableShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableShadowView.swift; sourceTree = "<group>"; };
 		3A984C37215106520012E0C7 /* DesignableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImage.swift; sourceTree = "<group>"; };
@@ -131,8 +133,6 @@
 		CD8BF92A2155F6E8005B7BBA /* SetNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewPasswordViewController.swift; sourceTree = "<group>"; };
 		CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionViewController.swift; sourceTree = "<group>"; };
 		CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionTableViewCell.swift; sourceTree = "<group>"; };
-		CD9E043621589B5800F1C44C /* InstaOrdersListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaOrdersListTableViewCell.swift; sourceTree = "<group>"; };
-		CD9E043721589B5800F1C44C /* InstaOrdersListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstaOrdersListTableViewCell.xib; sourceTree = "<group>"; };
 		CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaOrdersListViewController.swift; sourceTree = "<group>"; };
 		CDA18F722153C9B800F2D1AA /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		CDA18F732153C9B900F2D1AA /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
@@ -392,8 +392,8 @@
 		CD9E043521589AE500F1C44C /* InstaOrdersListTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				CD9E043621589B5800F1C44C /* InstaOrdersListTableViewCell.swift */,
-				CD9E043721589B5800F1C44C /* InstaOrdersListTableViewCell.xib */,
+				3A5F601C21592E830072E1BB /* InstaOrdersListTableViewCell.swift */,
+				3A5F601B21592E830072E1BB /* InstaOrdersListTableViewCell.xib */,
 			);
 			path = InstaOrdersListTableViewCell;
 			sourceTree = "<group>";
@@ -617,6 +617,7 @@
 				3A5F6000215908690072E1BB /* ProductDetailBTableViewCell.xib in Resources */,
 				3A49159B214BAE6C00917E79 /* LaunchScreen.storyboard in Resources */,
 				CD364098215281B5008FEFA1 /* fa-regular-400.ttf in Resources */,
+				3A5F601D21592E840072E1BB /* InstaOrdersListTableViewCell.xib in Resources */,
 				3A491598214BAE6C00917E79 /* Assets.xcassets in Resources */,
 				CD364097215281B5008FEFA1 /* fa-brands-400.ttf in Resources */,
 				CDA18F802153C9BE00F2D1AA /* OpenSans-Semibold.ttf in Resources */,
@@ -626,7 +627,6 @@
 				CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */,
 				CDA18F842153C9BE00F2D1AA /* OpenSans-LightItalic.ttf in Resources */,
 				3A491596214BAE6300917E79 /* Main.storyboard in Resources */,
-				CD9E043921589B5800F1C44C /* InstaOrdersListTableViewCell.xib in Resources */,
 				CDA18F832153C9BE00F2D1AA /* OpenSans-Regular.ttf in Resources */,
 				CD364096215281B5008FEFA1 /* fa-solid-900.ttf in Resources */,
 			);
@@ -760,9 +760,9 @@
 				CDDCA00021520C4500DC1202 /* HomeViewController.swift in Sources */,
 				3A984C302150FEA50012E0C7 /* SignInViewController.swift in Sources */,
 				CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */,
-				CD9E043821589B5800F1C44C /* InstaOrdersListTableViewCell.swift in Sources */,
 				3A984C3C215106520012E0C7 /* DesignableButton.swift in Sources */,
 				3A984C3D215106520012E0C7 /* DesignableShadowButton.swift in Sources */,
+				3A5F601E21592E840072E1BB /* InstaOrdersListTableViewCell.swift in Sources */,
 				3A5F6011215908F10072E1BB /* UIImage.swift in Sources */,
 				3A5F600F215908F10072E1BB /* UIImageView.swift in Sources */,
 				CDDCA01E215219F500DC1202 /* VerifyOTPViewController.swift in Sources */,

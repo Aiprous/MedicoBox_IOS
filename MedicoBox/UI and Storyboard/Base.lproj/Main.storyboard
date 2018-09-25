@@ -767,7 +767,7 @@
         <!--Data Source-->
         <scene sceneID="kEb-Zq-xkE">
             <objects>
-                <viewController storyboardIdentifier="HomeVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yh3-kK-PtO" customClass="HomeViewController" customModule="MedicoBox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yh3-kK-PtO" customClass="HomeViewController" customModule="MedicoBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5QM-FX-oVd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -901,7 +901,7 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MedicoCollectionCellID" id="ZfA-eQ-Md2" customClass="MedicoCollectionViewCell" customModule="MedicoBox" customModuleProvider="target">
-                                                                        <rect key="frame" x="82" y="0.0" width="198" height="156"/>
+                                                                        <rect key="frame" x="81.5" y="0.0" width="198" height="156"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                             <rect key="frame" x="0.0" y="0.0" width="198" height="156"/>
@@ -2157,7 +2157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urq-eX-6Sn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="-539.28035982008998"/>
+            <point key="canvasLocation" x="116" y="-672"/>
         </scene>
         <!--Diabetes Care List-->
         <scene sceneID="zSb-oK-Xkn">
@@ -2203,7 +2203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U42-lW-EcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="-539.28035982008998"/>
+            <point key="canvasLocation" x="811" y="-641"/>
         </scene>
         <!--Insta Orders List View Controller-->
         <scene sceneID="zXA-XE-eqq">
@@ -2366,8 +2366,8 @@
     </scenes>
     <resources>
         <image name="cart-1x-" width="38" height="38"/>
-        <image name="ic_menu_black_24dp" width="16" height="16"/>
-        <image name="ic_notifications_black_24dp" width="16" height="16"/>
+        <image name="ic_menu_black_24dp" width="24" height="24"/>
+        <image name="ic_notifications_black_24dp" width="24" height="24"/>
         <image name="medicobox" width="1068" height="232"/>
         <image name="rx-1" width="92" height="92"/>
     </resources>

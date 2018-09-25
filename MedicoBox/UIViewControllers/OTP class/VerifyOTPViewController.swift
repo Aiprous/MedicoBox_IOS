@@ -131,33 +131,11 @@ class VerifyOTPViewController: UIViewController{//,UITextFieldDelegate {
     
     
     @IBAction func proceedBtnAction(_ sender: Any) {
-        self.createMenuView()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.createMenuView()
+//        self.createMenuView()
     }
     
-    //    Pragma Mark: create menu
-    fileprivate func createMenuView() {
-        
-        // create viewController code...
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
-        
-        
-        let nvc: UINavigationController = UINavigationController(rootViewController: homeViewController)
-        
-        UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
-        
-        leftViewController.homeViewController = nvc
-        
-        let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
-        slideMenuController.automaticallyAdjustsScrollViewInsets = true
-        slideMenuController.delegate = homeViewController as? SlideMenuControllerDelegate
-        
-        self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
-        self.window?.rootViewController = slideMenuController
-        self.window?.makeKeyAndVisible()
-    }
-
+   
     
 }

@@ -9,27 +9,98 @@
 import UIKit
 
 class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-
+    
+    @IBOutlet weak var tblInstaOrdersList: UITableView!
+    @IBOutlet weak var instaOrdersListSearchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        /// Search Bar Design Style
+        if let textfield = instaOrdersListSearchBar.value(forKey: "searchField") as? UITextField {
+            
+            textfield.textColor = UIColor.gray
+            textfield.backgroundColor = UIColor.white
+            
+            if let backgroundview = textfield.subviews.first {
+                backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
+                backgroundview.layer.cornerRadius = 20
+                backgroundview.clipsToBounds = true
+            }
+        }
+        
+        self.tblInstaOrdersList.register(UINib(nibName: "InstaOrdersListTableViewCell", bundle: nil), forCellReuseIdentifier: "InstaOrdersListTblViewCellID")
+        tblInstaOrdersList.delegate = self
+        tblInstaOrdersList.dataSource = self
+        
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //MARK:- Table View Delegate And DataSource
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func numberOfSections(in tableView: UITableView) -> Int{
+        
+        return 1
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 3;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
+        let cellObj = tableView.dequeueReusableCell(withIdentifier: "InstaOrdersListTblViewCellID") as! InstaOrdersListTableViewCell
+        
+        if(indexPath.row == 0){
+            
+            cellObj.lblInstaOrderTitle.text = "Diabetes";
+            cellObj.btnOptions.tag = indexPath.row;
+            cellObj.btnDropDown.tag = indexPath.row;
+            cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
+            
+        }else if(indexPath.row == 1){
+            
+            cellObj.lblInstaOrderTitle.text = "Monthly";
+            cellObj.btnOptions.tag = indexPath.row;
+            cellObj.btnDropDown.tag = indexPath.row;
+            cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
+            
+        }else if(indexPath.row == 2){
+            
+            cellObj.lblInstaOrderTitle.text = "Priyanka";
+            cellObj.btnOptions.tag = indexPath.row;
+            cellObj.btnDropDown.tag = indexPath.row;
+            cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
+            
+        }
+        
+        cellObj.selectionStyle = .none
+        return cellObj
+    }
+    
+    //MARK: - tableview delegate
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        
+        return 112
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell:InstaOrdersListTableViewCell = tableView.cellForRow(at: indexPath) as! InstaOrdersListTableViewCell
+        cell.optionView.isHidden = false;
+        
+    }
+    @objc func btnOptionAction(button: UIButton) {
+        
+        
+        
+    }
+    
 }

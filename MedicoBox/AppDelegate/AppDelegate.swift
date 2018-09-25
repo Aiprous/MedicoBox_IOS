@@ -148,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     }
     
     //    Pragma Mark: create menu
-    fileprivate func createMenuView() {
+    func createMenuView() {
         
         // create viewController code...
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
