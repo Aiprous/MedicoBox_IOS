@@ -13,8 +13,16 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     @IBOutlet weak var tblInstaOrdersList: UITableView!
     @IBOutlet weak var instaOrdersListSearchBar: UISearchBar!
     
+    @IBOutlet weak var newInstaListView: DesignableView!
+    @IBOutlet weak var productInfoView: DesignableView!
+    @IBOutlet weak var btnBackView: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.btnBackView.isHidden = true;
+        self.newInstaListView.isHidden = true;
+        self.productInfoView.isHidden = true;
+        
         
         /// Search Bar Design Style
         if let textfield = instaOrdersListSearchBar.value(forKey: "searchField") as? UITextField {
@@ -95,12 +103,58 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         
         let cell:InstaOrdersListTableViewCell = tableView.cellForRow(at: indexPath) as! InstaOrdersListTableViewCell
         cell.optionView.isHidden = false;
+        //        self.productInfoView.isHidden = false;
+        
         
     }
     @objc func btnOptionAction(button: UIButton) {
         
-        
+        self.btnBackView.isHidden = false;
+        self.productInfoView.isHidden = false;
+        self.newInstaListView.isHidden = true;
+
         
     }
     
+    @IBAction func btnNewInstaListAction(_ sender: Any) {
+        
+        self.btnBackView.isHidden = false;
+        self.newInstaListView.isHidden = false;
+        self.productInfoView.isHidden = true;
+
+        
+        
+    }
+    @IBAction func btnBackViewAction(_ sender: Any) {
+        
+        self.btnBackView.isHidden = true;
+        self.newInstaListView.isHidden = true;
+        self.productInfoView.isHidden = true;
+        
+    }
+    
+    @IBAction func btnCancelAction(_ sender: Any) {
+        
+        self.btnBackView.isHidden = true;
+        self.newInstaListView.isHidden = true;
+        self.productInfoView.isHidden = true;
+        
+    }
+    
+    @IBAction func btnSaveAction(_ sender: Any) {
+        
+        self.btnBackView.isHidden = true;
+        self.newInstaListView.isHidden = true;
+        self.productInfoView.isHidden = true;
+
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: INSTA_ORDER_ADD_VCID)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+    }
+    @IBAction func btnOkAction(_ sender: Any) {
+        
+        self.btnBackView.isHidden = true;
+        self.productInfoView.isHidden = true;
+        self.newInstaListView.isHidden = true;
+
+    }
 }

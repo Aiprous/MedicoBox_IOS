@@ -16,6 +16,8 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
 
     @IBOutlet weak var btnSignIn: UIButton!
     
+     @IBOutlet weak var btnForgotPassword: UIButton!
+    
     @IBOutlet weak var btnSignInwithOTP: UIButton!
     
     @IBOutlet weak var btnSignInwithFacebook: UIButton!
@@ -52,13 +54,27 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     }
    
     @IBAction func btnSignInAction(_ sender: Any) {
+        
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: HOME_VCID)
+        self.navigationController?.pushViewController(Controller!, animated: true)
     }
     
     @IBAction func btnSignInWithOTPAction(_ sender: Any) {
         
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: VERIFY_OTP_VCID)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+        
     }
     @IBAction func btnSignUpHereAction(_ sender: Any) {
         
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: SIGNUP_VCID)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+    }
+    
+    @IBAction func btnForgotPasswordAction(_ sender: Any) {
+        
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: FORGOT_PASSWORD_VCID)
+        self.navigationController?.pushViewController(Controller!, animated: true)
     }
     
     @IBAction func btnSignInWithFacebookAction(_ sender: Any) {

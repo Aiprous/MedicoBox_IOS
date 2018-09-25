@@ -133,9 +133,7 @@ class VerifyOTPViewController: UIViewController{//,UITextFieldDelegate {
     @IBAction func proceedBtnAction(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.createMenuView()
-//        self.createMenuView()
     }
-    
-   
+
     
 }

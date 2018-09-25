@@ -20,7 +20,6 @@
 		3A5F5FF52159080C0072E1BB /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FF32159080B0072E1BB /* HeaderCell.swift */; };
 		3A5F5FF62159080C0072E1BB /* SubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FF42159080B0072E1BB /* SubCell.swift */; };
 		3A5F5FFA215908490072E1BB /* DiabetesCareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FF8215908490072E1BB /* DiabetesCareCell.swift */; };
-		3A5F5FFB215908490072E1BB /* DiabetesCareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F5FF9215908490072E1BB /* DiabetesCareCell.xib */; };
 		3A5F5FFF215908690072E1BB /* ProductDetailBTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FFD215908690072E1BB /* ProductDetailBTableViewCell.swift */; };
 		3A5F6000215908690072E1BB /* ProductDetailBTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F5FFE215908690072E1BB /* ProductDetailBTableViewCell.xib */; };
 		3A5F600A215908F10072E1BB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6002215908F00072E1BB /* UIView.swift */; };
@@ -33,8 +32,6 @@
 		3A5F6011215908F10072E1BB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F6009215908F10072E1BB /* UIImage.swift */; };
 		3A5F60152159092A0072E1BB /* DiabetesCareList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F60132159092A0072E1BB /* DiabetesCareList.swift */; };
 		3A5F60162159092A0072E1BB /* ProductDetailBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */; };
-		3A5F601D21592E840072E1BB /* InstaOrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F601B21592E830072E1BB /* InstaOrdersListTableViewCell.xib */; };
-		3A5F601E21592E840072E1BB /* InstaOrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F601C21592E830072E1BB /* InstaOrdersListTableViewCell.swift */; };
 		3A984C302150FEA50012E0C7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C2F2150FEA50012E0C7 /* SignInViewController.swift */; };
 		3A984C3A215106520012E0C7 /* DesignableShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C36215106520012E0C7 /* DesignableShadowView.swift */; };
 		3A984C3B215106520012E0C7 /* DesignableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C37215106520012E0C7 /* DesignableImage.swift */; };
@@ -61,6 +58,7 @@
 		CDA18F842153C9BE00F2D1AA /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F7A2153C9BD00F2D1AA /* OpenSans-LightItalic.ttf */; };
 		CDA18F852153C9BE00F2D1AA /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F7B2153C9BD00F2D1AA /* OpenSans-ExtraBoldItalic.ttf */; };
 		CDA98BFB2153BAB100A02D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDA98BFA2153BAAD00A02D4D /* GoogleService-Info.plist */; };
+		CDB42CC1215A785F004B4559 /* DiabetesCareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB42CC0215A785E004B4559 /* DiabetesCareCell.xib */; };
 		CDDCA00021520C4500DC1202 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC9FFF21520C4500DC1202 /* HomeViewController.swift */; };
 		CDDCA00A215217F800DC1202 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA007215217F700DC1202 /* FBSDKCoreKit.framework */; };
 		CDDCA00B215217F800DC1202 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDCA008215217F700DC1202 /* Bolts.framework */; };
@@ -85,6 +83,9 @@
 		CDDCA045215231A100DC1202 /* MedicoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */; };
 		CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */; };
 		CDDCA04A2152553500DC1202 /* FeaturedProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDCA0482152553400DC1202 /* FeaturedProductCollectionViewCell.xib */; };
+		CDF2BE2C215A028E00F7D64D /* InstaOrderAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */; };
+		CDF2BE2F215A039100F7D64D /* InstaOrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2BE2D215A039100F7D64D /* InstaOrdersListTableViewCell.swift */; };
+		CDF2BE32215A03D600F7D64D /* InstaOrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF2BE31215A03D600F7D64D /* InstaOrdersListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,7 +104,6 @@
 		3A5F5FF32159080B0072E1BB /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		3A5F5FF42159080B0072E1BB /* SubCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCell.swift; sourceTree = "<group>"; };
 		3A5F5FF8215908490072E1BB /* DiabetesCareCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabetesCareCell.swift; sourceTree = "<group>"; };
-		3A5F5FF9215908490072E1BB /* DiabetesCareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiabetesCareCell.xib; sourceTree = "<group>"; };
 		3A5F5FFD215908690072E1BB /* ProductDetailBTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailBTableViewCell.swift; sourceTree = "<group>"; };
 		3A5F5FFE215908690072E1BB /* ProductDetailBTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailBTableViewCell.xib; sourceTree = "<group>"; };
 		3A5F6002215908F00072E1BB /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -116,8 +116,6 @@
 		3A5F6009215908F10072E1BB /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		3A5F60132159092A0072E1BB /* DiabetesCareList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabetesCareList.swift; sourceTree = "<group>"; };
 		3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailBViewController.swift; sourceTree = "<group>"; };
-		3A5F601B21592E830072E1BB /* InstaOrdersListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstaOrdersListTableViewCell.xib; sourceTree = "<group>"; };
-		3A5F601C21592E830072E1BB /* InstaOrdersListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrdersListTableViewCell.swift; sourceTree = "<group>"; };
 		3A984C2F2150FEA50012E0C7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3A984C36215106520012E0C7 /* DesignableShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableShadowView.swift; sourceTree = "<group>"; };
 		3A984C37215106520012E0C7 /* DesignableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImage.swift; sourceTree = "<group>"; };
@@ -145,6 +143,7 @@
 		CDA18F7A2153C9BD00F2D1AA /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		CDA18F7B2153C9BD00F2D1AA /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		CDA98BFA2153BAAD00A02D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CDB42CC0215A785E004B4559 /* DiabetesCareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiabetesCareCell.xib; sourceTree = "<group>"; };
 		CDDC9FFF21520C4500DC1202 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CDDCA007215217F700DC1202 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CDDCA008215217F700DC1202 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -169,6 +168,9 @@
 		CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicoCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDDCA0482152553400DC1202 /* FeaturedProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrderAddViewController.swift; sourceTree = "<group>"; };
+		CDF2BE2D215A039100F7D64D /* InstaOrdersListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrdersListTableViewCell.swift; sourceTree = "<group>"; };
+		CDF2BE31215A03D600F7D64D /* InstaOrdersListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstaOrdersListTableViewCell.xib; sourceTree = "<group>"; };
 		E2A5E03AB499BCF82AB59B1C /* Pods-MedicoBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicoBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -282,7 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				3A5F5FF8215908490072E1BB /* DiabetesCareCell.swift */,
-				3A5F5FF9215908490072E1BB /* DiabetesCareCell.xib */,
+				CDB42CC0215A785E004B4559 /* DiabetesCareCell.xib */,
 			);
 			path = DiabetesCareCell;
 			sourceTree = "<group>";
@@ -392,8 +394,8 @@
 		CD9E043521589AE500F1C44C /* InstaOrdersListTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				3A5F601C21592E830072E1BB /* InstaOrdersListTableViewCell.swift */,
-				3A5F601B21592E830072E1BB /* InstaOrdersListTableViewCell.xib */,
+				CDF2BE2D215A039100F7D64D /* InstaOrdersListTableViewCell.swift */,
+				CDF2BE31215A03D600F7D64D /* InstaOrdersListTableViewCell.xib */,
 			);
 			path = InstaOrdersListTableViewCell;
 			sourceTree = "<group>";
@@ -402,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */,
+				CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */,
 			);
 			path = InstaOrders;
 			sourceTree = "<group>";
@@ -617,12 +620,12 @@
 				3A5F6000215908690072E1BB /* ProductDetailBTableViewCell.xib in Resources */,
 				3A49159B214BAE6C00917E79 /* LaunchScreen.storyboard in Resources */,
 				CD364098215281B5008FEFA1 /* fa-regular-400.ttf in Resources */,
-				3A5F601D21592E840072E1BB /* InstaOrdersListTableViewCell.xib in Resources */,
+				CDF2BE32215A03D600F7D64D /* InstaOrdersListTableViewCell.xib in Resources */,
 				3A491598214BAE6C00917E79 /* Assets.xcassets in Resources */,
 				CD364097215281B5008FEFA1 /* fa-brands-400.ttf in Resources */,
 				CDA18F802153C9BE00F2D1AA /* OpenSans-Semibold.ttf in Resources */,
-				3A5F5FFB215908490072E1BB /* DiabetesCareCell.xib in Resources */,
 				CDA18F7F2153C9BE00F2D1AA /* OpenSans-ExtraBold.ttf in Resources */,
+				CDB42CC1215A785F004B4559 /* DiabetesCareCell.xib in Resources */,
 				CDDCA04A2152553500DC1202 /* FeaturedProductCollectionViewCell.xib in Resources */,
 				CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */,
 				CDA18F842153C9BE00F2D1AA /* OpenSans-LightItalic.ttf in Resources */,
@@ -734,6 +737,7 @@
 				3A984C4021510B100012E0C7 /* DesignableView.swift in Sources */,
 				3A5F600E215908F10072E1BB /* UIApplication.swift in Sources */,
 				3A984C3A215106520012E0C7 /* DesignableShadowView.swift in Sources */,
+				CDF2BE2C215A028E00F7D64D /* InstaOrderAddViewController.swift in Sources */,
 				3A5F60162159092A0072E1BB /* ProductDetailBViewController.swift in Sources */,
 				3A5F600A215908F10072E1BB /* UIView.swift in Sources */,
 				3A5F6010215908F10072E1BB /* UITableViewExtension.swift in Sources */,
@@ -752,6 +756,7 @@
 				CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */,
 				3A491591214BAE6300917E79 /* AppDelegate.swift in Sources */,
 				CDDCA01B2152189100DC1202 /* Constants.swift in Sources */,
+				CDF2BE2F215A039100F7D64D /* InstaOrdersListTableViewCell.swift in Sources */,
 				3A5F5FFA215908490072E1BB /* DiabetesCareCell.swift in Sources */,
 				3A5F5FF62159080C0072E1BB /* SubCell.swift in Sources */,
 				3A5F600C215908F10072E1BB /* UIColor.swift in Sources */,
@@ -762,7 +767,6 @@
 				CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */,
 				3A984C3C215106520012E0C7 /* DesignableButton.swift in Sources */,
 				3A984C3D215106520012E0C7 /* DesignableShadowButton.swift in Sources */,
-				3A5F601E21592E840072E1BB /* InstaOrdersListTableViewCell.swift in Sources */,
 				3A5F6011215908F10072E1BB /* UIImage.swift in Sources */,
 				3A5F600F215908F10072E1BB /* UIImageView.swift in Sources */,
 				CDDCA01E215219F500DC1202 /* VerifyOTPViewController.swift in Sources */,
