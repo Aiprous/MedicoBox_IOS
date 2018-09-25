@@ -17,10 +17,10 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var tblProductDesc: UITableView!
     @IBOutlet weak var FeaturedProductsCollectionView: UICollectionView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         /// Search Bar Design Style
         if let textfield = productDescSearchBar.value(forKey: "searchField") as? UITextField {
             
@@ -42,20 +42,20 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
         tblProductDesc.delegate = self
         tblProductDesc.dataSource = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     //MARK:- Collection View Delegate And DataSource
     
     // tell the collection view how many cells to make
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var numberCount:Int = Int()
-       
+        
         if(collectionView == FeaturedProductsCollectionView)
         {
             numberCount = 8;
@@ -77,13 +77,12 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
             
             return cellObj;
         }
-        
         return CommomCell;
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-         if(collectionView == FeaturedProductsCollectionView)
+        if(collectionView == FeaturedProductsCollectionView)
         {
             let cell = collectionView.cellForItem(at: indexPath) as! FeaturedProductCollectionViewCell
             
@@ -95,7 +94,7 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
         var value:CGSize = CGSize()
-       if(collectionView == FeaturedProductsCollectionView)
+        if(collectionView == FeaturedProductsCollectionView)
         {
             value = CGSize(width: 204, height: 327)
         }
@@ -103,7 +102,7 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
         return value;
     }
     
-     //MARK:- Table View Delegate And DataSource
+    //MARK:- Table View Delegate And DataSource
     
     func numberOfSections(in tableView: UITableView) -> Int{
         
@@ -145,8 +144,7 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
             cellObj.lblProductionSubTitle.text = "NA";
             
         }
-        
-        
+        cellObj.selectionStyle = .none
         return cellObj
     }
     
@@ -162,7 +160,7 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
         
         let cell:ProductDescriptionTableViewCell = tableView.cellForRow(at: indexPath) as! ProductDescriptionTableViewCell
         
-      
+        
         
     }
 }

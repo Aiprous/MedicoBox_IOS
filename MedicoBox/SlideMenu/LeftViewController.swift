@@ -24,6 +24,7 @@ struct Section {
     var items: [String]!
     var collapsed: Bool!
     
+    
     init(name: String, items: [String], collapsed: Bool = true) {
         self.name = name
         self.items = items
@@ -38,8 +39,8 @@ protocol LeftMenuProtocol : class {
 class LeftViewController : UIViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
-//    var menus = ["Main", "Swift", "NonMenu"]
-    var menus = ["Main"]
+    //    var menus = ["Main", "Swift", "NonMenu"]
+    var iconArray = ["home","box","capsules","syringe","user","cart","ic_notifications_black_24dp","settings","logout"]
     var homeViewController: UIViewController!
     var diabetesCareViewController: UIViewController!
     var productDetailBViewController: UIViewController!
@@ -49,7 +50,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +64,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             Section(name: "Logout", items: []),
         ]
         
-//        self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
+        //        self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         
         self.tableView.tableFooterView = UIView(frame: .zero)
         
@@ -73,9 +74,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         
         let productDetailViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailBViewController") as! ProductDetailBViewController
         self.productDetailBViewController = UINavigationController(rootViewController: productDetailViewController)
-
         
-//        self.tableView.registerCellClass(BaseTableViewCell.self)
+        
+        //        self.tableView.registerCellClass(BaseTableViewCell.self)
         
         self.imageHeaderView = ImageHeaderView.loadNib()
         self.view.addSubview(self.imageHeaderView)
@@ -95,22 +96,22 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         switch menu {
         case .home, .cart, .labtests, .notifications, .logout, .settings :
             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
-
+            
         case .account:             self.slideMenuController()?.changeMainViewController(self.diabetesCareViewController, close: true)
             
         case .medicines: self.slideMenuController()?.changeMainViewController(self.productDetailBViewController, close: true)
-
-//        case .labtests:
-//
-//        case .cart:
-//
-//        case .notifications:
-//
-//        case .settings:
-//
-//        case .logout:
             
-         default: break
+            //        case .labtests:
+            //
+            //        case .cart:
+            //
+            //        case .notifications:
+            //
+            //        case .settings:
+            //
+            //        case .logout:
+            
+        default: break
         }
     }
 }
@@ -133,13 +134,13 @@ extension LeftViewController : UITableViewDelegate {
         return sections[section].collapsed! ? 0 : 50.0
     }
     
-      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Calculate the real section index and row index
         let section = getSectionIndex(indexPath.row)
         let row = getRowIndex(indexPath.row)
         if sections[section].name == "Orders" {
-           
+            
             if let menu = LeftMenu(rawValue: sections[section].collapsed! ? section : section+row) {
                 self.changeViewController(menu)
             }
@@ -149,40 +150,36 @@ extension LeftViewController : UITableViewDelegate {
                     self.changeViewController(menu)
                 }
             }else{
-             if let menu = LeftMenu(rawValue: section) {
-                 self.changeViewController(menu)
-              }
-          }
+                if let menu = LeftMenu(rawValue: section) {
+                    self.changeViewController(menu)
+                }
+            }
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if self.tableView == scrollView {
-            
-        }
-    }
+    //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    //        if self.tableView == scrollView {
+    //
+    //        }
+    //    }
 }
-
 extension LeftViewController : UITableViewDataSource {
     
-   
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-     
         // For section 1, the total count is items count plus the number of headers
         var count = sections.count
-
+        
         for section in sections {
             count += section.items.count
         }
-        
         return count
         
-//        return menus.count
     }
     
     
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Calculate the real section index and row index
@@ -193,34 +190,24 @@ extension LeftViewController : UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! HeaderCell
             cell.titleLabel.text = sections[section].name
             cell.toggleButton.tag = section
+            cell.iconImageView.image = UIImage.init(named: iconArray[section])
+            if section > 1 {
+                cell.iconImageView.image = UIImage.init(named: iconArray[section+2])
+            }
             if sections[section].items.count > 0 {
-//            cell.toggleButton.setTitle(sections[section].collapsed! ? "+" : "-", for: UIControlState())
                 cell.toggleButton.isHidden = false;
-            cell.toggleButton.addTarget(self, action: #selector(LeftViewController.toggleCollapse), for: .touchUpInside)
+                cell.toggleButton.addTarget(self, action: #selector(LeftViewController.toggleCollapse), for: .touchUpInside)
             }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "subCell") as! SubCell
             cell.lblTitle.text = sections[section].items[row - 1]
+            cell.imgIcon.image = UIImage.init(named: iconArray[section+row])
             return cell
         }
         
-//        if row == 0 {
-//        if let menu = LeftMenu(rawValue: indexPath.row) {
-//            switch menu {
-//            case .home, .orders, .account, .cart, .labtests, .medicines, .notifications, .logout :
-//                let cell = BaseTableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: BaseTableViewCell.identifier)
-//                cell.setData(sections[section].name)
-//                return cell
-//            default: break
-//            }
-//         }
-//        }else{
-//            let cell = BaseTableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: BaseTableViewCell.identifier)
-//            cell.setData(sections[section].items[row - 1])
-//        }
-//        return UITableViewCell()
     }
+    
     
     //
     // MARK: - Event Handlers

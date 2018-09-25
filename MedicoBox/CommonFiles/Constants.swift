@@ -6,6 +6,8 @@ import UIKit
 let storyboard = UIStoryboard(name: "Main", bundle: nil)
 @available(iOS 10.0, *)
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
+let kScreenWidth = UIScreen.main.bounds.size.width
+let kScreenHeight = UIScreen.main.bounds.size.height
 
 //Base url of App
 let BASEURL = ""
@@ -26,9 +28,11 @@ var NAVIGATION_BAR_COLOR = #colorLiteral(red: 0.9503795505, green: 0.8861361742,
 var SIGNUP_VCID = "SignUpVCID"
 var SIGNIN_VCID = "SignInVCID"
 var VERIFY_OTP_VCID = "VerifyOTPVCID"
-var HOME_VCID = "HomeVCID"
+var HOME_VCID = "HomeViewController"
 var MENU_VCID = "MenuVCID"
 var FORGOT_PASSWORD_VCID = "ForgotPasswordFromMobileNoVCID"
 var SET_NEW_PASSWORD_VCID = "SetNewPasswordVCID"
 var PRODUCT_DESC_VCID = "ProductDescriptionVCID"
-var INSTA_ORDERS_VCID = "InstaOrdersVCID"
+var INSTA_ORDERS_LIST_VCID = "InstaOrdersListVCID"
+var INSTA_ORDER_ADD_VCID = "InstaOrderAddVCID"
+

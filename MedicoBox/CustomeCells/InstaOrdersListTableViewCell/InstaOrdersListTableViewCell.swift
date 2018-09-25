@@ -10,6 +10,13 @@ import UIKit
 
 class InstaOrdersListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblInstaOrderTitle: UILabel!
+    @IBOutlet weak var btnOptions: UIButton!
+    @IBOutlet weak var btnDropDown: UIButton!
+    @IBOutlet weak var optionView: UIView!
+    @IBOutlet weak var btnEdit: UIButton!
+    @IBOutlet weak var btnAddItem: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
+        navigationBarAppearace.barTintColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
+        
         FIRApp.configure()
         Fabric.with([Crashlytics.self])
         // TODO: Move this to where you establish a user session
@@ -148,7 +152,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     }
     
     //    Pragma Mark: create menu
-    fileprivate func createMenuView() {
+     func createMenuView() {
         
         // create viewController code...
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

@@ -14,19 +14,18 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class HomeViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, FSPagerViewDataSource,FSPagerViewDelegate{
+class HomeViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate,FSPagerViewDataSource,FSPagerViewDelegate //, UICollectionViewDelegateFlowLayout  {
+{
     
     @IBOutlet weak var medicoSearchBar: UISearchBar!
     @IBOutlet weak var MedicoCollectionView: UICollectionView!
     @IBOutlet weak var FeaturedProductsCollectionView: UICollectionView!
     @IBOutlet weak var orderView: UIView!
-    var screenSize: CGRect!
-    var screenWidth: CGFloat!
-    var screenHeight: CGFloat!
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.isNavigationBarHidden = true;
         /// Search Bar Design Style
         if let textfield = medicoSearchBar.value(forKey: "searchField") as? UITextField {
             
@@ -42,15 +41,11 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         
         //Collection View Add delegate and view Design
         self.MedicoCollectionView.register(UINib(nibName: "MedicoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MedicoCollectionCellID")
-        /*
-        screenSize = UIScreen.main.bounds
-        screenWidth = (screenSize.width-20)
-        screenHeight = screenSize.height
-        
-        // Do any additional setup after loading the view, typically from a nib.
+     /*
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 20, right: 0)
+        let width = UIScreen.main.bounds.width
+        layout.itemSize = CGSize(width: width/2 , height: width/2 )
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         MedicoCollectionView!.collectionViewLayout = layout
@@ -111,7 +106,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
                 
                 cellObj.lblTitleMedico.text = "MEDICINES";
                 cellObj.lblSubTitleMedico.text = "1,00,000+ Medicines";
-                cellObj.imgMedico.image = #imageLiteral(resourceName: "capsules")
+                cellObj.imgMedico.image = #imageLiteral(resourceName: "capsules-icon")
                 
             }else if(indexPath.row == 1){
                 
@@ -157,8 +152,16 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         {
             let cell = collectionView.cellForItem(at: indexPath) as! MedicoCollectionViewCell
             
-            let Controller = self.storyboard?.instantiateViewController(withIdentifier: PRODUCT_DESC_VCID)
-            self.navigationController?.pushViewController(Controller!, animated: true)
+            if(cell.lblTitleMedico.text == "INSTA ORDERS"){
+                
+                let Controller = self.storyboard?.instantiateViewController(withIdentifier: INSTA_ORDERS_LIST_VCID)
+                self.navigationController?.pushViewController(Controller!, animated: true)
+                
+            }else {
+                
+                let Controller = self.storyboard?.instantiateViewController(withIdentifier: PRODUCT_DESC_VCID)
+                self.navigationController?.pushViewController(Controller!, animated: true)
+            }
             
         }
         else if(collectionView == FeaturedProductsCollectionView)
@@ -169,15 +172,38 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
         }
     }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    /*
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
     {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        let sectionInset = UIEdgeInsetsMake(kScreenHeight > 568 ? 20 : 0, 0, 0, 0)
+        return sectionInset
+    }
+    */
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+       
         var value:CGSize = CGSize()
         if(collectionView == MedicoCollectionView)
         {
-            value = CGSize(width: 210, height: 168);
-//CGSize(width: screenWidth/3, height: self.orderView.frame.size.height/3);
+        /*
+            if(kScreenWidth > 320) {
+                
+                value = CGSize(width: kScreenWidth / 2 - 1,  height: (kScreenHeight-(kScreenHeight > 568 ? 380 : 350)) / 2)
+                
+            }else{
+                
+                value = CGSize(width: kScreenWidth / 2 + 23 ,  height: (kScreenHeight-(kScreenHeight > 568 ? 350 : 340)) / 2)
+                
+            }
+            */
             
+        value = CGSize(width: 198, height: 168)
+ 
         } else if(collectionView == FeaturedProductsCollectionView)
         {
             value = CGSize(width: 204, height: 327)
