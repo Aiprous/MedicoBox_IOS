@@ -72,10 +72,11 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let diabetiesViewController = storyboard.instantiateViewController(withIdentifier: "DiabetesCareList") as! DiabetesCareList
         self.diabetesCareViewController = UINavigationController(rootViewController: diabetiesViewController)
         
+
         let productDetailViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailAViewController") as! ProductDetailAViewController
         self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
         
-        
+   
         //        self.tableView.registerCellClass(BaseTableViewCell.self)
         
         self.imageHeaderView = ImageHeaderView.loadNib()
@@ -99,6 +100,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             
         case .account:             self.slideMenuController()?.changeMainViewController(self.diabetesCareViewController, close: true)
             
+
         case .medicines: self.slideMenuController()?.changeMainViewController(self.productDetailAViewController, close: true)
             
             //        case .labtests:

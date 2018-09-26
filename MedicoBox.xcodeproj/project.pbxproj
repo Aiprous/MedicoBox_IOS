@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */; };
+		3A0E7656215B9B8300F26FA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0E7655215B9B8300F26FA6 /* Main.storyboard */; };
 		3A491591214BAE6300917E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491590214BAE6300917E79 /* AppDelegate.swift */; };
 		3A491593214BAE6300917E79 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491592214BAE6300917E79 /* SignUpViewController.swift */; };
-		3A491596214BAE6300917E79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A491594214BAE6300917E79 /* Main.storyboard */; };
 		3A491598214BAE6C00917E79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A491597214BAE6C00917E79 /* Assets.xcassets */; };
 		3A49159B214BAE6C00917E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A491599214BAE6C00917E79 /* LaunchScreen.storyboard */; };
 		3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */; };
@@ -91,10 +91,10 @@
 
 /* Begin PBXFileReference section */
 		3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailAViewController.swift; sourceTree = "<group>"; };
+		3A0E7655215B9B8300F26FA6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3A49158D214BAE6300917E79 /* MedicoBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicoBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A491590214BAE6300917E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A491592214BAE6300917E79 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		3A491595214BAE6300917E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A491597214BAE6C00917E79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A49159A214BAE6C00917E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A49159C214BAE6C00917E79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -495,7 +495,7 @@
 		CDDCA00521520CC700DC1202 /* UI and Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				3A491594214BAE6300917E79 /* Main.storyboard */,
+				3A0E7655215B9B8300F26FA6 /* Main.storyboard */,
 			);
 			path = "UI and Storyboard";
 			sourceTree = "<group>";
@@ -614,6 +614,7 @@
 				CDA98BFB2153BAB100A02D4D /* GoogleService-Info.plist in Resources */,
 				CDA18F7E2153C9BE00F2D1AA /* OpenSans-SemiboldItalic.ttf in Resources */,
 				CDA18F812153C9BE00F2D1AA /* OpenSans-Bold.ttf in Resources */,
+				3A0E7656215B9B8300F26FA6 /* Main.storyboard in Resources */,
 				3A5F5FF0215907CB0072E1BB /* ImageHeaderView.xib in Resources */,
 				CDDCA045215231A100DC1202 /* MedicoCollectionViewCell.xib in Resources */,
 				CDA18F822153C9BE00F2D1AA /* OpenSans-Light.ttf in Resources */,
@@ -632,7 +633,6 @@
 				CDDCA04A2152553500DC1202 /* FeaturedProductCollectionViewCell.xib in Resources */,
 				CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */,
 				CDA18F842153C9BE00F2D1AA /* OpenSans-LightItalic.ttf in Resources */,
-				3A491596214BAE6300917E79 /* Main.storyboard in Resources */,
 				CDA18F832153C9BE00F2D1AA /* OpenSans-Regular.ttf in Resources */,
 				CD364096215281B5008FEFA1 /* fa-solid-900.ttf in Resources */,
 			);
@@ -780,14 +780,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3A491594214BAE6300917E79 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A491595214BAE6300917E79 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3A491599214BAE6C00917E79 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
