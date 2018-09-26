@@ -43,7 +43,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var iconArray = ["home","box","capsules","syringe","user","cart","ic_notifications_black_24dp","settings","logout"]
     var homeViewController: UIViewController!
     var diabetesCareViewController: UIViewController!
-    var productDetailBViewController: UIViewController!
+    var productDetailAViewController: UIViewController!
     var imageHeaderView: ImageHeaderView!
     var sections = [Section]()
     
@@ -72,8 +72,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let diabetiesViewController = storyboard.instantiateViewController(withIdentifier: "DiabetesCareList") as! DiabetesCareList
         self.diabetesCareViewController = UINavigationController(rootViewController: diabetiesViewController)
         
-        let productDetailViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailBViewController") as! ProductDetailBViewController
-        self.productDetailBViewController = UINavigationController(rootViewController: productDetailViewController)
+        let productDetailViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailAViewController") as! ProductDetailAViewController
+        self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
         
         
         //        self.tableView.registerCellClass(BaseTableViewCell.self)
@@ -99,7 +99,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             
         case .account:             self.slideMenuController()?.changeMainViewController(self.diabetesCareViewController, close: true)
             
-        case .medicines: self.slideMenuController()?.changeMainViewController(self.productDetailBViewController, close: true)
+        case .medicines: self.slideMenuController()?.changeMainViewController(self.productDetailAViewController, close: true)
             
             //        case .labtests:
             //

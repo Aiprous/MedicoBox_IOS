@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */; };
 		3A491591214BAE6300917E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491590214BAE6300917E79 /* AppDelegate.swift */; };
 		3A491593214BAE6300917E79 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491592214BAE6300917E79 /* SignUpViewController.swift */; };
 		3A491596214BAE6300917E79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A491594214BAE6300917E79 /* Main.storyboard */; };
@@ -89,6 +90,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailAViewController.swift; sourceTree = "<group>"; };
 		3A49158D214BAE6300917E79 /* MedicoBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicoBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A491590214BAE6300917E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A491592214BAE6300917E79 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */,
+				3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */,
 			);
 			path = ProductDetailB;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				3A5F5FFA215908490072E1BB /* DiabetesCareCell.swift in Sources */,
 				3A5F5FF62159080C0072E1BB /* SubCell.swift in Sources */,
 				3A5F600C215908F10072E1BB /* UIColor.swift in Sources */,
+				3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */,
 				3A5F5FF1215907CB0072E1BB /* ImageHeaderView.swift in Sources */,
 				CD8BF92B2155F6E8005B7BBA /* SetNewPasswordViewController.swift in Sources */,
 				CDDCA00021520C4500DC1202 /* HomeViewController.swift in Sources */,
