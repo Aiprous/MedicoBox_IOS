@@ -11,8 +11,6 @@ import UIKit
 class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tblInstaOrdersList: UITableView!
-    @IBOutlet weak var instaOrdersListSearchBar: UISearchBar!
-    
     @IBOutlet weak var newInstaListView: DesignableView!
     @IBOutlet weak var productInfoView: DesignableView!
     @IBOutlet weak var btnBackView: UIButton!
@@ -23,19 +21,6 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         self.newInstaListView.isHidden = true;
         self.productInfoView.isHidden = true;
         self.navigationController?.isNavigationBarHidden = false;
-        /// Search Bar Design Style
-        if let textfield = instaOrdersListSearchBar.value(forKey: "searchField") as? UITextField {
-            
-            textfield.textColor = UIColor.gray
-            textfield.backgroundColor = UIColor.white
-            
-            if let backgroundview = textfield.subviews.first {
-                backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
-                backgroundview.layer.cornerRadius = 20
-                backgroundview.clipsToBounds = true
-            }
-        }
-        
         self.tblInstaOrdersList.register(UINib(nibName: "InstaOrdersListTableViewCell", bundle: nil), forCellReuseIdentifier: "InstaOrdersListTblViewCellID")
         tblInstaOrdersList.delegate = self
         tblInstaOrdersList.dataSource = self

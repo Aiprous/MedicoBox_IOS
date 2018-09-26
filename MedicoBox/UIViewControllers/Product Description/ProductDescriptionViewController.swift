@@ -13,32 +13,17 @@ import SDWebImage
 
 class ProductDescriptionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var productDescSearchBar: UISearchBar!
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var tblProductDesc: UITableView!
     @IBOutlet weak var FeaturedProductsCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /// Search Bar Design Style
-        if let textfield = productDescSearchBar.value(forKey: "searchField") as? UITextField {
-            
-            textfield.textColor = UIColor.gray
-            textfield.backgroundColor = UIColor.white
-            
-            if let backgroundview = textfield.subviews.first {
-                backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
-                backgroundview.layer.cornerRadius = 20
-                backgroundview.clipsToBounds = true
-            }
-        }
-        
+        self.navigationController?.isNavigationBarHidden = false;
         self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
         
         FeaturedProductsCollectionView.dataSource = self
         FeaturedProductsCollectionView.delegate = self
-        
         tblProductDesc.delegate = self
         tblProductDesc.dataSource = self
     }
@@ -54,8 +39,6 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
-        self.navigationController?.isNavigationBarHidden = false;
-        
     }
     //MARK:- Collection View Delegate And DataSource
     

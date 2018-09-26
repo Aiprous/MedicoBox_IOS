@@ -1044,7 +1044,7 @@ extension UIViewController {
     public func addLeftBarButtonWithImage(_ buttonImage: UIImage) {
         
         // button
-        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         leftButton.setBackgroundImage(buttonImage, for: .normal)
         leftButton.addTarget(self, action: #selector(self.toggleLeft), for: .touchUpInside)
         let leftBarButtomItem = UIBarButtonItem(customView: leftButton)
@@ -1086,9 +1086,13 @@ extension UIViewController {
         let searchBar = UISearchBar(frame: CGRect.zero)
         navigationItem.titleView?.layer.cornerRadius = 10
         navigationItem.titleView?.layer.masksToBounds = true
-        //        let rightButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.toggleRight))
-        navigationItem.titleView = searchBar
-        
+        searchBar.barStyle = .default;
+        searchBar.searchBarStyle = .minimal;
+        searchBar.showsCancelButton = false;
+        searchBar.showsBookmarkButton = false;
+        searchBar.showsScopeBar = false;
+        searchBar.showsBookmarkButton = false;
+
         /// Search Bar Design Style
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             
@@ -1101,6 +1105,7 @@ extension UIViewController {
                 backgroundview.clipsToBounds = true
             }
         }
+        navigationItem.titleView = searchBar
     }
     
     @objc public func toggleLeft() {
