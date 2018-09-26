@@ -47,9 +47,16 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+    }
     
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationBarItem()
+        self.navigationController?.isNavigationBarHidden = false;
+        
+    }
     //MARK:- Collection View Delegate And DataSource
     
     // tell the collection view how many cells to make

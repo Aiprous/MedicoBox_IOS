@@ -12,28 +12,13 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
     
     @IBOutlet weak var tblInstaOrderAdd: UITableView!
     @IBOutlet weak var instaOrderAddSearchBar: UISearchBar!
-     @IBOutlet weak var instaHeaderSearchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        self.navigationController?.isNavigationBarHidden = false;
         /// Search Bar Design Style
         
         if let textfield = instaOrderAddSearchBar.value(forKey: "searchField") as? UITextField {
-            
-            textfield.textColor = UIColor.gray
-            textfield.backgroundColor = UIColor.white
-            
-            if let backgroundview = textfield.subviews.first {
-                backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
-                backgroundview.layer.cornerRadius = 20
-                backgroundview.clipsToBounds = true
-            }
-        }
-        
-        
-        if let textfield = instaHeaderSearchBar.value(forKey: "searchField") as? UITextField {
             
             textfield.textColor = UIColor.gray
             textfield.backgroundColor = UIColor.white
@@ -55,6 +40,16 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationBarItem()
+        
     }
     
     //MARK:- Table View Delegate And DataSource

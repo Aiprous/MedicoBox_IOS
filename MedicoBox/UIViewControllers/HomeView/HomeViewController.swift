@@ -14,17 +14,18 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class HomeViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate,FSPagerViewDataSource,FSPagerViewDelegate //, UICollectionViewDelegateFlowLayout  {
-{
+class HomeViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, FSPagerViewDataSource,FSPagerViewDelegate{
     
     @IBOutlet weak var medicoSearchBar: UISearchBar!
-    @IBOutlet weak var MedicoCollectionView: UICollectionView!
     @IBOutlet weak var FeaturedProductsCollectionView: UICollectionView!
     @IBOutlet weak var orderView: UIView!
+    var screenSize: CGRect!
+    var screenWidth: CGFloat!
+    var screenHeight: CGFloat!
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.isNavigationBarHidden = true;
         /// Search Bar Design Style
         if let textfield = medicoSearchBar.value(forKey: "searchField") as? UITextField {
@@ -40,19 +41,6 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         }
         
         //Collection View Add delegate and view Design
-        self.MedicoCollectionView.register(UINib(nibName: "MedicoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MedicoCollectionCellID")
-     /*
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 20, right: 0)
-        let width = UIScreen.main.bounds.width
-        layout.itemSize = CGSize(width: width/2 , height: width/2 )
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        MedicoCollectionView!.collectionViewLayout = layout
-        */
-        MedicoCollectionView.dataSource = self
-        MedicoCollectionView.delegate = self
-        
         self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
         
         FeaturedProductsCollectionView.dataSource = self
@@ -65,29 +53,23 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.setNavigationBarItem()
+        //        self.setNavigationBarItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
- 
+    
     //MARK:- Collection View Delegate And DataSource
     
     // tell the collection view how many cells to make
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var numberCount:Int = Int()
-        
-        if(collectionView == MedicoCollectionView)
-        {
-            numberCount = 4;
-            
-        }
-        else if(collectionView == FeaturedProductsCollectionView)
+        if(collectionView == FeaturedProductsCollectionView)
         {
             numberCount = 8;
-
+            
         }
         return numberCount;
     }
@@ -96,45 +78,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let CommomCell:UICollectionViewCell = UICollectionViewCell()
-        
-        if(collectionView == MedicoCollectionView)
-        {
-            // get a reference to our storyboard cell
-            let cellObj = collectionView.dequeueReusableCell(withReuseIdentifier: "MedicoCollectionCellID", for: indexPath as IndexPath) as! MedicoCollectionViewCell
-            
-            if(indexPath.row == 0){
-                
-                cellObj.lblTitleMedico.text = "MEDICINES";
-                cellObj.lblSubTitleMedico.text = "1,00,000+ Medicines";
-                cellObj.imgMedico.image = #imageLiteral(resourceName: "capsules-icon")
-                
-            }else if(indexPath.row == 1){
-                
-                cellObj.lblTitleMedico.text = "LAB TESTS";
-                cellObj.lblSubTitleMedico.text = "Free Sample Collection";
-                cellObj.imgMedico.image = #imageLiteral(resourceName: "test-tubes")
-
-                
-            }else if(indexPath.row == 2){
-                
-                cellObj.lblTitleMedico.text = "INSTA ORDERS";
-                cellObj.lblSubTitleMedico.text = "65,000+ Products";
-                cellObj.imgMedico.image = #imageLiteral(resourceName: "cardboxes")
-
-                
-            }else if(indexPath.row == 3){
-                
-                cellObj.lblTitleMedico.text = "E-CONSULTATION";
-                cellObj.lblSubTitleMedico.text = "Chat for Free";
-                cellObj.imgMedico.image = #imageLiteral(resourceName: "doctor")
-
-                
-            }
-            
-            return cellObj;
-            
-        }
-        else if(collectionView == FeaturedProductsCollectionView)
+        if(collectionView == FeaturedProductsCollectionView)
         {
             // get a reference to our storyboard cell
             let cellObj = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedProductsCollectionCellID", for: indexPath as IndexPath) as! FeaturedProductCollectionViewCell
@@ -142,78 +86,34 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
             return cellObj;
         }
-    
-    return CommomCell;
+        
+        return CommomCell;
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if(collectionView == MedicoCollectionView)
-        {
-            let cell = collectionView.cellForItem(at: indexPath) as! MedicoCollectionViewCell
-            
-            if(cell.lblTitleMedico.text == "INSTA ORDERS"){
-                
-                let Controller = self.storyboard?.instantiateViewController(withIdentifier: INSTA_ORDERS_LIST_VCID)
-                self.navigationController?.pushViewController(Controller!, animated: true)
-                
-            }else {
-                
-                let Controller = self.storyboard?.instantiateViewController(withIdentifier: PRODUCT_DESC_VCID)
-                self.navigationController?.pushViewController(Controller!, animated: true)
-            }
-            
-        }
-        else if(collectionView == FeaturedProductsCollectionView)
+        if(collectionView == FeaturedProductsCollectionView)
         {
             let cell = collectionView.cellForItem(at: indexPath) as! FeaturedProductCollectionViewCell
             
-            
-            
         }
     }
-    /*
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
-    {
-        return 10
-    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
-        let sectionInset = UIEdgeInsetsMake(kScreenHeight > 568 ? 20 : 0, 0, 0, 0)
-        return sectionInset
-    }
-    */
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
-       
         var value:CGSize = CGSize()
-        if(collectionView == MedicoCollectionView)
-        {
-        /*
-            if(kScreenWidth > 320) {
-                
-                value = CGSize(width: kScreenWidth / 2 - 1,  height: (kScreenHeight-(kScreenHeight > 568 ? 380 : 350)) / 2)
-                
-            }else{
-                
-                value = CGSize(width: kScreenWidth / 2 + 23 ,  height: (kScreenHeight-(kScreenHeight > 568 ? 350 : 340)) / 2)
-                
-            }
-            */
-            
-        value = CGSize(width: 198, height: 168)
- 
-        } else if(collectionView == FeaturedProductsCollectionView)
+        if(collectionView == FeaturedProductsCollectionView)
         {
             value = CGSize(width: 204, height: 327)
         }
-    
+        
         return value;
     }
     
-//    var imagesNameArray = NSArray();
-        fileprivate var imageNames = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"]
+    //MARK:- FSPager Delegate And DataSource
+    
+    //    var imagesNameArray = NSArray();
+    fileprivate var imageNames = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"]
     
     /// Asks your data source object for the number of items in the pager view.
     @objc(numberOfItemsInPagerView:) func numberOfItems(in pagerView: FSPagerView) -> Int {
@@ -225,7 +125,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
         }else{
             
-           numberCount = self.imageNames.count
+            numberCount = self.imageNames.count
         }
         
         return numberCount;
@@ -233,25 +133,12 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     
     @objc(pagerView:cellForItemAtIndex:) func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         
-        let CELL:FSPagerViewCell = FSPagerViewCell()
+        
         
         if(pagerView == firstPagerView){
             
             let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cellFirst", at: index)
             
-          /*  let dictObj = self.imagesNameArray[index] as! NSDictionary
-            
-            let URLstr = BASEURL + "/" + (dictObj.value(forKey: "file_name") as? String)!
-            
-            let urlimg = URL.init(string: URLstr)
-            if urlimg != nil
-            {
-                cell.imageView?.sd_setImage(with: urlimg! , completed: { (image, error, cacheType, imageURL) in
-             
-                    cell.imageView?.image = image
-                })
-            }
-            */
             cell.imageView?.image = UIImage(named: self.imageNames[index])
             cell.imageView?.contentMode = .scaleAspectFill
             cell.imageView?.clipsToBounds = true
@@ -280,16 +167,16 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             cell.imageView?.clipsToBounds = true
             cell.imageView?.contentMode = .scaleToFill   //.scaleAspectFill
             return cell
-
+            
         }
-        return CELL;
-
+        
+        
     }
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         
         if(pagerView == firstPagerView){
-
+            
             pagerView.deselectItem(at: index, animated: true)
             
         }else{
@@ -317,9 +204,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         }
     }
     
-    
-   
-   @IBOutlet weak var firstPagerView: FSPagerView!
+    @IBOutlet weak var firstPagerView: FSPagerView!
         {
         didSet {
             self.firstPagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cellFirst")
@@ -335,7 +220,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         
     }
     
-     @IBOutlet weak var firstPageControl: FSPageControl!
+    @IBOutlet weak var firstPageControl: FSPageControl!
         {
         didSet {
             self.firstPageControl.numberOfPages = self.imageNames.count
@@ -411,21 +296,39 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
             self.firstPagerView.reloadData()
             self.secondPagerView.reloadData()
-
+            
         }
         
     }
     
     @IBAction func menuBtnAction(_ sender: Any) {
         
-//        self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
-//        self.addRightBarButtonWithImage(UIImage(named: "ic_notifications_black_24dp")!)
-//        self.addTitleSearchBar()
         self.toggleLeft()
         self.slideMenuController()?.removeLeftGestures()
         self.slideMenuController()?.removeRightGestures()
         self.slideMenuController()?.addLeftGestures()
         self.slideMenuController()?.addRightGestures()
+    }
+    
+    @IBAction func btnMEDICINESAction(_ sender: Any) {
+        
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: DIBETES_CARE_LIST_VCID)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+        
+    }
+    
+    @IBAction func btnLABTESTSAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func btnINSTAORDERSAction(_ sender: Any) {
+        
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: INSTA_ORDERS_LIST_VCID)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+    }
+    
+    @IBAction func btnECONSULTATIONAction(_ sender: Any) {
+        
     }
     
 }

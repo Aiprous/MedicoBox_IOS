@@ -14,6 +14,7 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.isNavigationBarHidden = false;
         // Do any additional setup after loading the view.
         diabetesTblView.register(UINib(nibName: "DiabetesCareCell", bundle: nil), forCellReuseIdentifier: "DiabetesCareCell")
         diabetesTblView.estimatedRowHeight = 130
@@ -27,6 +28,8 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
+        self.navigationController?.isNavigationBarHidden = false;
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,6 +55,8 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "DiabetesCareCell") as! DiabetesCareCell
+        
+        cellObj.selectionStyle = .none
         return cellObj
     }
     

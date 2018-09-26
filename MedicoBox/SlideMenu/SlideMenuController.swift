@@ -1042,24 +1042,65 @@ extension UIViewController {
     }
     
     public func addLeftBarButtonWithImage(_ buttonImage: UIImage) {
-        let leftButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.toggleLeft))
+        
+        // button
+        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        leftButton.setBackgroundImage(buttonImage, for: .normal)
+        leftButton.addTarget(self, action: #selector(self.toggleLeft), for: .touchUpInside)
+        let leftBarButtomItem = UIBarButtonItem(customView: leftButton)
+
         let iconButton:UIButton = UIButton(type: UIButtonType.custom)
-        iconButton.frame = CGRect.init(x: 0, y: 0, width: 20, height: 20)
+        iconButton.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
         iconButton.setImage(UIImage.init(named: "plus_AppIcon"), for: .normal)
         let leftIconBarButtonItem:UIBarButtonItem = UIBarButtonItem(customView: iconButton)
-        navigationItem.leftBarButtonItems = [leftButton, leftIconBarButtonItem]
+        navigationItem.leftBarButtonItems = [leftBarButtomItem, leftIconBarButtonItem]
+        
     }
     
     public func addRightBarButtonWithImage(_ buttonImage: UIImage) {
-        let rightButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.toggleRight))
-        navigationItem.rightBarButtonItem = rightButton
+        
+        // badge label
+        let label = UILabel(frame: CGRect(x: 23, y: -07, width: 15, height: 15))
+        label.layer.borderColor =  UIColor.clear.cgColor
+        label.layer.borderWidth = 2
+        label.layer.cornerRadius = label.bounds.size.height / 2
+        label.textAlignment = .center
+        label.layer.masksToBounds = true
+        label.textColor = .white
+        label.font = label.font.withSize(10)
+        label.backgroundColor = .red
+        label.text = "3"
+        
+        // button
+        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        rightButton.setBackgroundImage(buttonImage, for: .normal)
+        rightButton.addTarget(self, action: #selector(self.toggleRight), for: .touchUpInside)
+        rightButton.addSubview(label)
+        
+        // Bar button item
+        let rightBarButtomItem = UIBarButtonItem(customView: rightButton)
+        navigationItem.rightBarButtonItem = rightBarButtomItem
     }
     public func addTitleSearchBar() {
+        
         let searchBar = UISearchBar(frame: CGRect.zero)
         navigationItem.titleView?.layer.cornerRadius = 10
         navigationItem.titleView?.layer.masksToBounds = true
         //        let rightButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.toggleRight))
         navigationItem.titleView = searchBar
+        
+        /// Search Bar Design Style
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            
+            textfield.textColor = UIColor.gray
+            searchBar.text = "Search Medicines"
+            textfield.backgroundColor = UIColor.white
+            if let backgroundview = textfield.subviews.first {
+                backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
+                backgroundview.layer.cornerRadius = 20
+                backgroundview.clipsToBounds = true
+            }
+        }
     }
     
     @objc public func toggleLeft() {

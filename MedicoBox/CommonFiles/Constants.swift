@@ -35,4 +35,4 @@ var SET_NEW_PASSWORD_VCID = "SetNewPasswordVCID"
 var PRODUCT_DESC_VCID = "ProductDescriptionVCID"
 var INSTA_ORDERS_LIST_VCID = "InstaOrdersListVCID"
 var INSTA_ORDER_ADD_VCID = "InstaOrderAddVCID"
-
+var DIBETES_CARE_LIST_VCID = "DiabetesCareList"

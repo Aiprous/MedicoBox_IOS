@@ -22,8 +22,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         self.btnBackView.isHidden = true;
         self.newInstaListView.isHidden = true;
         self.productInfoView.isHidden = true;
-        
-        
+        self.navigationController?.isNavigationBarHidden = false;
         /// Search Bar Design Style
         if let textfield = instaOrdersListSearchBar.value(forKey: "searchField") as? UITextField {
             
@@ -41,13 +40,22 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         tblInstaOrdersList.delegate = self
         tblInstaOrdersList.dataSource = self
         
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationBarItem()        
+    }
+    
     //MARK:- Table View Delegate And DataSource
     
     func numberOfSections(in tableView: UITableView) -> Int{
@@ -95,7 +103,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
-        return 112
+        return 131
         
     }
     

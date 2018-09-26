@@ -20,5 +20,17 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func btnSignUpAction(_ sender: Any) {
+        
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: HOME_VCID)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+    }
+    
+    @IBAction func btnSignInAction(_ sender: Any) {
+        
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: SIGNIN_VCID)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+        
+    }
 }
 
