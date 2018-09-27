@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */; };
 		3A491591214BAE6300917E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491590214BAE6300917E79 /* AppDelegate.swift */; };
 		3A491593214BAE6300917E79 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491592214BAE6300917E79 /* SignUpViewController.swift */; };
-		3A491596214BAE6300917E79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A491594214BAE6300917E79 /* Main.storyboard */; };
 		3A491598214BAE6C00917E79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A491597214BAE6C00917E79 /* Assets.xcassets */; };
 		3A49159B214BAE6C00917E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A491599214BAE6C00917E79 /* LaunchScreen.storyboard */; };
 		3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */; };
@@ -47,6 +47,9 @@
 		CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */; };
 		CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */; };
 		CD9E043E2158AC9700F1C44C /* InstaOrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */; };
+		CDA00517215BB60E007ABC73 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA00516215BB60E007ABC73 /* CosmosDistrib.swift */; };
+		CDA00519215BB65B007ABC73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA00518215BB65B007ABC73 /* Main.storyboard */; };
+		CDA0051B215BB7E8007ABC73 /* FeaturedProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA0051A215BB7E8007ABC73 /* FeaturedProductCollectionViewCell.xib */; };
 		CDA18F7C2153C9BE00F2D1AA /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F722153C9B800F2D1AA /* OpenSans-BoldItalic.ttf */; };
 		CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F732153C9B900F2D1AA /* OpenSans-Italic.ttf */; };
 		CDA18F7E2153C9BE00F2D1AA /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F742153C9B900F2D1AA /* OpenSans-SemiboldItalic.ttf */; };
@@ -82,17 +85,16 @@
 		CDDCA044215231A100DC1202 /* MedicoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA042215231A100DC1202 /* MedicoCollectionViewCell.swift */; };
 		CDDCA045215231A100DC1202 /* MedicoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */; };
 		CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */; };
-		CDDCA04A2152553500DC1202 /* FeaturedProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDCA0482152553400DC1202 /* FeaturedProductCollectionViewCell.xib */; };
 		CDF2BE2C215A028E00F7D64D /* InstaOrderAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */; };
 		CDF2BE2F215A039100F7D64D /* InstaOrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2BE2D215A039100F7D64D /* InstaOrdersListTableViewCell.swift */; };
 		CDF2BE32215A03D600F7D64D /* InstaOrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF2BE31215A03D600F7D64D /* InstaOrdersListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailAViewController.swift; sourceTree = "<group>"; };
 		3A49158D214BAE6300917E79 /* MedicoBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicoBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A491590214BAE6300917E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A491592214BAE6300917E79 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		3A491595214BAE6300917E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A491597214BAE6C00917E79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A49159A214BAE6C00917E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A49159C214BAE6C00917E79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,6 +134,9 @@
 		CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionViewController.swift; sourceTree = "<group>"; };
 		CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaOrdersListViewController.swift; sourceTree = "<group>"; };
+		CDA00516215BB60E007ABC73 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
+		CDA00518215BB65B007ABC73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CDA0051A215BB7E8007ABC73 /* FeaturedProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeaturedProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDA18F722153C9B800F2D1AA /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		CDA18F732153C9B900F2D1AA /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		CDA18F742153C9B900F2D1AA /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
@@ -167,7 +172,6 @@
 		CDDCA042215231A100DC1202 /* MedicoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicoCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicoCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedProductCollectionViewCell.swift; sourceTree = "<group>"; };
-		CDDCA0482152553400DC1202 /* FeaturedProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrderAddViewController.swift; sourceTree = "<group>"; };
 		CDF2BE2D215A039100F7D64D /* InstaOrdersListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrdersListTableViewCell.swift; sourceTree = "<group>"; };
 		CDF2BE31215A03D600F7D64D /* InstaOrdersListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstaOrdersListTableViewCell.xib; sourceTree = "<group>"; };
@@ -308,6 +312,7 @@
 				3A5F6007215908F10072E1BB /* UIImageView.swift */,
 				3A5F6008215908F10072E1BB /* UITableViewExtension.swift */,
 				3A5F6002215908F00072E1BB /* UIView.swift */,
+				CDA00516215BB60E007ABC73 /* CosmosDistrib.swift */,
 				3A5F6005215908F10072E1BB /* UIViewController.swift */,
 			);
 			path = ExtensionFiles;
@@ -317,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */,
+				3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */,
 			);
 			path = ProductDetailB;
 			sourceTree = "<group>";
@@ -492,7 +498,7 @@
 		CDDCA00521520CC700DC1202 /* UI and Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				3A491594214BAE6300917E79 /* Main.storyboard */,
+				CDA00518215BB65B007ABC73 /* Main.storyboard */,
 			);
 			path = "UI and Storyboard";
 			sourceTree = "<group>";
@@ -541,7 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */,
-				CDDCA0482152553400DC1202 /* FeaturedProductCollectionViewCell.xib */,
+				CDA0051A215BB7E8007ABC73 /* FeaturedProductCollectionViewCell.xib */,
 			);
 			path = FeaturedProductCollectionView;
 			sourceTree = "<group>";
@@ -611,6 +617,7 @@
 				CDA98BFB2153BAB100A02D4D /* GoogleService-Info.plist in Resources */,
 				CDA18F7E2153C9BE00F2D1AA /* OpenSans-SemiboldItalic.ttf in Resources */,
 				CDA18F812153C9BE00F2D1AA /* OpenSans-Bold.ttf in Resources */,
+				CDA00519215BB65B007ABC73 /* Main.storyboard in Resources */,
 				3A5F5FF0215907CB0072E1BB /* ImageHeaderView.xib in Resources */,
 				CDDCA045215231A100DC1202 /* MedicoCollectionViewCell.xib in Resources */,
 				CDA18F822153C9BE00F2D1AA /* OpenSans-Light.ttf in Resources */,
@@ -626,11 +633,10 @@
 				CDA18F802153C9BE00F2D1AA /* OpenSans-Semibold.ttf in Resources */,
 				CDA18F7F2153C9BE00F2D1AA /* OpenSans-ExtraBold.ttf in Resources */,
 				CDB42CC1215A785F004B4559 /* DiabetesCareCell.xib in Resources */,
-				CDDCA04A2152553500DC1202 /* FeaturedProductCollectionViewCell.xib in Resources */,
 				CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */,
 				CDA18F842153C9BE00F2D1AA /* OpenSans-LightItalic.ttf in Resources */,
-				3A491596214BAE6300917E79 /* Main.storyboard in Resources */,
 				CDA18F832153C9BE00F2D1AA /* OpenSans-Regular.ttf in Resources */,
+				CDA0051B215BB7E8007ABC73 /* FeaturedProductCollectionViewCell.xib in Resources */,
 				CD364096215281B5008FEFA1 /* fa-solid-900.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -760,6 +766,7 @@
 				3A5F5FFA215908490072E1BB /* DiabetesCareCell.swift in Sources */,
 				3A5F5FF62159080C0072E1BB /* SubCell.swift in Sources */,
 				3A5F600C215908F10072E1BB /* UIColor.swift in Sources */,
+				3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */,
 				3A5F5FF1215907CB0072E1BB /* ImageHeaderView.swift in Sources */,
 				CD8BF92B2155F6E8005B7BBA /* SetNewPasswordViewController.swift in Sources */,
 				CDDCA00021520C4500DC1202 /* HomeViewController.swift in Sources */,
@@ -770,20 +777,13 @@
 				3A5F6011215908F10072E1BB /* UIImage.swift in Sources */,
 				3A5F600F215908F10072E1BB /* UIImageView.swift in Sources */,
 				CDDCA01E215219F500DC1202 /* VerifyOTPViewController.swift in Sources */,
+				CDA00517215BB60E007ABC73 /* CosmosDistrib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3A491594214BAE6300917E79 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A491595214BAE6300917E79 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3A491599214BAE6C00917E79 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

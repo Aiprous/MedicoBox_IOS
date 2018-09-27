@@ -43,7 +43,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var iconArray = ["home","box","capsules","syringe","user","cart","ic_notifications_black_24dp","settings","logout"]
     var homeViewController: UIViewController!
     var diabetesCareViewController: UIViewController!
-    var productDetailBViewController: UIViewController!
+    var productDetailAViewController: UIViewController!
     var imageHeaderView: ImageHeaderView!
     var sections = [Section]()
     
@@ -69,13 +69,20 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         self.tableView.tableFooterView = UIView(frame: .zero)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let homeViewController1 = storyboard.instantiateViewController(withIdentifier: HOME_VCID)
+        
+        self.homeViewController = UINavigationController(rootViewController: homeViewController1)
+        
+        
         let diabetiesViewController = storyboard.instantiateViewController(withIdentifier: "DiabetesCareList") as! DiabetesCareList
         self.diabetesCareViewController = UINavigationController(rootViewController: diabetiesViewController)
         
-        let productDetailViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailBViewController") as! ProductDetailBViewController
-        self.productDetailBViewController = UINavigationController(rootViewController: productDetailViewController)
+
+        let productDetailViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailAViewController") as! ProductDetailAViewController
+        self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
         
-        
+   
         //        self.tableView.registerCellClass(BaseTableViewCell.self)
         
         self.imageHeaderView = ImageHeaderView.loadNib()
@@ -97,10 +104,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         case .home, .cart, .labtests, .notifications, .logout, .settings :
             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
             
-        case .account:             self.slideMenuController()?.changeMainViewController(self.diabetesCareViewController, close: true)
-            
-        case .medicines: self.slideMenuController()?.changeMainViewController(self.productDetailBViewController, close: true)
-            
+        case .account:             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
+
+        case .medicines: self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
             //        case .labtests:
             //
             //        case .cart:

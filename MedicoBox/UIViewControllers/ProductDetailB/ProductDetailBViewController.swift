@@ -28,7 +28,7 @@ class ProductDetailBViewController: UIViewController,UITableViewDataSource,UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.setNavigationBarItemBackButton()
     }
     
     override func didReceiveMemoryWarning() {

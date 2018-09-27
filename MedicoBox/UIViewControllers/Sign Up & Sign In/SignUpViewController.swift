@@ -21,9 +21,8 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func btnSignUpAction(_ sender: Any) {
-        
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: HOME_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.createMenuView()
     }
     
     @IBAction func btnSignInAction(_ sender: Any) {

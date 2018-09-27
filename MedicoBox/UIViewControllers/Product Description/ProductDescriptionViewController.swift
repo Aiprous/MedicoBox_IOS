@@ -38,7 +38,7 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.setNavigationBarItemBackButton()
     }
     //MARK:- Collection View Delegate And DataSource
     

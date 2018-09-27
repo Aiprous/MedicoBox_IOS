@@ -38,7 +38,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()        
+        self.setNavigationBarItemBackButton()        
     }
     
     //MARK:- Table View Delegate And DataSource
