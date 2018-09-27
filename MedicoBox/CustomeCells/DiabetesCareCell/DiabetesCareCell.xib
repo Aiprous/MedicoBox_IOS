@@ -19,10 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="330" height="127.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XbT-7J-KLu" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XbT-7J-KLu" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
                         <rect key="frame" x="5" y="5" width="320" height="114"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="capsules" translatesAutoresizingMaskIntoConstraints="NO" id="rwp-fm-ssE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="capsules-icon" translatesAutoresizingMaskIntoConstraints="NO" id="rwp-fm-ssE">
                                 <rect key="frame" x="8" y="12" width="82" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="82" id="Kqn-8u-iTT"/>
@@ -30,13 +30,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IME-9 Tablet" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBd-P7-kan">
-                                <rect key="frame" x="99" y="12" width="179" height="21"/>
+                                <rect key="frame" x="99" y="12" width="186" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hJ-db-Ty9">
-                                <rect key="frame" x="286" y="8" width="20" height="20"/>
+                                <rect key="frame" x="288" y="8" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="8RL-vG-lWw"/>
                                     <constraint firstAttribute="width" constant="20" id="cJq-3m-YPL"/>
@@ -44,7 +44,7 @@
                                 <state key="normal" image="heart-active"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bottle of 60 tablets" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldl-IV-g9r">
-                                <rect key="frame" x="99" y="33" width="179" height="16"/>
+                                <rect key="frame" x="99" y="33" width="186" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4n-q8-xzM">
-                                <rect key="frame" x="276" y="74" width="30" height="20"/>
+                                <rect key="frame" x="278" y="74" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="LGu-Gc-aez"/>
                                 </constraints>
@@ -91,19 +91,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="M4n-q8-xzM" secondAttribute="trailing" constant="7" id="3PS-Sq-ljz"/>
+                            <constraint firstAttribute="trailing" secondItem="M4n-q8-xzM" secondAttribute="trailing" constant="12" id="3PS-Sq-ljz"/>
                             <constraint firstItem="rwp-fm-ssE" firstAttribute="top" secondItem="XbT-7J-KLu" secondAttribute="top" constant="12" id="8Vg-zr-Q3Y"/>
                             <constraint firstItem="v87-VE-oZn" firstAttribute="top" secondItem="HTR-7h-JbM" secondAttribute="bottom" id="BF2-2C-cF3"/>
                             <constraint firstItem="ldl-IV-g9r" firstAttribute="top" secondItem="4hJ-db-Ty9" secondAttribute="bottom" constant="5" id="EVa-Rs-Oew"/>
-                            <constraint firstItem="4hJ-db-Ty9" firstAttribute="leading" secondItem="vBd-P7-kan" secondAttribute="trailing" constant="8" id="KR7-eb-hQe"/>
-                            <constraint firstAttribute="bottom" secondItem="M4n-q8-xzM" secondAttribute="bottom" constant="12" id="Kfb-To-g8g"/>
-                            <constraint firstAttribute="bottom" secondItem="rwp-fm-ssE" secondAttribute="bottom" constant="12" id="N9K-L3-wbD"/>
+                            <constraint firstItem="4hJ-db-Ty9" firstAttribute="leading" secondItem="vBd-P7-kan" secondAttribute="trailing" constant="3" id="KR7-eb-hQe"/>
+                            <constraint firstAttribute="bottom" secondItem="M4n-q8-xzM" secondAttribute="bottom" constant="20" id="Kfb-To-g8g"/>
+                            <constraint firstAttribute="bottom" secondItem="rwp-fm-ssE" secondAttribute="bottom" constant="20" id="N9K-L3-wbD"/>
                             <constraint firstItem="4hJ-db-Ty9" firstAttribute="top" secondItem="XbT-7J-KLu" secondAttribute="top" constant="8" id="OkB-GG-7Zz"/>
                             <constraint firstItem="v87-VE-oZn" firstAttribute="leading" secondItem="rwp-fm-ssE" secondAttribute="trailing" constant="9" id="Wem-DQ-Dqa"/>
                             <constraint firstItem="ldl-IV-g9r" firstAttribute="top" secondItem="vBd-P7-kan" secondAttribute="bottom" id="X31-jV-Fjz"/>
                             <constraint firstItem="ldl-IV-g9r" firstAttribute="leading" secondItem="rwp-fm-ssE" secondAttribute="trailing" constant="9" id="Xhr-yw-z9b"/>
-                            <constraint firstItem="4hJ-db-Ty9" firstAttribute="leading" secondItem="ldl-IV-g9r" secondAttribute="trailing" constant="8" id="ZU8-Ks-r9k"/>
-                            <constraint firstAttribute="trailing" secondItem="4hJ-db-Ty9" secondAttribute="trailing" constant="7" id="bGQ-fn-BrW"/>
+                            <constraint firstItem="4hJ-db-Ty9" firstAttribute="leading" secondItem="ldl-IV-g9r" secondAttribute="trailing" constant="3" id="ZU8-Ks-r9k"/>
+                            <constraint firstAttribute="trailing" secondItem="4hJ-db-Ty9" secondAttribute="trailing" constant="12" id="bGQ-fn-BrW"/>
                             <constraint firstItem="rwp-fm-ssE" firstAttribute="leading" secondItem="XbT-7J-KLu" secondAttribute="leading" constant="8" id="jIs-V7-DhQ"/>
                             <constraint firstItem="HTR-7h-JbM" firstAttribute="leading" secondItem="rwp-fm-ssE" secondAttribute="trailing" constant="9" id="q8h-WX-HYi"/>
                             <constraint firstItem="vBd-P7-kan" firstAttribute="leading" secondItem="rwp-fm-ssE" secondAttribute="trailing" constant="9" id="tl5-kN-Me3"/>
@@ -120,7 +120,7 @@
                 <constraints>
                     <constraint firstItem="XbT-7J-KLu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="509-UK-wKI"/>
                     <constraint firstItem="XbT-7J-KLu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Dxw-BU-gnC"/>
-                    <constraint firstAttribute="bottom" secondItem="XbT-7J-KLu" secondAttribute="bottom" constant="5" id="IeE-e0-QF9"/>
+                    <constraint firstAttribute="bottom" secondItem="XbT-7J-KLu" secondAttribute="bottom" constant="8.5" id="IeE-e0-QF9"/>
                     <constraint firstAttribute="trailing" secondItem="XbT-7J-KLu" secondAttribute="trailing" constant="5" id="RH9-Rb-yTy"/>
                 </constraints>
             </tableViewCellContentView>
@@ -139,7 +139,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="capsules" width="38" height="38"/>
+        <image name="capsules-icon" width="167" height="144"/>
         <image name="heart-active" width="24" height="24"/>
     </resources>
 </document>

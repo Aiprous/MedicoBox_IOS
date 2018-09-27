@@ -27,7 +27,7 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;
 
     }
@@ -70,7 +70,13 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        if indexPath.row % 2 == 0 {
+            let Controller = self.storyboard?.instantiateViewController(withIdentifier: PRODUCT_DETAIL_A_VCID)
+            self.navigationController?.pushViewController(Controller!, animated: true)
+        }else{
+            let Controller = self.storyboard?.instantiateViewController(withIdentifier: PRODUCT_DETAIL_B_VCID)
+            self.navigationController?.pushViewController(Controller!, animated: true)
+        }
         
     }
 

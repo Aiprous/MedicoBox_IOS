@@ -54,9 +54,8 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     }
    
     @IBAction func btnSignInAction(_ sender: Any) {
-        
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: HOME_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.createMenuView()
     }
     
     @IBAction func btnSignInWithOTPAction(_ sender: Any) {

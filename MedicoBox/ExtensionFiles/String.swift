@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     static func className(_ aClass: AnyClass) -> String {
@@ -20,4 +21,14 @@ extension String {
     var length: Int {
         return self.count
     }
+    
+    func strikeThrough() -> NSAttributedString {
+        let attributeString =  NSMutableAttributedString(string: self)
+        attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: NSMakeRange(0,attributeString.length))
+        
+        return attributeString
+        
+    }
+
+  
 }

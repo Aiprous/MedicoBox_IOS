@@ -20,7 +20,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KsU-S4-hhE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="KsU-S4-hhE">
                     <rect key="frame" x="130" y="20" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="KUt-Ce-0r2"/>
@@ -64,4 +64,7 @@
             <point key="canvasLocation" x="14" y="33"/>
         </view>
     </objects>
+    <resources>
+        <image name="doctor" width="183" height="179"/>
+    </resources>
 </document>

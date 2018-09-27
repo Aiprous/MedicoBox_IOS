@@ -29,7 +29,7 @@ class SetNewPasswordViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true;
         self.navigationItem.hidesBackButton = true;
-        txtVerificationCode.becomeFirstResponder()
+//        txtVerificationCode.becomeFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -91,6 +91,7 @@ class SetNewPasswordViewController: UIViewController {
 
     @IBAction func btnSetPasswordAction(_ sender: Any) {
         
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.createMenuView()
     }
 }

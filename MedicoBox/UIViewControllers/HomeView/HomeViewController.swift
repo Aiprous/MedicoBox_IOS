@@ -19,6 +19,8 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     @IBOutlet weak var medicoSearchBar: UISearchBar!
     @IBOutlet weak var FeaturedProductsCollectionView: UICollectionView!
     @IBOutlet weak var orderView: UIView!
+    @IBOutlet weak var btnCart: UIButton!
+
     var screenSize: CGRect!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
@@ -26,7 +28,6 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = true;
         /// Search Bar Design Style
         if let textfield = medicoSearchBar.value(forKey: "searchField") as? UITextField {
             
@@ -39,6 +40,20 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
                 backgroundview.clipsToBounds = true
             }
         }
+        
+        
+        // badge label
+        let label = UILabel(frame: CGRect(x: 23, y: -07, width: 15, height: 15))
+        label.layer.borderColor =  UIColor.clear.cgColor
+        label.layer.borderWidth = 2
+        label.layer.cornerRadius = label.bounds.size.height / 2
+        label.textAlignment = .center
+        label.layer.masksToBounds = true
+        label.textColor = .white
+        label.font = label.font.withSize(10)
+        label.backgroundColor = .red
+        label.text = "3"
+        btnCart.addSubview(label);
         
         //Collection View Add delegate and view Design
         self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
@@ -53,7 +68,8 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        self.setNavigationBarItem()
+        self.navigationController?.isNavigationBarHidden = true;
+
     }
     
     override func didReceiveMemoryWarning() {
