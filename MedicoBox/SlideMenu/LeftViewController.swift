@@ -68,18 +68,18 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         
         self.tableView.tableFooterView = UIView(frame: .zero)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+       
         
-        let homeViewController1 = storyboard.instantiateViewController(withIdentifier: HOME_VCID)
+        let homeViewController1 = kMainStoryboard.instantiateViewController(withIdentifier: HOME_VCID)
         
         self.homeViewController = UINavigationController(rootViewController: homeViewController1)
         
         
-        let diabetiesViewController = storyboard.instantiateViewController(withIdentifier: "DiabetesCareList") as! DiabetesCareList
+        let diabetiesViewController = kMainStoryboard.instantiateViewController(withIdentifier: "DiabetesCareList") as! DiabetesCareList
         self.diabetesCareViewController = UINavigationController(rootViewController: diabetiesViewController)
         
 
-        let productDetailViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailAViewController") as! ProductDetailAViewController
+        let productDetailViewController = kMainStoryboard.instantiateViewController(withIdentifier: "ProductDetailAViewController") as! ProductDetailAViewController
         self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
         
    

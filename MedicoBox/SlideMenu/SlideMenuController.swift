@@ -1060,26 +1060,31 @@ extension UIViewController {
     public func addRightBarButtonWithImage(_ buttonImage: UIImage) {
         
         // badge label
-        let label = UILabel(frame: CGRect(x: 23, y: -07, width: 15, height: 15))
+        let label = UILabel(frame: CGRect(x: 10, y: -9.5, width: 15, height: 15))
         label.layer.borderColor =  UIColor.clear.cgColor
         label.layer.borderWidth = 2
         label.layer.cornerRadius = label.bounds.size.height / 2
         label.textAlignment = .center
         label.layer.masksToBounds = true
         label.textColor = .white
-        label.font = label.font.withSize(10)
+        label.font = label.font.withSize(11)
         label.backgroundColor = .red
         label.text = "3"
         
         // button
-        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
         rightButton.setBackgroundImage(buttonImage, for: .normal)
-        rightButton.addTarget(self, action: #selector(self.toggleRight), for: .touchUpInside)
+        rightButton.addTarget(self, action: #selector(self.showCartView), for: .touchUpInside)
         rightButton.addSubview(label)
         
         // Bar button item
         let rightBarButtomItem = UIBarButtonItem(customView: rightButton)
         navigationItem.rightBarButtonItem = rightBarButtomItem
+    }
+    
+    @objc public func showCartView() {
+        let Controller = kCartStoryBoard.instantiateViewController(withIdentifier: kCartViewController)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     public func addTitleSearchBar() {
         

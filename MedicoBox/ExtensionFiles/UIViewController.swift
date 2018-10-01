@@ -36,14 +36,14 @@ extension UIViewController {
     public func addLeftBarButtonWithBackImage(_ buttonImage: UIImage) {
         
         // button
-        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
         leftButton.setBackgroundImage(buttonImage, for: .normal)
         leftButton.addTarget(self, action: #selector(self.backView), for: .touchUpInside)
         let leftBarButtomItem = UIBarButtonItem(customView: leftButton)
         
         let iconButton:UIButton = UIButton(type: UIButtonType.custom)
-        iconButton.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        iconButton.setImage(#imageLiteral(resourceName: "plus_AppIcon"), for: .normal)
+        iconButton.frame = CGRect.init(x: 0, y: 0, width: 40, height: 40)
+        iconButton.setImage(UIImage(named: "plus_AppIcon"), for: .normal)
         let leftIconBarButtonItem:UIBarButtonItem = UIBarButtonItem(customView: iconButton)
         navigationItem.leftBarButtonItems = [leftBarButtomItem, leftIconBarButtonItem]
         

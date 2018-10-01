@@ -26,7 +26,7 @@ class ForgotPasswordFromMobileNoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true;
         self.navigationItem.hidesBackButton = true;
-        txtMobileNumber.becomeFirstResponder()
+//        txtMobileNumber.becomeFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {

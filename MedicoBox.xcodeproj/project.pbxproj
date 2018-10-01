@@ -12,6 +12,20 @@
 		3A491593214BAE6300917E79 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491592214BAE6300917E79 /* SignUpViewController.swift */; };
 		3A491598214BAE6C00917E79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A491597214BAE6C00917E79 /* Assets.xcassets */; };
 		3A49159B214BAE6C00917E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A491599214BAE6C00917E79 /* LaunchScreen.storyboard */; };
+		3A56BC40215DDF1F00CA1E33 /* SelectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56BC3F215DDF1F00CA1E33 /* SelectAddressViewController.swift */; };
+		3A56BC42215E054300CA1E33 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56BC41215E054300CA1E33 /* OrderSummaryViewController.swift */; };
+		3A56BC44215E091300CA1E33 /* OrderPlacedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56BC43215E091300CA1E33 /* OrderPlacedViewController.swift */; };
+		3A56BC47215E261100CA1E33 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56BC45215E261100CA1E33 /* AddressTableViewCell.swift */; };
+		3A56BC48215E261100CA1E33 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A56BC46215E261100CA1E33 /* AddressTableViewCell.xib */; };
+		3A56BC4B215E2AC800CA1E33 /* BillingAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56BC4A215E2AC800CA1E33 /* BillingAddressVC.swift */; };
+		3A56BC4D215E46A500CA1E33 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A56BC4C215E46A500CA1E33 /* Cart.storyboard */; };
+		3A5E2260215C95420034FA04 /* Prescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E225F215C95420034FA04 /* Prescription.storyboard */; };
+		3A5E2263215CBCE00034FA04 /* valid-prescription-guide.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E2262215CBCE00034FA04 /* valid-prescription-guide.jpg */; };
+		3A5E2265215CD3120034FA04 /* UploadPrescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E2264215CD3120034FA04 /* UploadPrescriptionViewController.swift */; };
+		3A5E2268215CE0C40034FA04 /* PrescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E2267215CE0C40034FA04 /* PrescriptionCollectionViewCell.swift */; };
+		3A5E226A215D06B20034FA04 /* UploadPresriptionSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E2269215D06B20034FA04 /* UploadPresriptionSecondVC.swift */; };
+		3A5E226D215D1EDE0034FA04 /* DeliveryAddressTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E226B215D1EDE0034FA04 /* DeliveryAddressTableCell.swift */; };
+		3A5E226E215D1EDE0034FA04 /* DeliveryAddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E226C215D1EDE0034FA04 /* DeliveryAddressTableCell.xib */; };
 		3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */; };
 		3A5F5FEB215907AB0072E1BB /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE8215907AA0072E1BB /* ExSlideMenuController.swift */; };
 		3A5F5FEC215907AB0072E1BB /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE9215907AA0072E1BB /* LeftViewController.swift */; };
@@ -38,6 +52,16 @@
 		3A984C3C215106520012E0C7 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C38215106520012E0C7 /* DesignableButton.swift */; };
 		3A984C3D215106520012E0C7 /* DesignableShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C39215106520012E0C7 /* DesignableShadowButton.swift */; };
 		3A984C4021510B100012E0C7 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C3F21510B100012E0C7 /* DesignableView.swift */; };
+		3AD8A5CE215F4B22005E2BE6 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8A5CD215F4B22005E2BE6 /* CartViewController.swift */; };
+		3AE4E8BC215E639B00A1AAE4 /* PaymentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4E8BB215E639B00A1AAE4 /* PaymentDetailViewController.swift */; };
+		3AF374B02161DECA00C86733 /* InstaOrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF374AE2161DEC900C86733 /* InstaOrdersListTableViewCell.swift */; };
+		3AF374B12161DECA00C86733 /* InstaOrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF374AF2161DECA00C86733 /* InstaOrdersListTableViewCell.xib */; };
+		3AF374B32161E8BA00C86733 /* FeaturedProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF374B22161E8B800C86733 /* FeaturedProductCollectionViewCell.xib */; };
+		3AFD0369215F824E00B04D8C /* CartOrderSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFD0368215F824E00B04D8C /* CartOrderSummaryVC.swift */; };
+		3AFD036C215F8A3E00B04D8C /* CartOrderSummaryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFD036A215F8A3E00B04D8C /* CartOrderSummaryTableCell.swift */; };
+		3AFD036D215F8A3E00B04D8C /* CartOrderSummaryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFD036B215F8A3E00B04D8C /* CartOrderSummaryTableCell.xib */; };
+		3AFD0371215F8A9100B04D8C /* CartItemTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFD036F215F8A9100B04D8C /* CartItemTableCell.swift */; };
+		3AFD0372215F8A9100B04D8C /* CartItemTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AFD0370215F8A9100B04D8C /* CartItemTableCell.xib */; };
 		48B665765AF204F4112F2681 /* Pods_MedicoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4A7E8ED8CC561358F8B9D7 /* Pods_MedicoBox.framework */; };
 		CD364096215281B5008FEFA1 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364093215281B0008FEFA1 /* fa-solid-900.ttf */; };
 		CD364097215281B5008FEFA1 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364094215281B3008FEFA1 /* fa-brands-400.ttf */; };
@@ -49,7 +73,6 @@
 		CD9E043E2158AC9700F1C44C /* InstaOrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */; };
 		CDA00517215BB60E007ABC73 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA00516215BB60E007ABC73 /* CosmosDistrib.swift */; };
 		CDA00519215BB65B007ABC73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA00518215BB65B007ABC73 /* Main.storyboard */; };
-		CDA0051B215BB7E8007ABC73 /* FeaturedProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA0051A215BB7E8007ABC73 /* FeaturedProductCollectionViewCell.xib */; };
 		CDA18F7C2153C9BE00F2D1AA /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F722153C9B800F2D1AA /* OpenSans-BoldItalic.ttf */; };
 		CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F732153C9B900F2D1AA /* OpenSans-Italic.ttf */; };
 		CDA18F7E2153C9BE00F2D1AA /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDA18F742153C9B900F2D1AA /* OpenSans-SemiboldItalic.ttf */; };
@@ -86,8 +109,6 @@
 		CDDCA045215231A100DC1202 /* MedicoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */; };
 		CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */; };
 		CDF2BE2C215A028E00F7D64D /* InstaOrderAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */; };
-		CDF2BE2F215A039100F7D64D /* InstaOrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2BE2D215A039100F7D64D /* InstaOrdersListTableViewCell.swift */; };
-		CDF2BE32215A03D600F7D64D /* InstaOrdersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF2BE31215A03D600F7D64D /* InstaOrdersListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +119,20 @@
 		3A491597214BAE6C00917E79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A49159A214BAE6C00917E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A49159C214BAE6C00917E79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A56BC3F215DDF1F00CA1E33 /* SelectAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewController.swift; sourceTree = "<group>"; };
+		3A56BC41215E054300CA1E33 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
+		3A56BC43215E091300CA1E33 /* OrderPlacedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlacedViewController.swift; sourceTree = "<group>"; };
+		3A56BC45215E261100CA1E33 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
+		3A56BC46215E261100CA1E33 /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
+		3A56BC4A215E2AC800CA1E33 /* BillingAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingAddressVC.swift; sourceTree = "<group>"; };
+		3A56BC4C215E46A500CA1E33 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
+		3A5E225F215C95420034FA04 /* Prescription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Prescription.storyboard; sourceTree = "<group>"; };
+		3A5E2262215CBCE00034FA04 /* valid-prescription-guide.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "valid-prescription-guide.jpg"; sourceTree = "<group>"; };
+		3A5E2264215CD3120034FA04 /* UploadPrescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPrescriptionViewController.swift; sourceTree = "<group>"; };
+		3A5E2267215CE0C40034FA04 /* PrescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A5E2269215D06B20034FA04 /* UploadPresriptionSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPresriptionSecondVC.swift; sourceTree = "<group>"; };
+		3A5E226B215D1EDE0034FA04 /* DeliveryAddressTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressTableCell.swift; sourceTree = "<group>"; };
+		3A5E226C215D1EDE0034FA04 /* DeliveryAddressTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryAddressTableCell.xib; sourceTree = "<group>"; };
 		3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		3A5F5FE8215907AA0072E1BB /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
 		3A5F5FE9215907AA0072E1BB /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +159,16 @@
 		3A984C38215106520012E0C7 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		3A984C39215106520012E0C7 /* DesignableShadowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableShadowButton.swift; sourceTree = "<group>"; };
 		3A984C3F21510B100012E0C7 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		3AD8A5CD215F4B22005E2BE6 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		3AE4E8BB215E639B00A1AAE4 /* PaymentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailViewController.swift; sourceTree = "<group>"; };
+		3AF374AE2161DEC900C86733 /* InstaOrdersListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrdersListTableViewCell.swift; sourceTree = "<group>"; };
+		3AF374AF2161DECA00C86733 /* InstaOrdersListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstaOrdersListTableViewCell.xib; sourceTree = "<group>"; };
+		3AF374B22161E8B800C86733 /* FeaturedProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeaturedProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		3AFD0368215F824E00B04D8C /* CartOrderSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartOrderSummaryVC.swift; sourceTree = "<group>"; };
+		3AFD036A215F8A3E00B04D8C /* CartOrderSummaryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartOrderSummaryTableCell.swift; sourceTree = "<group>"; };
+		3AFD036B215F8A3E00B04D8C /* CartOrderSummaryTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartOrderSummaryTableCell.xib; sourceTree = "<group>"; };
+		3AFD036F215F8A9100B04D8C /* CartItemTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemTableCell.swift; sourceTree = "<group>"; };
+		3AFD0370215F8A9100B04D8C /* CartItemTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemTableCell.xib; sourceTree = "<group>"; };
 		4B4A7E8ED8CC561358F8B9D7 /* Pods_MedicoBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedicoBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		793E45A0F76C939F763806E3 /* Pods-MedicoBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicoBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox.release.xcconfig"; sourceTree = "<group>"; };
 		CD364093215281B0008FEFA1 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
@@ -136,7 +181,6 @@
 		CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaOrdersListViewController.swift; sourceTree = "<group>"; };
 		CDA00516215BB60E007ABC73 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		CDA00518215BB65B007ABC73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		CDA0051A215BB7E8007ABC73 /* FeaturedProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeaturedProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDA18F722153C9B800F2D1AA /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		CDA18F732153C9B900F2D1AA /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		CDA18F742153C9B900F2D1AA /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
@@ -173,8 +217,6 @@
 		CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicoCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrderAddViewController.swift; sourceTree = "<group>"; };
-		CDF2BE2D215A039100F7D64D /* InstaOrdersListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrdersListTableViewCell.swift; sourceTree = "<group>"; };
-		CDF2BE31215A03D600F7D64D /* InstaOrdersListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstaOrdersListTableViewCell.xib; sourceTree = "<group>"; };
 		E2A5E03AB499BCF82AB59B1C /* Pods-MedicoBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicoBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,12 +288,60 @@
 				CDDCA00221520C6500DC1202 /* AppDelegate */,
 				CDDCA00121520C4E00DC1202 /* UIViewControllers */,
 				CDDCA00521520CC700DC1202 /* UI and Storyboard */,
-				3A491597214BAE6C00917E79 /* Assets.xcassets */,
+				3A5E2261215CBCBC0034FA04 /* Resources */,
 				3A491599214BAE6C00917E79 /* LaunchScreen.storyboard */,
 				CDA98BFA2153BAAD00A02D4D /* GoogleService-Info.plist */,
 				3A49159C214BAE6C00917E79 /* Info.plist */,
 			);
 			path = MedicoBox;
+			sourceTree = "<group>";
+		};
+		3A56BC49215E261900CA1E33 /* Address Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3A56BC45215E261100CA1E33 /* AddressTableViewCell.swift */,
+				3A56BC46215E261100CA1E33 /* AddressTableViewCell.xib */,
+			);
+			path = "Address Cell";
+			sourceTree = "<group>";
+		};
+		3A5E2261215CBCBC0034FA04 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A5E2262215CBCE00034FA04 /* valid-prescription-guide.jpg */,
+				3A491597214BAE6C00917E79 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3A5E2266215CD31B0034FA04 /* Upload Prescription */ = {
+			isa = PBXGroup;
+			children = (
+				3A56BC4A215E2AC800CA1E33 /* BillingAddressVC.swift */,
+				3A5E2264215CD3120034FA04 /* UploadPrescriptionViewController.swift */,
+				3A5E2269215D06B20034FA04 /* UploadPresriptionSecondVC.swift */,
+				3A56BC3F215DDF1F00CA1E33 /* SelectAddressViewController.swift */,
+				3A56BC41215E054300CA1E33 /* OrderSummaryViewController.swift */,
+				3A56BC43215E091300CA1E33 /* OrderPlacedViewController.swift */,
+			);
+			path = "Upload Prescription";
+			sourceTree = "<group>";
+		};
+		3A5E226F215D1EE40034FA04 /* Delivery address cell */ = {
+			isa = PBXGroup;
+			children = (
+				3A5E226B215D1EDE0034FA04 /* DeliveryAddressTableCell.swift */,
+				3A5E226C215D1EDE0034FA04 /* DeliveryAddressTableCell.xib */,
+			);
+			path = "Delivery address cell";
+			sourceTree = "<group>";
+		};
+		3A5E2270215D1EF80034FA04 /* PrescriptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				3A5E2267215CE0C40034FA04 /* PrescriptionCollectionViewCell.swift */,
+			);
+			path = PrescriptionCell;
 			sourceTree = "<group>";
 		};
 		3A5F5FED215907B10072E1BB /* SlideMenu */ = {
@@ -363,6 +453,34 @@
 			path = "IB Designable";
 			sourceTree = "<group>";
 		};
+		3AD8A5CC215F498B005E2BE6 /* Cart Screen */ = {
+			isa = PBXGroup;
+			children = (
+				3AE4E8BB215E639B00A1AAE4 /* PaymentDetailViewController.swift */,
+				3AD8A5CD215F4B22005E2BE6 /* CartViewController.swift */,
+				3AFD0368215F824E00B04D8C /* CartOrderSummaryVC.swift */,
+			);
+			path = "Cart Screen";
+			sourceTree = "<group>";
+		};
+		3AFD036E215F8A4600B04D8C /* CartOrderSummaryTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3AFD036A215F8A3E00B04D8C /* CartOrderSummaryTableCell.swift */,
+				3AFD036B215F8A3E00B04D8C /* CartOrderSummaryTableCell.xib */,
+			);
+			path = CartOrderSummaryTableViewCell;
+			sourceTree = "<group>";
+		};
+		3AFD0373215F8ABF00B04D8C /* CartItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				3AFD036F215F8A9100B04D8C /* CartItemTableCell.swift */,
+				3AFD0370215F8A9100B04D8C /* CartItemTableCell.xib */,
+			);
+			path = CartItemCell;
+			sourceTree = "<group>";
+		};
 		72B313B06C02BD99EA86EB89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,8 +518,8 @@
 		CD9E043521589AE500F1C44C /* InstaOrdersListTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				CDF2BE2D215A039100F7D64D /* InstaOrdersListTableViewCell.swift */,
-				CDF2BE31215A03D600F7D64D /* InstaOrdersListTableViewCell.xib */,
+				3AF374AE2161DEC900C86733 /* InstaOrdersListTableViewCell.swift */,
+				3AF374AF2161DECA00C86733 /* InstaOrdersListTableViewCell.xib */,
 			);
 			path = InstaOrdersListTableViewCell;
 			sourceTree = "<group>";
@@ -463,6 +581,7 @@
 		CDDCA00121520C4E00DC1202 /* UIViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3A5E2266215CD31B0034FA04 /* Upload Prescription */,
 				3A5F6018215909400072E1BB /* Diabeties Care List */,
 				3A5F6017215909300072E1BB /* ProductDetailB */,
 				3A5F6019215909530072E1BB /* HomeView */,
@@ -471,6 +590,7 @@
 				CD9E043B2158AC3900F1C44C /* Set Password */,
 				CD9E043A2158AC2300F1C44C /* InstaOrders */,
 				CD8BF92C21560B8C005B7BBA /* Product Description */,
+				3AD8A5CC215F498B005E2BE6 /* Cart Screen */,
 			);
 			path = UIViewControllers;
 			sourceTree = "<group>";
@@ -491,6 +611,11 @@
 				CD9E043521589AE500F1C44C /* InstaOrdersListTableViewCell */,
 				CDDCA046215254C800DC1202 /* FeaturedProductCollectionView */,
 				CDDCA0412152311A00DC1202 /* MedicoCollectionView */,
+				3A5E2270215D1EF80034FA04 /* PrescriptionCell */,
+				3A5E226F215D1EE40034FA04 /* Delivery address cell */,
+				3A56BC49215E261900CA1E33 /* Address Cell */,
+				3AFD036E215F8A4600B04D8C /* CartOrderSummaryTableViewCell */,
+				3AFD0373215F8ABF00B04D8C /* CartItemCell */,
 			);
 			path = CustomeCells;
 			sourceTree = "<group>";
@@ -499,6 +624,8 @@
 			isa = PBXGroup;
 			children = (
 				CDA00518215BB65B007ABC73 /* Main.storyboard */,
+				3A5E225F215C95420034FA04 /* Prescription.storyboard */,
+				3A56BC4C215E46A500CA1E33 /* Cart.storyboard */,
 			);
 			path = "UI and Storyboard";
 			sourceTree = "<group>";
@@ -547,7 +674,7 @@
 			isa = PBXGroup;
 			children = (
 				CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */,
-				CDA0051A215BB7E8007ABC73 /* FeaturedProductCollectionViewCell.xib */,
+				3AF374B22161E8B800C86733 /* FeaturedProductCollectionViewCell.xib */,
 			);
 			path = FeaturedProductCollectionView;
 			sourceTree = "<group>";
@@ -614,12 +741,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AF374B32161E8BA00C86733 /* FeaturedProductCollectionViewCell.xib in Resources */,
 				CDA98BFB2153BAB100A02D4D /* GoogleService-Info.plist in Resources */,
 				CDA18F7E2153C9BE00F2D1AA /* OpenSans-SemiboldItalic.ttf in Resources */,
 				CDA18F812153C9BE00F2D1AA /* OpenSans-Bold.ttf in Resources */,
 				CDA00519215BB65B007ABC73 /* Main.storyboard in Resources */,
 				3A5F5FF0215907CB0072E1BB /* ImageHeaderView.xib in Resources */,
 				CDDCA045215231A100DC1202 /* MedicoCollectionViewCell.xib in Resources */,
+				3AFD036D215F8A3E00B04D8C /* CartOrderSummaryTableCell.xib in Resources */,
 				CDA18F822153C9BE00F2D1AA /* OpenSans-Light.ttf in Resources */,
 				CDDCA0132152181400DC1202 /* GoogleSignIn.bundle in Resources */,
 				CDA18F7C2153C9BE00F2D1AA /* OpenSans-BoldItalic.ttf in Resources */,
@@ -627,16 +756,21 @@
 				3A5F6000215908690072E1BB /* ProductDetailBTableViewCell.xib in Resources */,
 				3A49159B214BAE6C00917E79 /* LaunchScreen.storyboard in Resources */,
 				CD364098215281B5008FEFA1 /* fa-regular-400.ttf in Resources */,
-				CDF2BE32215A03D600F7D64D /* InstaOrdersListTableViewCell.xib in Resources */,
+				3AF374B12161DECA00C86733 /* InstaOrdersListTableViewCell.xib in Resources */,
 				3A491598214BAE6C00917E79 /* Assets.xcassets in Resources */,
+				3A56BC4D215E46A500CA1E33 /* Cart.storyboard in Resources */,
 				CD364097215281B5008FEFA1 /* fa-brands-400.ttf in Resources */,
 				CDA18F802153C9BE00F2D1AA /* OpenSans-Semibold.ttf in Resources */,
 				CDA18F7F2153C9BE00F2D1AA /* OpenSans-ExtraBold.ttf in Resources */,
 				CDB42CC1215A785F004B4559 /* DiabetesCareCell.xib in Resources */,
+				3A5E2263215CBCE00034FA04 /* valid-prescription-guide.jpg in Resources */,
 				CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */,
 				CDA18F842153C9BE00F2D1AA /* OpenSans-LightItalic.ttf in Resources */,
 				CDA18F832153C9BE00F2D1AA /* OpenSans-Regular.ttf in Resources */,
-				CDA0051B215BB7E8007ABC73 /* FeaturedProductCollectionViewCell.xib in Resources */,
+				3A5E2260215C95420034FA04 /* Prescription.storyboard in Resources */,
+				3AFD0372215F8A9100B04D8C /* CartItemTableCell.xib in Resources */,
+				3A5E226E215D1EDE0034FA04 /* DeliveryAddressTableCell.xib in Resources */,
+				3A56BC48215E261100CA1E33 /* AddressTableViewCell.xib in Resources */,
 				CD364096215281B5008FEFA1 /* fa-solid-900.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -738,37 +872,50 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A5F60152159092A0072E1BB /* DiabetesCareList.swift in Sources */,
+				3A5E226D215D1EDE0034FA04 /* DeliveryAddressTableCell.swift in Sources */,
+				3AE4E8BC215E639B00A1AAE4 /* PaymentDetailViewController.swift in Sources */,
 				CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */,
 				3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */,
 				3A984C4021510B100012E0C7 /* DesignableView.swift in Sources */,
+				3A56BC4B215E2AC800CA1E33 /* BillingAddressVC.swift in Sources */,
 				3A5F600E215908F10072E1BB /* UIApplication.swift in Sources */,
+				3A5E2268215CE0C40034FA04 /* PrescriptionCollectionViewCell.swift in Sources */,
 				3A984C3A215106520012E0C7 /* DesignableShadowView.swift in Sources */,
 				CDF2BE2C215A028E00F7D64D /* InstaOrderAddViewController.swift in Sources */,
 				3A5F60162159092A0072E1BB /* ProductDetailBViewController.swift in Sources */,
+				3A56BC47215E261100CA1E33 /* AddressTableViewCell.swift in Sources */,
+				3AFD0369215F824E00B04D8C /* CartOrderSummaryVC.swift in Sources */,
 				3A5F600A215908F10072E1BB /* UIView.swift in Sources */,
 				3A5F6010215908F10072E1BB /* UITableViewExtension.swift in Sources */,
 				CD9E043E2158AC9700F1C44C /* InstaOrdersListViewController.swift in Sources */,
 				3A5F5FEB215907AB0072E1BB /* ExSlideMenuController.swift in Sources */,
+				3AF374B02161DECA00C86733 /* InstaOrdersListTableViewCell.swift in Sources */,
+				3A56BC44215E091300CA1E33 /* OrderPlacedViewController.swift in Sources */,
 				CD8BF9292155F2A2005B7BBA /* ForgotPasswordFromMobileNoViewController.swift in Sources */,
 				3A5F5FFF215908690072E1BB /* ProductDetailBTableViewCell.swift in Sources */,
 				3A491593214BAE6300917E79 /* SignUpViewController.swift in Sources */,
 				CDDCA044215231A100DC1202 /* MedicoCollectionViewCell.swift in Sources */,
 				3A984C3B215106520012E0C7 /* DesignableImage.swift in Sources */,
+				3AFD0371215F8A9100B04D8C /* CartItemTableCell.swift in Sources */,
 				3A5F600B215908F10072E1BB /* String.swift in Sources */,
 				3A5F5FEC215907AB0072E1BB /* LeftViewController.swift in Sources */,
+				3A56BC40215DDF1F00CA1E33 /* SelectAddressViewController.swift in Sources */,
 				3A5F600D215908F10072E1BB /* UIViewController.swift in Sources */,
 				3A5F5FF52159080C0072E1BB /* HeaderCell.swift in Sources */,
+				3A5E2265215CD3120034FA04 /* UploadPrescriptionViewController.swift in Sources */,
+				3A5E226A215D06B20034FA04 /* UploadPresriptionSecondVC.swift in Sources */,
 				CDDCA01C2152189100DC1202 /* Extension.swift in Sources */,
 				CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */,
+				3AD8A5CE215F4B22005E2BE6 /* CartViewController.swift in Sources */,
 				3A491591214BAE6300917E79 /* AppDelegate.swift in Sources */,
 				CDDCA01B2152189100DC1202 /* Constants.swift in Sources */,
-				CDF2BE2F215A039100F7D64D /* InstaOrdersListTableViewCell.swift in Sources */,
 				3A5F5FFA215908490072E1BB /* DiabetesCareCell.swift in Sources */,
 				3A5F5FF62159080C0072E1BB /* SubCell.swift in Sources */,
 				3A5F600C215908F10072E1BB /* UIColor.swift in Sources */,
 				3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */,
 				3A5F5FF1215907CB0072E1BB /* ImageHeaderView.swift in Sources */,
 				CD8BF92B2155F6E8005B7BBA /* SetNewPasswordViewController.swift in Sources */,
+				3A56BC42215E054300CA1E33 /* OrderSummaryViewController.swift in Sources */,
 				CDDCA00021520C4500DC1202 /* HomeViewController.swift in Sources */,
 				3A984C302150FEA50012E0C7 /* SignInViewController.swift in Sources */,
 				CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */,
@@ -777,6 +924,7 @@
 				3A5F6011215908F10072E1BB /* UIImage.swift in Sources */,
 				3A5F600F215908F10072E1BB /* UIImageView.swift in Sources */,
 				CDDCA01E215219F500DC1202 /* VerifyOTPViewController.swift in Sources */,
+				3AFD036C215F8A3E00B04D8C /* CartOrderSummaryTableCell.swift in Sources */,
 				CDA00517215BB60E007ABC73 /* CosmosDistrib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

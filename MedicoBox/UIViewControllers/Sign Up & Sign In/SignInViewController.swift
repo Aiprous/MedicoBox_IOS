@@ -60,20 +60,20 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     
     @IBAction func btnSignInWithOTPAction(_ sender: Any) {
         
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: VERIFY_OTP_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: VERIFY_OTP_VCID)
+        self.navigationController?.pushViewController(Controller, animated: true)
         
     }
     @IBAction func btnSignUpHereAction(_ sender: Any) {
         
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: SIGNUP_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: SIGNUP_VCID)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     @IBAction func btnForgotPasswordAction(_ sender: Any) {
         
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: FORGOT_PASSWORD_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: FORGOT_PASSWORD_VCID)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     @IBAction func btnSignInWithFacebookAction(_ sender: Any) {
@@ -199,8 +199,8 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
             print(dataDict)
 //            self.callAPI_getLoginAPI()
             
-            let Controller = self.storyboard?.instantiateViewController(withIdentifier: HOME_VCID)
-            self.navigationController?.pushViewController(Controller!, animated: true)
+            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: HOME_VCID)
+            self.navigationController?.pushViewController(Controller, animated: true)
             
         } else {
             

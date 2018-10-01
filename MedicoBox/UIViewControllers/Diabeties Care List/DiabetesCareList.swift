@@ -71,11 +71,11 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row % 2 == 0 {
-            let Controller = self.storyboard?.instantiateViewController(withIdentifier: PRODUCT_DETAIL_A_VCID)
-            self.navigationController?.pushViewController(Controller!, animated: true)
+            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: PRODUCT_DETAIL_A_VCID)
+            self.navigationController?.pushViewController(Controller, animated: true)
         }else{
-            let Controller = self.storyboard?.instantiateViewController(withIdentifier: PRODUCT_DETAIL_B_VCID)
-            self.navigationController?.pushViewController(Controller!, animated: true)
+            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: PRODUCT_DETAIL_B_VCID)
+            self.navigationController?.pushViewController(Controller, animated: true)
         }
         
     }

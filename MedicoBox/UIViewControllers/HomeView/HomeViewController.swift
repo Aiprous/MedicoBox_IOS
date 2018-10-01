@@ -84,6 +84,11 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cartBtnAction(_ sender: Any) {
+        let Controller = kCartStoryBoard.instantiateViewController(withIdentifier: kCartViewController)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
     //MARK:- Collection View Delegate And DataSource
     
     // tell the collection view how many cells to make
@@ -335,8 +340,8 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     
     @IBAction func btnMEDICINESAction(_ sender: Any) {
         
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: DIBETES_CARE_LIST_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: DIBETES_CARE_LIST_VCID)
+        self.navigationController?.pushViewController(Controller, animated: true)
         
     }
     
@@ -346,11 +351,17 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     
     @IBAction func btnINSTAORDERSAction(_ sender: Any) {
         
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: INSTA_ORDERS_LIST_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: INSTA_ORDERS_LIST_VCID)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     @IBAction func btnECONSULTATIONAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func uploadPrescriptionAction(_ sender: Any) {
+        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: UPLOAD_PRESCRIPTION_VCID)
+        self.navigationController?.pushViewController(Controller, animated: true)
         
     }
     

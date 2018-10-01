@@ -35,7 +35,7 @@ class VerifyOTPViewController: UIViewController{//,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true;
         self.navigationItem.hidesBackButton = true;
-        txtOne.becomeFirstResponder()
+//        txtOne.becomeFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {

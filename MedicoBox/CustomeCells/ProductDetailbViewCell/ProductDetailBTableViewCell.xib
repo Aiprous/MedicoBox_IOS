@@ -58,13 +58,15 @@
                                     <constraint firstAttribute="height" constant="14" id="dLQ-Ug-eqH"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EuZ-v8-7sc">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuZ-v8-7sc">
                                 <rect key="frame" x="0.0" y="60" width="320" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="XZf-15-gk1"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9F9-wc-aaU" firstAttribute="centerY" secondItem="L4T-ql-M97" secondAttribute="centerY" id="9jw-qT-E9C"/>
                             <constraint firstItem="L4T-ql-M97" firstAttribute="leading" secondItem="9F9-wc-aaU" secondAttribute="trailing" constant="1" id="GAO-TJ-l7s"/>
@@ -74,12 +76,16 @@
                             <constraint firstItem="Cnl-Mm-57O" firstAttribute="leading" secondItem="AWu-Fs-6gc" secondAttribute="leading" constant="8" id="dXS-iy-TyG"/>
                             <constraint firstAttribute="bottom" secondItem="eCH-lI-TTH" secondAttribute="bottom" constant="8" id="fOe-hM-RtP"/>
                             <constraint firstItem="eCH-lI-TTH" firstAttribute="leading" secondItem="AWu-Fs-6gc" secondAttribute="leading" constant="8" id="gga-Gg-ovi"/>
+                            <constraint firstAttribute="trailing" secondItem="EuZ-v8-7sc" secondAttribute="trailing" id="pWB-s6-YNQ"/>
                             <constraint firstAttribute="trailing" secondItem="L4T-ql-M97" secondAttribute="trailing" constant="8" id="qr6-ZR-blf"/>
+                            <constraint firstAttribute="bottom" secondItem="EuZ-v8-7sc" secondAttribute="bottom" constant="2" id="rT5-6A-BfZ"/>
+                            <constraint firstItem="EuZ-v8-7sc" firstAttribute="leading" secondItem="AWu-Fs-6gc" secondAttribute="leading" id="u4m-qs-jMu"/>
                             <constraint firstItem="9F9-wc-aaU" firstAttribute="leading" secondItem="Cnl-Mm-57O" secondAttribute="trailing" constant="8" id="uMX-WG-frG"/>
                             <constraint firstItem="eCH-lI-TTH" firstAttribute="top" secondItem="Cnl-Mm-57O" secondAttribute="bottom" constant="4" id="uXQ-5w-Nli"/>
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="AWu-Fs-6gc" secondAttribute="bottom" constant="-0.5" id="2TA-yH-ehM"/>
                     <constraint firstAttribute="trailing" secondItem="AWu-Fs-6gc" secondAttribute="trailing" id="Hx7-7u-zjo"/>
@@ -87,6 +93,7 @@
                     <constraint firstItem="AWu-Fs-6gc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jwk-C3-8I1"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <point key="canvasLocation" x="25" y="43"/>
         </tableViewCell>

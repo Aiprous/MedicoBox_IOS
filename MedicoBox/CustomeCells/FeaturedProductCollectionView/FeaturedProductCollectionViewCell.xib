@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,7 +28,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCX-sd-SRp" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
                         <rect key="frame" x="5" y="5" width="194" height="290"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bottle" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQ5-Jk-B2B">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottle" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQ5-Jk-B2B">
                                 <rect key="frame" x="35" y="24" width="124" height="113"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flexi-Tip Digital Thermometer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9B-ZM-rcG">
@@ -32,36 +37,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-uW-XCl">
-                                <rect key="frame" x="7" y="221" width="179" height="21"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="299.0">
-                                        <attributes>
-                                            <color key="NSColor" red="0.75294117647058822" green="0.77647058823529413" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="  ">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="37% Off">
-                                        <attributes>
-                                            <color key="NSColor" red="0.32156862745098042" green="0.6470588235294118" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 299.0  " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-uW-XCl">
+                                <rect key="frame" x="7" y="221" width="87" height="21"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
+                                <color key="textColor" red="0.74901960784313726" green="0.77647058823529413" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="199.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7Y-tE-HE9">
-                                <rect key="frame" x="7.5" y="243.5" width="179" height="37"/>
+                                <rect key="frame" x="7.5" y="244" width="179" height="36.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="37% Off" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2q-34-XaG">
+                                <rect key="frame" x="102" y="221" width="84" height="21"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" red="0.27843137254901962" green="0.78431372549019607" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -71,25 +62,39 @@
                             <constraint firstItem="G9B-ZM-rcG" firstAttribute="centerY" secondItem="cCX-sd-SRp" secondAttribute="centerY" constant="48.5" id="4BE-cC-Td0"/>
                             <constraint firstItem="G9B-ZM-rcG" firstAttribute="height" secondItem="cCX-sd-SRp" secondAttribute="height" multiplier="63/327" constant="-2.8715596330275233" id="51X-Ba-eQC"/>
                             <constraint firstItem="B7Y-tE-HE9" firstAttribute="centerX" secondItem="cCX-sd-SRp" secondAttribute="centerX" id="CH1-os-i6K"/>
+                            <constraint firstItem="L2q-34-XaG" firstAttribute="centerX" secondItem="cCX-sd-SRp" secondAttribute="centerX" multiplier="1.4" constant="8.2000000000000171" id="Dvr-0P-u5M"/>
                             <constraint firstItem="XQ5-Jk-B2B" firstAttribute="top" secondItem="cCX-sd-SRp" secondAttribute="top" constant="24" id="EIB-V2-yCs"/>
-                            <constraint firstItem="XQ5-Jk-B2B" firstAttribute="centerY" secondItem="cCX-sd-SRp" secondAttribute="centerY" constant="-73" id="JPp-aK-Ekd"/>
+                            <constraint firstItem="L2q-34-XaG" firstAttribute="leading" secondItem="EKX-uW-XCl" secondAttribute="trailing" constant="7" id="GxR-tm-J6g"/>
+                            <constraint firstItem="XQ5-Jk-B2B" firstAttribute="centerY" secondItem="cCX-sd-SRp" secondAttribute="centerY" constant="-64.5" id="JPp-aK-Ekd"/>
                             <constraint firstItem="G9B-ZM-rcG" firstAttribute="width" secondItem="cCX-sd-SRp" secondAttribute="width" multiplier="188/204" id="Mdu-fC-M2S"/>
-                            <constraint firstItem="EKX-uW-XCl" firstAttribute="width" secondItem="cCX-sd-SRp" secondAttribute="width" multiplier="188/204" id="PI1-yg-sdL"/>
+                            <constraint firstItem="L2q-34-XaG" firstAttribute="width" secondItem="cCX-sd-SRp" secondAttribute="width" multiplier="188/204" constant="-94.784313725490193" id="OtU-Am-8yq"/>
+                            <constraint firstItem="EKX-uW-XCl" firstAttribute="width" secondItem="cCX-sd-SRp" secondAttribute="width" multiplier="188/204" constant="-91.784313725490193" id="PI1-yg-sdL"/>
+                            <constraint firstItem="L2q-34-XaG" firstAttribute="height" secondItem="cCX-sd-SRp" secondAttribute="height" multiplier="22/327" constant="1.4892966360856299" id="Qac-Ix-9hz"/>
+                            <constraint firstItem="EKX-uW-XCl" firstAttribute="leading" secondItem="cCX-sd-SRp" secondAttribute="leading" constant="7" id="RNp-ez-vdg"/>
                             <constraint firstItem="XQ5-Jk-B2B" firstAttribute="centerX" secondItem="cCX-sd-SRp" secondAttribute="centerX" id="S7q-Gp-UwT"/>
-                            <constraint firstItem="EKX-uW-XCl" firstAttribute="height" secondItem="cCX-sd-SRp" secondAttribute="height" multiplier="22/327" constant="1.4892966360856299" id="Sn0-v0-jWB"/>
+                            <constraint firstItem="EKX-uW-XCl" firstAttribute="height" secondItem="cCX-sd-SRp" secondAttribute="height" multiplier="22/327" constant="1.49" id="Sn0-v0-jWB"/>
                             <constraint firstItem="EKX-uW-XCl" firstAttribute="centerY" secondItem="cCX-sd-SRp" secondAttribute="centerY" constant="86.5" id="bWQ-ZO-0M0"/>
                             <constraint firstItem="G9B-ZM-rcG" firstAttribute="centerX" secondItem="cCX-sd-SRp" secondAttribute="centerX" id="ffJ-Uq-5jO"/>
-                            <constraint firstItem="XQ5-Jk-B2B" firstAttribute="height" secondItem="cCX-sd-SRp" secondAttribute="height" multiplier="155/327" id="ffZ-fT-OLY"/>
-                            <constraint firstItem="EKX-uW-XCl" firstAttribute="centerX" secondItem="cCX-sd-SRp" secondAttribute="centerX" id="h0o-4N-rU2"/>
+                            <constraint firstItem="XQ5-Jk-B2B" firstAttribute="height" secondItem="cCX-sd-SRp" secondAttribute="height" multiplier="155/327" constant="-24.461773700305827" id="ffZ-fT-OLY"/>
+                            <constraint firstItem="EKX-uW-XCl" firstAttribute="centerX" secondItem="cCX-sd-SRp" secondAttribute="centerX" multiplier="0.7" constant="-17.399999999999991" id="h0o-4N-rU2"/>
                             <constraint firstItem="B7Y-tE-HE9" firstAttribute="height" secondItem="cCX-sd-SRp" secondAttribute="height" multiplier="38/327" constant="3.2996941896024481" id="huJ-Y7-bUY"/>
                             <constraint firstItem="B7Y-tE-HE9" firstAttribute="centerY" secondItem="cCX-sd-SRp" secondAttribute="centerY" constant="117" id="idG-B6-swo"/>
-                            <constraint firstItem="XQ5-Jk-B2B" firstAttribute="width" secondItem="cCX-sd-SRp" secondAttribute="width" multiplier="141/204" id="pwo-Eo-miq"/>
+                            <constraint firstItem="L2q-34-XaG" firstAttribute="centerY" secondItem="cCX-sd-SRp" secondAttribute="centerY" constant="86.5" id="pgP-T5-8Ip"/>
+                            <constraint firstItem="XQ5-Jk-B2B" firstAttribute="width" secondItem="cCX-sd-SRp" secondAttribute="width" multiplier="141/204" constant="-10.088235294117652" id="pwo-Eo-miq"/>
+                            <constraint firstAttribute="trailing" secondItem="L2q-34-XaG" secondAttribute="trailing" constant="8" id="zdU-xB-1ao"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerradius">
                                 <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RNp-ez-vdg"/>
+                                <exclude reference="GxR-tm-J6g"/>
+                                <exclude reference="zdU-xB-1ao"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
             </view>
@@ -105,10 +110,11 @@
                 <outlet property="containerFeaturedProducts" destination="cCX-sd-SRp" id="FnZ-8l-Bha"/>
                 <outlet property="imgFeaturedProducts" destination="XQ5-Jk-B2B" id="P1l-Ul-Eas"/>
                 <outlet property="lblOfferFeaturedProducts" destination="EKX-uW-XCl" id="xkf-kF-vCy"/>
+                <outlet property="lblOfferPriceFeaturedProducts" destination="L2q-34-XaG" id="qPW-1h-MHn"/>
                 <outlet property="lblPriceFeaturedProducts" destination="B7Y-tE-HE9" id="UP9-e2-Lcw"/>
                 <outlet property="lblTitleFeaturedProducts" destination="G9B-ZM-rcG" id="HeX-pH-lJt"/>
             </connections>
-            <point key="canvasLocation" x="92" y="-7.5"/>
+            <point key="canvasLocation" x="92" y="-8"/>
         </collectionViewCell>
     </objects>
     <resources>
