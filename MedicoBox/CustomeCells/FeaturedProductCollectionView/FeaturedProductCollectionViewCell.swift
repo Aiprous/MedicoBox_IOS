@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 class FeaturedProductCollectionViewCell: UICollectionViewCell {
-
+    
     
     @IBOutlet weak var containerFeaturedProducts: UIView!
     @IBOutlet weak var lblTitleFeaturedProducts: UILabel!
@@ -22,12 +22,12 @@ class FeaturedProductCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//         self.lblOfferFeaturedProducts.text = "\u{20B9}" + " 299.0 "
+        //         self.lblOfferFeaturedProducts.text = "\u{20B9}" + " 299.0 "
         self.lblPriceFeaturedProducts.text = "\u{20B9}" + " 199.0 "
-
+        
         strikeOnLabel()
     }
-
+    
     func strikeOnLabel(){
         let price = 299.0
         let currencyFormatter = NumberFormatter()
@@ -43,6 +43,6 @@ class FeaturedProductCollectionViewCell: UICollectionViewCell {
         // Swift 4.1 and below
         attributedString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSMakeRange(0, attributedString.length))
         self.lblOfferFeaturedProducts.attributedText = attributedString
-      
+        
     }
 }

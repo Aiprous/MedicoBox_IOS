@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressTableViewCell" rowHeight="66" id="KGk-i7-Jjw" customClass="AddressTableViewCell" customModule="MedicoBox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Gk-6B-lFP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFY-qe-w5O">
+                                <rect key="frame" x="5" y="64" width="310" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="w7A-C3-BgG"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMQ-xa-1UM">
+                                <rect key="frame" x="15" y="28" width="297" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="CGg-TV-IOX"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nFY-qe-w5O" secondAttribute="trailing" constant="5" id="2px-T6-i3b"/>
+                            <constraint firstItem="nFY-qe-w5O" firstAttribute="top" secondItem="cMQ-xa-1UM" secondAttribute="bottom" constant="1" id="Ba2-e1-cQO"/>
+                            <constraint firstAttribute="trailing" secondItem="cMQ-xa-1UM" secondAttribute="trailing" constant="8" id="U5L-93-cf8"/>
+                            <constraint firstItem="cMQ-xa-1UM" firstAttribute="leading" secondItem="7Gk-6B-lFP" secondAttribute="leading" constant="15" id="Xcd-8j-XIE"/>
+                            <constraint firstAttribute="bottom" secondItem="nFY-qe-w5O" secondAttribute="bottom" id="bMz-ln-LLN"/>
+                            <constraint firstItem="nFY-qe-w5O" firstAttribute="leading" secondItem="7Gk-6B-lFP" secondAttribute="leading" constant="5" id="zVc-k5-Myi"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="BackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="7Gk-6B-lFP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="186-LC-VN1"/>
+                    <constraint firstAttribute="trailing" secondItem="7Gk-6B-lFP" secondAttribute="trailing" id="TtG-vy-6VL"/>
+                    <constraint firstAttribute="bottom" secondItem="7Gk-6B-lFP" secondAttribute="bottom" constant="0.5" id="UQ9-nH-P5m"/>
+                    <constraint firstItem="7Gk-6B-lFP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fTU-8R-nDv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="textField" destination="cMQ-xa-1UM" id="6TX-7v-hYg"/>
+            </connections>
+            <point key="canvasLocation" x="-171" y="32"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.84299999475479126" green="0.87800002098083496" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

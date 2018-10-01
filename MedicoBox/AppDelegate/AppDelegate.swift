@@ -155,10 +155,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
      func createMenuView() {
         
         // create viewController code...
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
+        
+        let homeViewController = kMainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let leftViewController = kMainStoryboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
         
         
         let nvc: UINavigationController = UINavigationController(rootViewController: homeViewController)

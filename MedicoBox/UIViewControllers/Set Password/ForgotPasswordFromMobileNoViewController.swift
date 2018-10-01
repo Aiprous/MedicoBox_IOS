@@ -70,10 +70,5 @@ class ForgotPasswordFromMobileNoViewController: UIViewController {
     }
 
     @IBAction func btnProceedAction(_ sender: Any) {
-        
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: SET_NEW_PASSWORD_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
-
-        
     }
 }

@@ -10,10 +10,9 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,15 +21,14 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func btnSignUpAction(_ sender: Any) {
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.createMenuView()
     }
     
     @IBAction func btnSignInAction(_ sender: Any) {
         
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: SIGNIN_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: SIGNIN_VCID)
+        self.navigationController?.pushViewController(Controller, animated: true)
         
     }
 }

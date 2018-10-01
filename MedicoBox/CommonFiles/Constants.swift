@@ -3,7 +3,7 @@
 import Foundation
 import UIKit
 
-let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
 @available(iOS 10.0, *)
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 let kScreenWidth = UIScreen.main.bounds.size.width
@@ -16,25 +16,41 @@ let BASEURL = ""
 let cinstantbaseUrl1 = "https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyAvcch62krh39WhOUx_ues02Xz-_oQZ3NA=true"
 
 //Menu buttons on Navigation Bar (Right and Left) Buttons
-var menuBtn = UIButton();
-var rightBarBtn = UIButton();
-var API_TOKEN = " "
+
+let API_TOKEN = " "
 
 //APP Font
-var APPFONT = "SanFranciscoText"
-var NAVIGATION_BAR_COLOR = #colorLiteral(red: 0.9503795505, green: 0.8861361742, blue: 0.2147655487, alpha: 1)
+// Mark: StoryBoard
+let kMainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+let kPrescriptionStoryBoard = UIStoryboard(name: "Prescription", bundle: nil)
+let kCartStoryBoard = UIStoryboard(name: "Cart", bundle: nil)
 
 //View Controllers
-var SIGNUP_VCID = "SignUpVCID"
-var SIGNIN_VCID = "SignInVCID"
-var VERIFY_OTP_VCID = "VerifyOTPVCID"
-var HOME_VCID = "HomeViewController"
-var MENU_VCID = "MenuVCID"
-var FORGOT_PASSWORD_VCID = "ForgotPasswordFromMobileNoVCID"
-var SET_NEW_PASSWORD_VCID = "SetNewPasswordVCID"
-var PRODUCT_DESC_VCID = "ProductDescriptionVCID"
-var INSTA_ORDERS_LIST_VCID = "InstaOrdersListVCID"
-var INSTA_ORDER_ADD_VCID = "InstaOrderAddVCID"
-var DIBETES_CARE_LIST_VCID = "DiabetesCareList"
-var PRODUCT_DETAIL_A_VCID = "ProductDetailAViewController"
-var PRODUCT_DETAIL_B_VCID = "ProductDetailBViewController"
+let SIGNUP_VCID = "SignUpVCID"
+let SIGNIN_VCID = "SignInVCID"
+let VERIFY_OTP_VCID = "VerifyOTPVCID"
+let HOME_VCID = "HomeViewController"
+let MENU_VCID = "MenuVCID"
+let FORGOT_PASSWORD_VCID = "ForgotPasswordFromMobileNoVCID"
+let SET_NEW_PASSWORD_VCID = "SetNewPasswordVCID"
+let PRODUCT_DESC_VCID = "ProductDescriptionVCID"
+let INSTA_ORDERS_LIST_VCID = "InstaOrdersListVCID"
+let INSTA_ORDER_ADD_VCID = "InstaOrderAddVCID"
+let DIBETES_CARE_LIST_VCID = "DiabetesCareList"
+let PRODUCT_DETAIL_A_VCID = "ProductDetailAViewController"
+let PRODUCT_DETAIL_B_VCID = "ProductDetailBViewController"
+let UPLOAD_PRESCRIPTION_VCID = "UploadPrescriptionViewController"
+let UPLOAD_PRESCRIPTION_SECOND_VCID = "UploadPresriptionSecondVC"
+let UPLOAD_PRESCRIPTION_SELECT_ADDRESS_VCID = "SelectAddressViewController"
+let kOrderSummaryVC = "OrderSummaryViewController"
+let kOrderPlacedVC = "OrderPlacedViewController"
+let kBillingAddressVC = "BillingAddressVC"
+let kPaymentDetailVC = "PaymentDetailViewController"
+let kCartViewController = "CartViewController"
+let kCartOrderSummaryVC = "CartOrderSummaryVC"
+
+// MARK: Image Constant
+let kbackgroundColor  =  UIColor.init(hexString: "#d7e0e7")
+let KNavigationBarColor = UIColor.init(hexString: "#fbc525")
+let kButtonBackgroundColor = UIColor.init(hexString: "#1f2c4c")
+

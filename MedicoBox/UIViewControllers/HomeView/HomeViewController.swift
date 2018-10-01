@@ -28,6 +28,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isNavigationBarHidden = true;
         /// Search Bar Design Style
         if let textfield = medicoSearchBar.value(forKey: "searchField") as? UITextField {
             
@@ -43,17 +44,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         
         
         // badge label
-        let label = UILabel(frame: CGRect(x: 23, y: -07, width: 15, height: 15))
-        label.layer.borderColor =  UIColor.clear.cgColor
-        label.layer.borderWidth = 2
-        label.layer.cornerRadius = label.bounds.size.height / 2
-        label.textAlignment = .center
-        label.layer.masksToBounds = true
-        label.textColor = .white
-        label.font = label.font.withSize(10)
-        label.backgroundColor = .red
-        label.text = "3"
-        btnCart.addSubview(label);
+        self.addBadgeLabel()
         
         //Collection View Add delegate and view Design
         self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
@@ -67,14 +58,35 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
         self.navigationController?.isNavigationBarHidden = true;
-
+        super.viewWillAppear(animated)
+        //        self.setNavigationBarItem()
+    }
+    
+    func addBadgeLabel() {
+        
+        let label = UILabel(frame: CGRect(x: 17, y: -07, width: 15, height: 15))
+        label.layer.borderColor =  UIColor.clear.cgColor
+        label.layer.borderWidth = 2
+        label.layer.cornerRadius = label.bounds.size.height / 2
+        label.textAlignment = .center
+        label.layer.masksToBounds = true
+        label.textColor = .white
+        label.font = label.font.withSize(10)
+        label.backgroundColor = .red
+        label.text = "3"
+        btnCart.addSubview(label);
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func cartBtnAction(_ sender: Any) {
+        let Controller = kCartStoryBoard.instantiateViewController(withIdentifier: kCartViewController)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     //MARK:- Collection View Delegate And DataSource
@@ -328,8 +340,8 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     
     @IBAction func btnMEDICINESAction(_ sender: Any) {
         
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: DIBETES_CARE_LIST_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: DIBETES_CARE_LIST_VCID)
+        self.navigationController?.pushViewController(Controller, animated: true)
         
     }
     
@@ -339,11 +351,17 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     
     @IBAction func btnINSTAORDERSAction(_ sender: Any) {
         
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: INSTA_ORDERS_LIST_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: INSTA_ORDERS_LIST_VCID)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     @IBAction func btnECONSULTATIONAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func uploadPrescriptionAction(_ sender: Any) {
+        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: UPLOAD_PRESCRIPTION_VCID)
+        self.navigationController?.pushViewController(Controller, animated: true)
         
     }
     

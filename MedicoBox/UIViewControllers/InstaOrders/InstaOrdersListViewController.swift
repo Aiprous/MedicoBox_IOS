@@ -14,9 +14,14 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     @IBOutlet weak var newInstaListView: DesignableView!
     @IBOutlet weak var productInfoView: DesignableView!
     @IBOutlet weak var btnBackView: UIButton!
+    
+    var displayList = NSMutableArray()
+    //    var destinationData: [DestinationData?]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //        destinationData = getData()
         self.btnBackView.isHidden = true;
         self.newInstaListView.isHidden = true;
         self.productInfoView.isHidden = true;
@@ -24,7 +29,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         self.tblInstaOrdersList.register(UINib(nibName: "InstaOrdersListTableViewCell", bundle: nil), forCellReuseIdentifier: "InstaOrdersListTblViewCellID")
         tblInstaOrdersList.delegate = self
         tblInstaOrdersList.dataSource = self
-        
+        tblInstaOrdersList.estimatedRowHeight = 128
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,19 +43,35 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()        
+        self.setNavigationBarItemBackButton()
     }
+    /*
+     private func getData() -> [DestinationData?] {
+     let data: [DestinationData?] = []
+     
+     let diabetesCellData = [ CellsData(orderName: "Tab Evion 400mg", itemCount: "1"), CellsData(orderName: "Inj Emcet 4mg", itemCount: "3") ,CellsData(orderName: "Otrivin Spray", itemCount: "2")]
+     let diabetes = DestinationData(name: "Diabetes", flag: "Close", cellData: diabetesCellData)
+     
+     //        let monthlyCellData = [CellsData(orderName: "Otrivin Spray", itemCount: "2"),  CellsData(orderName: "Inj Emcet 4mg", itemCount: "3")]
+     //        let monthly = DestinationData(name: "Monthly", cellData: monthlyCellData)
+     //
+     //        let priyankaCellData = [CellsData(orderName: "Otrivin Spray", itemCount: "2")]
+     //        let priyanka = DestinationData(name: "Priyanka", cellData: priyankaCellData)
+     
+     return [diabetes] //, monthly, priyanka]
+     } */
     
     //MARK:- Table View Delegate And DataSource
     
     func numberOfSections(in tableView: UITableView) -> Int{
         
-        return 1
+        return 2
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 3;
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -59,29 +80,64 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         
         if(indexPath.row == 0){
             
-            cellObj.lblInstaOrderTitle.text = "Diabetes";
-            cellObj.btnOptions.tag = indexPath.row;
-            cellObj.btnDropDown.tag = indexPath.row;
-            cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
-            cellObj.bottomCellView.isHidden = true
-
-        }else if(indexPath.row == 1){
+            cellObj.headerTitle = "Diabetes"
+            cellObj.bottomCellView.isHidden = false
+            cellObj.topHeaderCellView.isHidden = false
+            cellObj.btnSelectAll.isHidden = false
+            cellObj.lblSelectAll.isHidden = false
             
-            cellObj.lblInstaOrderTitle.text = "Monthly";
-            cellObj.btnOptions.tag = indexPath.row;
-            cellObj.btnDropDown.tag = indexPath.row;
-            cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
-            cellObj.bottomCellView.isHidden = true
-
-        }else if(indexPath.row == 2){
+        }else{
             
-            cellObj.lblInstaOrderTitle.text = "Priyanka";
-            cellObj.btnOptions.tag = indexPath.row;
-            cellObj.btnDropDown.tag = indexPath.row;
-            cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
-            cellObj.bottomCellView.isHidden = true
-
+            cellObj.bottonCellViewTop.constant = 0;
+            //            cellObj.bottonCellViewHeight.constant = 40;
+            cellObj.SelectAllCellViewHeight.constant = 0;
+            cellObj.btnSelectAll.isHidden = true
+            cellObj.lblSelectAll.isHidden = true
+            cellObj.bottomCellView.isHidden = false
+            cellObj.topHeaderCellView.isHidden = true
         }
+        
+        /* if let rowData = destinationData?[indexPath.section] {
+         if(rowData.flag == "Close"){
+         
+         cellObj.lblInstaOrderTitle.text = rowData.name
+         
+         if(indexPath.row == 0){
+         
+         cellObj.bottomCellView.isHidden = true
+         cellObj.topHeaderCellView.isHidden = false
+         
+         }else{
+         
+         cellObj.bottomCellView.isHidden = false
+         }
+         }else {
+         
+         if(indexPath.row == 0){
+         
+         cellObj.bottomCellView.isHidden = true
+         cellObj.topHeaderCellView.isHidden = false
+         
+         }else{
+         
+         cellObj.bottomCellView.isHidden = false
+         cellObj.topHeaderCellView.isHidden = true
+         
+         }
+         
+         cellObj.lblInstaOrderTitle.text = rowData.name
+         cellObj.lblOrderName.text = rowData.cellData?[indexPath.row].orderName
+         cellObj.lblInstaOrderCount.text = rowData.cellData?[indexPath.row].itemCount
+         }
+         
+         }
+         */
+        cellObj.btnOptions.tag = indexPath.row;
+        cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
+        cellObj.btnDropDown.tag = indexPath.section
+        let headerTapped = UITapGestureRecognizer(target: self, action:#selector(InstaOrdersListViewController.sectionHeaderTapped(_:)))
+        cellObj.btnDropDown.addGestureRecognizer(headerTapped)
+        //        cellObj.bottomCellView.isHidden = true
         
         cellObj.selectionStyle = .none
         return cellObj
@@ -91,50 +147,68 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
-        if indexPath.row == 0 {
-            return 212
-        } else {
-            return 131
+        if (indexPath.row == 0){
+            return 194
+        }else {
+            return 40
+            
         }
         
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell:InstaOrdersListTableViewCell = tableView.cellForRow(at: indexPath) as! InstaOrdersListTableViewCell
-        
-       /* if(cell.btnDropDown.isSelected == true){
-            
-            cell.bottomCellView.isHidden = false
-            
-        }
-        */
-//        cell.optionView.isHidden = false;
-        //        self.productInfoView.isHidden = false;
-        cell.bottomCellView.isHidden = false
-
-        
-    }
-
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10.0
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
-        let footer = UIView(frame: CGRect(x: 0, y: 0, width: 320.0, height: 20.0))
-        footer.layer.backgroundColor = UIColor.clear.cgColor
-        return footer
+        tableView.deselectRow(at: indexPath, animated: true)
+        /*
+         let cell:InstaOrdersListTableViewCell = tableView.cellForRow(at: indexPath) as! InstaOrdersListTableViewCell
+         
+         if let data = destinationData {
+         if let rowData = data[indexPath.row] {
+         if(rowData.flag == "Close"){
+         rowData.flag = "Open"
+         }
+         else{
+         rowData.flag = "Close"
+         }
+         }
+         tblInstaOrdersList.reloadData()
+         //        cell.bottomCellView.isHidden = false
+         
+         }*/
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let footer = UIView(frame: CGRect(x: 0, y: 0, width: 320.0, height: 20.0))
-        footer.layer.backgroundColor = UIColor.clear.cgColor
-        return footer
-    }
-
-    
+    /* func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+     
+     if (tableView == tblInstaOrdersList){
+     
+     if (section == 0) {
+     return 128;
+     }
+     return 128;
+     }else {
+     
+     }
+     return 1.0;
+     
+     }
+     
+     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+     return 10.0
+     }
+     
+     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+     
+     let footer = UIView(frame: CGRect(x: 0, y: 0, width: 320.0, height: 20.0))
+     footer.layer.backgroundColor = UIColor.clear.cgColor
+     return footer
+     }
+     
+     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+     
+     let footer = UIView(frame: CGRect(x: 0, y: 0, width: 320.0, height: 20.0))
+     footer.layer.backgroundColor = UIColor.clear.cgColor
+     return footer
+     }
+     */
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if cell.responds(to: #selector(getter: UITableViewCell.tintColor)) {
@@ -157,8 +231,8 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
                 pathRef.addArc(tangent1End: CGPoint(x: bounds.minX, y: bounds.maxY), tangent2End: CGPoint(x: bounds.midX, y: bounds.maxY), radius: cornerRadius, transform: .identity)
                 pathRef.addArc(tangent1End: CGPoint(x: bounds.maxX, y: bounds.maxY), tangent2End: CGPoint(x: bounds.maxX, y: bounds.midY), radius: cornerRadius, transform: .identity)
             } else {
-                    pathRef.addRect(bounds, transform: .identity)
-                    addLine = true
+                pathRef.addRect(bounds, transform: .identity)
+                addLine = true
             }
             
             layer.path = pathRef
@@ -183,6 +257,33 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         }
     }
     
+    @objc func sectionHeaderTapped(_ gestureRecognizer: UITapGestureRecognizer?) {
+        
+        let indexPath = IndexPath(row: 0, section: gestureRecognizer?.view?.tag ?? 0)
+        
+        /*     if indexPath.row == 0 {
+         if let data = destinationData {
+         if let rowData = data[indexPath.section] {
+         if(rowData.flag == "Close"){
+         rowData.flag = "Open"
+         }
+         else{
+         rowData.flag = "Close"
+         }
+         }
+         }
+         var data = destinationData
+         let rowData = data![indexPath.section]
+         if let anInfo = rowData {
+         data![indexPath.section] = anInfo
+         }
+         
+         tblInstaOrdersList.reloadSections(NSIndexSet(index: gestureRecognizer?.view?.tag ?? 0) as IndexSet, with: .automatic)
+         }
+         */
+    }
+    
+    
     @objc func btnOptionAction(button: UIButton) {
         
         self.btnBackView.isHidden = false;
@@ -196,7 +297,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         self.btnBackView.isHidden = false;
         self.newInstaListView.isHidden = false;
         self.productInfoView.isHidden = true;
-
+        
     }
     @IBAction func btnBackViewAction(_ sender: Any) {
         
@@ -219,7 +320,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         self.btnBackView.isHidden = true;
         self.newInstaListView.isHidden = true;
         self.productInfoView.isHidden = true;
-
+        
         let Controller = self.storyboard?.instantiateViewController(withIdentifier: INSTA_ORDER_ADD_VCID)
         self.navigationController?.pushViewController(Controller!, animated: true)
     }
@@ -228,6 +329,6 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         self.btnBackView.isHidden = true;
         self.productInfoView.isHidden = true;
         self.newInstaListView.isHidden = true;
-
+        
     }
 }
