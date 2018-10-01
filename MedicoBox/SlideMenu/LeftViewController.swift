@@ -44,6 +44,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var homeViewController: UIViewController!
     var diabetesCareViewController: UIViewController!
     var productDetailAViewController: UIViewController!
+    var myProfileViewController : UIViewController!
+    var notificationViewController : UIViewController!
     var imageHeaderView: ImageHeaderView!
     var sections = [Section]()
     
@@ -78,11 +80,15 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let diabetiesViewController = kMainStoryboard.instantiateViewController(withIdentifier: "DiabetesCareList") as! DiabetesCareList
         self.diabetesCareViewController = UINavigationController(rootViewController: diabetiesViewController)
         
+        let myProfileVC = kMainStoryboard.instantiateViewController(withIdentifier: "MyProfileViewController") as! MyProfileViewController
+        self.myProfileViewController = UINavigationController(rootViewController: myProfileVC)
 
         let productDetailViewController = kMainStoryboard.instantiateViewController(withIdentifier: "ProductDetailAViewController") as! ProductDetailAViewController
         self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
         
-   
+        let notificationVC = kMainStoryboard.instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
+        self.notificationViewController = UINavigationController(rootViewController: notificationVC)
+        
         //        self.tableView.registerCellClass(BaseTableViewCell.self)
         
         self.imageHeaderView = ImageHeaderView.loadNib()
@@ -101,17 +107,18 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     
     func changeViewController(_ menu: LeftMenu) {
         switch menu {
-        case .home, .cart, .labtests, .notifications, .logout, .settings :
+        case .home, .cart, .labtests, .logout, .settings :
             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
             
-        case .account:             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
+        case .account:             self.slideMenuController()?.changeMainViewController(self.myProfileViewController, close: true)
 
         case .medicines: self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
             //        case .labtests:
             //
             //        case .cart:
             //
-            //        case .notifications:
+        case .notifications:
+            self.slideMenuController()?.changeMainViewController(self.notificationViewController, close: true)
             //
             //        case .settings:
             //
