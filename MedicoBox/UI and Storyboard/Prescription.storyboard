@@ -12,6 +12,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans</string>
         </array>
@@ -35,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="882"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTF-Jx-HMp">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="879"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="882"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EfD-Tx-5n6">
                                                         <rect key="frame" x="8" y="8" width="359" height="122"/>
@@ -167,13 +170,13 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ATTACHED PRESCRIPTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoV-ME-nCe">
-                                                        <rect key="frame" x="18" y="143" width="211" height="19"/>
+                                                        <rect key="frame" x="18" y="143" width="200.5" height="22"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="z0k-59-Id4">
-                                                        <rect key="frame" x="8" y="174" width="359" height="157"/>
+                                                        <rect key="frame" x="8" y="177" width="359" height="157"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="157" id="Jum-SK-LzT"/>
@@ -227,13 +230,13 @@
                                                         </connections>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4d-6w-pgB" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="346" width="359" height="136"/>
+                                                        <rect key="frame" x="8" y="349" width="359" height="136"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdD-tr-aeU">
                                                                 <rect key="frame" x="0.0" y="3" width="359" height="43"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you ordering for yourself?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPg-KA-I0T">
-                                                                        <rect key="frame" x="10" y="8" width="222" height="17.5"/>
+                                                                        <rect key="frame" x="10" y="8" width="222" height="20.5"/>
                                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -341,10 +344,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GqG-SF-0N4" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="497" width="359" height="377"/>
+                                                        <rect key="frame" x="8" y="500" width="359" height="377"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valid Prescription Guid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PX-5R-D5J">
-                                                                <rect key="frame" x="10" y="14" width="163" height="19"/>
+                                                                <rect key="frame" x="10" y="14" width="169.5" height="22"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -885,6 +888,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7i-jk-3jS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="688.79999999999995" y="-43.628185907046479"/>
+        </scene>
+        <!--Order Cancel View Controller-->
+        <scene sceneID="Kp3-Ky-aQW">
+            <objects>
+                <viewController storyboardIdentifier="OrderCancelViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Eum-Ve-EeK" customClass="OrderCancelViewController" customModule="MedicoBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bwc-by-2ae">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-cK-jDZ" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
+                                <rect key="frame" x="58" y="402" width="260" height="40"/>
+                                <color key="backgroundColor" name="ButtonBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="I4q-Yl-Tla"/>
+                                    <constraint firstAttribute="height" constant="40" id="bbI-ca-LsO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
+                                <state key="normal" title="CONFIRM">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueBtnAction:" destination="urr-Mv-lGh" eventType="touchUpInside" id="crz-52-e3t"/>
+                                    <action selector="continueBtnAction:" destination="0Dm-hK-14L" eventType="touchUpInside" id="x7Z-FK-OVv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID: MB1828394839281" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ic-yK-8Uw">
+                                <rect key="frame" x="58" y="274" width="260" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="xmm-sy-vIn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfy-my-FBx">
+                                <rect key="frame" x="58" y="224" width="260" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="lGB-Te-IMt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want cancel this order?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAS-wW-wZM">
+                                <rect key="frame" x="88" y="320" width="199" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="8HC-uB-EBU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                <color key="textColor" red="0.32941176470588235" green="0.32549019607843138" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivq-br-Fr2">
+                                <rect key="frame" x="50" y="265" width="275" height="1"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="I3N-pd-lL3"/>
+                                    <constraint firstAttribute="width" constant="275" id="vE9-my-2nJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FJ6-rt-rOP" firstAttribute="trailing" secondItem="dfy-my-FBx" secondAttribute="trailing" constant="57" id="6Kc-Ot-RiK"/>
+                            <constraint firstItem="dfy-my-FBx" firstAttribute="leading" secondItem="FJ6-rt-rOP" secondAttribute="leading" constant="58" id="IMG-H0-uuO"/>
+                            <constraint firstItem="0ic-yK-8Uw" firstAttribute="centerX" secondItem="Bwc-by-2ae" secondAttribute="centerX" id="LXG-sc-uCU"/>
+                            <constraint firstItem="oi9-cK-jDZ" firstAttribute="centerX" secondItem="Bwc-by-2ae" secondAttribute="centerX" id="RwK-ft-5VJ"/>
+                            <constraint firstItem="0ic-yK-8Uw" firstAttribute="trailing" secondItem="dfy-my-FBx" secondAttribute="trailing" id="TLw-Gh-Ofg"/>
+                            <constraint firstItem="jAS-wW-wZM" firstAttribute="top" secondItem="0ic-yK-8Uw" secondAttribute="bottom" constant="13" id="Wz5-Oc-Ih5"/>
+                            <constraint firstItem="FJ6-rt-rOP" firstAttribute="trailing" secondItem="jAS-wW-wZM" secondAttribute="trailing" constant="88" id="Yp4-8w-ZKU"/>
+                            <constraint firstItem="0ic-yK-8Uw" firstAttribute="leading" secondItem="FJ6-rt-rOP" secondAttribute="leading" constant="58" id="aBw-xr-OUs"/>
+                            <constraint firstItem="jAS-wW-wZM" firstAttribute="leading" secondItem="FJ6-rt-rOP" secondAttribute="leading" constant="88" id="bDV-TU-RGx"/>
+                            <constraint firstItem="0ic-yK-8Uw" firstAttribute="leading" secondItem="dfy-my-FBx" secondAttribute="leading" id="gS2-EB-ait"/>
+                            <constraint firstItem="jAS-wW-wZM" firstAttribute="centerX" secondItem="Bwc-by-2ae" secondAttribute="centerX" id="gWz-kD-Q2i"/>
+                            <constraint firstItem="0ic-yK-8Uw" firstAttribute="top" secondItem="ivq-br-Fr2" secondAttribute="bottom" constant="8" id="hee-4P-Nyl"/>
+                            <constraint firstItem="ivq-br-Fr2" firstAttribute="centerX" secondItem="Bwc-by-2ae" secondAttribute="centerX" id="mj1-hk-ORc"/>
+                            <constraint firstItem="oi9-cK-jDZ" firstAttribute="centerY" secondItem="Bwc-by-2ae" secondAttribute="centerY" constant="88.5" id="nE4-pw-loO"/>
+                            <constraint firstItem="dfy-my-FBx" firstAttribute="centerX" secondItem="Bwc-by-2ae" secondAttribute="centerX" id="q8r-gF-4YV"/>
+                            <constraint firstItem="FJ6-rt-rOP" firstAttribute="trailing" secondItem="0ic-yK-8Uw" secondAttribute="trailing" constant="57" id="qes-Nw-0aA"/>
+                            <constraint firstItem="ivq-br-Fr2" firstAttribute="top" secondItem="dfy-my-FBx" secondAttribute="bottom" constant="8" id="sj6-dC-7m0"/>
+                            <constraint firstItem="oi9-cK-jDZ" firstAttribute="top" secondItem="jAS-wW-wZM" secondAttribute="bottom" constant="31" id="wO8-Ul-Daa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FJ6-rt-rOP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWZ-B5-hnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4084" y="-45.42728635682159"/>
         </scene>
         <!--Select Address View Controller-->
         <scene sceneID="BAx-au-pUV">
@@ -1557,7 +1653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7F-YU-Ji5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3407" y="-90"/>
+            <point key="canvasLocation" x="3399" y="-44"/>
         </scene>
     </scenes>
     <resources>
@@ -1572,6 +1668,12 @@
         <image name="valid-prescription-guide.jpg" width="800" height="1100"/>
         <namedColor name="BackgroundColor">
             <color red="0.84299999479999999" green="0.87800002099999996" blue="0.90600001809999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundColor">
+            <color red="0.84299999479999999" green="0.87800002099999996" blue="0.90600001809999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ButtonBackgroundColor">
+            <color red="0.1220000014" green="0.17299999299999999" blue="0.29800000789999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ButtonBackgroundColor">
             <color red="0.1220000014" green="0.17299999299999999" blue="0.29800000789999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

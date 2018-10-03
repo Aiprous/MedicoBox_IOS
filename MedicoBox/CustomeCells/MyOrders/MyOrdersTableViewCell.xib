@@ -32,7 +32,7 @@
                         <rect key="frame" x="5" y="5.5" width="365" height="106"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID: MB1828394839281" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyL-jU-FfY">
-                                <rect key="frame" x="17" y="12" width="223.5" height="29"/>
+                                <rect key="frame" x="17" y="12" width="232.5" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="k6Y-AG-8Kg"/>
                                 </constraints>
@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Date: 28/09/2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BX4-LK-zYF">
-                                <rect key="frame" x="17" y="39" width="223.5" height="29"/>
+                                <rect key="frame" x="17" y="39" width="232.5" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="iys-3E-eP5"/>
                                 </constraints>
@@ -50,7 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intransit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7V-nM-9JV">
-                                <rect key="frame" x="17" y="65" width="223.5" height="29"/>
+                                <rect key="frame" x="17" y="65" width="232.5" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="Fsp-ID-9Kg"/>
                                 </constraints>
@@ -59,7 +59,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="278.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n40-gl-SYh">
-                                <rect key="frame" x="239.5" y="36" width="91.5" height="34"/>
+                                <rect key="frame" x="248.5" y="36" width="82.5" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="07d-jz-Lpd"/>
                                 </constraints>

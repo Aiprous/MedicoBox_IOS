@@ -37,7 +37,7 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
     }
 
     @IBAction func ProductDetailAction(_ sender: Any) {
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: PRODUCT_DESC_VCID)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kProductDescriptionVC)
         self.navigationController?.pushViewController(Controller, animated: true)
     }
     //MARK:- FSPager Delegate And DataSource

@@ -12,7 +12,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Alamofire
 
-class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,GIDSignInUIDelegate {
+class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,GIDSignInUIDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var btnSignIn: UIButton!
     
@@ -60,19 +60,19 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     
     @IBAction func btnSignInWithOTPAction(_ sender: Any) {
         
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: VERIFY_OTP_VCID)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kVerifyOTPVC)
         self.navigationController?.pushViewController(Controller, animated: true)
         
     }
     @IBAction func btnSignUpHereAction(_ sender: Any) {
         
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: SIGNUP_VCID)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignUpVC)
         self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     @IBAction func btnForgotPasswordAction(_ sender: Any) {
         
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: FORGOT_PASSWORD_VCID)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kForgotPasswordFromMobileNoVC)
         self.navigationController?.pushViewController(Controller, animated: true)
     }
     
@@ -199,7 +199,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
             print(dataDict)
 //            self.callAPI_getLoginAPI()
             
-            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: HOME_VCID)
+            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kHomeVC)
             self.navigationController?.pushViewController(Controller, animated: true)
             
         } else {

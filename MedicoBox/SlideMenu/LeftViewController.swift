@@ -71,19 +71,19 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         
        
         
-        let homeViewController1 = kMainStoryboard.instantiateViewController(withIdentifier: HOME_VCID)
+        let homeViewController1 = kMainStoryboard.instantiateViewController(withIdentifier: kHomeVC)
         
         self.homeViewController = UINavigationController(rootViewController: homeViewController1)
         
         
-        let diabetiesViewController = kMainStoryboard.instantiateViewController(withIdentifier: "DiabetesCareList") as! DiabetesCareList
+        let diabetiesViewController = kMainStoryboard.instantiateViewController(withIdentifier: kDiabetesCareListVC)
         self.diabetesCareViewController = UINavigationController(rootViewController: diabetiesViewController)
         
 
-        let productDetailViewController = kMainStoryboard.instantiateViewController(withIdentifier: "ProductDetailAViewController") as! ProductDetailAViewController
+        let productDetailViewController = kMainStoryboard.instantiateViewController(withIdentifier: kProductDetailAVC)
         self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
         
-        let myOrderViewController = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: "MyOrdersViewController") as! MyOrdersViewController
+        let myOrderViewController = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kMyOrdersVC)
         self.myOrdersViewController = UINavigationController(rootViewController: myOrderViewController)
         
         //        self.tableView.registerCellClass(BaseTableViewCell.self)

@@ -39,7 +39,7 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
     
     
     @IBAction func continueBtnAction(_ sender: Any) {
-        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: UPLOAD_PRESCRIPTION_SECOND_VCID)
+        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kUploadPresriptionSecondVC)
         self.navigationController?.pushViewController(Controller, animated: true)
     }
     

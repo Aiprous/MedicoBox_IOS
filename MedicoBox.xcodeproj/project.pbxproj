@@ -73,6 +73,8 @@
 		CD8BF92B2155F6E8005B7BBA /* SetNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92A2155F6E8005B7BBA /* SetNewPasswordViewController.swift */; };
 		CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */; };
 		CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */; };
+		CD9C193321648D31001F772F /* OrderCancelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C193221648D31001F772F /* OrderCancelViewController.swift */; };
+		CD9C19352164A040001F772F /* OrderPlacedThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C19342164A040001F772F /* OrderPlacedThankYouViewController.swift */; };
 		CD9E043E2158AC9700F1C44C /* InstaOrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */; };
 		CDA00517215BB60E007ABC73 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA00516215BB60E007ABC73 /* CosmosDistrib.swift */; };
 		CDA00519215BB65B007ABC73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA00518215BB65B007ABC73 /* Main.storyboard */; };
@@ -184,6 +186,8 @@
 		CD8BF92A2155F6E8005B7BBA /* SetNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewPasswordViewController.swift; sourceTree = "<group>"; };
 		CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionViewController.swift; sourceTree = "<group>"; };
 		CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		CD9C193221648D31001F772F /* OrderCancelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCancelViewController.swift; sourceTree = "<group>"; };
+		CD9C19342164A040001F772F /* OrderPlacedThankYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlacedThankYouViewController.swift; sourceTree = "<group>"; };
 		CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaOrdersListViewController.swift; sourceTree = "<group>"; };
 		CDA00516215BB60E007ABC73 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		CDA00518215BB65B007ABC73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -516,6 +520,8 @@
 			isa = PBXGroup;
 			children = (
 				CD7EE4F2216220E7005875F6 /* MyOrdersViewController.swift */,
+				CD9C193221648D31001F772F /* OrderCancelViewController.swift */,
+				CD9C19342164A040001F772F /* OrderPlacedThankYouViewController.swift */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -922,6 +928,7 @@
 				3A5F5FFF215908690072E1BB /* ProductDetailBTableViewCell.swift in Sources */,
 				3A491593214BAE6300917E79 /* SignUpViewController.swift in Sources */,
 				CDDCA044215231A100DC1202 /* MedicoCollectionViewCell.swift in Sources */,
+				CD9C193321648D31001F772F /* OrderCancelViewController.swift in Sources */,
 				3A984C3B215106520012E0C7 /* DesignableImage.swift in Sources */,
 				3AFD0371215F8A9100B04D8C /* CartItemTableCell.swift in Sources */,
 				3A5F600B215908F10072E1BB /* String.swift in Sources */,
@@ -934,6 +941,7 @@
 				CDDCA01C2152189100DC1202 /* Extension.swift in Sources */,
 				CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */,
 				CD7EE4F72162212E005875F6 /* MyOrdersTableViewCell.swift in Sources */,
+				CD9C19352164A040001F772F /* OrderPlacedThankYouViewController.swift in Sources */,
 				3AD8A5CE215F4B22005E2BE6 /* CartViewController.swift in Sources */,
 				3A491591214BAE6300917E79 /* AppDelegate.swift in Sources */,
 				CDDCA01B2152189100DC1202 /* Constants.swift in Sources */,

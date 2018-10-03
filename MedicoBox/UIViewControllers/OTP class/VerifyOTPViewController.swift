@@ -50,7 +50,6 @@ class VerifyOTPViewController: UIViewController{//,UITextFieldDelegate {
             let legnth = textField.text?.count
             let currentString : String = textField.text! as String
             var newString = (currentString as NSString).replacingCharacters(in: range, with: string) as? NSString
-            //            let newString : String = currentString.replacingCharacters(in: range , with: string) as String
             let allowed =  CharacterSet.decimalDigits
             let characterset = CharacterSet(charactersIn: string)
             txtTwo.becomeFirstResponder()
@@ -63,7 +62,6 @@ class VerifyOTPViewController: UIViewController{//,UITextFieldDelegate {
             let legnth = textField.text?.count
             let currentString : String = textField.text! as String
             var newString = (currentString as NSString).replacingCharacters(in: range, with: string) as? NSString
-            //            let newString : String = currentString.replacingCharacters(in: range , with: string) as String
             let allowed =  CharacterSet.decimalDigits
             let characterset = CharacterSet(charactersIn: string)
             txtThree.becomeFirstResponder()
@@ -76,7 +74,6 @@ class VerifyOTPViewController: UIViewController{//,UITextFieldDelegate {
             let legnth = textField.text?.count
             let currentString : String = textField.text! as String
             var newString = (currentString as NSString).replacingCharacters(in: range, with: string) as? NSString
-            //            let newString : String = currentString.replacingCharacters(in: range , with: string) as String
             let allowed =  CharacterSet.decimalDigits
             let characterset = CharacterSet(charactersIn: string)
             txtFour.becomeFirstResponder()
@@ -135,5 +132,4 @@ class VerifyOTPViewController: UIViewController{//,UITextFieldDelegate {
         appDelegate.createMenuView()
     }
 
-    
 }

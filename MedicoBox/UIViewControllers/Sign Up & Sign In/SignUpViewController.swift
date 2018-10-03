@@ -27,7 +27,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func btnSignInAction(_ sender: Any) {
         
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: SIGNIN_VCID)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignInVC)
         self.navigationController?.pushViewController(Controller, animated: true)
         
     }

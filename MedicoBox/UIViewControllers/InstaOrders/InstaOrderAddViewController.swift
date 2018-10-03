@@ -15,9 +15,10 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = false;
-        /// Search Bar Design Style
         
+        self.navigationController?.isNavigationBarHidden = false;
+        
+        /// Search Bar Design Style
         if let textfield = instaOrderAddSearchBar.value(forKey: "searchField") as? UITextField {
             
             textfield.textColor = UIColor.gray
@@ -66,7 +67,9 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "DiabetesCareCell") as! DiabetesCareCell
+        
         cellObj.btnAdd.setTitle("ADD TO INSTA LIST", for: .normal);
+        
         cellObj.selectionStyle = .none
         return cellObj
     }

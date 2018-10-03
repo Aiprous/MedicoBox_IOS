@@ -91,6 +91,9 @@ class SetNewPasswordViewController: UIViewController {
 
     @IBAction func btnSetPasswordAction(_ sender: Any) {
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.createMenuView()
+
         
     }
 }
