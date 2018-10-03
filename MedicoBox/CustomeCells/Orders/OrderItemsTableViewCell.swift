@@ -10,6 +10,14 @@ import UIKit
 
 class OrderItemsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imgOrderItems: UIImageView!
+    @IBOutlet weak var lblTitleOrderItems: UILabel!
+    @IBOutlet weak var lblSubTitleOrderItems: UILabel!
+    @IBOutlet weak var lblMRPRateOrderItems: UILabel!
+    @IBOutlet weak var lblPriceOrderItems: UILabel!
+
+     @IBOutlet weak var logoOrderItems: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

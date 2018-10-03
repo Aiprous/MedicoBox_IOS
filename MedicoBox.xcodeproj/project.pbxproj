@@ -75,6 +75,8 @@
 		CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */; };
 		CD9C193321648D31001F772F /* OrderCancelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C193221648D31001F772F /* OrderCancelViewController.swift */; };
 		CD9C19352164A040001F772F /* OrderPlacedThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C19342164A040001F772F /* OrderPlacedThankYouViewController.swift */; };
+		CD9C19392164A42E001F772F /* OrderItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C19372164A42E001F772F /* OrderItemsTableViewCell.swift */; };
+		CD9C193A2164A42E001F772F /* OrderItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD9C19382164A42E001F772F /* OrderItemsTableViewCell.xib */; };
 		CD9E043E2158AC9700F1C44C /* InstaOrdersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */; };
 		CDA00517215BB60E007ABC73 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA00516215BB60E007ABC73 /* CosmosDistrib.swift */; };
 		CDA00519215BB65B007ABC73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA00518215BB65B007ABC73 /* Main.storyboard */; };
@@ -188,6 +190,8 @@
 		CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		CD9C193221648D31001F772F /* OrderCancelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCancelViewController.swift; sourceTree = "<group>"; };
 		CD9C19342164A040001F772F /* OrderPlacedThankYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlacedThankYouViewController.swift; sourceTree = "<group>"; };
+		CD9C19372164A42E001F772F /* OrderItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemsTableViewCell.swift; sourceTree = "<group>"; };
+		CD9C19382164A42E001F772F /* OrderItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderItemsTableViewCell.xib; sourceTree = "<group>"; };
 		CD9E043D2158AC9700F1C44C /* InstaOrdersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaOrdersListViewController.swift; sourceTree = "<group>"; };
 		CDA00516215BB60E007ABC73 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		CDA00518215BB65B007ABC73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -544,6 +548,15 @@
 			path = "Product Description";
 			sourceTree = "<group>";
 		};
+		CD9C19362164A26E001F772F /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				CD9C19372164A42E001F772F /* OrderItemsTableViewCell.swift */,
+				CD9C19382164A42E001F772F /* OrderItemsTableViewCell.xib */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
 		CD9E043521589AE500F1C44C /* InstaOrdersListTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +649,7 @@
 		CDDCA00421520C7F00DC1202 /* CustomeCells */ = {
 			isa = PBXGroup;
 			children = (
+				CD9C19362164A26E001F772F /* Orders */,
 				CD7EE4F4216220ED005875F6 /* MyOrders */,
 				3A5F60012159086F0072E1BB /* ProductDetailbViewCell */,
 				3A5F5FFC2159084F0072E1BB /* DiabetesCareCell */,
@@ -803,6 +817,7 @@
 				3AFD0372215F8A9100B04D8C /* CartItemTableCell.xib in Resources */,
 				3A5E226E215D1EDE0034FA04 /* DeliveryAddressTableCell.xib in Resources */,
 				3A56BC48215E261100CA1E33 /* AddressTableViewCell.xib in Resources */,
+				CD9C193A2164A42E001F772F /* OrderItemsTableViewCell.xib in Resources */,
 				CD364096215281B5008FEFA1 /* fa-solid-900.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -908,6 +923,7 @@
 				3AE4E8BC215E639B00A1AAE4 /* PaymentDetailViewController.swift in Sources */,
 				CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */,
 				3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */,
+				CD9C19392164A42E001F772F /* OrderItemsTableViewCell.swift in Sources */,
 				3A984C4021510B100012E0C7 /* DesignableView.swift in Sources */,
 				3A56BC4B215E2AC800CA1E33 /* BillingAddressVC.swift in Sources */,
 				3A5F600E215908F10072E1BB /* UIApplication.swift in Sources */,
