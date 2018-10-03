@@ -44,6 +44,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var homeViewController: UIViewController!
     var diabetesCareViewController: UIViewController!
     var productDetailAViewController: UIViewController!
+    var myOrdersViewController: UIViewController!
     var imageHeaderView: ImageHeaderView!
     var sections = [Section]()
     
@@ -82,7 +83,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let productDetailViewController = kMainStoryboard.instantiateViewController(withIdentifier: "ProductDetailAViewController") as! ProductDetailAViewController
         self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
         
-   
+        let myOrderViewController = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: "MyOrdersViewController") as! MyOrdersViewController
+        self.myOrdersViewController = UINavigationController(rootViewController: myOrderViewController)
+        
         //        self.tableView.registerCellClass(BaseTableViewCell.self)
         
         self.imageHeaderView = ImageHeaderView.loadNib()
@@ -106,7 +109,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             
         case .account:             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
 
-        case .medicines: self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
+        case .medicines: self.slideMenuController()?.changeMainViewController(self.myOrdersViewController, close: true)
             //        case .labtests:
             //
             //        case .cart:

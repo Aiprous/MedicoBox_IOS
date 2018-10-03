@@ -158,9 +158,11 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        /*
+        
+        
          let cell:InstaOrdersListTableViewCell = tableView.cellForRow(at: indexPath) as! InstaOrdersListTableViewCell
-         
+        cell.optionView.isHidden = false;
+   /*
          if let data = destinationData {
          if let rowData = data[indexPath.row] {
          if(rowData.flag == "Close"){
