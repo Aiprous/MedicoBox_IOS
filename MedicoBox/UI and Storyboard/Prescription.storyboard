@@ -35,7 +35,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="882"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTF-Jx-HMp">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="882"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="879"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EfD-Tx-5n6">
                                                         <rect key="frame" x="8" y="8" width="359" height="122"/>
@@ -167,13 +167,13 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ATTACHED PRESCRIPTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoV-ME-nCe">
-                                                        <rect key="frame" x="18" y="143" width="200.5" height="22"/>
+                                                        <rect key="frame" x="18" y="143" width="211" height="19"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="z0k-59-Id4">
-                                                        <rect key="frame" x="8" y="177" width="359" height="157"/>
+                                                        <rect key="frame" x="8" y="174" width="359" height="157"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="157" id="Jum-SK-LzT"/>
@@ -227,13 +227,13 @@
                                                         </connections>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4d-6w-pgB" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="349" width="359" height="136"/>
+                                                        <rect key="frame" x="8" y="346" width="359" height="136"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdD-tr-aeU">
                                                                 <rect key="frame" x="0.0" y="3" width="359" height="43"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you ordering for yourself?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPg-KA-I0T">
-                                                                        <rect key="frame" x="10" y="8" width="222" height="20.5"/>
+                                                                        <rect key="frame" x="10" y="8" width="222" height="17.5"/>
                                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -341,10 +341,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GqG-SF-0N4" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="500" width="359" height="377"/>
+                                                        <rect key="frame" x="8" y="497" width="359" height="377"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valid Prescription Guid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PX-5R-D5J">
-                                                                <rect key="frame" x="10" y="14" width="169.5" height="22"/>
+                                                                <rect key="frame" x="10" y="14" width="163" height="19"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1531,7 +1531,6 @@
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.87843137250000003" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="jkP-Uv-wuW" firstAttribute="leading" secondItem="q3n-lN-DgL" secondAttribute="leading" constant="18" id="4eY-49-kG6"/>
-                                    <constraint firstItem="jkP-Uv-wuW" firstAttribute="top" secondItem="q3n-lN-DgL" secondAttribute="top" id="Pi5-Ec-r5M"/>
                                     <constraint firstItem="vNo-bd-gTG" firstAttribute="leading" secondItem="q3n-lN-DgL" secondAttribute="leading" id="URo-6u-SAP"/>
                                     <constraint firstAttribute="trailing" secondItem="vNo-bd-gTG" secondAttribute="trailing" id="VIe-dT-C3n"/>
                                     <constraint firstItem="vNo-bd-gTG" firstAttribute="top" secondItem="Lw1-aJ-JPg" secondAttribute="bottom" constant="2" id="W4X-0e-98F"/>
@@ -1540,11 +1539,6 @@
                                     <constraint firstItem="jkP-Uv-wuW" firstAttribute="top" secondItem="q3n-lN-DgL" secondAttribute="top" constant="8" id="eZs-kU-zv0"/>
                                     <constraint firstItem="Lw1-aJ-JPg" firstAttribute="leading" secondItem="q3n-lN-DgL" secondAttribute="leading" constant="18" id="xvE-4r-2jX"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Pi5-Ec-r5M"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

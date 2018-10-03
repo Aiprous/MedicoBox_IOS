@@ -11,8 +11,8 @@ import UIKit
 class MyOrdersTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblOrderID: UILabel!
-      @IBOutlet weak var lblOrderDate: UILabel!
-      @IBOutlet weak var lblOrderStatus: UILabel!
+    @IBOutlet weak var lblOrderDate: UILabel!
+    @IBOutlet weak var lblOrderStatus: UILabel!
     @IBOutlet weak var lblOrderPrice: UILabel!
     @IBOutlet weak var btnDetail: UIButton!
     

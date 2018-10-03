@@ -68,6 +68,7 @@
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "MyOrdersTableViewCell") as! MyOrdersTableViewCell
         
         cellObj.lblOrderPrice.text = "\u{20B9}" + " 278.00"
+        
         if(indexPath.row == 0){
             
             cellObj.lblOrderStatus.text = "Intransit"
