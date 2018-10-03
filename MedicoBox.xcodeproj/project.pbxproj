@@ -31,6 +31,7 @@
 		3A5E226A215D06B20034FA04 /* UploadPresriptionSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E2269215D06B20034FA04 /* UploadPresriptionSecondVC.swift */; };
 		3A5E226D215D1EDE0034FA04 /* DeliveryAddressTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E226B215D1EDE0034FA04 /* DeliveryAddressTableCell.swift */; };
 		3A5E226E215D1EDE0034FA04 /* DeliveryAddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E226C215D1EDE0034FA04 /* DeliveryAddressTableCell.xib */; };
+		3A5F5D8321648C3E00519CA3 /* OrderTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5D8221648C3E00519CA3 /* OrderTrackingViewController.swift */; };
 		3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */; };
 		3A5F5FEB215907AB0072E1BB /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE8215907AA0072E1BB /* ExSlideMenuController.swift */; };
 		3A5F5FEC215907AB0072E1BB /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE9215907AA0072E1BB /* LeftViewController.swift */; };
@@ -143,6 +144,7 @@
 		3A5E2269215D06B20034FA04 /* UploadPresriptionSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPresriptionSecondVC.swift; sourceTree = "<group>"; };
 		3A5E226B215D1EDE0034FA04 /* DeliveryAddressTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressTableCell.swift; sourceTree = "<group>"; };
 		3A5E226C215D1EDE0034FA04 /* DeliveryAddressTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryAddressTableCell.xib; sourceTree = "<group>"; };
+		3A5F5D8221648C3E00519CA3 /* OrderTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTrackingViewController.swift; sourceTree = "<group>"; };
 		3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		3A5F5FE8215907AA0072E1BB /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
 		3A5F5FE9215907AA0072E1BB /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 				3AD8A5CC215F498B005E2BE6 /* Cart Screen */,
 				3A25CD992162347D00B3BA8E /* MyProfile */,
 				3A25CD9A216234B800B3BA8E /* NotificationViewController.swift */,
+				3A5F5D8221648C3E00519CA3 /* OrderTrackingViewController.swift */,
 			);
 			path = UIViewControllers;
 			sourceTree = "<group>";
@@ -937,6 +940,7 @@
 				CDDCA01B2152189100DC1202 /* Constants.swift in Sources */,
 				3A5F5FFA215908490072E1BB /* DiabetesCareCell.swift in Sources */,
 				3A5F5FF62159080C0072E1BB /* SubCell.swift in Sources */,
+				3A5F5D8321648C3E00519CA3 /* OrderTrackingViewController.swift in Sources */,
 				3A5F600C215908F10072E1BB /* UIColor.swift in Sources */,
 				3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */,
 				3A5F5FF1215907CB0072E1BB /* ImageHeaderView.swift in Sources */,

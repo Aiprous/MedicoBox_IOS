@@ -1,22 +1,25 @@
 //
-//  OrderPlacedViewController.swift
+//  OrderTrackingViewController.swift
 //  MedicoBox
 //
-//  Created by SBC on 28/09/18.
+//  Created by SBC on 03/10/18.
 //  Copyright © 2018 Aiprous. All rights reserved.
 //
 
 import UIKit
 
-class OrderPlacedViewController: UIViewController {
+class OrderTrackingViewController: UIViewController {
 
+    
+    @IBOutlet weak var tblOrderItems: UITableView!
+    @IBOutlet weak var mapView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tblOrderItems.separatorStyle = .none
         self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;
-
     }
 
     override func didReceiveMemoryWarning() {
