@@ -41,10 +41,14 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     @IBOutlet weak var tableView: UITableView!
     //    var menus = ["Main", "Swift", "NonMenu"]
     var iconArray = ["home","box","capsules","syringe","user","cart","ic_notifications_black_24dp","settings","logout"]
+    
     var homeViewController: UIViewController!
     var diabetesCareViewController: UIViewController!
     var productDetailAViewController: UIViewController!
     var myOrdersViewController: UIViewController!
+    var myProfileViewController : UIViewController!
+    var notificationViewController : UIViewController!
+
     var imageHeaderView: ImageHeaderView!
     var sections = [Section]()
     
@@ -69,22 +73,32 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         
         self.tableView.tableFooterView = UIView(frame: .zero)
         
-       
-        
+   
         let homeViewController1 = kMainStoryboard.instantiateViewController(withIdentifier: kHomeVC)
+
         
         self.homeViewController = UINavigationController(rootViewController: homeViewController1)
         
         
         let diabetiesViewController = kMainStoryboard.instantiateViewController(withIdentifier: kDiabetesCareListVC)
+
+       
         self.diabetesCareViewController = UINavigationController(rootViewController: diabetiesViewController)
         
+        let myProfileVC = kMainStoryboard.instantiateViewController(withIdentifier: "MyProfileViewController") as! MyProfileViewController
+        self.myProfileViewController = UINavigationController(rootViewController: myProfileVC)
+
 
         let productDetailViewController = kMainStoryboard.instantiateViewController(withIdentifier: kProductDetailAVC)
         self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
         
         let myOrderViewController = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kMyOrdersVC)
         self.myOrdersViewController = UINavigationController(rootViewController: myOrderViewController)
+
+        
+        let notificationVC = kMainStoryboard.instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
+        self.notificationViewController = UINavigationController(rootViewController: notificationVC)
+
         
         //        self.tableView.registerCellClass(BaseTableViewCell.self)
         
@@ -104,21 +118,18 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     
     func changeViewController(_ menu: LeftMenu) {
         switch menu {
-        case .home, .cart, .labtests, .notifications, .logout, .settings :
+        case .home, .cart, .labtests, .logout, .settings :
             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
             
-        case .account:             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
 
         case .medicines: self.slideMenuController()?.changeMainViewController(self.myOrdersViewController, close: true)
-            //        case .labtests:
-            //
-            //        case .cart:
-            //
-            //        case .notifications:
-            //
-            //        case .settings:
-            //
-            //        case .logout:
+
+        case .account:             self.slideMenuController()?.changeMainViewController(self.myProfileViewController, close: true)
+
+     
+        case .notifications:
+            self.slideMenuController()?.changeMainViewController(self.notificationViewController, close: true)
+          
             
         default: break
         }
@@ -216,8 +227,7 @@ extension LeftViewController : UITableViewDataSource {
         }
         
     }
-    
-    
+        
     //
     // MARK: - Event Handlers
     //

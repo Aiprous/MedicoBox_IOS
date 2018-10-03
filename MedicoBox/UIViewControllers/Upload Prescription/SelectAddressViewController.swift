@@ -66,9 +66,7 @@ class SelectAddressViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
 
-        
     }
 
 }

@@ -50,7 +50,10 @@ let kBillingAddressVC = "BillingAddressVC"
 let kPaymentDetailVC = "PaymentDetailViewController"
 let kCartViewController = "CartViewController"
 let kCartOrderSummaryVC = "CartOrderSummaryVC"
-
+let kMyProfileAccountVC = "MyProfileViewController"
+let kEditProfileVC  = "EditProfileViewController"
+let kNotificationVC = "NotificationViewController"
+let kOrderTrackingVC = "OrderTrackingViewController"
 // MARK: Image Constant
 let kbackgroundColor  =  UIColor.init(hexString: "#d7e0e7")
 let KNavigationBarColor = UIColor.init(hexString: "#fbc525")

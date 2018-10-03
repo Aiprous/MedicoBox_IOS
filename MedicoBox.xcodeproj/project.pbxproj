@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */; };
+
+		3A25CD96216216D300B3BA8E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25CD95216216D300B3BA8E /* EditProfileViewController.swift */; };
+		3A25CD9B216234B800B3BA8E /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25CD9A216234B800B3BA8E /* NotificationViewController.swift */; };
+		3A25CD9D2162351900B3BA8E /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25CD9C2162351900B3BA8E /* MyProfileViewController.swift */; };
+		3A25CDA02162375A00B3BA8E /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25CD9E2162375A00B3BA8E /* NotificationTableViewCell.swift */; };
+		3A25CDA12162375A00B3BA8E /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A25CD9F2162375A00B3BA8E /* NotificationTableViewCell.xib */; };
 		3A491591214BAE6300917E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491590214BAE6300917E79 /* AppDelegate.swift */; };
 		3A491593214BAE6300917E79 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A491592214BAE6300917E79 /* SignUpViewController.swift */; };
 		3A491598214BAE6C00917E79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A491597214BAE6C00917E79 /* Assets.xcassets */; };
@@ -26,6 +32,7 @@
 		3A5E226A215D06B20034FA04 /* UploadPresriptionSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E2269215D06B20034FA04 /* UploadPresriptionSecondVC.swift */; };
 		3A5E226D215D1EDE0034FA04 /* DeliveryAddressTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E226B215D1EDE0034FA04 /* DeliveryAddressTableCell.swift */; };
 		3A5E226E215D1EDE0034FA04 /* DeliveryAddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E226C215D1EDE0034FA04 /* DeliveryAddressTableCell.xib */; };
+		3A5F5D8321648C3E00519CA3 /* OrderTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5D8221648C3E00519CA3 /* OrderTrackingViewController.swift */; };
 		3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */; };
 		3A5F5FEB215907AB0072E1BB /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE8215907AA0072E1BB /* ExSlideMenuController.swift */; };
 		3A5F5FEC215907AB0072E1BB /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F5FE9215907AA0072E1BB /* LeftViewController.swift */; };
@@ -120,6 +127,11 @@
 
 /* Begin PBXFileReference section */
 		3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailAViewController.swift; sourceTree = "<group>"; };
+		3A25CD95216216D300B3BA8E /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		3A25CD9A216234B800B3BA8E /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		3A25CD9C2162351900B3BA8E /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		3A25CD9E2162375A00B3BA8E /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		3A25CD9F2162375A00B3BA8E /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		3A49158D214BAE6300917E79 /* MedicoBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicoBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A491590214BAE6300917E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A491592214BAE6300917E79 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +152,7 @@
 		3A5E2269215D06B20034FA04 /* UploadPresriptionSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPresriptionSecondVC.swift; sourceTree = "<group>"; };
 		3A5E226B215D1EDE0034FA04 /* DeliveryAddressTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressTableCell.swift; sourceTree = "<group>"; };
 		3A5E226C215D1EDE0034FA04 /* DeliveryAddressTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryAddressTableCell.xib; sourceTree = "<group>"; };
+		3A5F5D8221648C3E00519CA3 /* OrderTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTrackingViewController.swift; sourceTree = "<group>"; };
 		3A5F5FE7215907AA0072E1BB /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		3A5F5FE8215907AA0072E1BB /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
 		3A5F5FE9215907AA0072E1BB /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +281,15 @@
 				793E45A0F76C939F763806E3 /* Pods-MedicoBox.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3A25CD992162347D00B3BA8E /* MyProfile */ = {
+			isa = PBXGroup;
+			children = (
+				3A25CD95216216D300B3BA8E /* EditProfileViewController.swift */,
+				3A25CD9C2162351900B3BA8E /* MyProfileViewController.swift */,
+			);
+			path = MyProfile;
 			sourceTree = "<group>";
 		};
 		3A491584214BAE6200917E79 = {
@@ -634,6 +656,9 @@
 				CD9E043A2158AC2300F1C44C /* InstaOrders */,
 				CD8BF92C21560B8C005B7BBA /* Product Description */,
 				3AD8A5CC215F498B005E2BE6 /* Cart Screen */,
+				3A25CD992162347D00B3BA8E /* MyProfile */,
+				3A25CD9A216234B800B3BA8E /* NotificationViewController.swift */,
+				3A5F5D8221648C3E00519CA3 /* OrderTrackingViewController.swift */,
 			);
 			path = UIViewControllers;
 			sourceTree = "<group>";
@@ -661,6 +686,8 @@
 				3A56BC49215E261900CA1E33 /* Address Cell */,
 				3AFD036E215F8A4600B04D8C /* CartOrderSummaryTableViewCell */,
 				3AFD0373215F8ABF00B04D8C /* CartItemCell */,
+				3A25CD9E2162375A00B3BA8E /* NotificationTableViewCell.swift */,
+				3A25CD9F2162375A00B3BA8E /* NotificationTableViewCell.xib */,
 			);
 			path = CustomeCells;
 			sourceTree = "<group>";
@@ -811,6 +838,7 @@
 				CDB42CC1215A785F004B4559 /* DiabetesCareCell.xib in Resources */,
 				3A5E2263215CBCE00034FA04 /* valid-prescription-guide.jpg in Resources */,
 				CDA18F7D2153C9BE00F2D1AA /* OpenSans-Italic.ttf in Resources */,
+				3A25CDA12162375A00B3BA8E /* NotificationTableViewCell.xib in Resources */,
 				CDA18F842153C9BE00F2D1AA /* OpenSans-LightItalic.ttf in Resources */,
 				CDA18F832153C9BE00F2D1AA /* OpenSans-Regular.ttf in Resources */,
 				3A5E2260215C95420034FA04 /* Prescription.storyboard in Resources */,
@@ -937,6 +965,7 @@
 				3A5F600A215908F10072E1BB /* UIView.swift in Sources */,
 				3A5F6010215908F10072E1BB /* UITableViewExtension.swift in Sources */,
 				CD9E043E2158AC9700F1C44C /* InstaOrdersListViewController.swift in Sources */,
+				3A25CDA02162375A00B3BA8E /* NotificationTableViewCell.swift in Sources */,
 				3A5F5FEB215907AB0072E1BB /* ExSlideMenuController.swift in Sources */,
 				3AF374B02161DECA00C86733 /* InstaOrdersListTableViewCell.swift in Sources */,
 				3A56BC44215E091300CA1E33 /* OrderPlacedViewController.swift in Sources */,
@@ -946,6 +975,7 @@
 				CDDCA044215231A100DC1202 /* MedicoCollectionViewCell.swift in Sources */,
 				CD9C193321648D31001F772F /* OrderCancelViewController.swift in Sources */,
 				3A984C3B215106520012E0C7 /* DesignableImage.swift in Sources */,
+				3A25CD9B216234B800B3BA8E /* NotificationViewController.swift in Sources */,
 				3AFD0371215F8A9100B04D8C /* CartItemTableCell.swift in Sources */,
 				3A5F600B215908F10072E1BB /* String.swift in Sources */,
 				3A5F5FEC215907AB0072E1BB /* LeftViewController.swift in Sources */,
@@ -963,14 +993,17 @@
 				CDDCA01B2152189100DC1202 /* Constants.swift in Sources */,
 				3A5F5FFA215908490072E1BB /* DiabetesCareCell.swift in Sources */,
 				3A5F5FF62159080C0072E1BB /* SubCell.swift in Sources */,
+				3A5F5D8321648C3E00519CA3 /* OrderTrackingViewController.swift in Sources */,
 				3A5F600C215908F10072E1BB /* UIColor.swift in Sources */,
 				3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */,
 				3A5F5FF1215907CB0072E1BB /* ImageHeaderView.swift in Sources */,
+				3A25CD9D2162351900B3BA8E /* MyProfileViewController.swift in Sources */,
 				CD8BF92B2155F6E8005B7BBA /* SetNewPasswordViewController.swift in Sources */,
 				3A56BC42215E054300CA1E33 /* OrderSummaryViewController.swift in Sources */,
 				CDDCA00021520C4500DC1202 /* HomeViewController.swift in Sources */,
 				3A984C302150FEA50012E0C7 /* SignInViewController.swift in Sources */,
 				CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */,
+				3A25CD96216216D300B3BA8E /* EditProfileViewController.swift in Sources */,
 				3A984C3C215106520012E0C7 /* DesignableButton.swift in Sources */,
 				3A984C3D215106520012E0C7 /* DesignableShadowButton.swift in Sources */,
 				3A5F6011215908F10072E1BB /* UIImage.swift in Sources */,

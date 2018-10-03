@@ -152,8 +152,8 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
             return 194
             
         }else {
-            
-            return 40
+
+             return 40
             
         }
         
@@ -166,6 +166,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
          let cell:InstaOrdersListTableViewCell = tableView.cellForRow(at: indexPath) as! InstaOrdersListTableViewCell
         cell.optionView.isHidden = false;
    
+
     }
     
     /* func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -314,7 +315,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         self.productInfoView.isHidden = true;
         
         let Controller = self.storyboard?.instantiateViewController(withIdentifier: kInstaOrderAddVC)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+ self.navigationController?.pushViewController(Controller!, animated: true)
     }
     @IBAction func btnOkAction(_ sender: Any) {
         

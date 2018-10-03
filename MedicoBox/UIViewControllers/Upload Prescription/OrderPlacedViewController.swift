@@ -14,12 +14,16 @@ class OrderPlacedViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        self.setNavigationBarItemBackButton()
+        self.navigationController?.isNavigationBarHidden = false;
+
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
 
 }

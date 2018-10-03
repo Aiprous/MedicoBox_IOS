@@ -341,7 +341,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     @IBAction func btnMEDICINESAction(_ sender: Any) {
         
         let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kDiabetesCareListVC)
-        self.navigationController?.pushViewController(Controller, animated: true)
+ self.navigationController?.pushViewController(Controller, animated: true)
         
     }
     
@@ -352,7 +352,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     @IBAction func btnINSTAORDERSAction(_ sender: Any) {
         
         let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kInstaOrdersListVC)
-        self.navigationController?.pushViewController(Controller, animated: true)
+ self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     @IBAction func btnECONSULTATIONAction(_ sender: Any) {
@@ -360,6 +360,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     }
     
     @IBAction func uploadPrescriptionAction(_ sender: Any) {
+
         let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kUploadPrescriptionVC)
         self.navigationController?.pushViewController(Controller, animated: true)
         

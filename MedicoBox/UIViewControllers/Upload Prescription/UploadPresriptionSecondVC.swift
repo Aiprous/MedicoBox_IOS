@@ -31,7 +31,9 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
 
     @IBAction func continueBtnAction(_ sender: Any) {
       
+
             let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kSelectAddressVC)
+
             self.navigationController?.pushViewController(Controller, animated: true)
         
     }

@@ -75,6 +75,7 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
             self.navigationController?.pushViewController(Controller, animated: true)
         }else{
             let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kProductDetailBVC)
+
             self.navigationController?.pushViewController(Controller, animated: true)
         }
         

@@ -27,6 +27,5 @@ class PaymentDetailViewController: UIViewController {
     @IBAction func placeOrderAction(_ sender: Any) {
     }
     
-  
 
 }
