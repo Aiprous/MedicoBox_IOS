@@ -84,10 +84,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cartBtnAction(_ sender: Any) {
-        let Controller = kCartStoryBoard.instantiateViewController(withIdentifier: kCartViewController)
-        self.navigationController?.pushViewController(Controller, animated: true)
-    }
+   
     
     //MARK:- Collection View Delegate And DataSource
     
@@ -364,6 +361,11 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kUploadPrescriptionVC)
         self.navigationController?.pushViewController(Controller, animated: true)
         
+    }
+    @IBAction func cartBtnAction(_ sender: Any) {
+        
+        let Controller = kCartStoryBoard.instantiateViewController(withIdentifier: kCartViewController)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     
 }

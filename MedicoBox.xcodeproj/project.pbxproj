@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0E7653215B655700F26FA6 /* ProductDetailAViewController.swift */; };
-
 		3A25CD96216216D300B3BA8E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25CD95216216D300B3BA8E /* EditProfileViewController.swift */; };
 		3A25CD9B216234B800B3BA8E /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25CD9A216234B800B3BA8E /* NotificationViewController.swift */; };
 		3A25CD9D2162351900B3BA8E /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A25CD9C2162351900B3BA8E /* MyProfileViewController.swift */; };
@@ -122,6 +121,7 @@
 		CDDCA044215231A100DC1202 /* MedicoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA042215231A100DC1202 /* MedicoCollectionViewCell.swift */; };
 		CDDCA045215231A100DC1202 /* MedicoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */; };
 		CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */; };
+		CDF2AEAB2165DA2A00AB346C /* MyOrdersDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2AEAA2165DA2A00AB346C /* MyOrdersDetailsViewController.swift */; };
 		CDF2BE2C215A028E00F7D64D /* InstaOrderAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -243,6 +243,7 @@
 		CDDCA042215231A100DC1202 /* MedicoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicoCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicoCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		CDF2AEAA2165DA2A00AB346C /* MyOrdersDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersDetailsViewController.swift; sourceTree = "<group>"; };
 		CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrderAddViewController.swift; sourceTree = "<group>"; };
 		E2A5E03AB499BCF82AB59B1C /* Pods-MedicoBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicoBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -357,8 +358,6 @@
 				3A5E2264215CD3120034FA04 /* UploadPrescriptionViewController.swift */,
 				3A5E2269215D06B20034FA04 /* UploadPresriptionSecondVC.swift */,
 				3A56BC3F215DDF1F00CA1E33 /* SelectAddressViewController.swift */,
-				3A56BC41215E054300CA1E33 /* OrderSummaryViewController.swift */,
-				3A56BC43215E091300CA1E33 /* OrderPlacedViewController.swift */,
 			);
 			path = "Upload Prescription";
 			sourceTree = "<group>";
@@ -548,6 +547,10 @@
 				CD7EE4F2216220E7005875F6 /* MyOrdersViewController.swift */,
 				CD9C193221648D31001F772F /* OrderCancelViewController.swift */,
 				CD9C19342164A040001F772F /* OrderPlacedThankYouViewController.swift */,
+				3A5F5D8221648C3E00519CA3 /* OrderTrackingViewController.swift */,
+				3A56BC41215E054300CA1E33 /* OrderSummaryViewController.swift */,
+				3A56BC43215E091300CA1E33 /* OrderPlacedViewController.swift */,
+				CDF2AEAA2165DA2A00AB346C /* MyOrdersDetailsViewController.swift */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -658,7 +661,6 @@
 				3AD8A5CC215F498B005E2BE6 /* Cart Screen */,
 				3A25CD992162347D00B3BA8E /* MyProfile */,
 				3A25CD9A216234B800B3BA8E /* NotificationViewController.swift */,
-				3A5F5D8221648C3E00519CA3 /* OrderTrackingViewController.swift */,
 			);
 			path = UIViewControllers;
 			sourceTree = "<group>";
@@ -950,6 +952,7 @@
 				3A5E226D215D1EDE0034FA04 /* DeliveryAddressTableCell.swift in Sources */,
 				3AE4E8BC215E639B00A1AAE4 /* PaymentDetailViewController.swift in Sources */,
 				CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */,
+				CDF2AEAB2165DA2A00AB346C /* MyOrdersDetailsViewController.swift in Sources */,
 				3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */,
 				CD9C19392164A42E001F772F /* OrderItemsTableViewCell.swift in Sources */,
 				3A984C4021510B100012E0C7 /* DesignableView.swift in Sources */,

@@ -103,7 +103,7 @@
         
         let cell:MyOrdersTableViewCell = tableView.cellForRow(at: indexPath) as! MyOrdersTableViewCell
         
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kOrderCancelVC)
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kMyOrdersDetailsVC)
         self.navigationController?.pushViewController(Controller!, animated: true)
         
     }

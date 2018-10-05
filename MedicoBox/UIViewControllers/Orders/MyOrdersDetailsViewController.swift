@@ -1,19 +1,22 @@
 //
-//  OrderPlacedThankYouViewController.swift
+//  MyOrdersDetailsViewController.swift
 //  MedicoBox
 //
-//  Created by NCORD LLP on 03/10/18.
+//  Created by NCORD LLP on 04/10/18.
 //  Copyright © 2018 Aiprous. All rights reserved.
 //
 
 import UIKit
 
-class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var tblOrderItems: UITableView!
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
-    @IBOutlet weak var lblAddressView: UILabel!
-   
+    @IBOutlet weak var lblBillingAddressView: UILabel!
+    @IBOutlet weak var lblDeliveryAddressView: UILabel!
+
+    @IBOutlet weak var lblPriceOrder: UILabel!
+    
     @IBOutlet weak var lblMrpTotalOrder: UILabel!
     @IBOutlet weak var lblPriceDiscountOrder: UILabel!
     
@@ -32,14 +35,15 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;
         
+        lblPriceOrder.text = "\u{20B9}" + " 350.00"
         lblMrpTotalOrder.text = "\u{20B9}" + " 350.00"
         lblPriceDiscountOrder.text = "- "  + "\u{20B9}" + " 35.00"
         lblShippingChargesOrder.text =  "0"
         lblTotalSavedOrder.text = "\u{20B9}" + " 30.00"
         lblAmountPaidOrder.text = "\u{20B9}" + " 350.00"
+        lblBillingAddressView.text = "Flat No 104, A Wing \nGreen Olive Apartments,\nHinjawadi \nPune - 411057\nMaharashtra \nIndia"
         
-        lblAddressView.text = "Flat No 104, A Wing \nGreen Olive Apartments,\nHinjawadi \nPune - 411057\nMaharashtra \nIndia"
-        
+        lblDeliveryAddressView.text = "Flat No 104, A Wing \nGreen Olive Apartments,\nHinjawadi \nPune - 411057\nMaharashtra \nIndia"
         self.tblOrderItems.register(UINib(nibName: "OrderItemsTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderItemsTableViewCell")
         tblOrderItems.delegate = self
         tblOrderItems.dataSource = self
@@ -78,7 +82,7 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "OrderItemsTableViewCell") as! OrderItemsTableViewCell
         
-//        cellObj.lblOrderPrice.text = "\u{20B9}" + " 278.00"
+        //        cellObj.lblOrderPrice.text = "\u{20B9}" + " 278.00"
         
         if(indexPath.row == 0){
             
@@ -86,8 +90,8 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
             cellObj.lblSubTitleOrderItems.text = "box of 450 gm Powder"
             cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 200.00"
             cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
-//            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
-
+            //            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
+            
         }
         else if(indexPath.row == 1){
             
@@ -95,7 +99,7 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
             cellObj.lblSubTitleOrderItems.text = "bottle of 35 gm Spray"
             cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 92.00"
             cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
-//            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
+            //            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
             
         }
         else if(indexPath.row == 2){
@@ -123,9 +127,9 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         
         let cell:OrderItemsTableViewCell = tableView.cellForRow(at: indexPath) as! OrderItemsTableViewCell
         
-//        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kOrderCancelVC)
-//        self.navigationController?.pushViewController(Controller!, animated: true)
-//
+        //        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kOrderCancelVC)
+        //        self.navigationController?.pushViewController(Controller!, animated: true)
+        //
     }
     
     
@@ -155,6 +159,7 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
@@ -163,11 +168,10 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         return CGSize(width: 112, height: 133)
         
     }
-    @IBAction func btnGoToMyOrdersAction(_ sender: Any) {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.createMenuView()
-        
-    }
     
+    @IBAction func btnTrackOrderAction(_ sender: Any) {
+        
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kOrderTrackingVC)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+    }
 }

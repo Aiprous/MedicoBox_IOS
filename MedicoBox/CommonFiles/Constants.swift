@@ -54,6 +54,7 @@ let kMyProfileAccountVC = "MyProfileViewController"
 let kEditProfileVC  = "EditProfileViewController"
 let kNotificationVC = "NotificationViewController"
 let kOrderTrackingVC = "OrderTrackingViewController"
+let kMyOrdersDetailsVC = "MyOrdersDetailsViewController"
 // MARK: Image Constant
 let kbackgroundColor  =  UIColor.init(hexString: "#d7e0e7")
 let KNavigationBarColor = UIColor.init(hexString: "#fbc525")

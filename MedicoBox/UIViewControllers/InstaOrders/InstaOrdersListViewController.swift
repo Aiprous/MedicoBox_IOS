@@ -132,8 +132,14 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
          
          }
          */
+        cellObj.optionView.isHidden = true;
         cellObj.btnOptions.tag = indexPath.row;
         cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
+        cellObj.btnAddItem.tag = indexPath.row;
+        cellObj.btnAddItem.addTarget(self, action: #selector(btnAddItemAction(button:)), for: UIControlEvents.touchUpInside);
+        cellObj.btnEdit.tag = indexPath.row;
+        cellObj.btnEdit.addTarget(self, action: #selector(btnEditAction(button:)), for: UIControlEvents.touchUpInside);
+        
         cellObj.btnDropDown.tag = indexPath.section
         let headerTapped = UITapGestureRecognizer(target: self, action:#selector(InstaOrdersListViewController.sectionHeaderTapped(_:)))
         cellObj.btnDropDown.addGestureRecognizer(headerTapped)
@@ -162,9 +168,10 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        
-         let cell:InstaOrdersListTableViewCell = tableView.cellForRow(at: indexPath) as! InstaOrdersListTableViewCell
-        cell.optionView.isHidden = false;
+//         let cell:InstaOrdersListTableViewCell = tableView.cellForRow(at: indexPath) as! InstaOrdersListTableViewCell
+        self.productInfoView.isHidden = false;
+        self.btnBackView.isHidden = false;
+
    
 
     }
@@ -279,10 +286,23 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     
     @objc func btnOptionAction(button: UIButton) {
         
-        self.btnBackView.isHidden = false;
-        self.productInfoView.isHidden = false;
-        self.newInstaListView.isHidden = true;
+        let position: CGPoint = button.convert(.zero, to: self.tblInstaOrdersList)
+        let indexPath = self.tblInstaOrdersList.indexPathForRow(at: position)
+        let cell:InstaOrdersListTableViewCell = tblInstaOrdersList.cellForRow(at: indexPath!) as! InstaOrdersListTableViewCell
+        cell.optionView.isHidden = false;
         
+    }
+    
+     @objc func btnEditAction(button: UIButton) {
+        
+        
+    }
+    
+    @objc func btnAddItemAction(button: UIButton) {
+        
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kInstaOrderAddVC)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+        self.tblInstaOrdersList.reloadData()
     }
     
     @IBAction func btnNewInstaListAction(_ sender: Any) {
@@ -313,9 +333,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         self.btnBackView.isHidden = true;
         self.newInstaListView.isHidden = true;
         self.productInfoView.isHidden = true;
-        
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kInstaOrderAddVC)
- self.navigationController?.pushViewController(Controller!, animated: true)
+     
     }
     @IBAction func btnOkAction(_ sender: Any) {
         
