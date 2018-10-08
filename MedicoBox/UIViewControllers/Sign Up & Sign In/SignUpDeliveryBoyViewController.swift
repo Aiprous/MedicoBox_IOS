@@ -1,53 +1,39 @@
 //
-//  BillingAddressVC.swift
+//  SignUpDeliveryBoyViewController.swift
 //  MedicoBox
 //
-//  Created by SBC on 28/09/18.
+//  Created by NCORD LLP on 08/10/18.
 //  Copyright © 2018 Aiprous. All rights reserved.
 //
 
 import UIKit
 
-class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
-    @IBOutlet weak var tblAddressField: UITableView!
+class SignUpDeliveryBoyViewController: UIViewController , UITableViewDelegate,UITableViewDataSource {
     
-    let arrayofText:NSArray = ["Name","Phone*","Flat Number, Building Name*","Street / Road Name", "Landmark","Pincode*","State","City"]
+    @IBOutlet weak var tblSignUpDeliveryBoy: UITableView!
+    
+    let arrayofText:NSArray = ["First name","Last name","Contact number 1", "Contact number 2", "Email ID","Name of pharmacy","Address line 1", "Address line 2","City", "State","Country","Pincode","Pharmacist registration number", "Drug license number","Message"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
         // Register cell for tableview
-        tblAddressField.register(UINib(nibName: "AddressTableViewCell", bundle: nil), forCellReuseIdentifier: "AddressTableViewCell")
-        tblAddressField.estimatedRowHeight = 65
-        tblAddressField.separatorStyle = .none
+        tblSignUpDeliveryBoy.register(UINib(nibName: "AddressTableViewCell", bundle: nil), forCellReuseIdentifier: "AddressTableViewCell")
+        tblSignUpDeliveryBoy.estimatedRowHeight = 65
+        tblSignUpDeliveryBoy.separatorStyle = .none
         
         
         //show navigationbar with back button
         self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        tblAddressField.frame = CGRect(x: tblAddressField.frame.origin.x, y: tblAddressField.frame.origin.y, width: tblAddressField.frame.size.width, height: (CGFloat(65*arrayofText.count)));
-//        
-//        self.view.setNeedsUpdateConstraints()
-    }
-
-   
-
-    @IBAction func saveBtnAction(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
-        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kOrderTrackingVC)
-        self.navigationController?.pushViewController(Controller, animated: true)
-
-    }
     
     //MARK:- Table View Delegate And DataSource
     
@@ -83,4 +69,10 @@ class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    @IBAction func btnRegisterAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+
 }

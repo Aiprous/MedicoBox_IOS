@@ -14,6 +14,8 @@ class OrderItemsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblTitleOrderItems: UILabel!
     @IBOutlet weak var lblSubTitleOrderItems: UILabel!
     @IBOutlet weak var lblMRPRateOrderItems: UILabel!
+    @IBOutlet weak var lblMRP: UILabel!
+    @IBOutlet weak var lblTrasOrderItems: UILabel!
     @IBOutlet weak var lblPriceOrderItems: UILabel!
 
      @IBOutlet weak var logoOrderItems: UIImageView!

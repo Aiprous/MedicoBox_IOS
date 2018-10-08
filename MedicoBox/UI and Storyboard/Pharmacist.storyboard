@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Transaction List View Controller-->
+        <scene sceneID="Yya-ul-EzM">
+            <objects>
+                <viewController storyboardIdentifier="TransactionListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TiR-Dd-VFN" customClass="TransactionListViewController" customModule="MedicoBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sIB-pO-YPD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNa-mR-xWr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GiO-6P-T6c">
+                                        <rect key="frame" x="0.0" y="42" width="375" height="605"/>
+                                        <color key="backgroundColor" red="0.83137254900000002" green="0.87843137250000003" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="605" id="wZD-Bg-t4s"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionListTableViewCell" rowHeight="46" id="Tcf-Cl-Eea" customClass="TransactionListTableViewCell" customModule="MedicoBox" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="46"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tcf-Cl-Eea" id="LLU-Sm-BPU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.82745098039999998" green="0.87843137250000003" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="TiR-Dd-VFN" id="oUX-gO-Gqh"/>
+                                            <outlet property="delegate" destination="TiR-Dd-VFN" id="RFk-Qq-IEN"/>
+                                        </connections>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TRANSACTION LIST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUo-vr-4z2">
+                                        <rect key="frame" x="18" y="8" width="176" height="32"/>
+                                        <color key="backgroundColor" red="0.83137254900000002" green="0.87843137250000003" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="GEO-KN-HGw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" red="0.1450980392" green="0.19215686269999999" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.87843137250000003" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hUo-vr-4z2" firstAttribute="top" secondItem="lNa-mR-xWr" secondAttribute="top" id="Acq-pB-CXS"/>
+                                    <constraint firstItem="hUo-vr-4z2" firstAttribute="leading" secondItem="lNa-mR-xWr" secondAttribute="leading" constant="18" id="HA3-7m-yUg"/>
+                                    <constraint firstItem="GiO-6P-T6c" firstAttribute="leading" secondItem="lNa-mR-xWr" secondAttribute="leading" id="SVN-KU-jiZ"/>
+                                    <constraint firstItem="hUo-vr-4z2" firstAttribute="top" secondItem="lNa-mR-xWr" secondAttribute="top" constant="8" id="n6t-Pu-tMN"/>
+                                    <constraint firstItem="GiO-6P-T6c" firstAttribute="top" secondItem="hUo-vr-4z2" secondAttribute="bottom" constant="2" id="t9o-XP-vuw"/>
+                                    <constraint firstAttribute="trailing" secondItem="GiO-6P-T6c" secondAttribute="trailing" id="vho-lU-X4m"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Acq-pB-CXS"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oJh-zD-LyU" firstAttribute="trailing" secondItem="lNa-mR-xWr" secondAttribute="trailing" id="Dc6-C3-hAC"/>
+                            <constraint firstItem="oJh-zD-LyU" firstAttribute="bottom" secondItem="lNa-mR-xWr" secondAttribute="bottom" id="b3O-TQ-QCd"/>
+                            <constraint firstItem="oJh-zD-LyU" firstAttribute="top" secondItem="lNa-mR-xWr" secondAttribute="top" id="fGa-Gc-EvS"/>
+                            <constraint firstItem="lNa-mR-xWr" firstAttribute="leading" secondItem="oJh-zD-LyU" secondAttribute="leading" id="r7A-a7-cS1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oJh-zD-LyU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z4u-zS-gQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7541.6000000000004" y="104.7976011994003"/>
+        </scene>
+        <!--Products Pharmacist View Controller-->
+        <scene sceneID="TsT-0h-4BJ">
+            <objects>
+                <viewController storyboardIdentifier="ProductsPharmacistViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5C3-Hj-tvz" customClass="ProductsPharmacistViewController" customModule="MedicoBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MJA-57-ubt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oA2-hA-JJ0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pMV-gv-e6A">
+                                        <rect key="frame" x="0.0" y="42" width="375" height="545"/>
+                                        <color key="backgroundColor" red="0.83137254900000002" green="0.87843137250000003" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="545" id="Ie9-9s-0hE"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductsPharmacistTableViewCell" rowHeight="46" id="bym-LY-4K2" customClass="ProductsPharmacistTableViewCell" customModule="MedicoBox" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="46"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bym-LY-4K2" id="YND-t0-ezJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.82745098039999998" green="0.87843137250000003" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="5C3-Hj-tvz" id="x1t-fr-bFV"/>
+                                            <outlet property="delegate" destination="5C3-Hj-tvz" id="1He-wX-quN"/>
+                                        </connections>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PRODUCTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liI-De-h59">
+                                        <rect key="frame" x="18" y="8" width="107" height="32"/>
+                                        <color key="backgroundColor" red="0.83137254900000002" green="0.87843137250000003" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="uCW-Ny-hOG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" red="0.1450980392" green="0.19215686269999999" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1P-wf-DY3" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
+                                        <rect key="frame" x="58" y="596" width="260" height="40"/>
+                                        <color key="backgroundColor" name="ButtonBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="WYa-z5-Xt7"/>
+                                            <constraint firstAttribute="height" constant="40" id="a9y-Cg-6LV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
+                                        <state key="normal" title="FILTER">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.87843137250000003" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="liI-De-h59" firstAttribute="top" secondItem="oA2-hA-JJ0" secondAttribute="top" constant="8" id="7nq-Jb-AlW"/>
+                                    <constraint firstAttribute="trailing" secondItem="pMV-gv-e6A" secondAttribute="trailing" id="Au4-vm-G2Y"/>
+                                    <constraint firstItem="liI-De-h59" firstAttribute="leading" secondItem="oA2-hA-JJ0" secondAttribute="leading" constant="18" id="KXu-gf-gYE"/>
+                                    <constraint firstItem="pMV-gv-e6A" firstAttribute="top" secondItem="liI-De-h59" secondAttribute="bottom" constant="2" id="LrE-Mo-oRV"/>
+                                    <constraint firstItem="a1P-wf-DY3" firstAttribute="centerX" secondItem="oA2-hA-JJ0" secondAttribute="centerX" id="PHL-9V-5UW"/>
+                                    <constraint firstAttribute="bottom" secondItem="a1P-wf-DY3" secondAttribute="bottom" constant="11" id="SSd-1h-MLf"/>
+                                    <constraint firstItem="liI-De-h59" firstAttribute="top" secondItem="oA2-hA-JJ0" secondAttribute="top" id="XGj-jE-EG3"/>
+                                    <constraint firstItem="a1P-wf-DY3" firstAttribute="centerY" secondItem="oA2-hA-JJ0" secondAttribute="centerY" constant="292.5" id="ZE3-C3-V59"/>
+                                    <constraint firstItem="pMV-gv-e6A" firstAttribute="leading" secondItem="oA2-hA-JJ0" secondAttribute="leading" id="qT8-6d-z91"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="XGj-jE-EG3"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oA2-hA-JJ0" firstAttribute="leading" secondItem="Ppq-bn-omF" secondAttribute="leading" id="9OY-6Y-AY8"/>
+                            <constraint firstItem="Ppq-bn-omF" firstAttribute="top" secondItem="oA2-hA-JJ0" secondAttribute="top" id="Cdy-S9-ixg"/>
+                            <constraint firstItem="Ppq-bn-omF" firstAttribute="bottom" secondItem="oA2-hA-JJ0" secondAttribute="bottom" id="ZLo-Te-KwK"/>
+                            <constraint firstItem="Ppq-bn-omF" firstAttribute="trailing" secondItem="oA2-hA-JJ0" secondAttribute="trailing" id="sf3-BC-LFh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ppq-bn-omF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dUi-1W-eWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7541.6000000000004" y="104.7976011994003"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="ButtonBackgroundColor">
+            <color red="0.1220000014" green="0.17299999299999999" blue="0.29800000789999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

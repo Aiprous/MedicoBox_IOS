@@ -55,7 +55,7 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "DiabetesCareCell") as! DiabetesCareCell
-        
+        cellObj.lblMRP.text = "\u{20B9}" + "135.00"
         cellObj.selectionStyle = .none
         return cellObj
     }

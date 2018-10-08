@@ -13,13 +13,18 @@ import FSPagerView
 import Alamofire
 import SVProgressHUD
 import SDWebImage
+import CoreLocation
 
-class HomeViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, FSPagerViewDataSource,FSPagerViewDelegate{
+class HomeViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, FSPagerViewDataSource,FSPagerViewDelegate, CLLocationManagerDelegate, GMSMapViewDelegate, GMSAutocompleteViewControllerDelegate {
     
     @IBOutlet weak var medicoSearchBar: UISearchBar!
     @IBOutlet weak var FeaturedProductsCollectionView: UICollectionView!
     @IBOutlet weak var orderView: UIView!
     @IBOutlet weak var btnCart: UIButton!
+    @IBOutlet weak var btnLocation: UIButton!
+
+    @IBOutlet weak var lblCurrentLocation: UILabel!
+    var locationManager = CLLocationManager()
 
     var screenSize: CGRect!
     var screenWidth: CGFloat!
@@ -61,8 +66,14 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         
         self.navigationController?.isNavigationBarHidden = true;
         super.viewWillAppear(animated)
-        //        self.setNavigationBarItem()
-    }
+        
+        locationManager.startUpdatingLocation()
+        _ = CLLocationManager .authorizationStatus()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()    }
     
     func addBadgeLabel() {
         
@@ -368,4 +379,92 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         self.navigationController?.pushViewController(Controller, animated: true)
     }
     
+    
+
+     @IBAction func btnLocationAction(_ sender: Any) {
+    
+        
+        let autoCompleteController = GMSAutocompleteViewController()
+        autoCompleteController.delegate = self
+        self.locationManager.startUpdatingLocation()
+        self.present(autoCompleteController, animated: true, completion: nil)
+        
+    }
+    //MARK: Location show
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)-> Void in
+            if (error != nil) {
+                print("Reverse geocoder failed with error: \(String(describing: error?.localizedDescription))")
+                return
+            }
+            
+            if (placemarks?.count)! > 0 {
+                let pm = placemarks?[0]
+                self.displayLocationInfo(pm)
+            } else {
+                print("Problem with the data received from geocoder")
+            }
+        })
+    }
+    
+    
+    func displayLocationInfo(_ placemark: CLPlacemark?) {
+        if let containsPlacemark = placemark {
+            //stop updating location to save battery life
+            locationManager.stopUpdatingLocation()
+            
+          let  CITY = (containsPlacemark.locality != nil) ? containsPlacemark.locality! : ""
+            
+//            AREA = (containsPlacemark.subLocality != nil) ? containsPlacemark.subLocality! : ""
+//
+//            SUBAREA1 = (containsPlacemark.name != nil) ? containsPlacemark.name! : ""
+//
+//            SUBAREA2 = (containsPlacemark.subLocality != nil) ? containsPlacemark.subLocality! : ""
+//
+//            STATE = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea! : ""
+            
+            let addressDictionary  = containsPlacemark.addressDictionary! as NSDictionary
+            let address = containsPlacemark.addressDictionary?["FormattedAddressLines"] as? [String]
+            //            print(STATE,addressDictionary)
+            //            print(AREA,SUBAREA1,SUBAREA2)
+//            USER_ADDRESS = (address?.joined(separator: ", "))!
+            lblCurrentLocation.text = CITY
+//            lblLandMark.text =  address?.joined(separator: ", ")
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error while updating location:\(error.localizedDescription)")
+    }
+    
+    func fetchCountryAndCity(location: CLLocation, completion: @escaping (String, String) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print(error)
+            } else if let country = placemarks?.first?.country,
+                let city = placemarks?.first?.locality {
+                completion(country, city)
+            }
+        }
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        
+        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15.0)
+        print("autocomplete")
+        print(place.coordinate.latitude)
+        print(place.coordinate.longitude)
+        self.dismiss(animated: true, completion: nil) // dismiss after select place
+       
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        
+        print("ERROR AUTO COMPLETE \(error)")
+        
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: true, completion: nil) // when cancel search
+    }
 }

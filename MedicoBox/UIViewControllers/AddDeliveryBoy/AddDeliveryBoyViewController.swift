@@ -1,27 +1,27 @@
 //
-//  BillingAddressVC.swift
+//  AddDeliveryBoyViewController.swift
 //  MedicoBox
 //
-//  Created by SBC on 28/09/18.
+//  Created by NCORD LLP on 08/10/18.
 //  Copyright © 2018 Aiprous. All rights reserved.
 //
 
 import UIKit
 
-class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class AddDeliveryBoyViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
 
-    @IBOutlet weak var tblAddressField: UITableView!
+    @IBOutlet weak var tblAddDeliveryBoy: UITableView!
     
-    let arrayofText:NSArray = ["Name","Phone*","Flat Number, Building Name*","Street / Road Name", "Landmark","Pincode*","State","City"]
+    let arrayofText:NSArray = ["First name","Last name","Contact number 1", "Contact number 2", "Email ID","Address", "Address line 1"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         // Register cell for tableview
-        tblAddressField.register(UINib(nibName: "AddressTableViewCell", bundle: nil), forCellReuseIdentifier: "AddressTableViewCell")
-        tblAddressField.estimatedRowHeight = 65
-        tblAddressField.separatorStyle = .none
+        tblAddDeliveryBoy.register(UINib(nibName: "AddressTableViewCell", bundle: nil), forCellReuseIdentifier: "AddressTableViewCell")
+        tblAddDeliveryBoy.estimatedRowHeight = 65
+        tblAddDeliveryBoy.separatorStyle = .none
         
         
         //show navigationbar with back button
@@ -34,21 +34,7 @@ class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        tblAddressField.frame = CGRect(x: tblAddressField.frame.origin.x, y: tblAddressField.frame.origin.y, width: tblAddressField.frame.size.width, height: (CGFloat(65*arrayofText.count)));
-//        
-//        self.view.setNeedsUpdateConstraints()
-    }
 
-   
-
-    @IBAction func saveBtnAction(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
-        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kOrderTrackingVC)
-        self.navigationController?.pushViewController(Controller, animated: true)
-
-    }
-    
     //MARK:- Table View Delegate And DataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -83,4 +69,10 @@ class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    @IBAction func btnAddAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
 }

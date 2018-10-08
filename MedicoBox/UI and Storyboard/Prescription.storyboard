@@ -21,6 +21,9 @@
         <array key="OpenSans-Semibold.ttf">
             <string>OpenSans-Semibold</string>
         </array>
+        <array key="OpenSans-SemiboldItalic.ttf">
+            <string>OpenSans-SemiboldItalic</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Upload Prescription View Controller-->
@@ -132,7 +135,7 @@
                                                                     <constraint firstAttribute="width" constant="35" id="aR2-vL-rJa"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Prescription" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-od-SsO">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Prescriptions" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-od-SsO" userLabel="My Prescriptions">
                                                                 <rect key="frame" x="273.5" y="55" width="72" height="33"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="72" id="3rC-5J-D5j"/>
@@ -199,13 +202,21 @@
                                                                             <rect key="frame" x="0.0" y="11" width="102" height="121"/>
                                                                             <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </imageView>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOp-Em-cnf">
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOp-Em-cnf" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
                                                                             <rect key="frame" x="86" y="1" width="25" height="25"/>
+                                                                            <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="25" id="Oxb-Uv-0MZ"/>
                                                                                 <constraint firstAttribute="height" constant="25" id="m1S-np-hwS"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="cancel_gray"/>
+                                                                            <state key="normal" title="X">
+                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <real key="value" value="13"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
                                                                         </button>
                                                                     </subviews>
                                                                 </view>
@@ -346,8 +357,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GqG-SF-0N4" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="500" width="359" height="377"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valid Prescription Guid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PX-5R-D5J">
-                                                                <rect key="frame" x="10" y="14" width="169.5" height="22"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valid Prescription Guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PX-5R-D5J">
+                                                                <rect key="frame" x="10" y="14" width="178.5" height="22"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -842,7 +853,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Placed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XU3-xY-F1j">
-                                <rect key="frame" x="133.5" y="237.5" width="106.5" height="23.5"/>
+                                <rect key="frame" x="134.5" y="237.5" width="106.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1278,8 +1289,8 @@
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Additional shipping charges might be applicable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDT-HQ-5uc">
                                                         <rect key="frame" x="20" y="348" width="339" height="25"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans-SemiboldItalic" family="Open Sans" pointSize="14"/>
+                                                        <color key="textColor" red="0.10588235294117647" green="0.16862745098039217" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -1318,7 +1329,7 @@
                                             <constraint firstAttribute="width" constant="260" id="M74-sM-8j0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
-                                        <state key="normal" title="CONTINUE">
+                                        <state key="normal" title="CONFIRM ORDER">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -1366,17 +1377,17 @@
             <objects>
                 <viewController storyboardIdentifier="BillingAddressVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="urr-Mv-lGh" customClass="BillingAddressVC" customModule="MedicoBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mj5-dg-TEN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="770"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="730"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNA-oQ-TtJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="770"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNA-oQ-TtJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="730"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-GY-APn">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="770"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-GY-APn">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="730"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwd-LP-lTt">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="770"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="730"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qwg-sg-mod">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -1407,7 +1418,7 @@
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hyW-Gi-I7h">
-                                                        <rect key="frame" x="0.0" y="52" width="375" height="585"/>
+                                                        <rect key="frame" x="0.0" y="52" width="375" height="575"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
                                                             <outlet property="dataSource" destination="urr-Mv-lGh" id="kjY-eV-pfl"/>
@@ -1415,7 +1426,7 @@
                                                         </connections>
                                                     </tableView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odC-o6-T0l">
-                                                        <rect key="frame" x="0.0" y="657" width="375" height="50"/>
+                                                        <rect key="frame" x="0.0" y="635" width="375" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGI-Hf-Hne">
                                                                 <rect key="frame" x="23" y="9" width="80" height="30"/>
@@ -1472,7 +1483,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVO-ik-ozG" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="57" y="717" width="260" height="40"/>
+                                                        <rect key="frame" x="57" y="695" width="260" height="40"/>
                                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="260" id="DZl-q1-Lgp"/>
@@ -1494,17 +1505,17 @@
                                                 </subviews>
                                                 <color key="backgroundColor" name="BackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="odC-o6-T0l" firstAttribute="top" secondItem="hyW-Gi-I7h" secondAttribute="bottom" constant="20" id="1wd-wl-SyJ"/>
+                                                    <constraint firstItem="odC-o6-T0l" firstAttribute="top" secondItem="hyW-Gi-I7h" secondAttribute="bottom" constant="8" id="1wd-wl-SyJ"/>
                                                     <constraint firstItem="hyW-Gi-I7h" firstAttribute="top" secondItem="Qwg-sg-mod" secondAttribute="bottom" constant="2" id="1zE-0g-77O"/>
                                                     <constraint firstItem="mVO-ik-ozG" firstAttribute="centerX" secondItem="uwd-LP-lTt" secondAttribute="centerX" id="6aw-g1-N7k"/>
                                                     <constraint firstItem="hyW-Gi-I7h" firstAttribute="top" secondItem="uwd-LP-lTt" secondAttribute="top" constant="52" id="8cg-Vo-4Pq"/>
-                                                    <constraint firstAttribute="bottom" secondItem="mVO-ik-ozG" secondAttribute="bottom" constant="13" id="Ehh-xE-7vf"/>
+                                                    <constraint firstAttribute="bottom" secondItem="mVO-ik-ozG" secondAttribute="bottom" constant="-5" id="Ehh-xE-7vf"/>
                                                     <constraint firstAttribute="trailing" secondItem="Qwg-sg-mod" secondAttribute="trailing" id="Lgv-MZ-DdR"/>
                                                     <constraint firstAttribute="trailing" secondItem="odC-o6-T0l" secondAttribute="trailing" id="N9r-Qk-TpW"/>
                                                     <constraint firstItem="hyW-Gi-I7h" firstAttribute="leading" secondItem="uwd-LP-lTt" secondAttribute="leading" id="TVE-Or-374"/>
                                                     <constraint firstItem="odC-o6-T0l" firstAttribute="leading" secondItem="uwd-LP-lTt" secondAttribute="leading" id="ULY-rq-dgM"/>
                                                     <constraint firstItem="hyW-Gi-I7h" firstAttribute="top" secondItem="Qwg-sg-mod" secondAttribute="bottom" constant="2" id="ggE-eb-vAT"/>
-                                                    <constraint firstAttribute="height" constant="770" id="kaC-AT-axy"/>
+                                                    <constraint firstAttribute="height" constant="730" id="kaC-AT-axy"/>
                                                     <constraint firstItem="Qwg-sg-mod" firstAttribute="top" secondItem="uwd-LP-lTt" secondAttribute="top" id="nDA-PK-cKW"/>
                                                     <constraint firstItem="mVO-ik-ozG" firstAttribute="top" secondItem="odC-o6-T0l" secondAttribute="bottom" constant="10" id="qFy-M3-1Mu"/>
                                                     <constraint firstAttribute="trailing" secondItem="hyW-Gi-I7h" secondAttribute="trailing" id="qfS-v9-OUj"/>
@@ -1552,21 +1563,21 @@
                         </subviews>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6xt-v6-Ux0" firstAttribute="bottom" secondItem="YNA-oQ-TtJ" secondAttribute="bottom" id="1YQ-lI-D7A"/>
+                            <constraint firstItem="6xt-v6-Ux0" firstAttribute="bottom" secondItem="YNA-oQ-TtJ" secondAttribute="bottom" constant="40" id="1YQ-lI-D7A"/>
                             <constraint firstItem="6xt-v6-Ux0" firstAttribute="top" secondItem="YNA-oQ-TtJ" secondAttribute="top" constant="20" id="Ml5-fJ-7qe"/>
                             <constraint firstItem="6xt-v6-Ux0" firstAttribute="trailing" secondItem="YNA-oQ-TtJ" secondAttribute="trailing" id="XYh-OZ-LUF"/>
                             <constraint firstItem="YNA-oQ-TtJ" firstAttribute="leading" secondItem="6xt-v6-Ux0" secondAttribute="leading" id="Ydu-mZ-32t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6xt-v6-Ux0"/>
                     </view>
-                    <size key="freeformSize" width="375" height="770"/>
+                    <size key="freeformSize" width="375" height="730"/>
                     <connections>
                         <outlet property="tblAddressField" destination="hyW-Gi-I7h" id="7fx-d9-Dwe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDQ-X9-A9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698.4000000000001" y="-42.728635682158924"/>
+            <point key="canvasLocation" x="2698.4000000000001" y="-43.178410794602705"/>
         </scene>
         <!--My Orders View Controller-->
         <scene sceneID="tei-dY-YbY">
@@ -2714,25 +2725,25 @@
                                                                     <constraint firstAttribute="width" constant="67" id="4OV-UY-ejc"/>
                                                                     <constraint firstAttribute="height" constant="19" id="Pb8-uh-S5l"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dispatched" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQP-ZD-6PE">
                                                                 <rect key="frame" x="102" y="65" width="67" height="19"/>
-                                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Transit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09I-66-4yU">
                                                                 <rect key="frame" x="191" y="65" width="67" height="19"/>
-                                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivered" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A19-4d-F3P">
                                                                 <rect key="frame" x="280" y="65" width="67" height="19"/>
-                                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>

@@ -69,7 +69,7 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "DiabetesCareCell") as! DiabetesCareCell
         
         cellObj.btnAdd.setTitle("ADD TO INSTA LIST", for: .normal);
-        
+        cellObj.lblMRP.text = "\u{20B9}" + "135.00"
         cellObj.selectionStyle = .none
         return cellObj
     }

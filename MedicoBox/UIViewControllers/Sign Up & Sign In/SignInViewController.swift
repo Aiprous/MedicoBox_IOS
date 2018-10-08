@@ -34,6 +34,8 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
 
         // Do any additional setup after loading the view.
       
+        self.navigationController?.isNavigationBarHidden = true;
+
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         // TODO(developer) Configure the sign-in button look/feel

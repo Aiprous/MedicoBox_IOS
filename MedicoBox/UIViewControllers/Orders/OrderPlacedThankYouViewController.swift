@@ -86,6 +86,7 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
             cellObj.lblSubTitleOrderItems.text = "box of 450 gm Powder"
             cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 200.00"
             cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
+            cellObj.lblTrasOrderItems.isHidden = true;
 //            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
 
         }
@@ -95,6 +96,7 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
             cellObj.lblSubTitleOrderItems.text = "bottle of 35 gm Spray"
             cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 92.00"
             cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
+            cellObj.lblTrasOrderItems.isHidden = true;
 //            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
             
         }
@@ -105,6 +107,8 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
             cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 200.00"
             cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
             cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
+            cellObj.lblTrasOrderItems.isHidden = true;
+
         }
         
         cellObj.selectionStyle = .none

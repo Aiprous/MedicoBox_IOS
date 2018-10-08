@@ -66,8 +66,12 @@ class OrderTrackingViewController: UIViewController, UITableViewDelegate, UITabl
         if(indexPath.row == 0){
             
             cellObj.lblTitleOrderItems.text = "Horicks Lite Badam Jar 450 gm"
-            cellObj.lblSubTitleOrderItems.text = "box of 450 gm Powder"
-            cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 200.00"
+            cellObj.lblSubTitleOrderItems.text = "Ecom Express (PayTM)"
+            cellObj.lblTrasOrderItems.text = "Tracking ID"
+            cellObj.lblPriceOrderItems.text = "1732938344"
+            cellObj.lblPriceOrderItems.underline()
+            cellObj.lblMRPRateOrderItems.isHidden = true;
+            cellObj.lblMRP.isHidden = true;
             cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
             //            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
             
@@ -75,8 +79,12 @@ class OrderTrackingViewController: UIViewController, UITableViewDelegate, UITabl
         else if(indexPath.row == 1){
             
             cellObj.lblTitleOrderItems.text = "Combiflam Lcy Hot Fast Pain Relief Spray"
-            cellObj.lblSubTitleOrderItems.text = "bottle of 35 gm Spray"
-            cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 92.00"
+            cellObj.lblSubTitleOrderItems.text = "Ecom Express (PayTM)"
+            cellObj.lblTrasOrderItems.text = "Tracking ID"
+            cellObj.lblPriceOrderItems.text = "1732938344"
+            cellObj.lblPriceOrderItems.underline()
+            cellObj.lblMRPRateOrderItems.isHidden = true;
+            cellObj.lblMRP.isHidden = true;
             cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
             //            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
             
@@ -84,9 +92,13 @@ class OrderTrackingViewController: UIViewController, UITableViewDelegate, UITabl
         else if(indexPath.row == 2){
             
             cellObj.lblTitleOrderItems.text = "Horicks Lite Badam Jar 450 gm"
-            cellObj.lblSubTitleOrderItems.text = "box of 450 gm Powder"
-            cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 200.00"
-            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
+            cellObj.lblSubTitleOrderItems.text = "Ecom Express (PayTM)"
+            cellObj.lblTrasOrderItems.text = "Tracking ID"
+            cellObj.lblPriceOrderItems.text = "1732938344"
+            cellObj.lblMRPRateOrderItems.isHidden = true;
+            cellObj.lblMRP.isHidden = true;
+            cellObj.lblPriceOrderItems.underline()
+//            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
             cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
 
         }

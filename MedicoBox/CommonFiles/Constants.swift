@@ -13,7 +13,7 @@ let kScreenHeight = UIScreen.main.bounds.size.height
 let BASEURL = ""
 
 //Google APIs
-let cinstantbaseUrl1 = "https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyAvcch62krh39WhOUx_ues02Xz-_oQZ3NA=true"
+let cinstantbaseUrl1 = "https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec=true"
 
 //Menu buttons on Navigation Bar (Right and Left) Buttons
 
@@ -55,6 +55,13 @@ let kEditProfileVC  = "EditProfileViewController"
 let kNotificationVC = "NotificationViewController"
 let kOrderTrackingVC = "OrderTrackingViewController"
 let kMyOrdersDetailsVC = "MyOrdersDetailsViewController"
+let kSignUpDeliveryBoyVC = "SignUpDeliveryBoyViewController"
+let kAddDeliveryBoyVC = "AddDeliveryBoyViewController"
+
+
+
+
+
 // MARK: Image Constant
 let kbackgroundColor  =  UIColor.init(hexString: "#d7e0e7")
 let KNavigationBarColor = UIColor.init(hexString: "#fbc525")

@@ -88,7 +88,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
             
         }else{
             
-            cellObj.bottonCellViewTop.constant = 0;
+            cellObj.bottonCellViewTop.constant = 8;
             //            cellObj.bottonCellViewHeight.constant = 40;
             cellObj.SelectAllCellViewHeight.constant = 0;
             cellObj.btnSelectAll.isHidden = true
@@ -159,9 +159,10 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
             
         }else {
 
-             return 40
+             return 53
             
         }
+       
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
