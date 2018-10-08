@@ -24,6 +24,8 @@ let API_TOKEN = " "
 let kMainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 let kPrescriptionStoryBoard = UIStoryboard(name: "Prescription", bundle: nil)
 let kCartStoryBoard = UIStoryboard(name: "Cart", bundle: nil)
+let kPharmacistStoryBoard = UIStoryboard(name: "Pharmacist", bundle: nil)
+
 
 //MARK: UIViewControllers
 let kSignUpVC = "SignUpViewController"
@@ -57,9 +59,11 @@ let kOrderTrackingVC = "OrderTrackingViewController"
 let kMyOrdersDetailsVC = "MyOrdersDetailsViewController"
 let kSignUpDeliveryBoyVC = "SignUpDeliveryBoyViewController"
 let kAddDeliveryBoyVC = "AddDeliveryBoyViewController"
-
-
-
+let kProductsPharmacistVC = "ProductsPharmacistViewController"
+let kTransactionListVC = "TransactionListViewController"
+let kSellerOrderVC = "SellerOrderViewController"
+let kTransationDetailVC = "TransationDetailViewController"
+let kOrderDetailsProcessingItemsVC = "OrderDetailsProcessingItemsViewController"
 
 
 // MARK: Image Constant
@@ -67,3 +71,5 @@ let kbackgroundColor  =  UIColor.init(hexString: "#d7e0e7")
 let KNavigationBarColor = UIColor.init(hexString: "#fbc525")
 let kButtonBackgroundColor = UIColor.init(hexString: "#1f2c4c")
 
+//MARK: Keys
+let kLoginRole = ""

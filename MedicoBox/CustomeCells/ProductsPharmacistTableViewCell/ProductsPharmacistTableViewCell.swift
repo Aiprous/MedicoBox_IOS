@@ -10,6 +10,17 @@ import UIKit
 
 class ProductsPharmacistTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblProductName: UILabel!
+    @IBOutlet weak var lblProductPrice: UILabel!
+    @IBOutlet weak var lblProductType: UILabel!
+    @IBOutlet weak var lblProductStatus: UILabel!
+    @IBOutlet weak var lblProductQtyConfirmed: UILabel!
+    @IBOutlet weak var lblProductQtyPending: UILabel!
+    @IBOutlet weak var lblProductQtySold: UILabel!
+    @IBOutlet weak var lblProductEarnedAmount: UILabel!
+    @IBOutlet weak var btnProductDelete: UIButton!
+    @IBOutlet weak var btnProductEdit: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

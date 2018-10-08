@@ -1,5 +1,5 @@
 //
-//  TransactionListTableViewCell.swift
+//  SellerOrderTableViewCell.swift
 //  MedicoBox
 //
 //  Created by NCORD LLP on 08/10/18.
@@ -8,17 +8,8 @@
 
 import UIKit
 
-class TransactionListTableViewCell: UITableViewCell {
+class SellerOrderTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lblTransactionID: UILabel!
-    @IBOutlet weak var lblTransactionDate: UILabel!
-    
-    @IBOutlet weak var lblTransactionCommentMsg: UILabel!
-    
-    @IBOutlet weak var lblTransactionAmount: UILabel!
-    
-    @IBOutlet weak var btnTransViewDetails: UIButton!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
