@@ -52,6 +52,10 @@
 		3A5F60152159092A0072E1BB /* DiabetesCareList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F60132159092A0072E1BB /* DiabetesCareList.swift */; };
 		3A5F60162159092A0072E1BB /* ProductDetailBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */; };
 		3A7541F0216C62FF00C44069 /* Prescription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A7541EF216C62FF00C44069 /* Prescription.storyboard */; };
+		3A7541F2216CAA6300C44069 /* PharmacistItemOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7541F1216CAA6200C44069 /* PharmacistItemOrderViewController.swift */; };
+		3A7541F4216CCC2C00C44069 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7541F3216CCC2C00C44069 /* PageViewController.swift */; };
+		3A7541F6216CD0AC00C44069 /* PharmacistInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7541F5216CD0AC00C44069 /* PharmacistInvoiceViewController.swift */; };
+		3A7541F8216CD0E500C44069 /* PharmacistShipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7541F7216CD0E500C44069 /* PharmacistShipmentViewController.swift */; };
 		3A984C302150FEA50012E0C7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C2F2150FEA50012E0C7 /* SignInViewController.swift */; };
 		3A984C3A215106520012E0C7 /* DesignableShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C36215106520012E0C7 /* DesignableShadowView.swift */; };
 		3A984C3B215106520012E0C7 /* DesignableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A984C37215106520012E0C7 /* DesignableImage.swift */; };
@@ -188,6 +192,10 @@
 		3A5F60132159092A0072E1BB /* DiabetesCareList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabetesCareList.swift; sourceTree = "<group>"; };
 		3A5F60142159092A0072E1BB /* ProductDetailBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailBViewController.swift; sourceTree = "<group>"; };
 		3A7541EF216C62FF00C44069 /* Prescription.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Prescription.storyboard; sourceTree = "<group>"; };
+		3A7541F1216CAA6200C44069 /* PharmacistItemOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacistItemOrderViewController.swift; sourceTree = "<group>"; };
+		3A7541F3216CCC2C00C44069 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		3A7541F5216CD0AC00C44069 /* PharmacistInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacistInvoiceViewController.swift; sourceTree = "<group>"; };
+		3A7541F7216CD0E500C44069 /* PharmacistShipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacistShipmentViewController.swift; sourceTree = "<group>"; };
 		3A984C2F2150FEA50012E0C7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3A984C36215106520012E0C7 /* DesignableShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableShadowView.swift; sourceTree = "<group>"; };
 		3A984C37215106520012E0C7 /* DesignableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImage.swift; sourceTree = "<group>"; };
@@ -693,6 +701,10 @@
 				CDAE5BFD216B39920056D455 /* PharmacistOrderDetailsViewController.swift */,
 				CDAE5BFF216B3C3C0056D455 /* SellerOrderViewController.swift */,
 				CDD9DA91216B647400C13095 /* OrderDetailsProcessingItemsViewController.swift */,
+				3A7541F3216CCC2C00C44069 /* PageViewController.swift */,
+				3A7541F1216CAA6200C44069 /* PharmacistItemOrderViewController.swift */,
+				3A7541F5216CD0AC00C44069 /* PharmacistInvoiceViewController.swift */,
+				3A7541F7216CD0E500C44069 /* PharmacistShipmentViewController.swift */,
 			);
 			path = Pharmacist;
 			sourceTree = "<group>";
@@ -1065,6 +1077,7 @@
 				3A25CDA02162375A00B3BA8E /* NotificationTableViewCell.swift in Sources */,
 				3A5F5FEB215907AB0072E1BB /* ExSlideMenuController.swift in Sources */,
 				3AF374B02161DECA00C86733 /* InstaOrdersListTableViewCell.swift in Sources */,
+				3A7541F4216CCC2C00C44069 /* PageViewController.swift in Sources */,
 				CDAE5BFB216B2B650056D455 /* ProductsPharmacistTableViewCell.swift in Sources */,
 				3A56BC44215E091300CA1E33 /* OrderPlacedViewController.swift in Sources */,
 				CD8BF9292155F2A2005B7BBA /* ForgotPasswordFromMobileNoViewController.swift in Sources */,
@@ -1083,6 +1096,7 @@
 				3A5F5FF52159080C0072E1BB /* HeaderCell.swift in Sources */,
 				3A5E2265215CD3120034FA04 /* UploadPrescriptionViewController.swift in Sources */,
 				3A5E226A215D06B20034FA04 /* UploadPresriptionSecondVC.swift in Sources */,
+				3A7541F2216CAA6300C44069 /* PharmacistItemOrderViewController.swift in Sources */,
 				CDDCA01C2152189100DC1202 /* Extension.swift in Sources */,
 				CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */,
 				CDAE5C04216B3C940056D455 /* SellerOrderTableViewCell.swift in Sources */,
@@ -1091,9 +1105,11 @@
 				3AD8A5CE215F4B22005E2BE6 /* CartViewController.swift in Sources */,
 				3A491591214BAE6300917E79 /* AppDelegate.swift in Sources */,
 				CDDCA01B2152189100DC1202 /* Constants.swift in Sources */,
+				3A7541F6216CD0AC00C44069 /* PharmacistInvoiceViewController.swift in Sources */,
 				3A5F5FFA215908490072E1BB /* DiabetesCareCell.swift in Sources */,
 				CDAE5BF0216B2A180056D455 /* ProductsPharmacistViewController.swift in Sources */,
 				3A5F5FF62159080C0072E1BB /* SubCell.swift in Sources */,
+				3A7541F8216CD0E500C44069 /* PharmacistShipmentViewController.swift in Sources */,
 				3A5F5D8321648C3E00519CA3 /* OrderTrackingViewController.swift in Sources */,
 				3A5F600C215908F10072E1BB /* UIColor.swift in Sources */,
 				3A0E7654215B655800F26FA6 /* ProductDetailAViewController.swift in Sources */,

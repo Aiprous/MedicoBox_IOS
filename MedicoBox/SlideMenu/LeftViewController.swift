@@ -51,7 +51,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var productsPharmacistViewController: UIViewController!
     var transactionListViewController: UIViewController!
     var orderDetailsProcessingItemsViewController: UIViewController!
-
+    var PharmacistItemorderVC: UIViewController!
 
     var imageHeaderView: ImageHeaderView!
     var sections = [Section]()
@@ -104,6 +104,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         
         let transactionListViewController = kPharmacistStoryBoard.instantiateViewController(withIdentifier: kTransactionListVC)
         self.transactionListViewController = UINavigationController(rootViewController: transactionListViewController)
+        
+        let PharmacistItemViewController = kPharmacistStoryBoard.instantiateViewController(withIdentifier: kPharmacistOrderItemVC)
+        self.PharmacistItemorderVC = UINavigationController(rootViewController: PharmacistItemViewController)
+        
         
         let notificationVC = kMainStoryboard.instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
         self.notificationViewController = UINavigationController(rootViewController: notificationVC)
