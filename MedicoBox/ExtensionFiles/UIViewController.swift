@@ -43,7 +43,7 @@ extension UIViewController {
         
         let iconButton:UIButton = UIButton(type: UIButtonType.custom)
         iconButton.frame = CGRect.init(x: 0, y: 0, width: 40, height: 40)
-        iconButton.setImage(UIImage(named: "plus_AppIcon"), for: .normal)
+        iconButton.setImage(#imageLiteral(resourceName: "plus_AppIcon"), for: .normal)
         let leftIconBarButtonItem:UIBarButtonItem = UIBarButtonItem(customView: iconButton)
         navigationItem.leftBarButtonItems = [leftBarButtomItem, leftIconBarButtonItem]
         

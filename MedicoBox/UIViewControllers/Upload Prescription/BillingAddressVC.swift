@@ -12,7 +12,7 @@ class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSour
 
     @IBOutlet weak var tblAddressField: UITableView!
     
-    let arrayofText:NSArray = ["Name","Phone","Flat Number", "Building Name","Street / Road Name", "Landmark","Pincode","State","City"]
+    let arrayofText:NSArray = ["Name","Phone*","Flat Number, Building Name*","Street / Road Name", "Landmark","Pincode*","State","City"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +39,14 @@ class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSour
 //        
 //        self.view.setNeedsUpdateConstraints()
     }
+
+   
+
     @IBAction func saveBtnAction(_ sender: Any) {
 //        self.navigationController?.popViewController(animated: true)
         let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kOrderTrackingVC)
         self.navigationController?.pushViewController(Controller, animated: true)
+
     }
     
     //MARK:- Table View Delegate And DataSource

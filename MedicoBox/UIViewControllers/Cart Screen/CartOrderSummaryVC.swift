@@ -13,10 +13,26 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
     @IBOutlet weak var itemTableView: UITableView!
     
+    @IBOutlet weak var lblMrpTotalOrder: UILabel!
+    @IBOutlet weak var lblPriceDiscountOrder: UILabel!
+    
+    @IBOutlet weak var lblShippingChargesOrder: UILabel!
+    
+    @IBOutlet weak var lblTotalSavedOrder: UILabel!
+    
+    @IBOutlet weak var lblAmountPaidOrder: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+       
+        
+        lblMrpTotalOrder.text = "\u{20B9}" + " 350.00"
+        lblPriceDiscountOrder.text = "- "  + "\u{20B9}" + " 35.00"
+        //        lblShippingChargesOrder.text =  "0"
+        lblTotalSavedOrder.text = "\u{20B9}" + " 30.00"
+        lblAmountPaidOrder.text = "\u{20B9}" + " 350.00"
         itemTableView.register(UINib(nibName: "CartItemTableCell", bundle: nil), forCellReuseIdentifier: "CartItemTableCell")
         itemTableView.estimatedRowHeight = 120
         itemTableView.separatorStyle = .none
@@ -35,7 +51,7 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
 
    
     @IBAction func confirmOrderAction(_ sender: Any) {
-        let Controller = kCartStoryBoard.instantiateViewController(withIdentifier: kCartOrderSummaryVC)
+        let Controller = kCartStoryBoard.instantiateViewController(withIdentifier: kPaymentDetailVC)
         self.navigationController?.pushViewController(Controller, animated: true)
     }
     

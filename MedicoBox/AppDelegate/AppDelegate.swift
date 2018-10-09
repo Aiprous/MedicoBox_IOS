@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let navigationBarAppearace = UINavigationBar.appearance()
@@ -35,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
-    GMSServices.provideAPIKey("AIzaSyCMtNNdACaF9vHxbQh-KF-8p1nRhfl_C0k")
-    GMSPlacesClient.provideAPIKey("AIzaSyCMtNNdACaF9vHxbQh-KF-8p1nRhfl_C0k")
+    GMSServices.provideAPIKey("AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec")
+    GMSPlacesClient.provideAPIKey("AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec")
         
       FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         

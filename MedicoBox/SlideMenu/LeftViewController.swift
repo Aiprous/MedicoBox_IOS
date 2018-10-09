@@ -41,11 +41,18 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     @IBOutlet weak var tableView: UITableView!
     //    var menus = ["Main", "Swift", "NonMenu"]
     var iconArray = ["home","box","capsules","syringe","user","cart","ic_notifications_black_24dp","settings","logout"]
+    
     var homeViewController: UIViewController!
     var diabetesCareViewController: UIViewController!
     var productDetailAViewController: UIViewController!
+    var myOrdersViewController: UIViewController!
     var myProfileViewController : UIViewController!
     var notificationViewController : UIViewController!
+    var productsPharmacistViewController: UIViewController!
+    var transactionListViewController: UIViewController!
+    var orderDetailsProcessingItemsViewController: UIViewController!
+
+
     var imageHeaderView: ImageHeaderView!
     var sections = [Section]()
     
@@ -56,38 +63,51 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sections = [
-            Section(name: "Home", items: []),
-            Section(name: "Orders", items: ["Medicines", "Lab Tests"]),
-            Section(name: "Account", items: []),
-            Section(name: "Cart", items: []),
-            Section(name: "Notifications", items: []),
-            Section(name: "Settings", items: []),
-            Section(name: "Logout", items: []),
-        ]
+        
+                sections = [
+                    Section(name: "Home", items: []),
+                    Section(name: "Orders", items: ["Medicines", "Lab Tests"]),
+                    Section(name: "Account", items: []),
+                    Section(name: "Cart", items: []),
+                    Section(name: "Notifications", items: []),
+                    Section(name: "Settings", items: []),
+                    Section(name: "Logout", items: []),
+                ]
         
         //        self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         
         self.tableView.tableFooterView = UIView(frame: .zero)
-        
-       
-        
-        let homeViewController1 = kMainStoryboard.instantiateViewController(withIdentifier: HOME_VCID)
+   
+        let homeViewController1 = kMainStoryboard.instantiateViewController(withIdentifier: kHomeVC)
         
         self.homeViewController = UINavigationController(rootViewController: homeViewController1)
         
-        
-        let diabetiesViewController = kMainStoryboard.instantiateViewController(withIdentifier: "DiabetesCareList") as! DiabetesCareList
+        let diabetiesViewController = kMainStoryboard.instantiateViewController(withIdentifier: kDiabetesCareListVC)
+       
         self.diabetesCareViewController = UINavigationController(rootViewController: diabetiesViewController)
         
         let myProfileVC = kMainStoryboard.instantiateViewController(withIdentifier: "MyProfileViewController") as! MyProfileViewController
         self.myProfileViewController = UINavigationController(rootViewController: myProfileVC)
 
-        let productDetailViewController = kMainStoryboard.instantiateViewController(withIdentifier: "ProductDetailAViewController") as! ProductDetailAViewController
+        let productDetailViewController = kMainStoryboard.instantiateViewController(withIdentifier: kProductDetailAVC)
         self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
+        
+        let myOrderViewController = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kMyOrdersVC)
+        self.myOrdersViewController = UINavigationController(rootViewController: myOrderViewController)
+
+        let productsPharmacistViewController = kPharmacistStoryBoard.instantiateViewController(withIdentifier: kProductsPharmacistVC)
+        self.productsPharmacistViewController = UINavigationController(rootViewController: productsPharmacistViewController)
+        
+        let orderDetailsProcessingItemsViewController = kPharmacistStoryBoard.instantiateViewController(withIdentifier: kOrderDetailsProcessingItemsVC)
+        self.orderDetailsProcessingItemsViewController = UINavigationController(rootViewController: orderDetailsProcessingItemsViewController)
+        
+        
+        let transactionListViewController = kPharmacistStoryBoard.instantiateViewController(withIdentifier: kTransactionListVC)
+        self.transactionListViewController = UINavigationController(rootViewController: transactionListViewController)
         
         let notificationVC = kMainStoryboard.instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
         self.notificationViewController = UINavigationController(rootViewController: notificationVC)
+
         
         //        self.tableView.registerCellClass(BaseTableViewCell.self)
         
@@ -107,22 +127,26 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     
     func changeViewController(_ menu: LeftMenu) {
         switch menu {
-        case .home, .cart, .labtests, .logout, .settings :
+        case .home, .logout :
             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
             
+
+        case .medicines: self.slideMenuController()?.changeMainViewController(self.myOrdersViewController, close: true)
+
         case .account:             self.slideMenuController()?.changeMainViewController(self.myProfileViewController, close: true)
 
-        case .medicines: self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
-            //        case .labtests:
-            //
-            //        case .cart:
-            //
+     
         case .notifications:
             self.slideMenuController()?.changeMainViewController(self.notificationViewController, close: true)
-            //
-            //        case .settings:
-            //
-            //        case .logout:
+            
+        case .cart:
+            self.slideMenuController()?.changeMainViewController(self.transactionListViewController, close: true)
+            
+        case .labtests:
+             self.slideMenuController()?.changeMainViewController(self.productsPharmacistViewController, close: true)
+            
+        case  .settings:
+            self.slideMenuController()?.changeMainViewController(self.orderDetailsProcessingItemsViewController, close: true)
             
         default: break
         }
@@ -220,8 +244,7 @@ extension LeftViewController : UITableViewDataSource {
         }
         
     }
-    
-    
+        
     //
     // MARK: - Event Handlers
     //

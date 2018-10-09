@@ -66,15 +66,7 @@ class SelectAddressViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        if indexPath.row % 2 == 0 {
-//            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: PRODUCT_DETAIL_A_VCID)
-//            self.navigationController?.pushViewController(Controller, animated: true)
-//        }else{
-//            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: PRODUCT_DETAIL_B_VCID)
-//            self.navigationController?.pushViewController(Controller, animated: true)
-//        }
-        
+
     }
 
 }

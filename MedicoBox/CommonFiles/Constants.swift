@@ -13,7 +13,7 @@ let kScreenHeight = UIScreen.main.bounds.size.height
 let BASEURL = ""
 
 //Google APIs
-let cinstantbaseUrl1 = "https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyAvcch62krh39WhOUx_ues02Xz-_oQZ3NA=true"
+let cinstantbaseUrl1 = "https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec=true"
 
 //Menu buttons on Navigation Bar (Right and Left) Buttons
 
@@ -24,24 +24,28 @@ let API_TOKEN = " "
 let kMainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 let kPrescriptionStoryBoard = UIStoryboard(name: "Prescription", bundle: nil)
 let kCartStoryBoard = UIStoryboard(name: "Cart", bundle: nil)
+let kPharmacistStoryBoard = UIStoryboard(name: "Pharmacist", bundle: nil)
 
-//View Controllers
-let SIGNUP_VCID = "SignUpVCID"
-let SIGNIN_VCID = "SignInVCID"
-let VERIFY_OTP_VCID = "VerifyOTPVCID"
-let HOME_VCID = "HomeViewController"
-let MENU_VCID = "MenuVCID"
-let FORGOT_PASSWORD_VCID = "ForgotPasswordFromMobileNoVCID"
-let SET_NEW_PASSWORD_VCID = "SetNewPasswordVCID"
-let PRODUCT_DESC_VCID = "ProductDescriptionVCID"
-let INSTA_ORDERS_LIST_VCID = "InstaOrdersListVCID"
-let INSTA_ORDER_ADD_VCID = "InstaOrderAddVCID"
-let DIBETES_CARE_LIST_VCID = "DiabetesCareList"
-let PRODUCT_DETAIL_A_VCID = "ProductDetailAViewController"
-let PRODUCT_DETAIL_B_VCID = "ProductDetailBViewController"
-let UPLOAD_PRESCRIPTION_VCID = "UploadPrescriptionViewController"
-let UPLOAD_PRESCRIPTION_SECOND_VCID = "UploadPresriptionSecondVC"
-let UPLOAD_PRESCRIPTION_SELECT_ADDRESS_VCID = "SelectAddressViewController"
+
+//MARK: UIViewControllers
+let kSignUpVC = "SignUpViewController"
+let kSignInVC = "SignInViewController"
+let kVerifyOTPVC = "VerifyOTPViewController"
+let kHomeVC = "HomeViewController"
+let kForgotPasswordFromMobileNoVC = "ForgotPasswordFromMobileNoViewController"
+let kSetNewPasswordVC = "SetNewPasswordViewController"
+let kProductDescriptionVC = "ProductDescriptionViewController"
+let kInstaOrdersListVC = "InstaOrdersListViewController"
+let kInstaOrderAddVC = "InstaOrderAddViewController"
+let kDiabetesCareListVC = "DiabetesCareList"
+let kProductDetailAVC = "ProductDetailAViewController"
+let kProductDetailBVC = "ProductDetailBViewController"
+let kUploadPrescriptionVC = "UploadPrescriptionViewController"
+let kUploadPresriptionSecondVC = "UploadPresriptionSecondVC"
+let kSelectAddressVC = "SelectAddressViewController"
+let kMyOrdersVC = "MyOrdersViewController"
+let kOrderCancelVC = "OrderCancelViewController"
+let kOrderPlacedThankYouVC = "OrderPlacedThankYouViewController"
 let kOrderSummaryVC = "OrderSummaryViewController"
 let kOrderPlacedVC = "OrderPlacedViewController"
 let kBillingAddressVC = "BillingAddressVC"
@@ -52,8 +56,20 @@ let kMyProfileAccountVC = "MyProfileViewController"
 let kEditProfileVC  = "EditProfileViewController"
 let kNotificationVC = "NotificationViewController"
 let kOrderTrackingVC = "OrderTrackingViewController"
+let kMyOrdersDetailsVC = "MyOrdersDetailsViewController"
+let kSignUpDeliveryBoyVC = "SignUpDeliveryBoyViewController"
+let kAddDeliveryBoyVC = "AddDeliveryBoyViewController"
+let kProductsPharmacistVC = "ProductsPharmacistViewController"
+let kTransactionListVC = "TransactionListViewController"
+let kSellerOrderVC = "SellerOrderViewController"
+let kTransationDetailVC = "TransationDetailViewController"
+let kOrderDetailsProcessingItemsVC = "OrderDetailsProcessingItemsViewController"
+
+
 // MARK: Image Constant
 let kbackgroundColor  =  UIColor.init(hexString: "#d7e0e7")
 let KNavigationBarColor = UIColor.init(hexString: "#fbc525")
 let kButtonBackgroundColor = UIColor.init(hexString: "#1f2c4c")
 
+//MARK: Keys
+let kLoginRole = ""

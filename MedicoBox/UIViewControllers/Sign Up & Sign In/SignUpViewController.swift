@@ -12,7 +12,7 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.isNavigationBarHidden = true;
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,13 +21,21 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func btnSignUpAction(_ sender: Any) {
+        
+//        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignUpDeliveryBoyVC)
+//
+//        self.navigationController?.pushViewController(Controller, animated: true)
+        
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.createMenuView()
     }
     
     @IBAction func btnSignInAction(_ sender: Any) {
         
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: SIGNIN_VCID)
+
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignInVC)
+
         self.navigationController?.pushViewController(Controller, animated: true)
         
     }

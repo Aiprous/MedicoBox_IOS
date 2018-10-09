@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionListTableViewCell" rowHeight="144" id="KGk-i7-Jjw" customClass="TransactionListTableViewCell" customModule="MedicoBox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="144"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="143.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNq-JL-KMY" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
+                        <rect key="frame" x="5" y="5" width="365" height="133"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Id: TR18392832835" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w50-ez-SQ0">
+                                <rect key="frame" x="9" y="10" width="347" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="j6r-T2-Oes"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: 28/09/2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqv-00-loE">
+                                <rect key="frame" x="9" y="34" width="347" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="va0-yj-ZQO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment Message: Payment for order #88898774" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4R-AO-LE7">
+                                <rect key="frame" x="9" y="57" width="347" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="Kyu-9b-xUs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Transaction Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBT-Cz-3jM">
+                                <rect key="frame" x="9" y="81" width="140" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="621-G0-CCi"/>
+                                    <constraint firstAttribute="width" constant="140" id="klD-gu-rfF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaB-WC-cUV">
+                                <rect key="frame" x="255" y="105" width="98" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="7D6-sm-nQx"/>
+                                    <constraint firstAttribute="height" constant="21" id="sQG-DQ-nk5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                                <state key="normal" title="VIEW DETAILS">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZB-yY-bcs">
+                                <rect key="frame" x="152" y="81" width="204" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="2CX-N2-hIa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jqv-00-loE" firstAttribute="top" secondItem="w50-ez-SQ0" secondAttribute="bottom" constant="5" id="3Oy-Tb-01g"/>
+                            <constraint firstItem="iBT-Cz-3jM" firstAttribute="centerY" secondItem="pZB-yY-bcs" secondAttribute="centerY" id="9dB-ze-GOf"/>
+                            <constraint firstAttribute="bottom" secondItem="iBT-Cz-3jM" secondAttribute="bottom" constant="34" id="Alb-FU-Cfi"/>
+                            <constraint firstItem="jqv-00-loE" firstAttribute="trailing" secondItem="w50-ez-SQ0" secondAttribute="trailing" id="Ean-bT-AU2"/>
+                            <constraint firstItem="K4R-AO-LE7" firstAttribute="top" secondItem="jqv-00-loE" secondAttribute="bottom" constant="5" id="Gwo-Go-RMR"/>
+                            <constraint firstItem="pZB-yY-bcs" firstAttribute="trailing" secondItem="K4R-AO-LE7" secondAttribute="trailing" id="RKM-jQ-dHf"/>
+                            <constraint firstItem="iBT-Cz-3jM" firstAttribute="top" secondItem="K4R-AO-LE7" secondAttribute="bottom" constant="6" id="VrV-QA-ryF"/>
+                            <constraint firstItem="iBT-Cz-3jM" firstAttribute="leading" secondItem="w50-ez-SQ0" secondAttribute="leading" id="Xhu-PK-Kqd"/>
+                            <constraint firstItem="K4R-AO-LE7" firstAttribute="trailing" secondItem="w50-ez-SQ0" secondAttribute="trailing" id="czI-wc-Uza"/>
+                            <constraint firstAttribute="trailing" secondItem="w50-ez-SQ0" secondAttribute="trailing" constant="9" id="dXC-Re-l84"/>
+                            <constraint firstItem="w50-ez-SQ0" firstAttribute="top" secondItem="MNq-JL-KMY" secondAttribute="top" constant="10" id="gYn-GE-QFa"/>
+                            <constraint firstItem="w50-ez-SQ0" firstAttribute="leading" secondItem="MNq-JL-KMY" secondAttribute="leading" constant="9" id="hLT-zB-Idc"/>
+                            <constraint firstItem="jqv-00-loE" firstAttribute="centerX" secondItem="w50-ez-SQ0" secondAttribute="centerX" id="lej-0i-Hbr"/>
+                            <constraint firstItem="K4R-AO-LE7" firstAttribute="leading" secondItem="w50-ez-SQ0" secondAttribute="leading" id="nbR-8Q-yYh"/>
+                            <constraint firstItem="pZB-yY-bcs" firstAttribute="leading" secondItem="iBT-Cz-3jM" secondAttribute="trailing" constant="3" id="ogI-tN-pF2"/>
+                            <constraint firstItem="pZB-yY-bcs" firstAttribute="top" secondItem="K4R-AO-LE7" secondAttribute="bottom" constant="6" id="rH3-eM-qF7"/>
+                            <constraint firstItem="LaB-WC-cUV" firstAttribute="top" secondItem="pZB-yY-bcs" secondAttribute="bottom" constant="5" id="sYj-eF-CUz"/>
+                            <constraint firstItem="jqv-00-loE" firstAttribute="leading" secondItem="w50-ez-SQ0" secondAttribute="leading" id="tHT-iQ-gqM"/>
+                            <constraint firstItem="K4R-AO-LE7" firstAttribute="centerX" secondItem="w50-ez-SQ0" secondAttribute="centerX" id="wC3-AS-vsJ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerradius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="BackgroundColor"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="LaB-WC-cUV" secondAttribute="trailing" constant="17" id="7gB-hK-pRz"/>
+                    <constraint firstAttribute="bottom" secondItem="MNq-JL-KMY" secondAttribute="bottom" constant="5" id="SBv-ce-ihq"/>
+                    <constraint firstAttribute="trailing" secondItem="MNq-JL-KMY" secondAttribute="trailing" constant="5" id="Wze-9i-Yvp"/>
+                    <constraint firstAttribute="bottom" secondItem="LaB-WC-cUV" secondAttribute="bottom" constant="12.5" id="enx-dq-7dn"/>
+                    <constraint firstItem="MNq-JL-KMY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="lOH-MK-gho"/>
+                    <constraint firstItem="MNq-JL-KMY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="s23-AK-Usy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" name="BackgroundColor"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnTransViewDetails" destination="LaB-WC-cUV" id="LIM-dq-fxQ"/>
+                <outlet property="lblTransactionAmount" destination="pZB-yY-bcs" id="gtx-dI-vfl"/>
+                <outlet property="lblTransactionCommentMsg" destination="K4R-AO-LE7" id="2Ct-kI-6OX"/>
+                <outlet property="lblTransactionDate" destination="jqv-00-loE" id="tr7-lC-3ii"/>
+                <outlet property="lblTransactionID" destination="w50-ez-SQ0" id="hXr-1l-HOL"/>
+            </connections>
+            <point key="canvasLocation" x="62.5" y="123"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.84299999475479126" green="0.87800002098083496" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

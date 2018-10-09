@@ -1,22 +1,19 @@
 //
-//  OrderPlacedViewController.swift
+//  PharmacistOrderDetailsViewController.swift
 //  MedicoBox
 //
-//  Created by SBC on 28/09/18.
+//  Created by NCORD LLP on 08/10/18.
 //  Copyright © 2018 Aiprous. All rights reserved.
 //
 
 import UIKit
 
-class OrderPlacedViewController: UIViewController {
+class PharmacistOrderDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.setNavigationBarItemBackButton()
-        self.navigationController?.isNavigationBarHidden = false;
-
     }
 
     override func didReceiveMemoryWarning() {

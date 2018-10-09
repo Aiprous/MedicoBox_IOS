@@ -88,7 +88,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
             
         }else{
             
-            cellObj.bottonCellViewTop.constant = 0;
+            cellObj.bottonCellViewTop.constant = 8;
             //            cellObj.bottonCellViewHeight.constant = 40;
             cellObj.SelectAllCellViewHeight.constant = 0;
             cellObj.btnSelectAll.isHidden = true
@@ -132,8 +132,14 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
          
          }
          */
+        cellObj.optionView.isHidden = true;
         cellObj.btnOptions.tag = indexPath.row;
         cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
+        cellObj.btnAddItem.tag = indexPath.row;
+        cellObj.btnAddItem.addTarget(self, action: #selector(btnAddItemAction(button:)), for: UIControlEvents.touchUpInside);
+        cellObj.btnEdit.tag = indexPath.row;
+        cellObj.btnEdit.addTarget(self, action: #selector(btnEditAction(button:)), for: UIControlEvents.touchUpInside);
+        
         cellObj.btnDropDown.tag = indexPath.section
         let headerTapped = UITapGestureRecognizer(target: self, action:#selector(InstaOrdersListViewController.sectionHeaderTapped(_:)))
         cellObj.btnDropDown.addGestureRecognizer(headerTapped)
@@ -148,32 +154,27 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
         if (indexPath.row == 0){
+            
             return 194
+            
         }else {
-            return 40
+
+             return 53
             
         }
+       
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        /*
-         let cell:InstaOrdersListTableViewCell = tableView.cellForRow(at: indexPath) as! InstaOrdersListTableViewCell
-         
-         if let data = destinationData {
-         if let rowData = data[indexPath.row] {
-         if(rowData.flag == "Close"){
-         rowData.flag = "Open"
-         }
-         else{
-         rowData.flag = "Close"
-         }
-         }
-         tblInstaOrdersList.reloadData()
-         //        cell.bottomCellView.isHidden = false
-         
-         }*/
+        
+//         let cell:InstaOrdersListTableViewCell = tableView.cellForRow(at: indexPath) as! InstaOrdersListTableViewCell
+        self.productInfoView.isHidden = false;
+        self.btnBackView.isHidden = false;
+
+   
+
     }
     
     /* func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -286,10 +287,23 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     
     @objc func btnOptionAction(button: UIButton) {
         
-        self.btnBackView.isHidden = false;
-        self.productInfoView.isHidden = false;
-        self.newInstaListView.isHidden = true;
+        let position: CGPoint = button.convert(.zero, to: self.tblInstaOrdersList)
+        let indexPath = self.tblInstaOrdersList.indexPathForRow(at: position)
+        let cell:InstaOrdersListTableViewCell = tblInstaOrdersList.cellForRow(at: indexPath!) as! InstaOrdersListTableViewCell
+        cell.optionView.isHidden = false;
         
+    }
+    
+     @objc func btnEditAction(button: UIButton) {
+        
+        
+    }
+    
+    @objc func btnAddItemAction(button: UIButton) {
+        
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kInstaOrderAddVC)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+        self.tblInstaOrdersList.reloadData()
     }
     
     @IBAction func btnNewInstaListAction(_ sender: Any) {
@@ -320,9 +334,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         self.btnBackView.isHidden = true;
         self.newInstaListView.isHidden = true;
         self.productInfoView.isHidden = true;
-        
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: INSTA_ORDER_ADD_VCID)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+     
     }
     @IBAction func btnOkAction(_ sender: Any) {
         
