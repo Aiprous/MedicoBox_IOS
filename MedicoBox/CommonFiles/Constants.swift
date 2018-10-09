@@ -64,6 +64,7 @@ let kTransactionListVC = "TransactionListViewController"
 let kSellerOrderVC = "SellerOrderViewController"
 let kTransationDetailVC = "TransationDetailViewController"
 let kOrderDetailsProcessingItemsVC = "OrderDetailsProcessingItemsViewController"
+let kPharmacistDashboardVC = "PharmacistDashboardViewController"
 
 
 // MARK: Image Constant

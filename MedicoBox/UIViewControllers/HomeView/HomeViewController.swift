@@ -15,7 +15,7 @@ import SVProgressHUD
 import SDWebImage
 import CoreLocation
 
-class HomeViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, FSPagerViewDataSource,FSPagerViewDelegate, CLLocationManagerDelegate, GMSMapViewDelegate, GMSAutocompleteViewControllerDelegate {
+class HomeViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, FSPagerViewDataSource,FSPagerViewDelegate, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     @IBOutlet weak var medicoSearchBar: UISearchBar!
     @IBOutlet weak var FeaturedProductsCollectionView: UICollectionView!
@@ -69,11 +69,13 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         
         locationManager.startUpdatingLocation()
         _ = CLLocationManager .authorizationStatus()
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()    }
+        locationManager.startUpdatingLocation()
+        
+        
+    }
     
     func addBadgeLabel() {
         
@@ -390,6 +392,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         self.present(autoCompleteController, animated: true, completion: nil)
         
     }
+    
     //MARK: Location show
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -415,22 +418,10 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             locationManager.stopUpdatingLocation()
             
           let  CITY = (containsPlacemark.locality != nil) ? containsPlacemark.locality! : ""
-            
-//            AREA = (containsPlacemark.subLocality != nil) ? containsPlacemark.subLocality! : ""
-//
-//            SUBAREA1 = (containsPlacemark.name != nil) ? containsPlacemark.name! : ""
-//
-//            SUBAREA2 = (containsPlacemark.subLocality != nil) ? containsPlacemark.subLocality! : ""
-//
-//            STATE = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea! : ""
-            
+
             let addressDictionary  = containsPlacemark.addressDictionary! as NSDictionary
             let address = containsPlacemark.addressDictionary?["FormattedAddressLines"] as? [String]
-            //            print(STATE,addressDictionary)
-            //            print(AREA,SUBAREA1,SUBAREA2)
-//            USER_ADDRESS = (address?.joined(separator: ", "))!
             lblCurrentLocation.text = CITY
-//            lblLandMark.text =  address?.joined(separator: ", ")
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -448,23 +439,52 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         }
     }
     
+}
+
+//----------------------------------------------------------
+// MARK: - GMSAutocompleteViewControllerDelegate For Location
+//----------------------------------------------------------
+
+
+extension HomeViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        
-        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15.0)
-        print("autocomplete")
-        print(place.coordinate.latitude)
-        print(place.coordinate.longitude)
-        self.dismiss(animated: true, completion: nil) // dismiss after select place
        
+        print("Place name: \(place.name)")
+        print("Place address: \(String(describing: place.formattedAddress))")
+        print("Place attributions: \(String(describing: place.attributions))")
+        
+        let addressComponents = place.addressComponents
+
+        for component in addressComponents! {
+            if component.type == "locality" {
+                print(component.name)
+                self.lblCurrentLocation.text = component.name
+            }
+        }
+
+        dismiss(animated: true, completion: nil)
+        
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        
-        print("ERROR AUTO COMPLETE \(error)")
-        
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
     }
     
+    // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        self.dismiss(animated: true, completion: nil) // when cancel search
+        dismiss(animated: true, completion: nil)
     }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
 }
