@@ -76,6 +76,9 @@
 		CD364096215281B5008FEFA1 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364093215281B0008FEFA1 /* fa-solid-900.ttf */; };
 		CD364097215281B5008FEFA1 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364094215281B3008FEFA1 /* fa-brands-400.ttf */; };
 		CD364098215281B5008FEFA1 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364095215281B5008FEFA1 /* fa-regular-400.ttf */; };
+		CD44FE6E216C737F008AE0BF /* TopSellingProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FE6C216C737E008AE0BF /* TopSellingProductsTableViewCell.swift */; };
+		CD44FE6F216C737F008AE0BF /* TopSellingProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD44FE6D216C737F008AE0BF /* TopSellingProductsTableViewCell.xib */; };
+		CD44FE71216C764D008AE0BF /* PharmacistDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FE70216C764D008AE0BF /* PharmacistDashboardViewController.swift */; };
 		CD7EE4F3216220E7005875F6 /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7EE4F2216220E7005875F6 /* MyOrdersViewController.swift */; };
 		CD7EE4F72162212E005875F6 /* MyOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7EE4F52162212E005875F6 /* MyOrdersTableViewCell.swift */; };
 		CD7EE4F82162212E005875F6 /* MyOrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7EE4F62162212E005875F6 /* MyOrdersTableViewCell.xib */; };
@@ -217,6 +220,9 @@
 		CD364093215281B0008FEFA1 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		CD364094215281B3008FEFA1 /* fa-brands-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.ttf"; sourceTree = "<group>"; };
 		CD364095215281B5008FEFA1 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
+		CD44FE6C216C737E008AE0BF /* TopSellingProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSellingProductsTableViewCell.swift; sourceTree = "<group>"; };
+		CD44FE6D216C737F008AE0BF /* TopSellingProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopSellingProductsTableViewCell.xib; sourceTree = "<group>"; };
+		CD44FE70216C764D008AE0BF /* PharmacistDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacistDashboardViewController.swift; sourceTree = "<group>"; };
 		CD7EE4F2216220E7005875F6 /* MyOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersViewController.swift; sourceTree = "<group>"; };
 		CD7EE4F52162212E005875F6 /* MyOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersTableViewCell.swift; sourceTree = "<group>"; };
 		CD7EE4F62162212E005875F6 /* MyOrdersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrdersTableViewCell.xib; sourceTree = "<group>"; };
@@ -579,6 +585,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		CD44FE6B216C7344008AE0BF /* TopSellingProductsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CD44FE6C216C737E008AE0BF /* TopSellingProductsTableViewCell.swift */,
+				CD44FE6D216C737F008AE0BF /* TopSellingProductsTableViewCell.xib */,
+			);
+			path = TopSellingProductsTableViewCell;
+			sourceTree = "<group>";
+		};
 		CD7EE4F1216220B1005875F6 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
@@ -705,6 +720,7 @@
 				3A7541F1216CAA6200C44069 /* PharmacistItemOrderViewController.swift */,
 				3A7541F5216CD0AC00C44069 /* PharmacistInvoiceViewController.swift */,
 				3A7541F7216CD0E500C44069 /* PharmacistShipmentViewController.swift */,
+				CD44FE70216C764D008AE0BF /* PharmacistDashboardViewController.swift */,
 			);
 			path = Pharmacist;
 			sourceTree = "<group>";
@@ -769,6 +785,7 @@
 		CDDCA00421520C7F00DC1202 /* CustomeCells */ = {
 			isa = PBXGroup;
 			children = (
+				CD44FE6B216C7344008AE0BF /* TopSellingProductsTableViewCell */,
 				CDAE5C01216B3C7B0056D455 /* SellerOrderTableViewCell */,
 				CDAE5BF8216B2B2D0056D455 /* ProductsPharmacistTableViewCell */,
 				CDAE5BF3216B2ADA0056D455 /* TransactionListTableViewCell */,
@@ -945,6 +962,8 @@
 				3A7541F0216C62FF00C44069 /* Prescription.storyboard in Resources */,
 				CDA18F842153C9BE00F2D1AA /* OpenSans-LightItalic.ttf in Resources */,
 				CDA18F832153C9BE00F2D1AA /* OpenSans-Regular.ttf in Resources */,
+				CD44FE6F216C737F008AE0BF /* TopSellingProductsTableViewCell.xib in Resources */,
+				3A5E2260215C95420034FA04 /* Prescription.storyboard in Resources */,
 				3AFD0372215F8A9100B04D8C /* CartItemTableCell.xib in Resources */,
 				3A5E226E215D1EDE0034FA04 /* DeliveryAddressTableCell.xib in Resources */,
 				3A56BC48215E261100CA1E33 /* AddressTableViewCell.xib in Resources */,
@@ -1065,6 +1084,7 @@
 				3A984C3A215106520012E0C7 /* DesignableShadowView.swift in Sources */,
 				CDF2BE2C215A028E00F7D64D /* InstaOrderAddViewController.swift in Sources */,
 				CD7EE4F3216220E7005875F6 /* MyOrdersViewController.swift in Sources */,
+				CD44FE71216C764D008AE0BF /* PharmacistDashboardViewController.swift in Sources */,
 				CDAE5BEB216B1AC70056D455 /* SignUpDeliveryBoyViewController.swift in Sources */,
 				3A5F60162159092A0072E1BB /* ProductDetailBViewController.swift in Sources */,
 				3A56BC47215E261100CA1E33 /* AddressTableViewCell.swift in Sources */,
@@ -1117,6 +1137,7 @@
 				3A25CD9D2162351900B3BA8E /* MyProfileViewController.swift in Sources */,
 				CD8BF92B2155F6E8005B7BBA /* SetNewPasswordViewController.swift in Sources */,
 				3A56BC42215E054300CA1E33 /* OrderSummaryViewController.swift in Sources */,
+				CD44FE6E216C737F008AE0BF /* TopSellingProductsTableViewCell.swift in Sources */,
 				CDDCA00021520C4500DC1202 /* HomeViewController.swift in Sources */,
 				3A984C302150FEA50012E0C7 /* SignInViewController.swift in Sources */,
 				CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */,
@@ -1266,7 +1287,8 @@
 			baseConfigurationReference = E2A5E03AB499BCF82AB59B1C /* Pods-MedicoBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NJCWH73PYF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1278,10 +1300,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eHealthCard.ehealth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiprous.MedicoBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f081d5a5-1023-4ec2-ae44-30a5bc1213c8";
-				PROVISIONING_PROFILE_SPECIFIER = NCORD_Development;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1292,7 +1314,8 @@
 			baseConfigurationReference = 793E45A0F76C939F763806E3 /* Pods-MedicoBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NJCWH73PYF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1304,10 +1327,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eHealthCard.ehealth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aiprous.MedicoBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f081d5a5-1023-4ec2-ae44-30a5bc1213c8";
-				PROVISIONING_PROFILE_SPECIFIER = NCORD_Development;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

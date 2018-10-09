@@ -10,10 +10,30 @@ import UIKit
 
 class TransationDetailViewController: UIViewController {
 
+    @IBOutlet weak var lblAmount: UILabel!
+    
+    @IBOutlet weak var lblTotalTax: UILabel!
+    @IBOutlet weak var lblTotalPrice: UILabel!
+    @IBOutlet weak var lblQty: UILabel!
+    @IBOutlet weak var lblPrice: UILabel!
+    
+    @IBOutlet weak var lblTotalShipping: UILabel!
+    
+    @IBOutlet weak var lblCommission: UILabel!
+    
+    @IBOutlet weak var lblSubTotal: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.lblAmount.text = "\u{20B9}" + " 200.00"
+        self.lblPrice.text = "\u{20B9}" + " 278.00"
+        self.lblTotalTax.text = "\u{20B9}" + " 0.00"
+        self.lblTotalShipping.text = "\u{20B9}" + " 0.00"
+        self.lblSubTotal.text = "\u{20B9}" + " 278.00"
+        self.lblTotalPrice.text = "\u{20B9}" + " 278.00"
+        self.lblCommission.text = "\u{20B9}" + " 0.00"
+
     }
 
     override func didReceiveMemoryWarning() {

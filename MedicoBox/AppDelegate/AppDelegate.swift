@@ -70,8 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     func logUser() {
         // TODO: Use the current user's information
         // You can call any combination of these three methods
-        Crashlytics.sharedInstance().setUserEmail("support@medicobox.com")
-     Crashlytics.sharedInstance().setUserIdentifier("mbsupport@24 ")
+    Crashlytics.sharedInstance().setUserEmail("support@medicobox.com")
+    Crashlytics.sharedInstance().setUserIdentifier("mbsupport@24 ")
         Crashlytics.sharedInstance().setUserName("Test User")
     }
 
