@@ -8,9 +8,12 @@
 
 import UIKit
 
+
 class ProductsPharmacistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tblProductsPharmacist: UITableView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +24,7 @@ class ProductsPharmacistViewController: UIViewController, UITableViewDelegate, U
         tblProductsPharmacist.dataSource = self
         tblProductsPharmacist.estimatedRowHeight = 130
         tblProductsPharmacist.separatorStyle = .none
+
     }
     
     
@@ -37,7 +41,7 @@ class ProductsPharmacistViewController: UIViewController, UITableViewDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     //MARK:- Table View Delegate And DataSource
     
     func numberOfSections(in tableView: UITableView) -> Int{

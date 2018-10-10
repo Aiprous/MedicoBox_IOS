@@ -405,6 +405,10 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             if (placemarks?.count)! > 0 {
                 let pm = placemarks?[0]
                 self.displayLocationInfo(pm)
+                
+                let  CITY = (pm?.locality != nil) ? pm?.locality! : ""
+                self.lblCurrentLocation.text = CITY
+
             } else {
                 print("Problem with the data received from geocoder")
             }
@@ -421,7 +425,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
 
             let addressDictionary  = containsPlacemark.addressDictionary! as NSDictionary
             let address = containsPlacemark.addressDictionary?["FormattedAddressLines"] as? [String]
-            lblCurrentLocation.text = CITY
+            
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

@@ -141,6 +141,7 @@
 		CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */; };
 		CDF2AEAB2165DA2A00AB346C /* MyOrdersDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2AEAA2165DA2A00AB346C /* MyOrdersDetailsViewController.swift */; };
 		CDF2BE2C215A028E00F7D64D /* InstaOrderAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */; };
+		CDF9FFA7216E01BD001C9D75 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF9FFA6216E01BC001C9D75 /* Steps.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -281,6 +282,7 @@
 		CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDF2AEAA2165DA2A00AB346C /* MyOrdersDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersDetailsViewController.swift; sourceTree = "<group>"; };
 		CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrderAddViewController.swift; sourceTree = "<group>"; };
+		CDF9FFA6216E01BC001C9D75 /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		E2A5E03AB499BCF82AB59B1C /* Pods-MedicoBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicoBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -831,6 +833,7 @@
 		CDDCA0182152186C00DC1202 /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				CDF9FFA6216E01BC001C9D75 /* Steps.swift */,
 				CDDCA0192152189100DC1202 /* Constants.swift */,
 				CDDCA01A2152189100DC1202 /* Extension.swift */,
 			);
@@ -1076,6 +1079,7 @@
 				3A5F60162159092A0072E1BB /* ProductDetailBViewController.swift in Sources */,
 				3A56BC47215E261100CA1E33 /* AddressTableViewCell.swift in Sources */,
 				3AFD0369215F824E00B04D8C /* CartOrderSummaryVC.swift in Sources */,
+				CDF9FFA7216E01BD001C9D75 /* Steps.swift in Sources */,
 				3A5F600A215908F10072E1BB /* UIView.swift in Sources */,
 				3A5F6010215908F10072E1BB /* UITableViewExtension.swift in Sources */,
 				CDAE5BF6216B2B1D0056D455 /* TransactionListTableViewCell.swift in Sources */,
