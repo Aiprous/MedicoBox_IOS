@@ -24,6 +24,7 @@ class Steps: NSObject {
     }
     
     func loadMapData() {
+        
         saveDurationAndDictance(dict: step_dict["distance"] as! Dictionary<String, Any>, key: "distance")
         saveDurationAndDictance(dict: step_dict["duration"] as! Dictionary<String, Any>, key: "duration")
         saveLocation(dict: step_dict["end_location"] as! Dictionary<String, Any>, key: "end_location")
@@ -33,7 +34,7 @@ class Steps: NSObject {
 
     func saveDurationAndDictance(dict:Dictionary<String,Any>,key:String) {
         var durationORdistance = Dictionary <String,Any> ()
-        durationORdistance = ["text":dict["text"] as! String,"value":Int(dict["value"] as! Int)]
+        durationORdistance = ["text": dict["text"] as! String,"value":Int(dict["value"] as! Int)]
         if key == "distance" {
             step_distance = [key:durationORdistance]
         }

@@ -162,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaF-zE-ytC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="111" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C9V-25-vlk">
                                         <rect key="frame" x="0.0" y="98" width="375" height="549"/>
@@ -259,16 +259,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmE-mt-hAC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="2417"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVH-mz-z3k">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2417"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medicobox" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7X-gf-Sm7">
-                                                <rect key="frame" x="50" y="66.5" width="274" height="61.5"/>
+                                                <rect key="frame" x="50" y="200" width="274" height="232"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fa7-jx-KM4" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                                <rect key="frame" x="58" y="315" width="260" height="39.5"/>
+                                                <rect key="frame" x="58" y="619" width="260" height="144.5"/>
                                                 <color key="backgroundColor" red="0.094117647060000004" green="0.18039215689999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="SET PASSWORD">
@@ -287,7 +287,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Verification Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gcc-i6-654">
-                                                <rect key="frame" x="14" y="200" width="345" height="33"/>
+                                                <rect key="frame" x="14" y="504" width="345" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="Y4U-gV-dgB"/>
                                                 </constraints>
@@ -296,14 +296,14 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwW-Qw-W5A">
-                                                <rect key="frame" x="14" y="233" width="345" height="1"/>
+                                                <rect key="frame" x="14" y="537" width="345" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="wIf-v8-MIf"/>
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axD-vP-ECU">
-                                                <rect key="frame" x="14" y="242" width="345" height="33"/>
+                                                <rect key="frame" x="14" y="546" width="345" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="5oc-4D-lfD"/>
                                                 </constraints>
@@ -312,7 +312,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndZ-A0-eAf">
-                                                <rect key="frame" x="14" y="275" width="345" height="1"/>
+                                                <rect key="frame" x="14" y="579" width="345" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="FnE-El-HUb"/>
@@ -389,7 +389,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuK-bw-bv6">
-                                <rect key="frame" x="0.0" y="-20" width="375" height="687"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wjs-ZF-HKM">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="852"/>
@@ -2977,7 +2977,10 @@
                                                         <rect key="frame" x="15" y="232.5" width="345" height="34"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="G0o-ph-Dec" id="Emp-hm-229"/>
+                                                        </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hm-rU-YHD">
                                                         <rect key="frame" x="15" y="266.5" width="345" height="1"/>
@@ -2990,7 +2993,10 @@
                                                         <rect key="frame" x="15" y="273.5" width="345" height="34"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next" textContentType="tel"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="G0o-ph-Dec" id="vAe-xu-Mhq"/>
+                                                        </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vqN-KN-j3C">
                                                         <rect key="frame" x="15" y="307.5" width="345" height="1"/>
@@ -3003,7 +3009,10 @@
                                                         <rect key="frame" x="15" y="316.5" width="345" height="34"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="G0o-ph-Dec" id="gLj-cU-Tob"/>
+                                                        </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxE-Cd-YsG">
                                                         <rect key="frame" x="15" y="350.5" width="345" height="1"/>
@@ -3016,7 +3025,10 @@
                                                         <rect key="frame" x="15" y="358.5" width="345" height="34.5"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="G0o-ph-Dec" id="jky-Ll-bN1"/>
+                                                        </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKo-us-FWp">
                                                         <rect key="frame" x="15" y="393" width="345" height="1"/>
@@ -3171,6 +3183,12 @@
                         <viewLayoutGuide key="safeArea" id="BuC-no-s7F"/>
                     </view>
                     <navigationItem key="navigationItem" id="BCK-Iz-1nY"/>
+                    <connections>
+                        <outlet property="txtEmail" destination="jbn-Bu-Zii" id="8Lk-es-Ov3"/>
+                        <outlet property="txtMobile" destination="p07-0K-jif" id="wEO-x2-Orp"/>
+                        <outlet property="txtName" destination="fl6-ki-5jv" id="En1-9f-wbB"/>
+                        <outlet property="txtPassword" destination="XqR-jA-bxP" id="R6I-oY-oQZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0f-Sr-uoG" sceneMemberID="firstResponder"/>
             </objects>
@@ -3541,7 +3559,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ipH-3p-SD2" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="114"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="114"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkY-CE-be7">
                                         <rect key="frame" x="12" y="21" width="36" height="30"/>
@@ -3557,14 +3575,14 @@
                                             <action selector="menuBtnAction:" destination="TSL-tR-KST" eventType="touchUpInside" id="9ea-43-ThT"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udU-CW-AtB">
-                                        <rect key="frame" x="57" y="28" width="46" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udU-CW-AtB">
+                                        <rect key="frame" x="57" y="28" width="0.0" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-4U-xTi">
-                                        <rect key="frame" x="106" y="31" width="24" height="13"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uj-4U-xTi">
+                                        <rect key="frame" x="60" y="31" width="24" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="EYP-y0-gAe"/>
                                             <constraint firstAttribute="height" constant="13" id="XbX-XR-pN8"/>
@@ -3577,8 +3595,8 @@
                                             <action selector="btnLocationAction:" destination="TSL-tR-KST" eventType="touchUpInside" id="lHB-YS-cHM"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="medicobox" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7F-6Z-Q9T">
-                                        <rect key="frame" x="134" y="12" width="170" height="39"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medicobox" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7F-6Z-Q9T">
+                                        <rect key="frame" x="88" y="12" width="219" height="39"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="39" id="suA-in-6ad"/>
                                         </constraints>

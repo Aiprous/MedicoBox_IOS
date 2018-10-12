@@ -20,5 +20,6 @@ target 'MedicoBox' do
     pod 'GoogleMaps'
     pod 'GooglePlaces'
     pod 'FSPagerView'
+    pod 'IQKeyboardManager'
 
 end

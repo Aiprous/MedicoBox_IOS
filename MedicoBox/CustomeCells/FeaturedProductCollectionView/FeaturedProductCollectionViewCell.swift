@@ -23,7 +23,7 @@ class FeaturedProductCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         //         self.lblOfferFeaturedProducts.text = "\u{20B9}" + " 299.0 "
-        self.lblPriceFeaturedProducts.text = "\u{20B9}" + " 199.0 "
+//        self.lblPriceFeaturedProducts.text = "\u{20B9}" + " 199.0 "
         
         strikeOnLabel()
     }

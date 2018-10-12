@@ -18,7 +18,7 @@ class DesignableUITextField: UITextField {
     }
     func changeFontName()
     {
-        self.font = UIFont(name: "SanFranciscoText-Semibold", size: 30)
+        self.font = UIFont(name: "OpenSans-Regular", size: 17)
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -71,6 +71,16 @@ class DesignableUITextField: UITextField {
     public func isValidOTP() -> Bool {
         
         return (self.text?.trimmingCharacters(in: NSCharacterSet.whitespaces).count)! >= 1
+    }
+    public func isValidPassword() -> Bool {
+        let passwordRegex = "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8}$"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
+
+    }
+    public func isValidEmail() -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: self)
     }
 }
 extension UIColor {
@@ -219,7 +229,69 @@ extension UIViewController {
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
-    } }
+    }
+    
+    public func alertWithMessage(title : String , message : String ,  vc : Any)  {
+        
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction.init(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        
+        (vc as? UIViewController)?.present(alert, animated: true, completion: nil)
+        
+    }
+
+    
+   public func isValidEmailID(txtEmail : String) -> Bool {
+        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        if emailTest.evaluate(with: txtEmail) {
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    
+    
+   public func isValidName(txtName: String) -> Bool {
+        
+        let firstNameRegex = "[a-zA-z]+([ '-][a-zA-Z]+)*$"
+        let firstNameTest = NSPredicate(format: "SELF MATCHES %@", firstNameRegex)
+        
+        let result = firstNameTest.evaluate(with: txtName)
+        if result == false {
+            return false
+        }
+        
+        return result
+        
+    }
+    
+   public func isValidMobileNo(mobileNo : String) -> Bool {
+        
+        let noRegex = "[0-9]{6,14}$"
+        let noTest = NSPredicate(format: "SELF MATCHES %@", noRegex)
+        
+        let result = noTest.evaluate(with: mobileNo)
+        
+        
+        
+        if result == false {
+            
+            return false
+        }
+        return result
+        
+    }
+
+}
 extension UIButton {
     func underline() {
         guard let text = self.titleLabel?.text else { return }

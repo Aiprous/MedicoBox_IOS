@@ -25,7 +25,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
 
     @IBOutlet weak var lblCurrentLocation: UILabel!
     var locationManager = CLLocationManager()
-
+    var featuredProductsArray =  NSArray();
     var screenSize: CGRect!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
@@ -57,7 +57,14 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         FeaturedProductsCollectionView.dataSource = self
         FeaturedProductsCollectionView.delegate = self
         
+        _ = CLLocationManager .authorizationStatus()
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
     }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
     }
@@ -66,15 +73,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         
         self.navigationController?.isNavigationBarHidden = true;
         super.viewWillAppear(animated)
-        
-        locationManager.startUpdatingLocation()
-        _ = CLLocationManager .authorizationStatus()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-        
-        
+        callAPIGetProducts()
     }
     
     func addBadgeLabel() {
@@ -106,7 +105,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         var numberCount:Int = Int()
         if(collectionView == FeaturedProductsCollectionView)
         {
-            numberCount = 8;
+            numberCount = featuredProductsArray.count;
             
         }
         return numberCount;
@@ -121,6 +120,24 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             // get a reference to our storyboard cell
             let cellObj = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedProductsCollectionCellID", for: indexPath as IndexPath) as! FeaturedProductCollectionViewCell
             
+             let dictObj = featuredProductsArray.object(at: indexPath.row) as! NSDictionary
+            
+            cellObj.lblTitleFeaturedProducts.text = (dictObj.value(forKey: "name") as? String)!;
+            cellObj.lblPriceFeaturedProducts.text =  "\u{20B9} " + (dictObj.value(forKey: "final_price") as? String)!;
+                
+//                String((dictObj.value(forKey: "final_price") as? Int)!);
+            /*
+            let URLstr = "http://user8.itsindev.com/medibox" + (dictObj.value(forKey: "small_image") as? String)!
+            let url = URL.init(string: URLstr )
+            if url != nil
+            {
+                cellObj.imgFeaturedProducts.sd_setImage(with: url! , completed: { (image, error, cacheType, imageURL) in
+                    
+                    cellObj.imgFeaturedProducts.image = image
+                    
+                })
+            }
+ */
             
             return cellObj;
         }
@@ -381,14 +398,10 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         self.navigationController?.pushViewController(Controller, animated: true)
     }
     
-    
-
      @IBAction func btnLocationAction(_ sender: Any) {
     
-        
         let autoCompleteController = GMSAutocompleteViewController()
         autoCompleteController.delegate = self
-        self.locationManager.startUpdatingLocation()
         self.present(autoCompleteController, animated: true, completion: nil)
         
     }
@@ -405,10 +418,6 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             if (placemarks?.count)! > 0 {
                 let pm = placemarks?[0]
                 self.displayLocationInfo(pm)
-                
-                let  CITY = (pm?.locality != nil) ? pm?.locality! : ""
-                self.lblCurrentLocation.text = CITY
-
             } else {
                 print("Problem with the data received from geocoder")
             }
@@ -423,9 +432,10 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
           let  CITY = (containsPlacemark.locality != nil) ? containsPlacemark.locality! : ""
 
-            let addressDictionary  = containsPlacemark.addressDictionary! as NSDictionary
-            let address = containsPlacemark.addressDictionary?["FormattedAddressLines"] as? [String]
-            
+//            let addressDictionary  = containsPlacemark.addressDictionary! as NSDictionary
+//            let address = containsPlacemark.addressDictionary?["FormattedAddressLines"] as? [String]
+            self.lblCurrentLocation.text = CITY
+
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -440,6 +450,37 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
                 let city = placemarks?.first?.locality {
                 completion(country, city)
             }
+        }
+    }
+    
+//
+    func callAPIGetProducts() {
+        
+        let urlString = "http://user8.itsindev.com/medibox/featured-products.php"
+        SVProgressHUD.show()
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSArray = resposeData.result.value as? NSArray {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        print(responseDict);
+                        
+                        self.featuredProductsArray = responseDict;
+                        self.FeaturedProductsCollectionView.reloadData()
+                    }
+                    else{
+                        
+                        self.showToast(message: responseDict.value(forKey: "message") as! String)
+                        
+                        print(responseDict.value(forKey: "message") as! String );
+                        
+                    }
+                }
+            })
         }
     }
     
@@ -467,7 +508,7 @@ extension HomeViewController: GMSAutocompleteViewControllerDelegate {
                 self.lblCurrentLocation.text = component.name
             }
         }
-
+        self.locationManager.stopUpdatingLocation()
         dismiss(animated: true, completion: nil)
         
     }

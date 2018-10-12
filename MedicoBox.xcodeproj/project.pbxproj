@@ -139,9 +139,14 @@
 		CDDCA044215231A100DC1202 /* MedicoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA042215231A100DC1202 /* MedicoCollectionViewCell.swift */; };
 		CDDCA045215231A100DC1202 /* MedicoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */; };
 		CDDCA0492152553400DC1202 /* FeaturedProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */; };
+		CDEAAD112170AAE500D9703C /* SignUpModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEAAD102170AAE500D9703C /* SignUpModelClass.swift */; };
 		CDF2AEAB2165DA2A00AB346C /* MyOrdersDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2AEAA2165DA2A00AB346C /* MyOrdersDetailsViewController.swift */; };
 		CDF2BE2C215A028E00F7D64D /* InstaOrderAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */; };
 		CDF9FFA7216E01BD001C9D75 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF9FFA6216E01BC001C9D75 /* Steps.swift */; };
+		CDF9FFAC216E2270001C9D75 /* PharmacistInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF9FFA8216E2266001C9D75 /* PharmacistInvoiceViewController.swift */; };
+		CDF9FFAD216E2270001C9D75 /* PharmacistShipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF9FFA9216E2267001C9D75 /* PharmacistShipmentViewController.swift */; };
+		CDF9FFAE216E2270001C9D75 /* PharmacistItemOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF9FFAA216E2268001C9D75 /* PharmacistItemOrderViewController.swift */; };
+		CDF9FFAF216E2270001C9D75 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF9FFAB216E226C001C9D75 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -280,9 +285,14 @@
 		CDDCA042215231A100DC1202 /* MedicoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicoCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDDCA043215231A100DC1202 /* MedicoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicoCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDDCA0472152553400DC1202 /* FeaturedProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		CDEAAD102170AAE500D9703C /* SignUpModelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModelClass.swift; sourceTree = "<group>"; };
 		CDF2AEAA2165DA2A00AB346C /* MyOrdersDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersDetailsViewController.swift; sourceTree = "<group>"; };
 		CDF2BE2B215A028E00F7D64D /* InstaOrderAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstaOrderAddViewController.swift; sourceTree = "<group>"; };
 		CDF9FFA6216E01BC001C9D75 /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		CDF9FFA8216E2266001C9D75 /* PharmacistInvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacistInvoiceViewController.swift; sourceTree = "<group>"; };
+		CDF9FFA9216E2267001C9D75 /* PharmacistShipmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacistShipmentViewController.swift; sourceTree = "<group>"; };
+		CDF9FFAA216E2268001C9D75 /* PharmacistItemOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacistItemOrderViewController.swift; sourceTree = "<group>"; };
+		CDF9FFAB216E226C001C9D75 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		E2A5E03AB499BCF82AB59B1C /* Pods-MedicoBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicoBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MedicoBox/Pods-MedicoBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -352,6 +362,7 @@
 		3A49158F214BAE6300917E79 /* MedicoBox */ = {
 			isa = PBXGroup;
 			children = (
+				CDEAAD0E2170AA6D00D9703C /* Models Class */,
 				3A5F6012215908F80072E1BB /* ExtensionFiles */,
 				3A5F5FED215907B10072E1BB /* SlideMenu */,
 				CD36409221528159008FEFA1 /* Fonts */,
@@ -710,6 +721,10 @@
 				CDAE5BFD216B39920056D455 /* PharmacistOrderDetailsViewController.swift */,
 				CDAE5BFF216B3C3C0056D455 /* SellerOrderViewController.swift */,
 				CDD9DA91216B647400C13095 /* OrderDetailsProcessingItemsViewController.swift */,
+				CDF9FFAB216E226C001C9D75 /* PageViewController.swift */,
+				CDF9FFA8216E2266001C9D75 /* PharmacistInvoiceViewController.swift */,
+				CDF9FFAA216E2268001C9D75 /* PharmacistItemOrderViewController.swift */,
+				CDF9FFA9216E2267001C9D75 /* PharmacistShipmentViewController.swift */,
 				CD44FE70216C764D008AE0BF /* PharmacistDashboardViewController.swift */,
 			);
 			path = Pharmacist;
@@ -858,6 +873,22 @@
 			path = FeaturedProductCollectionView;
 			sourceTree = "<group>";
 		};
+		CDEAAD0E2170AA6D00D9703C /* Models Class */ = {
+			isa = PBXGroup;
+			children = (
+				CDEAAD0F2170AA7D00D9703C /* SignUpModelClass */,
+			);
+			path = "Models Class";
+			sourceTree = "<group>";
+		};
+		CDEAAD0F2170AA7D00D9703C /* SignUpModelClass */ = {
+			isa = PBXGroup;
+			children = (
+				CDEAAD102170AAE500D9703C /* SignUpModelClass.swift */,
+			);
+			path = SignUpModelClass;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -999,6 +1030,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -1010,6 +1042,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -1073,6 +1106,7 @@
 				CDAE5BE9216B18230056D455 /* AddDeliveryBoyViewController.swift in Sources */,
 				3A984C3A215106520012E0C7 /* DesignableShadowView.swift in Sources */,
 				CDF2BE2C215A028E00F7D64D /* InstaOrderAddViewController.swift in Sources */,
+				CDF9FFAF216E2270001C9D75 /* PageViewController.swift in Sources */,
 				CD7EE4F3216220E7005875F6 /* MyOrdersViewController.swift in Sources */,
 				CD44FE71216C764D008AE0BF /* PharmacistDashboardViewController.swift in Sources */,
 				CDAE5BEB216B1AC70056D455 /* SignUpDeliveryBoyViewController.swift in Sources */,
@@ -1086,6 +1120,7 @@
 				CDAE5BF2216B2A320056D455 /* TransactionListViewController.swift in Sources */,
 				CD9E043E2158AC9700F1C44C /* InstaOrdersListViewController.swift in Sources */,
 				3A25CDA02162375A00B3BA8E /* NotificationTableViewCell.swift in Sources */,
+				CDF9FFAD216E2270001C9D75 /* PharmacistShipmentViewController.swift in Sources */,
 				3A5F5FEB215907AB0072E1BB /* ExSlideMenuController.swift in Sources */,
 				3AF374B02161DECA00C86733 /* InstaOrdersListTableViewCell.swift in Sources */,
 				CDAE5BFB216B2B650056D455 /* ProductsPharmacistTableViewCell.swift in Sources */,
@@ -1099,6 +1134,7 @@
 				3A25CD9B216234B800B3BA8E /* NotificationViewController.swift in Sources */,
 				3AFD0371215F8A9100B04D8C /* CartItemTableCell.swift in Sources */,
 				3A5F600B215908F10072E1BB /* String.swift in Sources */,
+				CDF9FFAE216E2270001C9D75 /* PharmacistItemOrderViewController.swift in Sources */,
 				3A5F5FEC215907AB0072E1BB /* LeftViewController.swift in Sources */,
 				3A56BC40215DDF1F00CA1E33 /* SelectAddressViewController.swift in Sources */,
 				CDAE5BFE216B39920056D455 /* PharmacistOrderDetailsViewController.swift in Sources */,
@@ -1106,7 +1142,9 @@
 				3A5F5FF52159080C0072E1BB /* HeaderCell.swift in Sources */,
 				3A5E2265215CD3120034FA04 /* UploadPrescriptionViewController.swift in Sources */,
 				3A5E226A215D06B20034FA04 /* UploadPresriptionSecondVC.swift in Sources */,
+				CDF9FFAC216E2270001C9D75 /* PharmacistInvoiceViewController.swift in Sources */,
 				CDDCA01C2152189100DC1202 /* Extension.swift in Sources */,
+				CDEAAD112170AAE500D9703C /* SignUpModelClass.swift in Sources */,
 				CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */,
 				CDAE5C04216B3C940056D455 /* SellerOrderTableViewCell.swift in Sources */,
 				CD7EE4F72162212E005875F6 /* MyOrdersTableViewCell.swift in Sources */,

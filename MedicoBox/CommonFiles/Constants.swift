@@ -10,7 +10,7 @@ let kScreenWidth = UIScreen.main.bounds.size.width
 let kScreenHeight = UIScreen.main.bounds.size.height
 
 //Base url of App
-let BASEURL = ""
+let BASEURL = "http://user8.itsindev.com/medibox/index.php/rest/V1"
 
 //Google APIs
 let cinstantbaseUrl1 = "https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec=true"
@@ -65,7 +65,9 @@ let kSellerOrderVC = "SellerOrderViewController"
 let kTransationDetailVC = "TransationDetailViewController"
 let kOrderDetailsProcessingItemsVC = "OrderDetailsProcessingItemsViewController"
 let kPharmacistDashboardVC = "PharmacistDashboardViewController"
-
+let kPharmacistOrderItemVC = "PharmacistItemOrderViewController"
+let kPharmacistShipmentVC = "PharmacistShipmentViewController"
+let kPharmacistInvoiceVC = "PharmacistInvoiceViewController"
 
 // MARK: Image Constant
 let kbackgroundColor  =  UIColor.init(hexString: "#d7e0e7")

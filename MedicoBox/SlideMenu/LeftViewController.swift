@@ -223,6 +223,12 @@ extension LeftViewController : UITableViewDataSource {
         let section = getSectionIndex(indexPath.row)
         let row = getRowIndex(indexPath.row)
         
+     /*   var tableData:[SignUpModelClass] = [SignUpModelClass]()
+        let artistAndAlbum = tableData[section]
+        imageHeaderView.lblName.text = artistAndAlbum.firstname + artistAndAlbum.lastname
+        imageHeaderView.lblEmailID.text = artistAndAlbum.email
+        imageHeaderView.profileImage.image = #imageLiteral(resourceName: "doctor")
+        */ 
         if row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! HeaderCell
             cell.titleLabel.text = sections[section].name
@@ -244,7 +250,18 @@ extension LeftViewController : UITableViewDataSource {
         }
         
     }
+   /*
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ImageHeaderView") as! ImageHeaderView
+        var tableData:[SignUpModelClass] = [SignUpModelClass]()
+        let artistAndAlbum = tableData[section]
+        cell.lblName.text = artistAndAlbum.firstname + artistAndAlbum.lastname
+        cell.lblEmailID.text = artistAndAlbum.email
+        cell.profileImage.image = #imageLiteral(resourceName: "doctor")
+        return self.imageHeaderView;
+    }
+    */
     //
     // MARK: - Event Handlers
     //

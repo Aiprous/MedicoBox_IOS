@@ -11,6 +11,8 @@ import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Alamofire
+import SVProgressHUD
+import SDWebImage
 
 class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,GIDSignInUIDelegate, UIGestureRecognizerDelegate {
 
@@ -28,6 +30,8 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     
     @IBOutlet var popUpBG: UIImageView!
     @IBOutlet var popUpView: UIView!
+    @IBOutlet weak var txtMobileEmail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +49,6 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                                                name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
                                                object: nil)
         
-//        statusText.text = "Initialized Swift app..."
-        toggleAuthUI()
  
     }
 
@@ -58,10 +60,10 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     @IBAction func btnSignInAction(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.createMenuView()
+//        self.callSellerLoginAPI()
     }
     
     @IBAction func btnSignInWithOTPAction(_ sender: Any) {
-        
 
         let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kVerifyOTPVC)
  self.navigationController?.pushViewController(Controller, animated: true)
@@ -140,8 +142,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
 //                        USERNAME = self.emailIdString
 //                        ACCOUNT_TYPE = "facebook"
 //
-                        //                        USER_PROFILE = b.value(forKey: "url") as! String
-                        
+//                        USER_PROFILE = b.value(forKey: "url") as! String
                        
                     }
                     
@@ -151,7 +152,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                     })
                     self.fbLoginSuccessCall(userInfo: userData, token: fbAccessToken!)
                     
-//                    self.callAPI_getLoginAPI()
+//                    self.callLoginAPI()
                 }
                 else {
                     print("Error in getting token")
@@ -197,14 +198,9 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
             dataDict["social_name"] = fullName
             dataDict["social_email"] = email
             dataDict["social_site_name"] = "Google"
-            
-//            USER_FIRST_NAME = givenName! //first Name
-//            USER_LAST_NAME = familyName! //last Name
-//            USERNAME = email!
-//            ACCOUNT_TYPE = "google"
+ 
             print(dataDict)
-//            self.callAPI_getLoginAPI()
-            
+//            self.callLoginAPI()
 
             let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kHomeVC)
 
@@ -228,23 +224,6 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
         self.dismiss(animated: true, completion: nil)
     }
     
-    // [START toggle_auth]
-    func toggleAuthUI() {
-        /*
-         if GIDSignIn.sharedInstance().hasAuthInKeychain() {
-         // Signed in
-         signInButton.isHidden = true
-         signOutButton.isHidden = false
-         disconnectButton.isHidden = false
-         } else {
-         signInButton.isHidden = false
-         signOutButton.isHidden = true
-         disconnectButton.isHidden = true
-         statusText.text = "Google Sign in\niOS Demo"
-         }
-         */
-    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
@@ -257,7 +236,6 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     
     @objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
         if notification.name.rawValue == "ToggleAuthUINotification" {
-            self.toggleAuthUI()
             if notification.userInfo != nil {
                 guard let userInfo = notification.userInfo as? [String:String] else { return }
 //                self.statusText.text = userInfo["statusText"]!
@@ -283,4 +261,116 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     }
     
     
+    //--------------------------
+    // MARK: - Login API Call
+    //--------------------------
+    
+    func callLoginAPI() {
+        
+        var paraDict = NSMutableDictionary()
+        var customerArr = NSDictionary()
+        
+         customerArr = ["email":"geet3@mitash.com","firstname":"geet","lastname":"Geet","store_id":"0"]
+        paraDict =  ["customer": customerArr, "password": "ffggter.s@888"] as NSMutableDictionary
+        
+//        let jsonData1 = try! JSONSerialization.data(withJSONObject: paraDict, options: JSONSerialization.WritingOptions.prettyPrinted)
+//        let jsonString = NSString(data: jsonData1, encoding: String.Encoding.utf8.rawValue)! as String
+//        print(paraDict) //, " \n ", jsonString)
+
+        var i = Int()
+        i = 0;
+        let urlString = BASEURL+"/customers"
+        let params: [String : Any]
+        params = [
+            "customer": [
+                "email": "Geet@mitash.com",
+                "firstname": "Geet",
+                "lastname": "geet",
+                "store_id": i
+            ],
+            "password": "ffggter.s@888"
+            ] as [String : Any]
+        
+        print(urlString, paraDict)
+        SVProgressHUD.show()
+      
+        let headers: HTTPHeaders = [
+            "Authorization": "Info XXX",
+            "Accept": "application/json",
+            "Content-Type" :"application/json"
+        ]
+        
+        Alamofire.request(urlString, method: .post, parameters: (paraDict as! [String : Any]), encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSArray = resposeData.result.value as? NSArray {
+                
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.createMenuView()
+                        print(responseDict);
+                    }
+                   else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+                }
+            })
+        }
+    }
+
+    func callSellerLoginAPI() {
+        
+        var paraDict = NSMutableDictionary()
+        paraDict =  ["username": "peters@mitash.com", "password": "Peter.s@888"] as NSMutableDictionary
+        
+        let urlString = "https://user8.itsindev.com/medibox/API/login.php"
+//        let urlString = BASEURL + "/integration/customer/token"
+        print(urlString, paraDict)
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "bearer " + "KJF73RWHFI23R" ]
+        
+        Alamofire.request(urlString, method: .post, parameters: (paraDict as! [String : Any]), encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+//                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.createMenuView()
+                        print(resposeData.result.value);
+                    }
+                    else{
+                        
+//                        print(responseDict.value(forKey: "message")as! String)
+//                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+//                }
+            })
+        }
+    }
+
+}
+
+extension Collection where Iterator.Element == [String:AnyObject] {
+    func toJSONString(options: JSONSerialization.WritingOptions = .prettyPrinted) -> String {
+        if let arr = self as? [[String:AnyObject]],
+            let dat = try? JSONSerialization.data(withJSONObject: arr, options: []),
+            let str = String(data: dat, encoding: String.Encoding.utf8) {
+            return str
+        }
+        return "[]"
+    }
 }

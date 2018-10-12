@@ -59,6 +59,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backgroundImage" destination="crj-Qs-Xeq" id="s6z-e0-bbb"/>
+                <outlet property="lblEmailID" destination="Bgj-rG-Z3t" id="g3U-oa-lYG"/>
+                <outlet property="lblName" destination="9IE-CX-BWK" id="xHj-j0-acS"/>
                 <outlet property="profileImage" destination="KsU-S4-hhE" id="C8u-Fp-ZfO"/>
             </connections>
             <point key="canvasLocation" x="14" y="33"/>
