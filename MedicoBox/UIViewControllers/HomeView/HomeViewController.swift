@@ -26,6 +26,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     @IBOutlet weak var lblCurrentLocation: UILabel!
     var locationManager = CLLocationManager()
     var featuredProductsArray =  NSArray();
+    var imageArray =  NSArray();
     var screenSize: CGRect!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
@@ -74,6 +75,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         self.navigationController?.isNavigationBarHidden = true;
         super.viewWillAppear(animated)
         callAPIGetProducts()
+        callAPIGetBannerImages()
     }
     
     func addBadgeLabel() {
@@ -168,7 +170,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     //MARK:- FSPager Delegate And DataSource
     
     //    var imagesNameArray = NSArray();
-    fileprivate var imageNames = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"]
+//    fileprivate var imageNames = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"]
     
     /// Asks your data source object for the number of items in the pager view.
     @objc(numberOfItemsInPagerView:) func numberOfItems(in pagerView: FSPagerView) -> Int {
@@ -176,11 +178,11 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         
         if(pagerView == firstPagerView){
             
-            numberCount = self.imageNames.count
+            numberCount = self.imageArray.count
             
         }else{
             
-            numberCount = self.imageNames.count
+            numberCount = self.imageArray.count
         }
         
         return numberCount;
@@ -194,33 +196,35 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
             let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cellFirst", at: index)
             
-            cell.imageView?.image = UIImage(named: self.imageNames[index])
+            let URLstr = self.imageArray[index] as! String
+            let urlimg = URL.init(string: URLstr)
+            if urlimg != nil
+            {
+                cell.imageView?.sd_setImage(with: urlimg! , completed: { (image, error, cacheType, imageURL) in
+                    
+                    cell.imageView?.image = image
+                })
+            }
             cell.imageView?.contentMode = .scaleAspectFill
             cell.imageView?.clipsToBounds = true
-            cell.imageView?.contentMode = .scaleToFill   //.scaleAspectFill
             return cell
             
         }else{
             
             let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cellSecond", at: index)
             
-            /*  let dictObj = self.imagesNameArray[index] as! NSDictionary
-             
-             let URLstr = BASEURL + "/" + (dictObj.value(forKey: "file_name") as? String)!
-             
+             let URLstr = self.imageArray[index] as! String
              let urlimg = URL.init(string: URLstr)
              if urlimg != nil
              {
-             cell.imageView?.sd_setImage(with: urlimg! , completed: { (image, error, cacheType, imageURL) in
-             
-             cell.imageView?.image = image
+                 cell.imageView?.sd_setImage(with: urlimg! , completed: { (image, error, cacheType, imageURL) in
+                 
+                 cell.imageView?.image = image
              })
-             }
-             */
-            cell.imageView?.image = UIImage(named: self.imageNames[index])
+            }
+ 
             cell.imageView?.contentMode = .scaleAspectFill
             cell.imageView?.clipsToBounds = true
-            cell.imageView?.contentMode = .scaleToFill   //.scaleAspectFill
             return cell
             
         }
@@ -278,7 +282,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     @IBOutlet weak var firstPageControl: FSPageControl!
         {
         didSet {
-            self.firstPageControl.numberOfPages = self.imageNames.count
+            self.firstPageControl.numberOfPages = self.imageArray.count
             //            self.pageControl.contentHorizontalAlignment = .center
             self.firstPageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             self.firstPageControl.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
@@ -291,7 +295,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     @IBOutlet weak var secondPageControl: FSPageControl!
         {
         didSet {
-            self.firstPageControl.numberOfPages = self.imageNames.count
+            self.firstPageControl.numberOfPages = self.imageArray.count
             //            self.pageControl.contentHorizontalAlignment = .center
             self.firstPageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             self.firstPageControl.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
@@ -407,6 +411,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     }
     
     //MARK: Location show
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)-> Void in
@@ -484,6 +489,38 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         }
     }
     
+    
+    func callAPIGetBannerImages() {
+        
+        let urlString = "http://user8.itsindev.com/medibox/API/home-banners.php"
+        SVProgressHUD.show()
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        print(responseDict);
+                        
+                        self.imageArray = responseDict.value(forKey: "response")as! NSArray;
+                        self.firstPagerView.reloadData()
+                        self.secondPagerView.reloadData()
+
+                    }
+                    else{
+                        
+                        self.showToast(message: responseDict.value(forKey: "message") as! String)
+                        
+                        print(responseDict.value(forKey: "message") as! String );
+                        
+                    }
+                }
+            })
+        }
+    }
 }
 
 //----------------------------------------------------------

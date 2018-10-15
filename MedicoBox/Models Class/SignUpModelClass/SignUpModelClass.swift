@@ -77,5 +77,13 @@ class SignUpModelClass: NSObject {
 
         
     }
+    
+    
+    class SignUpModelClass: NSObject {
+        static let sharedInstance : SignUpModelClass = {
+            let instance = SignUpModelClass()
+            return instance
+        }()
+    }
    
 }

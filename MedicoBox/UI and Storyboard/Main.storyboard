@@ -1404,7 +1404,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1s-7r-JKR">
-                                                                <rect key="frame" x="8" y="43" width="50.5" height="30"/>
+                                                                <rect key="frame" x="8" y="43" width="45.5" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="d4H-9q-Xpp"/>
                                                                 </constraints>
@@ -1442,7 +1442,7 @@
                                                         <rect key="frame" x="8" y="93" width="359" height="127"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shreyas Saran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxi-K3-Qdw">
-                                                                <rect key="frame" x="10" y="10" width="108.5" height="22"/>
+                                                                <rect key="frame" x="10" y="10" width="104" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="jzc-Lp-gN3"/>
                                                                 </constraints>
@@ -1503,7 +1503,7 @@
                                                         <rect key="frame" x="8" y="230" width="359" height="45"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Billing Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YB5-yT-Eqk">
-                                                                <rect key="frame" x="8" y="7" width="106.5" height="30"/>
+                                                                <rect key="frame" x="8" y="7" width="100.5" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="ejj-2L-75p"/>
                                                                 </constraints>
@@ -1538,7 +1538,7 @@
                                                         <rect key="frame" x="8" y="285" width="359" height="185"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shreyas Saran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQj-hY-vIz">
-                                                                <rect key="frame" x="10" y="10" width="108.5" height="22"/>
+                                                                <rect key="frame" x="10" y="10" width="104" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="pSj-lZ-oiS"/>
                                                                 </constraints>
@@ -1588,7 +1588,7 @@
                                                         <rect key="frame" x="8" y="490" width="359" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiA-ua-IOD">
-                                                                <rect key="frame" x="8" y="5" width="121.5" height="30"/>
+                                                                <rect key="frame" x="8" y="5" width="113" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="5Yn-Gi-2g3"/>
                                                                 </constraints>
@@ -1622,7 +1622,7 @@
                                                         <rect key="frame" x="8" y="550" width="359" height="175"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shreyas Saran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uY-Y7-px9">
-                                                                <rect key="frame" x="10" y="10" width="108.5" height="22"/>
+                                                                <rect key="frame" x="10" y="10" width="104" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="P9Y-If-umy"/>
                                                                 </constraints>

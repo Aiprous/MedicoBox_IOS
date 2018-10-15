@@ -783,7 +783,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Lifetime Sales" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQu-nJ-sgi">
-                                                                <rect key="frame" x="128.5" y="88" width="103" height="21"/>
+                                                                <rect key="frame" x="128" y="88" width="103" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="hyL-ZH-zUa"/>
                                                                 </constraints>
@@ -810,7 +810,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GE-Fu-OyF">
-                                                                <rect key="frame" x="128.5" y="118" width="103" height="16"/>
+                                                                <rect key="frame" x="128" y="118" width="103" height="16"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="16" id="qiE-cE-pqr"/>
                                                                 </constraints>
