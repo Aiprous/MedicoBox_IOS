@@ -8,8 +8,9 @@
 
 import UIKit
 
-class OrderDetailsProcessingItemsViewController: UIViewController {
+class OrderDetailsProcessingItemsViewController: UIViewController,UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var itemsOrderedBtn: UIButton!
     @IBOutlet weak var itemsOrderedBottomConstraint: NSLayoutConstraint!
@@ -17,10 +18,9 @@ class OrderDetailsProcessingItemsViewController: UIViewController {
     @IBOutlet weak var invoiceBtnBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var shipmentsBtn: UIButton!
     @IBOutlet weak var shipmentsBtnBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var itemsOrderedContainer: UIView!
-    @IBOutlet weak var invoiceContainer: UIView!
-    @IBOutlet weak var shipmentsContainer: UIView!
-   
+    var pageViewController = UIPageViewController()
+    var pageViewArray = [UIViewController]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,10 +28,7 @@ class OrderDetailsProcessingItemsViewController: UIViewController {
         self.invoiceBtn.isSelected = false
         self.shipmentsBtn.isSelected = false
         
-        self.itemsOrderedContainer.isHidden = false
-        self.invoiceContainer.isHidden = true
-        self.shipmentsContainer.isHidden = true
-
+       
         self.itemsOrderedBottomConstraint.constant = 2
         self.invoiceBtnBottomConstraint.constant = 0
         self.shipmentsBtnBottomConstraint.constant = 0
@@ -41,6 +38,27 @@ class OrderDetailsProcessingItemsViewController: UIViewController {
         self.invoiceBtn.setTitleColor(.black, for: .selected)
         self.shipmentsBtn.setTitleColor(.black, for: .selected)
         
+        
+        //Pageviewcontroller setup
+        
+        
+        self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal, options: nil)
+        
+        self.pageViewController.delegate = self
+        self.pageViewController.dataSource = self
+        
+        let page1: UIViewController! = kPharmacistStoryBoard.instantiateViewController(withIdentifier: kPharmacistOrderItemVC)
+        let page2: UIViewController! = kPharmacistStoryBoard.instantiateViewController(withIdentifier: kPharmacistInvoiceVC)
+        let page3: UIViewController! = kPharmacistStoryBoard.instantiateViewController(withIdentifier: kPharmacistShipmentVC)
+        
+        pageViewArray.append(page1);
+        pageViewArray.append(page2);
+        pageViewArray.append(page3);
+        self.addChildViewController(pageViewController)
+        self.pageViewController.view.frame = self.containerView.bounds
+        self.containerView.addSubview(self.pageViewController.view)
+        self.pageViewController.setViewControllers([pageViewArray[0]], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,26 +83,48 @@ class OrderDetailsProcessingItemsViewController: UIViewController {
     }
    
     //MARK:// Button action
-    @IBAction func topActionBtnTapped(_ sender: Any) {
+    @IBAction func topActionBtnTapped(_ sender: UIButton) {
         
-        let btn = sender as! UIButton
+        let btn = sender
         if (btn == self.itemsOrderedBtn){
             
-            if btn.isSelected {
+            if !btn.isSelected {
                 
-            }else{
+                self.topBtnClickAnimation(self.itemsOrderedBtn)
+                self.pageViewController .setViewControllers([pageViewArray[0]], direction: UIPageViewControllerNavigationDirection.reverse, animated: true, completion: nil)
+            }
+            
+        }else if (btn == self.invoiceBtn){
+            
+            if !btn.isSelected {
+                
+                self.topBtnClickAnimation(self.invoiceBtn)
+                self.pageViewController .setViewControllers([pageViewArray[1]], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+            }
+        }
+        else{
+         
+         if !btn.isSelected {
+            self.topBtnClickAnimation(btn)
+            self.pageViewController .setViewControllers([pageViewArray[2]], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func topBtnClickAnimation(_ sender:UIButton) {
+        let btn = sender
+        if (btn == self.itemsOrderedBtn){
+            
+            if !btn.isSelected {
                 
                 btn.isSelected = true
                 self.itemsOrderedBtn.isSelected = true
                 self.invoiceBtn.isSelected = false
                 self.shipmentsBtn.isSelected = false
-                self.invoiceContainer.isHidden = true
-                self.shipmentsContainer.isHidden = true
-                self.itemsOrderedContainer.isHidden = false
                 self.itemsOrderedBottomConstraint.constant = 2
                 self.invoiceBtnBottomConstraint.constant = 0
                 self.shipmentsBtnBottomConstraint.constant = 0
-
+                
                 UIView.animate(withDuration: 0.2, animations: {
                     self.topContainer.layoutIfNeeded()
                 })
@@ -93,17 +133,12 @@ class OrderDetailsProcessingItemsViewController: UIViewController {
             
         }else if (btn == self.invoiceBtn){
             
-            if btn.isSelected {
-                
-            }else{
+            if !btn.isSelected {
                 
                 btn.isSelected = true
                 self.itemsOrderedBtn.isSelected = false
                 self.invoiceBtn.isSelected = true
                 self.shipmentsBtn.isSelected = false
-                self.invoiceContainer.isHidden = false
-                self.itemsOrderedContainer.isHidden = true
-                self.shipmentsContainer.isHidden = true
                 self.itemsOrderedBottomConstraint.constant = 0
                 self.invoiceBtnBottomConstraint.constant = 2
                 self.shipmentsBtnBottomConstraint.constant = 0
@@ -111,30 +146,26 @@ class OrderDetailsProcessingItemsViewController: UIViewController {
                 UIView.animate(withDuration: 0.2, animations: {
                     self.topContainer.layoutIfNeeded()
                 })
+               
             }
         }
         else{
-         
-         if btn.isSelected {
-         
-         }else{
-         
-         btn.isSelected = true
-         self.itemsOrderedBtn.isSelected = false
-         self.invoiceBtn.isSelected = false
-         self.shipmentsBtn.isSelected = true
-         self.invoiceContainer.isHidden = true
-         self.itemsOrderedContainer.isHidden = true
-         self.shipmentsContainer.isHidden = false
-         self.itemsOrderedBottomConstraint.constant = 0
-         self.invoiceBtnBottomConstraint.constant = 0
-         self.shipmentsBtnBottomConstraint.constant = 2
-         
-         UIView.animate(withDuration: 0.2, animations: {
-         self.topContainer.layoutIfNeeded()
-         })
-         }
-         }
+            
+            if !btn.isSelected {
+                btn.isSelected = true
+                self.itemsOrderedBtn.isSelected = false
+                self.invoiceBtn.isSelected = false
+                self.shipmentsBtn.isSelected = true
+                self.itemsOrderedBottomConstraint.constant = 0
+                self.invoiceBtnBottomConstraint.constant = 0
+                self.shipmentsBtnBottomConstraint.constant = 2
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.topContainer.layoutIfNeeded()
+                })
+                
+            }
+        }
     }
     
     //Feature use
@@ -180,5 +211,64 @@ class OrderDetailsProcessingItemsViewController: UIViewController {
          }
         
     }
+
+// MARK: - PageViewController DataSource
+
+func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
     
+    guard let viewControllerIndex = pageViewArray.index(of: viewController) else {
+        return nil
+    }
+    
+    switch viewControllerIndex {
+    case 0: self.topBtnClickAnimation(self.itemsOrderedBtn); break;
+    case 1: self.topBtnClickAnimation(self.invoiceBtn); break;
+    case 2: self.topBtnClickAnimation(self.shipmentsBtn); break;
+    default:break;
+    }
+    let nextIndex = viewControllerIndex + 1
+    
+    let pageViewControllersCount = pageViewArray.count
+    
+    guard pageViewControllersCount != nextIndex else {
+        return nil
+    }
+    
+    guard pageViewControllersCount > nextIndex else {
+        return nil
+    }
+//    let currentIndex = pageViewArray.index(of: viewController)
+//    let nextIndex = abs((currentIndex! + 1) % pageViewArray.count)
+    
+    
+    return pageViewArray[nextIndex]
+}
+
+func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    
+    guard let viewControllerIndex = pageViewArray.index(of: viewController) else {
+        return nil
+    }
+    switch viewControllerIndex {
+    case 0: self.topBtnClickAnimation(self.itemsOrderedBtn); break;
+    case 1: self.topBtnClickAnimation(self.invoiceBtn); break;
+    case 2: self.topBtnClickAnimation(self.shipmentsBtn); break;
+    default:break;
+    }
+    let previousIndex = viewControllerIndex - 1
+    
+    guard previousIndex >= 0 else {
+        return nil
+    }
+    
+    guard pageViewArray.count > previousIndex else {
+        return nil
+    }
+    
+//    let currentIndex = pageViewArray.index(of: viewController)
+//    let previousIndex = abs((currentIndex! - 1) % pageViewArray.count)
+    
+    return pageViewArray[previousIndex]
+}
+
 }

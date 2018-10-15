@@ -7,7 +7,19 @@
 
 import UIKit
 
-enum LeftMenu: Int {
+enum LeftMenuUser: Int {
+    case home = 0
+    case orders
+    case medicines
+    case labtests
+    case account
+    case cart
+    case notifications
+    case settings
+    case logout
+}
+
+enum LeftMenuPharma: Int {
     case home = 0
     case orders
     case medicines
@@ -33,7 +45,8 @@ struct Section {
 }
 
 protocol LeftMenuProtocol : class {
-    func changeViewController(_ menu: LeftMenu)
+    func changeViewController(_ menu: LeftMenuUser)
+    func changePharmaViewController(_ menu:LeftMenuPharma)
 }
 
 class LeftViewController : UIViewController, LeftMenuProtocol {
@@ -41,6 +54,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     @IBOutlet weak var tableView: UITableView!
     //    var menus = ["Main", "Swift", "NonMenu"]
     var iconArray = ["home","box","capsules","syringe","user","cart","ic_notifications_black_24dp","settings","logout"]
+     var iconArray1 = ["home","box","user","cart","ic_notifications_black_24dp","plus","transaction","logout"]
     
     var homeViewController: UIViewController!
     var diabetesCareViewController: UIViewController!
@@ -55,15 +69,14 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
 
     var imageHeaderView: ImageHeaderView!
     var sections = [Section]()
-    
+    var sections1 = [Section]()
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
                 sections = [
                     Section(name: "Home", items: []),
                     Section(name: "Orders", items: ["Medicines", "Lab Tests"]),
@@ -73,6 +86,16 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
                     Section(name: "Settings", items: []),
                     Section(name: "Logout", items: []),
                 ]
+        sections1 = [
+            Section(name: "Dashboard", items: []),
+            Section(name: "Orders", items: []),
+            Section(name: "Profile", items: []),
+            Section(name: "Products", items: []),
+            Section(name: "Notifications", items: []),
+            Section(name: "Add Delivery Boy", items: []),
+            Section(name: "Transactions", items: []),
+            Section(name: "Logout", items: []),
+        ]
         
         //        self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         
@@ -125,7 +148,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         self.view.layoutIfNeeded()
     }
     
-    func changeViewController(_ menu: LeftMenu) {
+    //Mark:- Left menu protocol methods
+    
+    func changeViewController(_ menu: LeftMenuUser) {
         switch menu {
         case .home, .logout :
             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
@@ -144,6 +169,33 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             
         case .labtests:
              self.slideMenuController()?.changeMainViewController(self.productsPharmacistViewController, close: true)
+            
+        case  .settings:
+            self.slideMenuController()?.changeMainViewController(self.orderDetailsProcessingItemsViewController, close: true)
+            
+        default: break
+        }
+    }
+    
+    func changePharmaViewController(_ menu: LeftMenuPharma) {
+        switch menu {
+        case .home, .logout :
+            self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
+            
+            
+        case .medicines: self.slideMenuController()?.changeMainViewController(self.myOrdersViewController, close: true)
+            
+        case .account:             self.slideMenuController()?.changeMainViewController(self.myProfileViewController, close: true)
+            
+            
+        case .notifications:
+            self.slideMenuController()?.changeMainViewController(self.notificationViewController, close: true)
+            
+        case .cart:
+            self.slideMenuController()?.changeMainViewController(self.transactionListViewController, close: true)
+            
+        case .labtests:
+            self.slideMenuController()?.changeMainViewController(self.productsPharmacistViewController, close: true)
             
         case  .settings:
             self.slideMenuController()?.changeMainViewController(self.orderDetailsProcessingItemsViewController, close: true)
@@ -178,16 +230,16 @@ extension LeftViewController : UITableViewDelegate {
         let row = getRowIndex(indexPath.row)
         if sections[section].name == "Orders" {
             
-            if let menu = LeftMenu(rawValue: sections[section].collapsed! ? section : section+row) {
+            if let menu = LeftMenuUser(rawValue: sections[section].collapsed! ? section : section+row) {
                 self.changeViewController(menu)
             }
         }else {
             if section > 1 {
-                if let menu = LeftMenu(rawValue: section+2) {
+                if let menu = LeftMenuUser(rawValue: section+2) {
                     self.changeViewController(menu)
                 }
             }else{
-                if let menu = LeftMenu(rawValue: section) {
+                if let menu = LeftMenuUser(rawValue: section) {
                     self.changeViewController(menu)
                 }
             }
