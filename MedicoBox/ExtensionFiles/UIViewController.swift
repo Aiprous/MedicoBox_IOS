@@ -21,6 +21,19 @@ extension UIViewController {
         self.slideMenuController()?.addLeftGestures()
         self.slideMenuController()?.addRightGestures()
     }
+    
+    func setNavigationBarItemPharm() {
+        
+        //        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
+        self.addLeftBarButtonWithBackImagePharm(UIImage(named: "ic_menu_black_24dp")!)
+        self.addRightBarButtonWithImage(UIImage(named: "ic_notifications_black_24dp")!)
+        self.addTitleImageView()
+        self.slideMenuController()?.removeLeftGestures()
+        self.slideMenuController()?.removeRightGestures()
+        self.slideMenuController()?.addLeftGestures()
+        self.slideMenuController()?.addRightGestures()
+    }
+
     func setNavigationBarItemBackButton() {
         
         //        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)

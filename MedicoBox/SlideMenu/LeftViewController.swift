@@ -22,12 +22,11 @@ enum LeftMenuUser: Int {
 enum LeftMenuPharma: Int {
     case home = 0
     case orders
-    case medicines
-    case labtests
-    case account
-    case cart
+    case profile
+    case products
     case notifications
-    case settings
+    case addDeliveryBoy
+    case transaction
     case logout
 }
 
@@ -53,8 +52,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     
     @IBOutlet weak var tableView: UITableView!
     //    var menus = ["Main", "Swift", "NonMenu"]
-    var iconArray = ["home","box","capsules","syringe","user","cart","ic_notifications_black_24dp","settings","logout"]
-     var iconArray1 = ["home","box","user","cart","ic_notifications_black_24dp","plus","transaction","logout"]
+    var iconArray = ["home","box","capsules","syringe","user","cart","bell","settings","logout"]
+     var iconArray1 = ["home","box","user","cart","bell","plus","transaction","logout"]
     
     var homeViewController: UIViewController!
     var diabetesCareViewController: UIViewController!
@@ -65,8 +64,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var productsPharmacistViewController: UIViewController!
     var transactionListViewController: UIViewController!
     var orderDetailsProcessingItemsViewController: UIViewController!
-
-
+    var pharmacistDashboardViewController: UIViewController!
+    var addDeliveryBoyViewController: UIViewController!
+    var pagingViewController: UIViewController!
+    
     var imageHeaderView: ImageHeaderView!
     var sections = [Section]()
     var sections1 = [Section]()
@@ -115,6 +116,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let productDetailViewController = kMainStoryboard.instantiateViewController(withIdentifier: kProductDetailAVC)
         self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
         
+        let addDeliveryBoyViewController = kMainStoryboard.instantiateViewController(withIdentifier: kAddDeliveryBoyVC) 
+        self.addDeliveryBoyViewController = UINavigationController(rootViewController: addDeliveryBoyViewController)
+        
         let myOrderViewController = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kMyOrdersVC)
         self.myOrdersViewController = UINavigationController(rootViewController: myOrderViewController)
 
@@ -131,6 +135,14 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let notificationVC = kMainStoryboard.instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
         self.notificationViewController = UINavigationController(rootViewController: notificationVC)
 
+        let pharmacistDashboardViewController1 = kPharmacistStoryBoard.instantiateViewController(withIdentifier: kPharmacistDashboardVC)
+        
+        self.pharmacistDashboardViewController = UINavigationController(rootViewController: pharmacistDashboardViewController1)
+        
+        let pagingViewController = kPharmacistStoryBoard.instantiateViewController(withIdentifier: kPageVC)
+        self.pagingViewController = UINavigationController(rootViewController: pagingViewController)
+        
+        
         
         //        self.tableView.registerCellClass(BaseTableViewCell.self)
         
@@ -180,25 +192,24 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     func changePharmaViewController(_ menu: LeftMenuPharma) {
         switch menu {
         case .home, .logout :
-            self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
+            self.slideMenuController()?.changeMainViewController(self.pharmacistDashboardViewController, close: true)
             
+        case .orders:
+            self.slideMenuController()?.changeMainViewController(self.orderDetailsProcessingItemsViewController, close: true)
             
-        case .medicines: self.slideMenuController()?.changeMainViewController(self.myOrdersViewController, close: true)
-            
-        case .account:             self.slideMenuController()?.changeMainViewController(self.myProfileViewController, close: true)
-            
+        case .profile:             self.slideMenuController()?.changeMainViewController(self.myProfileViewController, close: true)
             
         case .notifications:
             self.slideMenuController()?.changeMainViewController(self.notificationViewController, close: true)
             
-        case .cart:
+        case .transaction:
             self.slideMenuController()?.changeMainViewController(self.transactionListViewController, close: true)
             
-        case .labtests:
+        case .products:
             self.slideMenuController()?.changeMainViewController(self.productsPharmacistViewController, close: true)
             
-        case  .settings:
-            self.slideMenuController()?.changeMainViewController(self.orderDetailsProcessingItemsViewController, close: true)
+        case  .addDeliveryBoy:
+            self.slideMenuController()?.changeMainViewController(self.addDeliveryBoyViewController, close: true)
             
         default: break
         }
@@ -225,9 +236,13 @@ extension LeftViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
         // Calculate the real section index and row index
         let section = getSectionIndex(indexPath.row)
         let row = getRowIndex(indexPath.row)
+        
+        if(kLoginRole == "User"){
+
         if sections[section].name == "Orders" {
             
             if let menu = LeftMenuUser(rawValue: sections[section].collapsed! ? section : section+row) {
@@ -244,6 +259,12 @@ extension LeftViewController : UITableViewDelegate {
                 }
             }
         }
+        }else {
+      
+                    if let menu = LeftMenuPharma(rawValue: section) {
+                        self.changePharmaViewController(menu)
+                }
+        }
     }
     
     //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -256,18 +277,27 @@ extension LeftViewController : UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        // For section 1, the total count is items count plus the number of headers
-        var count = sections.count
-        
-        for section in sections {
-            count += section.items.count
+        if(kLoginRole == "User"){
+
+                // For section 1, the total count is items count plus the number of headers
+                var count = sections.count
+            
+                for section in sections {
+                    count += section.items.count
+                }
+                return count
+        }else {
+            
+            // For section 1, the total count is items count plus the number of headers
+            var count = sections1.count
+            
+            for section in sections1 {
+                count += section.items.count
+            }
+            return count
+            
         }
-        return count
-        
     }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -282,59 +312,97 @@ extension LeftViewController : UITableViewDataSource {
         imageHeaderView.lblEmailID.text = artistAndAlbum.email
         imageHeaderView.profileImage.image = #imageLiteral(resourceName: "doctor")
  */
-        if row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! HeaderCell
-            cell.titleLabel.text = sections[section].name
-            cell.toggleButton.tag = section
-            cell.iconImageView.image = UIImage.init(named: iconArray[section])
-            if section > 1 {
-                cell.iconImageView.image = UIImage.init(named: iconArray[section+2])
+        if(kLoginRole == "User"){
+
+                if row == 0 {
+                    
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! HeaderCell
+                    cell.titleLabel.text = sections[section].name
+                    cell.toggleButton.tag = section
+                    cell.iconImageView.image = UIImage.init(named: iconArray[section])
+                    if section > 1 {
+                        cell.iconImageView.image = UIImage.init(named: iconArray[section+2])
+                    }
+                    if sections[section].items.count > 0 {
+                        
+                        cell.toggleButton.isHidden = false;
+                        cell.toggleButton.addTarget(self, action: #selector(LeftViewController.toggleCollapse), for: .touchUpInside)
+                    }
+                    return cell
+                } else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "subCell") as! SubCell
+                    cell.lblTitle.text = sections[section].items[row - 1]
+                    cell.imgIcon.image = UIImage.init(named: iconArray[section+row])
+                    return cell
+                }
+        }else {
+            
+            if row == 0 {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! HeaderCell
+                cell.titleLabel.text = sections1[section].name
+                cell.toggleButton.tag = section
+                cell.iconImageView.image = UIImage.init(named: iconArray1[section])
+               
+                if sections1[section].items.count > 0 {
+                    
+                    cell.toggleButton.isHidden = false;
+                    cell.toggleButton.addTarget(self, action: #selector(LeftViewController.toggleCollapse), for: .touchUpInside)
+                }
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "subCell") as! SubCell
+                cell.lblTitle.text = sections1[section].items[row - 1]
+                cell.imgIcon.image = UIImage.init(named: iconArray1[section+row])
+                return cell
             }
-            if sections[section].items.count > 0 {
-                cell.toggleButton.isHidden = false;
-                cell.toggleButton.addTarget(self, action: #selector(LeftViewController.toggleCollapse), for: .touchUpInside)
-            }
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "subCell") as! SubCell
-            cell.lblTitle.text = sections[section].items[row - 1]
-            cell.imgIcon.image = UIImage.init(named: iconArray[section+row])
-            return cell
+            
         }
         
     }
-   /*
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ImageHeaderView") as! ImageHeaderView
-        var tableData:[SignUpModelClass] = [SignUpModelClass]()
-        let artistAndAlbum = tableData[section]
-        cell.lblName.text = artistAndAlbum.firstname + artistAndAlbum.lastname
-        cell.lblEmailID.text = artistAndAlbum.email
-        cell.profileImage.image = #imageLiteral(resourceName: "doctor")
-        return self.imageHeaderView;
-    }
-    */
+  
     //
     // MARK: - Event Handlers
     //
     @objc func toggleCollapse(_ sender: UIButton) {
         let section = sender.tag
-        let collapsed = sections[section].collapsed
         
-        // Toggle collapse
-        sections[section].collapsed = !collapsed!
-        
-        let indices = getHeaderIndices()
-        
-        let start = indices[section]
-        let end = start + sections[section].items.count
-        
-        tableView.beginUpdates()
-        for i in start ..< end + 1 {
-            tableView.reloadRows(at: [IndexPath(row: i, section: 0)], with: .automatic)
+        if(kLoginRole == "User"){
+
+            let collapsed = sections[section].collapsed
+            
+            // Toggle collapse
+            sections[section].collapsed = !collapsed!
+            
+            let indices = getHeaderIndices()
+            
+            let start = indices[section]
+            let end = start + sections[section].items.count
+            
+            tableView.beginUpdates()
+            for i in start ..< end + 1 {
+                tableView.reloadRows(at: [IndexPath(row: i, section: 0)], with: .automatic)
+            }
+            tableView.endUpdates()
+        }else {
+            
+            let collapsed = sections1[section].collapsed
+            
+            // Toggle collapse
+            sections1[section].collapsed = !collapsed!
+            
+            let indices = getHeaderIndices()
+            
+            let start = indices[section]
+            let end = start + sections1[section].items.count
+            
+            tableView.beginUpdates()
+            for i in start ..< end + 1 {
+                tableView.reloadRows(at: [IndexPath(row: i, section: 0)], with: .automatic)
+            }
+            tableView.endUpdates()
+            
         }
-        tableView.endUpdates()
     }
     
     //
@@ -370,10 +438,21 @@ extension LeftViewController : UITableViewDataSource {
         var index = 0
         var indices: [Int] = []
         
-        for section in sections {
-            indices.append(index)
-            index += section.items.count + 1
+        if(kLoginRole == "User"){
+            
+            for section in sections {
+                indices.append(index)
+                index += section.items.count + 1
+            }
+            
+        }else{
+            
+            for section in sections1 {
+                indices.append(index)
+                index += section.items.count + 1
+            }
         }
+        
         
         return indices
     }

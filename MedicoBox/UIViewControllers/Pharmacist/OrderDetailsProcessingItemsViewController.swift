@@ -41,7 +41,6 @@ class OrderDetailsProcessingItemsViewController: UIViewController,UIPageViewCont
         
         //Pageviewcontroller setup
         
-        
         self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal, options: nil)
         
         self.pageViewController.delegate = self

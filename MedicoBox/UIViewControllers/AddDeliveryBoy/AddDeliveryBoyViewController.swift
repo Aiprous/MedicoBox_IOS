@@ -25,7 +25,7 @@ class AddDeliveryBoyViewController: UIViewController, UITableViewDelegate,UITabl
         
         
         //show navigationbar with back button
-        self.setNavigationBarItemBackButton()
+        self.setNavigationBarItem()
         self.navigationController?.isNavigationBarHidden = false;
     }
 

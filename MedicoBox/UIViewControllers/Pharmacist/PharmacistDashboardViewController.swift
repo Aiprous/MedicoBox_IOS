@@ -14,7 +14,8 @@ class PharmacistDashboardViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var lblRemainingAmount: UILabel!
     @IBOutlet weak var lblTotalPayout: UILabel!
     @IBOutlet weak var tblTopSellingProductsList: UITableView!
-    
+    @IBOutlet weak var barChart: BasicBarChart!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class PharmacistDashboardViewController: UIViewController, UITableViewDelegate, 
         tblTopSellingProductsList.delegate = self
         tblTopSellingProductsList.dataSource = self
         tblTopSellingProductsList.estimatedRowHeight = 130
-        tblTopSellingProductsList.separatorStyle = .none
+//        tblTopSellingProductsList.separatorStyle = .none
     }
     
     
@@ -39,13 +40,34 @@ class PharmacistDashboardViewController: UIViewController, UITableViewDelegate, 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.setNavigationBarItemPharm()
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        let dataEntries = generateDataEntries()
+        barChart.dataEntries = dataEntries
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    /// MARK: Chart
+    
+    func generateDataEntries() -> [BarEntry] {
+
+        let colors = [#colorLiteral(red: 0.1220000014, green: 0.172999993, blue: 0.2980000079, alpha: 1)]
+        var result: [BarEntry] = []
+        for i in 0..<7 {
+            let value = (arc4random() % 90) + 10
+            let height: Float = Float(value) / 100.0
+            var days = [String]()
+            days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+            result.append(BarEntry(color: colors[i % colors.count], height: height, textValue: "\(value)", title: days[i % days.count]))
+        }
+        return result
+    }
+    
     
     //MARK:- Table View Delegate And DataSource
     

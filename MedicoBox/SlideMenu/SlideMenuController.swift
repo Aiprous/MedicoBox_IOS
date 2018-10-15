@@ -1056,7 +1056,22 @@ extension UIViewController {
         navigationItem.leftBarButtonItems = [leftBarButtomItem, leftIconBarButtonItem]
         
     }
-    
+    public func addLeftBarButtonWithBackImagePharm(_ buttonImage: UIImage) {
+        
+        // button
+        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        leftButton.setBackgroundImage(buttonImage, for: .normal)
+        leftButton.addTarget(self, action: #selector(self.toggleLeft), for: .touchUpInside)
+        let leftBarButtomItem = UIBarButtonItem(customView: leftButton)
+        
+        //Label
+        let tittleText = UILabel ()
+        tittleText.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        tittleText.text = self.title;
+        let leftIconBarLabelItem:UIBarButtonItem = UIBarButtonItem(customView: tittleText)
+        navigationItem.leftBarButtonItems = [leftBarButtomItem]
+        
+    }
     public func addRightBarButtonWithImage(_ buttonImage: UIImage) {
         
         // badge label
@@ -1113,6 +1128,14 @@ extension UIViewController {
         navigationItem.titleView = searchBar
     }
     
+    public func addTitleImageView() {
+        
+        let imageview = UIImageView(frame: CGRect(x: 20, y: 0, width: 10, height: 7))
+        imageview.image = #imageLiteral(resourceName: "medicobox")
+        imageview.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageview
+        
+    }
     @objc public func toggleLeft() {
         slideMenuController()?.toggleLeft()
     }

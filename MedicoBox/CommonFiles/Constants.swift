@@ -68,6 +68,8 @@ let kPharmacistDashboardVC = "PharmacistDashboardViewController"
 let kPharmacistOrderItemVC = "PharmacistItemOrderViewController"
 let kPharmacistShipmentVC = "PharmacistShipmentViewController"
 let kPharmacistInvoiceVC = "PharmacistInvoiceViewController"
+let kPageVC = "PageViewController"
+
 
 // MARK: Image Constant
 let kbackgroundColor  =  UIColor.init(hexString: "#d7e0e7")
@@ -75,4 +77,4 @@ let KNavigationBarColor = UIColor.init(hexString: "#fbc525")
 let kButtonBackgroundColor = UIColor.init(hexString: "#1f2c4c")
 
 //MARK: Keys
-let kLoginRole = ""
+var kLoginRole = ""

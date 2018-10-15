@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import SVProgressHUD
+import SDWebImage
 
 class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -22,7 +25,8 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     @IBOutlet weak var lblTotalSavedOrder: UILabel!
     
     @IBOutlet weak var lblAmountPaidOrder: UILabel!
-    
+    var productsListArray =  NSArray();
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -56,6 +60,8 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBarItemBackButton()
+        callAPIGetProductsList()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,6 +71,10 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     
     //MARK:- Table View Delegate And DataSource
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int{
         
         return 1
@@ -72,43 +82,30 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 3;
+        return self.productsListArray.count;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "OrderItemsTableViewCell") as! OrderItemsTableViewCell
         
-//        cellObj.lblOrderPrice.text = "\u{20B9}" + " 278.00"
+        let dictObj = self.productsListArray.object(at: indexPath.row) as! NSDictionary
         
-        if(indexPath.row == 0){
-            
-            cellObj.lblTitleOrderItems.text = "Horicks Lite Badam Jar 450 gm"
-            cellObj.lblSubTitleOrderItems.text = "box of 450 gm Powder"
-            cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 200.00"
-            cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
-            cellObj.lblTrasOrderItems.isHidden = true;
-//            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
-
-        }
-        else if(indexPath.row == 1){
-            
-            cellObj.lblTitleOrderItems.text = "Combiflam Lcy Hot Fast Pain Relief Spray"
-            cellObj.lblSubTitleOrderItems.text = "bottle of 35 gm Spray"
-            cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 92.00"
-            cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
-            cellObj.lblTrasOrderItems.isHidden = true;
-//            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
-            
-        }
-        else if(indexPath.row == 2){
-            
-            cellObj.lblTitleOrderItems.text = "Horicks Lite Badam Jar 450 gm"
-            cellObj.lblSubTitleOrderItems.text = "box of 450 gm Powder"
-            cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 200.00"
-            cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
-            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
-            cellObj.lblTrasOrderItems.isHidden = true;
-
+        cellObj.lblTrasOrderItems.isHidden = true;
+        cellObj.lblTitleOrderItems.text = (dictObj.value(forKey: "title") as? String)!;
+        cellObj.lblPriceOrderItems.text =  "\u{20B9} " + (dictObj.value(forKey: "price") as? String)!;
+        //         cellObj.lblMRPRateOrderItems.text =  (dictObj.value(forKey: "sale_price") as? String)!;
+        //        cellObj.lblSubTitleOrderItems.text = (dictObj.value(forKey: "short_description") as? String)!;
+        //        cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
+        
+        let URLstr =  (dictObj.value(forKey: "image") as? String)!
+        let url = URL.init(string: URLstr )
+        if url != nil
+        {
+            cellObj.imgOrderItems.sd_setImage(with: url! , completed: { (image, error, cacheType, imageURL) in
+                
+                cellObj.imgOrderItems.image = image
+                
+            })
         }
         
         cellObj.selectionStyle = .none
@@ -119,7 +116,7 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
-        return 98
+        return UITableViewAutomaticDimension
         
     }
     
@@ -173,5 +170,45 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         appDelegate.createMenuView()
         
     }
+    
+    
+    func callAPIGetProductsList() {
+        
+        var paraDict = NSMutableDictionary()
+        paraDict =  ["category_id": "38"] as NSMutableDictionary
+        
+        let urlString = "http://user8.itsindev.com/medibox/API/products.php"
+        //        let urlString = BASEURL + "/integration/customer/token"
+        print(urlString, paraDict)
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "bearer " + "KJF73RWHFI23R" ]
+        
+        Alamofire.request(urlString, method: .post, parameters: (paraDict as! [String : Any]), encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        self.productsListArray = (responseDict.value(forKey: "response") as? NSArray)!;
+                        self.tblOrderItems.reloadData();
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+                }
+            })
+        }
+    }
+    
     
 }

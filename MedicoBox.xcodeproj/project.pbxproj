@@ -72,6 +72,8 @@
 		CD0698E6217447C90089351F /* TransactionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0698E4217447C70089351F /* TransactionListViewController.swift */; };
 		CD0698E7217447C90089351F /* OrderDetailsProcessingItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0698E5217447C80089351F /* OrderDetailsProcessingItemsViewController.swift */; };
 		CD0698E9217449020089351F /* Pharmacist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0698E8217449020089351F /* Pharmacist.storyboard */; };
+		CD0698ED217478D30089351F /* BarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0698EB217478D30089351F /* BarEntry.swift */; };
+		CD0698EE217478D30089351F /* BasicBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0698EC217478D30089351F /* BasicBarChart.swift */; };
 		CD364096215281B5008FEFA1 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364093215281B0008FEFA1 /* fa-solid-900.ttf */; };
 		CD364097215281B5008FEFA1 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364094215281B3008FEFA1 /* fa-brands-400.ttf */; };
 		CD364098215281B5008FEFA1 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD364095215281B5008FEFA1 /* fa-regular-400.ttf */; };
@@ -218,6 +220,8 @@
 		CD0698E4217447C70089351F /* TransactionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListViewController.swift; sourceTree = "<group>"; };
 		CD0698E5217447C80089351F /* OrderDetailsProcessingItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailsProcessingItemsViewController.swift; sourceTree = "<group>"; };
 		CD0698E8217449020089351F /* Pharmacist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pharmacist.storyboard; sourceTree = "<group>"; };
+		CD0698EB217478D30089351F /* BarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarEntry.swift; sourceTree = "<group>"; };
+		CD0698EC217478D30089351F /* BasicBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBarChart.swift; sourceTree = "<group>"; };
 		CD364093215281B0008FEFA1 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		CD364094215281B3008FEFA1 /* fa-brands-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-brands-400.ttf"; sourceTree = "<group>"; };
 		CD364095215281B5008FEFA1 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 		3A49158F214BAE6300917E79 /* MedicoBox */ = {
 			isa = PBXGroup;
 			children = (
+				CD0698EA217478C60089351F /* Charts */,
 				CDEAAD0E2170AA6D00D9703C /* Models Class */,
 				3A5F6012215908F80072E1BB /* ExtensionFiles */,
 				3A5F5FED215907B10072E1BB /* SlideMenu */,
@@ -579,6 +584,15 @@
 				4B4A7E8ED8CC561358F8B9D7 /* Pods_MedicoBox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD0698EA217478C60089351F /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				CD0698EB217478D30089351F /* BarEntry.swift */,
+				CD0698EC217478D30089351F /* BasicBarChart.swift */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 		CD36409221528159008FEFA1 /* Fonts */ = {
@@ -1095,6 +1109,8 @@
 				3A5F60152159092A0072E1BB /* DiabetesCareList.swift in Sources */,
 				3A5E226D215D1EDE0034FA04 /* DeliveryAddressTableCell.swift in Sources */,
 				3AE4E8BC215E639B00A1AAE4 /* PaymentDetailViewController.swift in Sources */,
+				CD0698EE217478D30089351F /* BasicBarChart.swift in Sources */,
+				CD0698ED217478D30089351F /* BarEntry.swift in Sources */,
 				CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */,
 				CDF2AEAB2165DA2A00AB346C /* MyOrdersDetailsViewController.swift in Sources */,
 				3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */,

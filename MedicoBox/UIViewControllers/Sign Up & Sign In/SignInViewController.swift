@@ -58,8 +58,19 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     }
    
     @IBAction func btnSignInAction(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.createMenuView()
+        kLoginRole = "User";
+        
+        if(kLoginRole == "User"){
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.createMenuView()
+            
+        }else {
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.createMenuView()
+            
+        }
 //        self.callSellerLoginAPI()
     }
     
@@ -309,9 +320,18 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                 
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.createMenuView()
-                        print(responseDict);
+                        if(kLoginRole == "User"){
+                            
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.createMenuView()
+                            print(responseDict);
+                            
+                        }else {
+                            
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.createMenuView()
+                            print(responseDict);
+                        }
                     }
                    else{
                         

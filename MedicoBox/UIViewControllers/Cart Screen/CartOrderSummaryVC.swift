@@ -113,12 +113,10 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
         let cellObj = collectionView.dequeueReusableCell(withReuseIdentifier: "PrescriptionCollectionViewCell", for: indexPath as IndexPath) as! PrescriptionCollectionViewCell
         
         return cellObj;
-        
-        
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         
         
     }
