@@ -310,18 +310,10 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                 
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
-                        if(kLoginRole == "User"){
-                            
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
                             appDelegate.createMenuView()
                             print(responseDict);
-                            
-                        }else {
-                            
-                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                            appDelegate.createMenuView()
-                            print(responseDict);
-                        }
+                       
                     }
                    else{
                         
