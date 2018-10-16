@@ -1542,6 +1542,9 @@
                                                 <exclude reference="uJ3-tH-A9V"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <outlet property="delegate" destination="urr-Mv-lGh" id="kxz-bd-5by"/>
+                                        </connections>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" name="BackgroundColor"/>
@@ -2091,6 +2094,9 @@
                                             <constraint firstItem="FY5-RQ-uep" firstAttribute="top" secondItem="NV2-6Z-mcI" secondAttribute="top" id="rXf-Yq-bPQ"/>
                                             <constraint firstAttribute="bottom" secondItem="FY5-RQ-uep" secondAttribute="bottom" id="w6k-rV-uXU"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="4XU-NI-ueN" id="3Q5-Oo-FZY"/>
+                                        </connections>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" name="BackgroundColor"/>
@@ -2162,7 +2168,7 @@
                                                             <constraint firstItem="Bkx-cF-W3x" firstAttribute="top" secondItem="68d-xv-cIO" secondAttribute="top" constant="15" id="flL-Y6-yad"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9Y-M5-NJO" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9Y-M5-NJO" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="54" width="359" height="496"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID: MB1234234234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exq-4C-8bY">
@@ -2264,7 +2270,7 @@
                                                                     <constraint firstAttribute="height" constant="1" id="xcB-ZF-Ta5"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PRODUCTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qad-Sr-PmW" userLabel="PRODUCTS">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRODUCTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qad-Sr-PmW" userLabel="PRODUCTS">
                                                                 <rect key="frame" x="8" y="449" width="84.5" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="yPr-0j-5NW"/>
@@ -2548,10 +2554,10 @@
                                                             <action selector="btnTrackOrderAction:" destination="edl-ho-ChJ" eventType="touchUpInside" id="GYu-KP-Thq"/>
                                                         </connections>
                                                     </button>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oma-yF-q9u" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oma-yF-q9u" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="521" width="359" height="340"/>
                                                         <subviews>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CPf-B8-eDc">
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CPf-B8-eDc">
                                                                 <rect key="frame" x="8" y="8" width="343" height="324"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <connections>
@@ -2612,6 +2618,9 @@
                                             <constraint firstAttribute="bottom" secondItem="zgo-sr-gCu" secondAttribute="bottom" id="fZC-cL-eew"/>
                                             <constraint firstItem="zgo-sr-gCu" firstAttribute="leading" secondItem="PnY-gl-zQU" secondAttribute="leading" id="k15-kU-bSW"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="edl-ho-ChJ" id="DB6-sx-BZl"/>
+                                        </connections>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" name="BackgroundColor"/>
@@ -3075,6 +3084,9 @@
                                             <constraint firstAttribute="trailing" secondItem="rtn-2a-Bkl" secondAttribute="trailing" id="qOb-mT-hm1"/>
                                             <constraint firstItem="rtn-2a-Bkl" firstAttribute="leading" secondItem="NqF-c5-dZv" secondAttribute="leading" id="wYl-gs-hl0"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="eR7-HL-dlh" id="X4W-IM-zkb"/>
+                                        </connections>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" name="BackgroundColor"/>

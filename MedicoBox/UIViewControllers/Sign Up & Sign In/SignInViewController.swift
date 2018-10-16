@@ -58,19 +58,10 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     }
    
     @IBAction func btnSignInAction(_ sender: Any) {
-        kLoginRole = "User";
         
-        if(kLoginRole == "User"){
-            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.createMenuView()
             
-        }else {
-            
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.createMenuView()
-            
-        }
 //        self.callSellerLoginAPI()
     }
     
@@ -82,7 +73,6 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     }
     @IBAction func btnSignUpHereAction(_ sender: Any) {
         
-
         let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignUpVC)
  self.navigationController?.pushViewController(Controller, animated: true)
     }

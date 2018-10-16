@@ -11,7 +11,7 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource , UIScrollViewDelegate{
     
     @IBOutlet weak var tblOrderItems: UITableView!
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!

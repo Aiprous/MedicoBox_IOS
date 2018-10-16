@@ -11,16 +11,16 @@ import UIKit
 class BasicBarChart: UIView {
     
     /// the width of each bar
-    let barWidth: CGFloat = 34.3
+    let barWidth: CGFloat = 34.0
     
     /// space between each bar
-    let space: CGFloat = 11.5
+    let space: CGFloat = 12.0
     
     /// space at the bottom of the bar to show the title
-    private let bottomSpace: CGFloat = 30.0
+    private let bottomSpace: CGFloat = 40.0
     
     /// space at the top of each bar to show the value
-    private let topSpace: CGFloat = 15.0
+    private let topSpace: CGFloat = 40.0
     
     /// contain all layers of the chart
     private let mainLayer: CALayer = CALayer()
@@ -119,13 +119,13 @@ class BasicBarChart: UIView {
     private func drawTextValue(xPos: CGFloat, yPos: CGFloat, textValue: String, color: UIColor) {
         let textLayer = CATextLayer()
         textLayer.frame = CGRect(x: xPos, y: yPos, width: barWidth+space, height: 22)
-        textLayer.foregroundColor = color.cgColor
+        textLayer.foregroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0).cgColor
         textLayer.backgroundColor = UIColor.clear.cgColor
         textLayer.alignmentMode = kCAAlignmentCenter
         textLayer.contentsScale = UIScreen.main.scale
         textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
         textLayer.fontSize = 14
-//        textLayer.string = textValue
+        textLayer.string = textValue
         mainLayer.addSublayer(textLayer)
     }
     
@@ -133,7 +133,6 @@ class BasicBarChart: UIView {
         let textLayer = CATextLayer()
         textLayer.frame = CGRect(x: xPos, y: yPos, width: barWidth + space, height: 22)
         textLayer.foregroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
- //color.cgColor
         textLayer.backgroundColor = UIColor.clear.cgColor
         textLayer.alignmentMode = kCAAlignmentCenter
         textLayer.contentsScale = UIScreen.main.scale

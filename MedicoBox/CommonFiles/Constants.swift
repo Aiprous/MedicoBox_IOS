@@ -77,4 +77,4 @@ let KNavigationBarColor = UIColor.init(hexString: "#fbc525")
 let kButtonBackgroundColor = UIColor.init(hexString: "#1f2c4c")
 
 //MARK: Keys
-var kLoginRole = ""
+//var kLoginRole = ""

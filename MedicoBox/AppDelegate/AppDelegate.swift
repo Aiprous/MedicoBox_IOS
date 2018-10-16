@@ -155,15 +155,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         
         // create viewController code...
         
-        
         let homeViewController = kMainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+       
+        let leftViewController = kMainStoryboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
         
-         let pharmacistDashboardViewController = kPharmacistStoryBoard.instantiateViewController(withIdentifier: "PharmacistDashboardViewController") as! PharmacistDashboardViewController
-        
-        var leftViewController = kMainStoryboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
-        
-        if(kLoginRole == "User") {
-            
                 let nvc: UINavigationController = UINavigationController(rootViewController: homeViewController)
             
                 UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
@@ -177,24 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                 self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
                 self.window?.rootViewController = slideMenuController
                 self.window?.makeKeyAndVisible()
-        }else {
-            
-            
-            let nvc: UINavigationController = UINavigationController(rootViewController: pharmacistDashboardViewController)
-            
-            UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
-            
-            leftViewController.pharmacistDashboardViewController = nvc
-            
-            let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
-            slideMenuController.automaticallyAdjustsScrollViewInsets = true
-            slideMenuController.delegate = pharmacistDashboardViewController as? SlideMenuControllerDelegate
-            
-            self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
-            self.window?.rootViewController = slideMenuController
-            self.window?.makeKeyAndVisible()
-            
-        }
+       
     }
 
 }
