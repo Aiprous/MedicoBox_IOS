@@ -32,7 +32,10 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     @IBOutlet var popUpView: UIView!
     @IBOutlet weak var txtMobileEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    
+    var responseToken = String();
+    var loginTokenArray = NSArray();
+    var signupData = [SignUpModelClass]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,10 +62,10 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
    
     @IBAction func btnSignInAction(_ sender: Any) {
         
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.createMenuView()
-            
-//        self.callSellerLoginAPI()
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            appDelegate.createMenuView()
+        
+        self.callLoginAPI()
     }
     
     @IBAction func btnSignInWithOTPAction(_ sender: Any) {
@@ -269,70 +272,10 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     func callLoginAPI() {
         
         var paraDict = NSMutableDictionary()
-        var customerArr = NSDictionary()
-        
-         customerArr = ["email":"geet3@mitash.com","firstname":"geet","lastname":"Geet","store_id":"0"]
-        paraDict =  ["customer": customerArr, "password": "ffggter.s@888"] as NSMutableDictionary
-        
-//        let jsonData1 = try! JSONSerialization.data(withJSONObject: paraDict, options: JSONSerialization.WritingOptions.prettyPrinted)
-//        let jsonString = NSString(data: jsonData1, encoding: String.Encoding.utf8.rawValue)! as String
-//        print(paraDict) //, " \n ", jsonString)
 
-        var i = Int()
-        i = 0;
-        let urlString = BASEURL+"/customers"
-        let params: [String : Any]
-        params = [
-            "customer": [
-                "email": "Geet@mitash.com",
-                "firstname": "Geet",
-                "lastname": "geet",
-                "store_id": i
-            ],
-            "password": "ffggter.s@888"
-            ] as [String : Any]
-        
-        print(urlString, paraDict)
-        SVProgressHUD.show()
-      
-        let headers: HTTPHeaders = [
-            "Authorization": "Info XXX",
-            "Accept": "application/json",
-            "Content-Type" :"application/json"
-        ]
-        
-        Alamofire.request(urlString, method: .post, parameters: (paraDict as! [String : Any]), encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
-            
-            DispatchQueue.main.async(execute: {() -> Void in
-                SVProgressHUD.dismiss()
-                
-                if let responseDict : NSArray = resposeData.result.value as? NSArray {
-                
-                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
-                    {
-                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                            appDelegate.createMenuView()
-                            print(responseDict);
-                       
-                    }
-                   else{
-                        
-                        print(responseDict.value(forKey: "message")as! String)
-                        self.showToast(message : responseDict.value(forKey: "message")as! String)
-                    }
-                }
-            })
-        }
-    }
-
-    func callSellerLoginAPI() {
-        
-        var paraDict = NSMutableDictionary()
-        paraDict =  ["username": "peters@mitash.com", "password": "Peter.s@888"] as NSMutableDictionary
-        
+        paraDict =  ["username": "jitesh@gmail.com", "password": "Jit@12345"] as NSMutableDictionary
         let urlString = "https://user8.itsindev.com/medibox/API/login.php"
-//        let urlString = BASEURL + "/integration/customer/token"
-        print(urlString, paraDict)
+        print(urlString, paraDict, self.txtMobileEmail.text!, self.txtPassword.text!)
         SVProgressHUD.show()
         
         let headers: HTTPHeaders = [
@@ -346,20 +289,62 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
             DispatchQueue.main.async(execute: {() -> Void in
                 SVProgressHUD.dismiss()
                 
-//                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.createMenuView()
+                        print(responseDict)
+                        self.responseToken = responseDict.value(forKey: "response")as! String;
+                        self.callLoginWithTokenAPI()
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+                }
+            })
+        }
+    }
+
+    
+    
+    
+    func callLoginWithTokenAPI() {
+        
+        let urlString = "http://user8.itsindev.com/medibox/index.php/rest/V1/customers/me"
+        print(urlString)
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "Bearer " + self.responseToken ]
+        
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
                 
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
                         appDelegate.createMenuView()
-                        print(resposeData.result.value);
+                        print(responseDict)
+                        let signup = SignUpModelClass(signupModel: responseDict as! Dictionary<String, Any>)
+                        self.signupData.append(signup)
                     }
                     else{
                         
-//                        print(responseDict.value(forKey: "message")as! String)
-//                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
                     }
-//                }
+                }
             })
         }
     }

@@ -20,6 +20,12 @@ class ProductDetailBViewController: UIViewController,UITableViewDataSource,UITab
         prodTblView.register(UINib(nibName: "ProductDetailBTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductDetailBTableViewCell")
         prodTblView.estimatedRowHeight = 62
         prodTblView.separatorStyle = .none
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: prodTblView.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        prodTblView.tableFooterView = footerView
+        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

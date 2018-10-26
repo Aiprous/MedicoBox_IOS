@@ -69,9 +69,11 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
                     Section(name: "Settings", items: []),
                     Section(name: "Logout", items: []),
                 ]
-        //        self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         
-        self.tableView.tableFooterView = UIView(frame: .zero)
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tableView.tableFooterView = footerView
    
         let homeViewController1 = kMainStoryboard.instantiateViewController(withIdentifier: kHomeVC)
         
@@ -178,12 +180,7 @@ extension LeftViewController : UITableViewDelegate {
         }
         
     }
-    
-    //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    //        if self.tableView == scrollView {
-    //
-    //        }
-    //    }
+   
 }
 extension LeftViewController : UITableViewDataSource {
     
@@ -206,13 +203,11 @@ extension LeftViewController : UITableViewDataSource {
         let section = getSectionIndex(indexPath.row)
         let row = getRowIndex(indexPath.row)
         
-        
-      /* var tableData:[SignUpModelClass] = SignUpModelClass.sharedInstance()
-        let artistAndAlbum = tableData[section]
-        imageHeaderView.lblName.text = artistAndAlbum.firstname + artistAndAlbum.lastname
-        imageHeaderView.lblEmailID.text = artistAndAlbum.email
-        imageHeaderView.profileImage.image = #imageLiteral(resourceName: "doctor")
- */
+//        var objModel : SignUpModelClass = SignUpModelClass()
+//        imageHeaderView.lblName.text = objModel.firstname + objModel.lastname
+//        imageHeaderView.lblEmailID.text = objModel.email
+        imageHeaderView.profileImage.image = #imageLiteral(resourceName: "1")
+ 
                 if row == 0 {
                     
                     let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! HeaderCell

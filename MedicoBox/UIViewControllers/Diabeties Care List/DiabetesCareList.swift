@@ -19,6 +19,11 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
         diabetesTblView.register(UINib(nibName: "DiabetesCareCell", bundle: nil), forCellReuseIdentifier: "DiabetesCareCell")
         diabetesTblView.estimatedRowHeight = 130
         diabetesTblView.separatorStyle = .none
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: diabetesTblView.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        diabetesTblView.tableFooterView = footerView
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

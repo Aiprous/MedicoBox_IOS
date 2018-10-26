@@ -244,7 +244,6 @@ extension UIViewController {
         
     }
 
-    
    public func isValidEmailID(txtEmail : String) -> Bool {
         
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
@@ -257,8 +256,6 @@ extension UIViewController {
             return false
         }
     }
-    
-    
     
    public func isValidName(txtName: String) -> Bool {
         
@@ -280,9 +277,7 @@ extension UIViewController {
         let noTest = NSPredicate(format: "SELF MATCHES %@", noRegex)
         
         let result = noTest.evaluate(with: mobileNo)
-        
-        
-        
+    
         if result == false {
             
             return false

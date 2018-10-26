@@ -14,7 +14,9 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     @IBOutlet weak var newInstaListView: DesignableView!
     @IBOutlet weak var productInfoView: DesignableView!
     @IBOutlet weak var btnBackView: UIButton!
-    
+    @IBOutlet weak var lblMRPProductInfoView: UILabel!
+    @IBOutlet weak var lblTabletSRProductInfoView: UILabel!
+
     var displayList = NSMutableArray()
     //    var destinationData: [DestinationData?]?
     
@@ -30,6 +32,14 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         tblInstaOrdersList.delegate = self
         tblInstaOrdersList.dataSource = self
         tblInstaOrdersList.estimatedRowHeight = 128
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblInstaOrdersList.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblInstaOrdersList.tableFooterView = footerView
+        
+        self.lblTabletSRProductInfoView.text = "(" + "\u{20B9}" + "6.86/Tablet SR)"
+        self.lblMRPProductInfoView.text = "\u{20B9}" + " 68.00"
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,21 +55,6 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         super.viewWillAppear(animated)
         self.setNavigationBarItemBackButton()
     }
-    /*
-     private func getData() -> [DestinationData?] {
-     let data: [DestinationData?] = []
-     
-     let diabetesCellData = [ CellsData(orderName: "Tab Evion 400mg", itemCount: "1"), CellsData(orderName: "Inj Emcet 4mg", itemCount: "3") ,CellsData(orderName: "Otrivin Spray", itemCount: "2")]
-     let diabetes = DestinationData(name: "Diabetes", flag: "Close", cellData: diabetesCellData)
-     
-     //        let monthlyCellData = [CellsData(orderName: "Otrivin Spray", itemCount: "2"),  CellsData(orderName: "Inj Emcet 4mg", itemCount: "3")]
-     //        let monthly = DestinationData(name: "Monthly", cellData: monthlyCellData)
-     //
-     //        let priyankaCellData = [CellsData(orderName: "Otrivin Spray", itemCount: "2")]
-     //        let priyanka = DestinationData(name: "Priyanka", cellData: priyankaCellData)
-     
-     return [diabetes] //, monthly, priyanka]
-     } */
     
     //MARK:- Table View Delegate And DataSource
     
@@ -96,42 +91,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
             cellObj.bottomCellView.isHidden = false
             cellObj.topHeaderCellView.isHidden = true
         }
-        
-        /* if let rowData = destinationData?[indexPath.section] {
-         if(rowData.flag == "Close"){
-         
-         cellObj.lblInstaOrderTitle.text = rowData.name
-         
-         if(indexPath.row == 0){
-         
-         cellObj.bottomCellView.isHidden = true
-         cellObj.topHeaderCellView.isHidden = false
-         
-         }else{
-         
-         cellObj.bottomCellView.isHidden = false
-         }
-         }else {
-         
-         if(indexPath.row == 0){
-         
-         cellObj.bottomCellView.isHidden = true
-         cellObj.topHeaderCellView.isHidden = false
-         
-         }else{
-         
-         cellObj.bottomCellView.isHidden = false
-         cellObj.topHeaderCellView.isHidden = true
-         
-         }
-         
-         cellObj.lblInstaOrderTitle.text = rowData.name
-         cellObj.lblOrderName.text = rowData.cellData?[indexPath.row].orderName
-         cellObj.lblInstaOrderCount.text = rowData.cellData?[indexPath.row].itemCount
-         }
-         
-         }
-         */
+      
         cellObj.optionView.isHidden = true;
         cellObj.btnOptions.tag = indexPath.row;
         cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
@@ -152,18 +112,19 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     //MARK: - tableview delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        var value:CGFloat = CGFloat()
         
         if (indexPath.row == 0){
-            
-            return 194
-            
-        }else {
-
-             return 53
-            
-        }
-       
+                
+                value =  194;
+                
+            }else {
+                
+                value = 53;
+                
+            }
         
+        return value;
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

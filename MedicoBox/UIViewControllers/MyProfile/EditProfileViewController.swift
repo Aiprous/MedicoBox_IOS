@@ -21,6 +21,10 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
         tblAddressField.estimatedRowHeight = 65
         tblAddressField.separatorStyle = .none
         
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblAddressField.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblAddressField.tableFooterView = footerView
         
         //show navigationbar with back button
         self.setNavigationBarItemBackButton()

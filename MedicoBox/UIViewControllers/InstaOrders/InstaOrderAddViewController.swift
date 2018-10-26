@@ -36,6 +36,11 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
         tblInstaOrderAdd.dataSource = self
         tblInstaOrderAdd.estimatedRowHeight = 130
         tblInstaOrderAdd.separatorStyle = .none
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblInstaOrderAdd.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblInstaOrderAdd.tableFooterView = footerView
     }
 
     override func didReceiveMemoryWarning() {

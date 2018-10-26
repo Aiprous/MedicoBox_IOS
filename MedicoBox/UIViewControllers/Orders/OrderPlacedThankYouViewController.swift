@@ -50,6 +50,11 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         tblOrderItems.estimatedRowHeight = 130
         tblOrderItems.separatorStyle = .singleLine
         tblOrderItems.separatorColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblOrderItems.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblOrderItems.tableFooterView = footerView
     }
     
     

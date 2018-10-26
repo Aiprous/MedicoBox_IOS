@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -64,7 +63,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="take-photo" translatesAutoresizingMaskIntoConstraints="NO" id="xnQ-C7-OSA">
-                                                                <rect key="frame" x="33" y="10" width="35" height="35"/>
+                                                                <rect key="frame" x="32.5" y="10" width="35" height="35"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="35" id="0nZ-zs-q0c"/>
                                                                     <constraint firstAttribute="height" constant="35" id="KQL-xs-gND"/>
@@ -81,7 +80,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2KU-Y9-Y9W" customClass="DesignableShadowButton" customModule="MedicoBox" customModuleProvider="target">
-                                                                <rect key="frame" x="130" y="0.0" width="100" height="98"/>
+                                                                <rect key="frame" x="129.5" y="0.0" width="100" height="98"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="100" id="vJS-tH-yUt"/>
@@ -96,14 +95,14 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="choose-photo" translatesAutoresizingMaskIntoConstraints="NO" id="Bie-uA-hUj">
-                                                                <rect key="frame" x="163" y="10" width="35" height="35"/>
+                                                                <rect key="frame" x="162" y="10" width="35" height="35"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="35" id="0fU-CY-a7D"/>
                                                                     <constraint firstAttribute="height" constant="35" id="4ts-ww-PxG"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose from Gallery" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="025-98-6Z6">
-                                                                <rect key="frame" x="142" y="55" width="76" height="33"/>
+                                                                <rect key="frame" x="141.5" y="55" width="76" height="33"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="33" id="33E-9I-udC"/>
                                                                     <constraint firstAttribute="width" constant="76" id="RkO-rr-dY0"/>
@@ -136,7 +135,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Prescriptions" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-od-SsO" userLabel="My Prescriptions">
-                                                                <rect key="frame" x="273.5" y="55" width="72" height="33"/>
+                                                                <rect key="frame" x="273" y="55" width="72" height="33"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="72" id="3rC-5J-D5j"/>
                                                                     <constraint firstAttribute="height" constant="33" id="rQ6-UT-rmG"/>
@@ -252,21 +251,23 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EG5-hB-GTG">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EG5-hB-GTG">
                                                                         <rect key="frame" x="227" y="3" width="60" height="30"/>
-                                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                                                                        <state key="normal" title="Yes">
+                                                                        <inset key="titleEdgeInsets" minX="13" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                        <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                        <state key="normal" title="Yes" image="radio-active-button">
                                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         </state>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNp-3J-5ke">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNp-3J-5ke">
                                                                         <rect key="frame" x="292" y="3" width="60" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="60" id="IK7-Kq-PRr"/>
                                                                             <constraint firstAttribute="height" constant="30" id="JyP-py-mjX"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                                                                        <state key="normal" title="No">
+                                                                        <inset key="titleEdgeInsets" minX="13" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                        <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                        <state key="normal" title="No" image="circle-outline">
                                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         </state>
                                                                     </button>
@@ -513,7 +514,7 @@
                                                                     <constraint firstAttribute="height" constant="30" id="PT9-se-sgx"/>
                                                                     <constraint firstAttribute="width" constant="30" id="x79-OZ-VUn"/>
                                                                 </constraints>
-                                                                <state key="normal" image="circle-outline"/>
+                                                                <state key="normal" image="radio-active-button"/>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order everything as per prescription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utl-OQ-WMH">
                                                                 <rect key="frame" x="48" y="15" width="279" height="22"/>
@@ -577,7 +578,7 @@
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTB-bd-bjq">
                                                                 <rect key="frame" x="10" y="137" width="30" height="30"/>
-                                                                <state key="normal" image="circle-outline"/>
+                                                                <state key="normal" image="radio-active-button"/>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQE-S6-yX0">
                                                                 <rect key="frame" x="35" y="178" width="300" height="76"/>
@@ -786,7 +787,7 @@
                                         </constraints>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIM-4V-wUY" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                        <rect key="frame" x="58" y="617" width="260" height="40"/>
+                                        <rect key="frame" x="57.5" y="617" width="260" height="40"/>
                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Yt7-NA-qGZ"/>
@@ -844,7 +845,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked_success" translatesAutoresizingMaskIntoConstraints="NO" id="Bc1-fm-dpk">
-                                <rect key="frame" x="137" y="94" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="94" width="100" height="100"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank You!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ao5-O0-4gc">
                                 <rect key="frame" x="134.5" y="202" width="106.5" height="27.5"/>
@@ -912,7 +913,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-cK-jDZ" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                <rect key="frame" x="58" y="402" width="260" height="40"/>
+                                <rect key="frame" x="57.5" y="402" width="260" height="40"/>
                                 <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="I4q-Yl-Tla"/>
@@ -1010,7 +1011,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Delivery Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-ch-ovo">
-                                                <rect key="frame" x="8" y="28" width="202.5" height="34"/>
+                                                <rect key="frame" x="8" y="28" width="191.5" height="34"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1050,7 +1051,7 @@
                                         </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akT-jH-xWx" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                        <rect key="frame" x="57" y="615" width="260" height="40"/>
+                                        <rect key="frame" x="57.5" y="615" width="260" height="40"/>
                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="MdB-LU-swK"/>
@@ -1127,7 +1128,7 @@
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WyV-4g-EyA" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="68" width="343" height="270"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Shreyas Saran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fy0-kD-2x9">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Shreyas Saran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fy0-kD-2x9">
                                                                 <rect key="frame" x="10" y="10" width="210" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="TSr-oX-BLC"/>
@@ -1136,8 +1137,8 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Flat No 104, A Wing Green Olive Apartments, Hinjawadi Pune - 411057 Maharashtra India" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDU-UG-fKL">
-                                                                <rect key="frame" x="10" y="42" width="178" height="135"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flat No 104, A Wing Green Olive Apartments, Hinjawadi Pune - 411057 Maharashtra India" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDU-UG-fKL">
+                                                                <rect key="frame" x="10" y="42" width="178" height="130"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="178" id="ISa-Ii-t7e"/>
                                                                     <constraint firstAttribute="height" priority="250" constant="135" id="aVM-wa-QmG"/>
@@ -1146,8 +1147,8 @@
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVP-QQ-5Qy">
-                                                                <rect key="frame" x="10" y="188" width="169" height="30"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVP-QQ-5Qy">
+                                                                <rect key="frame" x="10" y="183" width="169" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="169" id="b9I-LN-yjP"/>
                                                                     <constraint firstAttribute="height" constant="30" id="e6t-qk-HdO"/>
@@ -1157,8 +1158,8 @@
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                             </button>
-                                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Special Instructions" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shN-wz-0uN">
-                                                                <rect key="frame" x="10" y="228" width="325" height="30"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Special Instructions" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shN-wz-0uN">
+                                                                <rect key="frame" x="10" y="223" width="325" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="AGl-4z-ugN"/>
                                                                 </constraints>
@@ -1166,8 +1167,8 @@
                                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27j-Uc-wLs">
-                                                                <rect key="frame" x="7" y="259" width="328" height="1"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27j-Uc-wLs">
+                                                                <rect key="frame" x="7" y="254" width="328" height="1"/>
                                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="ilp-nP-EqD"/>
@@ -1322,7 +1323,7 @@
                                         </constraints>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRZ-Vu-e6d" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                        <rect key="frame" x="58" y="617" width="260" height="40"/>
+                                        <rect key="frame" x="57.5" y="617" width="260" height="40"/>
                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="1V2-2j-STm"/>
@@ -1483,7 +1484,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVO-ik-ozG" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="57" y="695" width="260" height="40"/>
+                                                        <rect key="frame" x="57.5" y="695" width="260" height="40"/>
                                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="260" id="DZl-q1-Lgp"/>
@@ -1688,7 +1689,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1395"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4n5-QK-mWO" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="57" y="1341" width="260" height="40"/>
+                                                        <rect key="frame" x="57.5" y="1341" width="260" height="40"/>
                                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="bDc-Ih-suR"/>
@@ -1714,7 +1715,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6q-rx-ZBe" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="873.5" width="343" height="215"/>
+                                                        <rect key="frame" x="16" y="873" width="343" height="215"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M.R.P Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPs-dr-2W5">
                                                                 <rect key="frame" x="8" y="17" width="83" height="26"/>
@@ -1880,7 +1881,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ws-Tf-lwn" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="644" width="343" height="207"/>
+                                                        <rect key="frame" x="16" y="643.5" width="343" height="207"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Attached Prescriptions (1)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJA-ce-8d1">
                                                                 <rect key="frame" x="8" y="8" width="230" height="22"/>
@@ -1970,7 +1971,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwx-4i-r8S" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="303" width="343" height="327.5"/>
+                                                        <rect key="frame" x="16" y="302.5" width="343" height="327.5"/>
                                                         <subviews>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sgv-RK-2ry">
                                                                 <rect key="frame" x="8" y="8" width="327" height="311.5"/>
@@ -2003,7 +2004,7 @@
                                                         </variation>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your chosen Payment Mode: PayTM Paid: Rs: 350" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO1-Fg-CIB">
-                                                        <rect key="frame" x="47" y="174" width="282" height="47"/>
+                                                        <rect key="frame" x="47" y="173.5" width="282" height="47"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="47" id="q2y-rr-fB7"/>
                                                         </constraints>
@@ -2012,7 +2013,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwP-UL-wDV">
-                                                        <rect key="frame" x="72" y="238" width="230" height="1"/>
+                                                        <rect key="frame" x="72" y="237.5" width="230" height="1"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="230" id="4qe-l8-mec"/>
@@ -2020,7 +2021,7 @@
                                                         </constraints>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked_success" translatesAutoresizingMaskIntoConstraints="NO" id="QYz-Jp-T7K">
-                                                        <rect key="frame" x="157" y="25" width="60" height="60"/>
+                                                        <rect key="frame" x="157.5" y="25" width="60" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="WUl-KV-6aT"/>
                                                             <constraint firstAttribute="height" constant="60" id="irM-Q9-QAT"/>
@@ -2036,7 +2037,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Placed Successfully" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAR-UX-0O0">
-                                                        <rect key="frame" x="47" y="151" width="282" height="20"/>
+                                                        <rect key="frame" x="47" y="150.5" width="282" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="vnq-UD-Ddn"/>
                                                         </constraints>
@@ -2535,7 +2536,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTT-xW-sIg" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="57" y="1314" width="260" height="40"/>
+                                                        <rect key="frame" x="57.5" y="1314" width="260" height="40"/>
                                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="260" id="Qro-t9-Sbp"/>
@@ -2700,7 +2701,7 @@
                                                         <rect key="frame" x="8" y="35" width="359" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIS-fc-mWL" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="23" width="30" height="30"/>
+                                                                <rect key="frame" x="31.5" y="23" width="30" height="30"/>
                                                                 <color key="backgroundColor" red="0.10980392156862745" green="0.15294117647058825" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="Rpk-XI-luK"/>
@@ -2716,7 +2717,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3V-GC-KM8" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                                                <rect key="frame" x="121" y="23" width="30" height="30"/>
+                                                                <rect key="frame" x="120.5" y="23" width="30" height="30"/>
                                                                 <color key="backgroundColor" red="0.10980392156862745" green="0.15294117647058825" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <state key="normal">
                                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2728,7 +2729,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXk-cS-uIj" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                                                <rect key="frame" x="210" y="23" width="30" height="30"/>
+                                                                <rect key="frame" x="209.5" y="23" width="30" height="30"/>
                                                                 <color key="backgroundColor" red="0.10980392156862745" green="0.15294117647058825" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <state key="normal">
                                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2740,7 +2741,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdD-cm-zpS" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                                                <rect key="frame" x="298" y="23" width="30" height="30"/>
+                                                                <rect key="frame" x="298.5" y="23" width="30" height="30"/>
                                                                 <color key="backgroundColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <state key="normal">
                                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2780,21 +2781,21 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTy-vG-l0e">
-                                                                <rect key="frame" x="61" y="38" width="60" height="1"/>
+                                                                <rect key="frame" x="60.5" y="37.5" width="60" height="1"/>
                                                                 <color key="backgroundColor" red="0.10588235294117647" green="0.14117647058823529" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="ZeL-Tg-BDK"/>
                                                                 </constraints>
                                                             </view>
                                                             <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5Z-GG-Oyr">
-                                                                <rect key="frame" x="150.5" y="37.5" width="60" height="1"/>
+                                                                <rect key="frame" x="150.5" y="37.5" width="59" height="1"/>
                                                                 <color key="backgroundColor" red="0.1058823529" green="0.14117647059999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="W0s-6K-nyn"/>
                                                                 </constraints>
                                                             </view>
                                                             <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVF-2U-P0V">
-                                                                <rect key="frame" x="239.5" y="37.5" width="58.5" height="1"/>
+                                                                <rect key="frame" x="239.5" y="37.5" width="59" height="1"/>
                                                                 <color key="backgroundColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="ZDn-ir-Tko"/>
@@ -3035,7 +3036,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3c-nH-3fd" customClass="DesignableButton" customModule="MedicoBox" customModuleProvider="target">
-                                                        <rect key="frame" x="57" y="1112" width="260" height="40"/>
+                                                        <rect key="frame" x="57.5" y="1112" width="260" height="40"/>
                                                         <color key="backgroundColor" name="ButtonBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="260" id="Dbh-zH-7Wy"/>
@@ -3120,23 +3121,23 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cancel_gray" width="16" height="16"/>
-        <image name="checked_success" width="128" height="128"/>
-        <image name="choose-photo" width="24" height="24"/>
-        <image name="circle-outline" width="16" height="16"/>
-        <image name="downArrow_yellow" width="16" height="16"/>
-        <image name="my-prescriptions" width="24" height="24"/>
-        <image name="radio-active-button" width="16" height="16"/>
-        <image name="take-photo" width="24" height="24"/>
+        <image name="cancel_gray" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="checked_success" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="choose-photo" width="36" height="36"/>
+        <image name="circle-outline" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="downArrow_yellow" width="24" height="24"/>
+        <image name="my-prescriptions" width="36" height="36"/>
+        <image name="radio-active-button" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="take-photo" width="36" height="36"/>
         <image name="valid-prescription-guide.jpg" width="800" height="1100"/>
         <namedColor name="BackgroundColor">
-            <color red="0.84299999479999999" green="0.87800002099999996" blue="0.90600001809999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.84299999475479126" green="0.87800002098083496" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ButtonBackgroundColor">
-            <color red="0.1220000014" green="0.17299999299999999" blue="0.29800000789999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.12200000137090683" green="0.17299999296665192" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="NavigationbarColor">
-            <color red="0.98431372549999996" green="0.7725490196" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98431372549019602" green="0.77254901960784317" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -36,6 +36,7 @@ import UIKit
 
 class SignUpModelClass: NSObject {
     
+    static var sharedInstance = SignUpModelClass()
     var addresses = NSArray();
     var extension_attributes = NSDictionary();
     var email = String()
@@ -57,6 +58,7 @@ class SignUpModelClass: NSObject {
         self.signupModel_Dict = signupModel
         loadSignUpData()
     }
+    
     func loadSignUpData(){
         
         addresses =  self.signupModel_Dict["addresses"]as! NSArray
@@ -74,10 +76,8 @@ class SignUpModelClass: NSObject {
         store_id = self.signupModel_Dict["store_id"] as! Int
         disable_auto_group_change = self.signupModel_Dict["disable_auto_group_change"] as! Int
         is_subscribed = self.signupModel_Dict["is_subscribed"] as! Int
-
         
     }
-    
     
     class SignUpModelClass: NSObject {
         static let sharedInstance : SignUpModelClass = {

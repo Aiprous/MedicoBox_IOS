@@ -35,6 +35,12 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         itemTableView.register(UINib(nibName: "CartOrderSummaryTableCell", bundle: nil), forCellReuseIdentifier: "CartOrderSummaryTableCell")
         itemTableView.estimatedRowHeight = 65
         itemTableView.separatorStyle = .none
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: itemTableView.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        itemTableView.tableFooterView = footerView
+        
         self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;
     }

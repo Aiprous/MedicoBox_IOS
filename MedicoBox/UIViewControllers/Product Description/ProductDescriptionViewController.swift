@@ -26,6 +26,11 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
         FeaturedProductsCollectionView.delegate = self
         tblProductDesc.delegate = self
         tblProductDesc.dataSource = self
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblProductDesc.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblProductDesc.tableFooterView = footerView
     }
     
     override func didReceiveMemoryWarning() {

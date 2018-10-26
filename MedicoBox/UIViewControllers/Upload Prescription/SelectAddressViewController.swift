@@ -20,6 +20,12 @@ class SelectAddressViewController: UIViewController,UITableViewDelegate,UITableV
         tblAddress.register(UINib(nibName: "DeliveryAddressTableCell", bundle: nil), forCellReuseIdentifier: "DeliveryAddressTableCell")
         tblAddress.estimatedRowHeight = 225
         tblAddress.separatorStyle = .none
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblAddress.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblAddress.tableFooterView = footerView
+        
         //show navigationbar with back button
         self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;

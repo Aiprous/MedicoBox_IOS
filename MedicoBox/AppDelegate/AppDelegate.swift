@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
         navigationBarAppearace.barTintColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
-        
+        UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
+
         FIRApp.configure()
         Fabric.with([Crashlytics.self])
         // TODO: Move this to where you establish a user session
@@ -175,5 +176,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
        
     }
 
+}
+extension UIApplication {
+    
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
+    
 }
 

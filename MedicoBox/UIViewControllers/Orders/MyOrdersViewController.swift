@@ -35,6 +35,12 @@
         tblMyOrders.dataSource = self
         tblMyOrders.estimatedRowHeight = 130
         tblMyOrders.separatorStyle = .none
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblMyOrders.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblMyOrders.tableFooterView = footerView
+        
     }
     
     

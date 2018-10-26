@@ -20,6 +20,10 @@ class NotificationViewController: UIViewController, UITableViewDelegate,UITableV
         tblNotification.estimatedRowHeight = 90
         tblNotification.separatorStyle = .none
         
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblNotification.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblNotification.tableFooterView = footerView
         
         //show navigationbar with back button
          self.setNavigationBarItem()
