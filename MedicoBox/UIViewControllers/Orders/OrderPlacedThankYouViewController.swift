@@ -129,9 +129,7 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         
         let cell:OrderItemsTableViewCell = tableView.cellForRow(at: indexPath) as! OrderItemsTableViewCell
         
-//        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kOrderCancelVC)
-//        self.navigationController?.pushViewController(Controller!, animated: true)
-//
+
     }
     
     

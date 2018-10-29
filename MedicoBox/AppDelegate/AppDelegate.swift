@@ -175,6 +175,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                 self.window?.makeKeyAndVisible()
        
     }
+    
+    func setLoginToken(loginToken:String)  {
+        let kUserDefault = UserDefaults.standard
+        kUserDefault.set(loginToken, forKey: "loginToken")
+        kUserDefault.synchronize()
+        
+    }
+    func getLoginToken() -> String {
+        return UserDefaults.standard.value(forKey: "loginToken") as! String
+    }
 
 }
 extension UIApplication {

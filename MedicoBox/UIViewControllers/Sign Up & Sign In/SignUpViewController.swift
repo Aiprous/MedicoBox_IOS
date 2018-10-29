@@ -151,8 +151,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.createMenuView()
+
+                        self.navigationController?.popViewController(animated: true)
                         print(responseDict);
                         
                         let signup = SignUpModelClass(signupModel: responseDict as! Dictionary<String, Any>)

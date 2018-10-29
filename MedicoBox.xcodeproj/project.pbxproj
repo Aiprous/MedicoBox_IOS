@@ -76,6 +76,8 @@
 		CD8BF92B2155F6E8005B7BBA /* SetNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92A2155F6E8005B7BBA /* SetNewPasswordViewController.swift */; };
 		CD8BF92E21560BA8005B7BBA /* ProductDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */; };
 		CD8BF93021560BB7005B7BBA /* ProductDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */; };
+		CD92FBC32186BD97004CE471 /* CustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD92FBC22186BD97004CE471 /* CustomerInfo.swift */; };
+		CD92FBC52186BDAA004CE471 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD92FBC42186BDAA004CE471 /* Result.swift */; };
 		CD9C193321648D31001F772F /* OrderCancelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C193221648D31001F772F /* OrderCancelViewController.swift */; };
 		CD9C19352164A040001F772F /* OrderPlacedThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C19342164A040001F772F /* OrderPlacedThankYouViewController.swift */; };
 		CD9C19392164A42E001F772F /* OrderItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C19372164A42E001F772F /* OrderItemsTableViewCell.swift */; };
@@ -203,6 +205,8 @@
 		CD8BF92A2155F6E8005B7BBA /* SetNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewPasswordViewController.swift; sourceTree = "<group>"; };
 		CD8BF92D21560BA8005B7BBA /* ProductDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionViewController.swift; sourceTree = "<group>"; };
 		CD8BF92F21560BB7005B7BBA /* ProductDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		CD92FBC22186BD97004CE471 /* CustomerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerInfo.swift; sourceTree = "<group>"; };
+		CD92FBC42186BDAA004CE471 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		CD9C193221648D31001F772F /* OrderCancelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCancelViewController.swift; sourceTree = "<group>"; };
 		CD9C19342164A040001F772F /* OrderPlacedThankYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlacedThankYouViewController.swift; sourceTree = "<group>"; };
 		CD9C19372164A42E001F772F /* OrderItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemsTableViewCell.swift; sourceTree = "<group>"; };
@@ -787,6 +791,8 @@
 		CDEAAD0F2170AA7D00D9703C /* SignUpModelClass */ = {
 			isa = PBXGroup;
 			children = (
+				CD92FBC42186BDAA004CE471 /* Result.swift */,
+				CD92FBC22186BD97004CE471 /* CustomerInfo.swift */,
 				CDEAAD102170AAE500D9703C /* SignUpModelClass.swift */,
 			);
 			path = SignUpModelClass;
@@ -999,6 +1005,7 @@
 				CDF2AEAB2165DA2A00AB346C /* MyOrdersDetailsViewController.swift in Sources */,
 				3A5F5FEA215907AB0072E1BB /* SlideMenuController.swift in Sources */,
 				CD9C19392164A42E001F772F /* OrderItemsTableViewCell.swift in Sources */,
+				CD92FBC52186BDAA004CE471 /* Result.swift in Sources */,
 				3A984C4021510B100012E0C7 /* DesignableView.swift in Sources */,
 				3A56BC4B215E2AC800CA1E33 /* BillingAddressVC.swift in Sources */,
 				3A5F600E215908F10072E1BB /* UIApplication.swift in Sources */,
@@ -1008,6 +1015,7 @@
 				CDAE5BEB216B1AC70056D455 /* SignUpDeliveryBoyViewController.swift in Sources */,
 				CDBE54B82175F6B30068BD12 /* ProductDetailBTableViewCell.swift in Sources */,
 				3A5F60162159092A0072E1BB /* ProductDetailBViewController.swift in Sources */,
+				CD92FBC32186BD97004CE471 /* CustomerInfo.swift in Sources */,
 				3A56BC47215E261100CA1E33 /* AddressTableViewCell.swift in Sources */,
 				3AFD0369215F824E00B04D8C /* CartOrderSummaryVC.swift in Sources */,
 				CDF9FFA7216E01BD001C9D75 /* Steps.swift in Sources */,

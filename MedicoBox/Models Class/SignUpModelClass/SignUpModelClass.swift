@@ -47,11 +47,15 @@ class SignUpModelClass: NSObject {
     var created_at = String()
     var group_id = Int()
     var id = Int()
+    var gender = Int()
+    var prefix = String()
     var store_id = Int()
     var website_id = Int()
     var disable_auto_group_change = Int()
     var is_subscribed = Int()
+    var mobileNumber = String()
     var signupModel_Dict = Dictionary<String, Any>()
+    var dob = String()
     
     init(signupModel:Dictionary<String, Any>) {
         super.init()
@@ -75,8 +79,10 @@ class SignUpModelClass: NSObject {
         website_id = self.signupModel_Dict["website_id"] as! Int
         store_id = self.signupModel_Dict["store_id"] as! Int
         disable_auto_group_change = self.signupModel_Dict["disable_auto_group_change"] as! Int
-        is_subscribed = self.signupModel_Dict["is_subscribed"] as! Int
-        
+        is_subscribed = extension_attributes["is_subscribed"] as! Int
+        gender = self.signupModel_Dict["gender"] as? Int ?? 0
+        dob = self.signupModel_Dict["dob"] as! String
+        prefix = self.signupModel_Dict["prefix"] as! String
     }
     
     class SignUpModelClass: NSObject {
@@ -85,5 +91,5 @@ class SignUpModelClass: NSObject {
             return instance
         }()
     }
-   
+    
 }

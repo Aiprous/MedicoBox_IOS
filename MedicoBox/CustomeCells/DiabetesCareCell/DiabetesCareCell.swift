@@ -11,14 +11,19 @@ import UIKit
 class DiabetesCareCell: UITableViewCell {
 
     @IBOutlet weak var lblTabletName: UILabel!
-    
+    @IBOutlet weak var lblID: UILabel!
+    @IBOutlet weak var lblSku: UILabel!
     @IBOutlet weak var btnAdd: UIButton!
+    @IBOutlet weak var btnPlus: UIButton!
+    @IBOutlet weak var btnMinus: UIButton!
+     @IBOutlet weak var lblProductQty: UILabel!
     @IBOutlet weak var btnLike: UIButton!
     @IBOutlet weak var lblDescription: UILabel!
-    
     @IBOutlet weak var imageViewTablet: UIImageView!
     @IBOutlet weak var lblMRP: UILabel!
     @IBOutlet weak var lblDiscount: UILabel!
+    @IBOutlet weak var cartView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         strikeOnLabel()

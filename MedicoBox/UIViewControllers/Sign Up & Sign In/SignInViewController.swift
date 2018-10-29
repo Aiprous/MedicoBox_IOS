@@ -32,9 +32,9 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     @IBOutlet var popUpView: UIView!
     @IBOutlet weak var txtMobileEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    var responseToken = String();
     var loginTokenArray = NSArray();
     var signupData = [SignUpModelClass]()
+    var responseToken = String();
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -273,7 +273,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
         
         var paraDict = NSMutableDictionary()
 
-        paraDict =  ["username": "jitesh@gmail.com", "password": "Jit@12345"] as NSMutableDictionary
+        paraDict =  ["username": self.txtMobileEmail.text!, "password": self.txtPassword.text!] as NSMutableDictionary
         let urlString = "https://user8.itsindev.com/medibox/API/login.php"
         print(urlString, paraDict, self.txtMobileEmail.text!, self.txtPassword.text!)
         SVProgressHUD.show()
@@ -293,11 +293,12 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                     
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.createMenuView()
+//                        kAppDelegate.createMenuView()
                         print(responseDict)
                         self.responseToken = responseDict.value(forKey: "response")as! String;
+                        kAppDelegate.setLoginToken(loginToken: self.responseToken)
                         self.callLoginWithTokenAPI()
+
                     }
                     else{
                         
@@ -322,7 +323,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
             "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
             "Cache-Control": "no-cache",
-            "Authorization": "Bearer " + self.responseToken ]
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken() ]
         
         Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
             
@@ -333,11 +334,11 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                 
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.createMenuView()
+                        kAppDelegate.createMenuView()
                         print(responseDict)
                         let signup = SignUpModelClass(signupModel: responseDict as! Dictionary<String, Any>)
                         self.signupData.append(signup)
+                        NSLog("First Name - %@ , %@", signup.firstname,self.signupData[0].firstname)
                     }
                     else{
                         

@@ -27,6 +27,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MRP " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdg-R3-nZZ">
+                        <rect key="frame" x="159" y="58" width="2" height="2"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MRP " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i40-wC-uBM">
+                        <rect key="frame" x="159" y="58" width="2" height="2"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntT-Ox-Rtm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <subviews>
@@ -148,6 +166,19 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnDelete" destination="HDc-hX-LZq" id="Dxk-JG-cTP"/>
+                <outlet property="btnMinus" destination="BoZ-xK-uLk" id="fM0-Bv-Tb6"/>
+                <outlet property="btnPlus" destination="31X-T5-TI4" id="qES-4b-x8r"/>
+                <outlet property="imageViewTablet" destination="aFg-gH-ewK" id="AEC-Ay-CxJ"/>
+                <outlet property="lblDescription" destination="ctZ-B5-MUq" id="tCJ-he-tah"/>
+                <outlet property="lblDiscount" destination="9Pz-hq-um3" id="mxA-My-grO"/>
+                <outlet property="lblID" destination="i40-wC-uBM" id="c2r-60-KdU"/>
+                <outlet property="lblMRP" destination="TXq-5U-QpI" id="iTu-9h-byM"/>
+                <outlet property="lblProductQty" destination="YVU-a8-Oy9" id="ces-Ea-Bgz"/>
+                <outlet property="lblSku" destination="vdg-R3-nZZ" id="shz-a3-asa"/>
+                <outlet property="lblTabletName" destination="Ed0-qD-gk3" id="Zma-kH-vGZ"/>
+            </connections>
             <point key="canvasLocation" x="-10" y="-43"/>
         </tableViewCell>
     </objects>
