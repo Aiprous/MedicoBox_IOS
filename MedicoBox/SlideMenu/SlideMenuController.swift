@@ -1084,7 +1084,7 @@ extension UIViewController {
         label.textColor = .white
         label.font = label.font.withSize(11)
         label.backgroundColor = .red
-        label.text = "3"
+        label.text = kKeyCartCount
         
         // button
         let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
@@ -1094,13 +1094,25 @@ extension UIViewController {
         
         // Bar button item
         let rightBarButtomItem = UIBarButtonItem(customView: rightButton)
-        navigationItem.rightBarButtonItem = rightBarButtomItem
+        
+        if(kKeyCartCount != "0" && kKeyCartCount != ""){
+            
+            navigationItem.rightBarButtonItem = rightBarButtomItem
+
+        }else{
+            
+            navigationItem.setRightBarButton(rightBarButtomItem, animated: false)
+            label.isHidden = true;
+            rightButton.isHidden = true;
+            self.showToast(message: "Your cart is empty");
+        }
     }
     
     @objc public func showCartView() {
         let Controller = kCartStoryBoard.instantiateViewController(withIdentifier: kCartViewController)
         self.navigationController?.pushViewController(Controller, animated: true)
     }
+    
     public func addTitleSearchBar() {
         
         let searchBar = UISearchBar(frame: CGRect.zero)
@@ -1112,12 +1124,16 @@ extension UIViewController {
         searchBar.showsBookmarkButton = false;
         searchBar.showsScopeBar = false;
         searchBar.showsBookmarkButton = false;
-
+        searchBar.resignFirstResponder()
+        searchBar.endEditing(true)
+        
         /// Search Bar Design Style
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             
+            textfield.resignFirstResponder();
+            textfield.endEditing(true)
             textfield.textColor = UIColor.gray
-            searchBar.text = "Search Medicines"
+            searchBar.placeholder = "Search Medicines"
             textfield.backgroundColor = UIColor.white
             if let backgroundview = textfield.subviews.first {
                 backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
@@ -1136,6 +1152,7 @@ extension UIViewController {
         navigationItem.titleView = imageview
         
     }
+    
     @objc public func toggleLeft() {
         slideMenuController()?.toggleLeft()
     }
@@ -1149,7 +1166,10 @@ extension UIViewController {
     }
     
     @objc public func openRight() {
-        slideMenuController()?.openRight()    }
+        
+        slideMenuController()?.openRight()
+        
+    }
     
     @objc public func closeLeft() {
         slideMenuController()?.closeLeft()

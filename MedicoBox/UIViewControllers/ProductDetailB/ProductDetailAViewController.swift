@@ -8,10 +8,24 @@
 
 import UIKit
 import FSPagerView
+import Alamofire
+import SVProgressHUD
+import SDWebImage
 
 class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblDesc: UILabel!
+    @IBOutlet weak var lblOffer: UILabel!
+    @IBOutlet weak var btnLike: UIButton!
+    @IBOutlet weak var btnMinus: UIButton!
+    @IBOutlet weak var btnPlus: UIButton!
     @IBOutlet weak var FeaturedProductsCollectionView: UICollectionView!
+    @IBOutlet weak var lblProductQty: UILabel!
+    @IBOutlet weak var btnAddToCart: UIButton!
+    @IBOutlet weak var qtyEditCartView: UIView!
+    var imagesArray = NSArray();
+    var product_Id = "";
+    var sku_id = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +48,22 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBarItemBackButton()
+        self.callAPIGetProductData()
+        
+        if(kKeyProductQty == ""){
+            
+            self.btnAddToCart.isEnabled = true;
+            self.qtyEditCartView.isHidden = true;
+            self.btnAddToCart.alpha = 1;
+            
+        }else {
+            
+            self.lblProductQty.text = kKeyProductQty;
+            self.qtyEditCartView.isHidden = false;
+            self.btnAddToCart.alpha = 0.8;
+            self.btnAddToCart.isEnabled = false;
+
+        }
     }
 
     @IBAction func ProductDetailAction(_ sender: Any) {
@@ -64,10 +94,22 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
         
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cellFirst", at: index)
         
-        cell.imageView?.image = UIImage(named: self.imageNames[index])
+      /*  let dictObj = imagesArray.object(at: index) as! NSDictionary
+
+        let URLstr = BASEURL + (dictObj.value(forKey: "file") as? String ?? "")
+        let urlimg = URL.init(string: URLstr)
+        if urlimg != nil
+        {
+            cell.imageView?.sd_setImage(with: urlimg! , completed: { (image, error, cacheType, imageURL) in
+                
+                cell.imageView?.image = image
+            })
+        }
+        */
+        cell.imageView?.image = UIImage(named: imageNames[index]);
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
-        cell.imageView?.contentMode = .scaleToFill   //.scaleAspectFill
+//        cell.imageView?.contentMode = .scaleToFill   //.scaleAspectFill
         return cell
         
     }
@@ -86,12 +128,9 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
         guard self.firstPageControl.currentPage != pagerView.currentIndex else {
             return
         }
-        self.firstPageControl.currentPage = pagerView.currentIndex // Or Use KVO with property "currentIndex"
-        
+        self.firstPageControl.currentPage = pagerView.currentIndex
         
     }
-    
-    
     
     @IBOutlet weak var firstPagerView: FSPagerView!
         {
@@ -109,8 +148,8 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
             //            self.pageControl.contentHorizontalAlignment = .center
             self.firstPageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             self.firstPageControl.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
-            self.firstPageControl.setFillColor(.gray, for: .normal)
-            self.firstPageControl.setFillColor(.white, for: .selected)
+            self.firstPageControl.setStrokeColor(.gray, for: .normal)
+            self.firstPageControl.setFillColor(UIColor.darkGray, for: .selected)
             
         }
     }
@@ -120,7 +159,7 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
         
         didSet {
             // Clean up
-            self.firstPageControl.setStrokeColor(nil, for: .normal)
+            self.firstPageControl.setStrokeColor(UIColor.lightGray, for: .normal)
             self.firstPageControl.setStrokeColor(UIColor.lightGray, for: .selected)
             self.firstPageControl.setFillColor(nil, for: .normal)
             self.firstPageControl.setFillColor(nil, for: .selected)
@@ -225,4 +264,182 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
         
         return value;
     }
+    
+    @IBAction func btnPlusAction(_ sender: Any) {
+        
+        var i = Int()
+        i = Int(self.lblProductQty.text!)!
+        i = i + 1;
+        self.lblProductQty.text = String(i);
+        self.callAPIEditCart()
+    }
+    
+    @IBAction func btnMinusAction(_ sender: Any) {
+        
+        var i = Int()
+        i = Int(self.lblProductQty.text!)!
+        
+        if( i > 1 ){
+            
+            i = i - 1;
+            self.btnMinus.isEnabled = true;
+            self.lblProductQty.text = String(i);
+            
+        }else {
+            
+            i = 1
+            self.btnMinus.isEnabled = false;
+            self.lblProductQty.text = String(i);
+            
+        }
+    
+        self.callAPIEditCart()
+
+        
+    }
+    
+    @IBAction func btnAddToCartAction(_ sender: Any) {
+        
+        self.qtyEditCartView.isHidden = false;
+        self.lblProductQty.text = "1";
+//        self.btnMinus.isEnabled = false;
+        callAPIAddToCart()
+    }
+    
+    
+    //--------------------------------
+    // MARK: - Add To Cart  API Call
+    //--------------------------------
+    
+    func callAPIAddToCart() {
+        
+        var paraDict = NSMutableDictionary()
+        var cartArr = NSDictionary()
+        
+        cartArr = ["quote_id":kKeyUserCartID,"sku":self.sku_id,"qty":self.lblProductQty.text!]
+        paraDict =  ["cart_item": cartArr] as NSMutableDictionary
+        let urlString =  BASEURL  + "/index.php/rest/V1/carts/mine/items"
+        print(urlString, paraDict)
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken() ]
+        
+        Alamofire.request(urlString, method: .post, parameters: (paraDict as! [String : Any]), encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        print(responseDict);
+                     
+                        kKeyProductItemID = String(responseDict.value(forKey: "item_id")as? Int ?? 0)
+//                        self.lblProductQty.text = kKeyProductQty;
+                        self.qtyEditCartView.isHidden = false;
+                        self.btnAddToCart.alpha = 0.8;
+                        self.btnAddToCart.isEnabled = false;
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+                }
+            })
+        }
+    }
+    
+    
+    //--------------------------------------
+    // MARK: - Get Product Data API Call
+    //--------------------------------------
+    
+    func callAPIGetProductData() {
+
+        let urlString =  BASEURL + "/index.php/rest/V1/products/id/" + kKeyProductID
+        print(urlString)
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken() ]
+        
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                    
+                        print(responseDict);
+                        
+                        self.lblName.text = responseDict.value(forKey: "name")as? String ?? ""
+                        self.sku_id = responseDict.value(forKey: "sku")as? String ?? ""
+                        self.imagesArray =  responseDict.value(forKey: "media_gallery_entries")as? NSArray ?? []
+                        self.firstPagerView.reloadData()
+
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+                }
+            })
+        }
+    }
+    
+    //--------------------------------
+    // MARK: - Edit Cart  API Call
+    //--------------------------------
+    
+    func callAPIEditCart() {
+        
+        var paraDict = NSMutableDictionary()
+        var cartArr = NSDictionary()
+        cartArr = ["quote_id":kKeyUserCartID,"item_id":kKeyProductItemID,"qty":self.lblProductQty.text!]
+        paraDict =  ["cart_item": cartArr] as NSMutableDictionary
+        let urlString = kKeyEditCartAPI + kKeyProductItemID
+        print(urlString, paraDict)
+        //        SVProgressHUD .show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken() ]
+        
+        Alamofire.request(urlString, method: .put, parameters: (paraDict as! [String : Any]), encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                //                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        print(responseDict);
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+                }
+            })
+        }
+    }
+
+    
 }

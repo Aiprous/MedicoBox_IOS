@@ -11,6 +11,12 @@ import UIKit
 class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
+    
+    @IBOutlet weak var bottomView: DesignableShadowView!
+    @IBOutlet weak var bottomViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewHightConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var mainViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnAttachedPresription: UIButton!
     @IBOutlet weak var itemTableView: UITableView!
     
     @IBOutlet weak var lblMrpTotalOrder: UILabel!
@@ -18,6 +24,7 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var lblShippingChargesOrder: UILabel!
     
+    @IBOutlet weak var lblFreeshipping: UILabel!
     @IBOutlet weak var lblTotalSavedOrder: UILabel!
     
     @IBOutlet weak var lblAmountPaidOrder: UILabel!
@@ -33,9 +40,12 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
         //        lblShippingChargesOrder.text =  "0"
         lblTotalSavedOrder.text = "\u{20B9}" + " 30.00"
         lblAmountPaidOrder.text = "\u{20B9}" + " 350.00"
-        itemTableView.register(UINib(nibName: "CartItemTableCell", bundle: nil), forCellReuseIdentifier: "CartItemTableCell")
+        
+         self.lblFreeshipping.text = "Free shipping for orders above " + "\u{20B9}" + " 500"
+        itemTableView.register(UINib(nibName: "CartOrderSummaryTableCell", bundle: nil), forCellReuseIdentifier: "CartOrderSummaryTableCell")
         itemTableView.estimatedRowHeight = 120
-        itemTableView.separatorStyle = .none
+        itemTableView.separatorStyle = .singleLine
+         itemTableView.separatorColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         
         let footerView = UIView()
         footerView.frame = CGRect(x: 0, y: 0, width: itemTableView.frame.size.width, height: 1)
@@ -47,6 +57,10 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
         
         prescriptionCollectionView.dataSource = self
         prescriptionCollectionView.delegate = self
+        
+        bottomViewHightConstraint.constant = 50;
+//        self.mainViewHightConstraint.constant = -157;
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,10 +76,40 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func changeDeliveryAddressAction(_ sender: Any) {
+        
+        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kSelectAddressVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+        
+        
     }
     
     @IBAction func editBillingAddressAction(_ sender: Any) {
+        
+        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kEditBillingAddressVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
+    
+    @IBAction func btnAttachedPresriptionAction(_ sender: Any) {
+        
+        if(btnAttachedPresription.isSelected == false){
+            
+            bottomViewHightConstraint.constant = 207;
+            collectionViewHightConstraint.constant = 147;
+//            self.mainViewHightConstraint.constant = +157;
+            self.prescriptionCollectionView.isHidden = false;
+            self.btnAttachedPresription.isSelected = true;
+            
+        }else {
+            
+            bottomViewHightConstraint.constant = 50;
+//            self.mainViewHightConstraint.constant = -157;
+            collectionViewHightConstraint.constant = 0;
+            self.prescriptionCollectionView.isHidden = true;
+            self.btnAttachedPresription.isSelected = false;
+            
+        }
+    }
+    
     
     //MARK:- Table View Delegate And DataSource
     
@@ -84,7 +128,9 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        let cellObj = tableView.dequeueReusableCell(withIdentifier: "CartItemTableCell") as! CartItemTableCell
+        let cellObj = tableView.dequeueReusableCell(withIdentifier: "CartOrderSummaryTableCell") as! CartOrderSummaryTableCell
+        
+        cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 278.00"
         return cellObj
     }
     

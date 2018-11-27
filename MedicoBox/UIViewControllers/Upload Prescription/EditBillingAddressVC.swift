@@ -1,25 +1,24 @@
 //
-//  BillingAddressVC.swift
+//  EditBillingAddressVC.swift
 //  MedicoBox
 //
-//  Created by SBC on 28/09/18.
+//  Created by SBC on 23/11/18.
 //  Copyright © 2018 Aiprous. All rights reserved.
 //
 
 import UIKit
 
-class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+class EditBillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
     @IBOutlet weak var tblAddressField: UITableView!
     @IBOutlet weak var btnOther: UIButton!
     @IBOutlet weak var btnOffice: UIButton!
     @IBOutlet weak var btnHome : UIButton!
-    
     let arrayofText:NSArray = ["Name","Phone*","Flat Number, Building Name*","Street / Road Name", "Landmark","Pincode*","State","City"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         // Register cell for tableview
         tblAddressField.register(UINib(nibName: "AddressTableViewCell", bundle: nil), forCellReuseIdentifier: "AddressTableViewCell")
@@ -39,25 +38,25 @@ class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSour
         btnHome.setImage(#imageLiteral(resourceName: "radio-active-button"), for: .normal)
         btnOther.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        tblAddressField.frame = CGRect(x: tblAddressField.frame.origin.x, y: tblAddressField.frame.origin.y, width: tblAddressField.frame.size.width, height: (CGFloat(65*arrayofText.count)));
-//        
-//        self.view.setNeedsUpdateConstraints()
+        //        tblAddressField.frame = CGRect(x: tblAddressField.frame.origin.x, y: tblAddressField.frame.origin.y, width: tblAddressField.frame.size.width, height: (CGFloat(65*arrayofText.count)));
+        //
+        //        self.view.setNeedsUpdateConstraints()
     }
-
-   
-
+    
+    
+    
     @IBAction func saveBtnAction(_ sender: Any) {
         
         let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kOrderSummaryVC)
         self.navigationController?.pushViewController(Controller, animated: true)
-
+        
     }
     
     //MARK:- Table View Delegate And DataSource

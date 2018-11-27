@@ -13,10 +13,15 @@ import Alamofire
 class EditProfileViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
     var userProfileData: SignUpModelClass?
+    var myProfileData = [SignUpModelClass]()
+    var DateString = String();
+    var tomorrowString = String();
+    var strDate = "";
+    
     
     @IBOutlet weak var tblAddressField: UITableView!
-    let arrayofText:NSArray = ["First name","Last name","Mobile number", "Email ID","Gender", "DOB"]
-    
+    let arrayofText:NSArray = ["First name","Last name","Mobile number", "Email ID"]//,"Gender", "DOB", "Password", "Confirm Password"]
+    var userProfileDataArray = NSArray();
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +38,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
         //show navigationbar with back button
         self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;
+        GetUserInfo()
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,6 +87,10 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
             break;
             case "DOB": cellObj.textField.text = userProfileData?.dob
             break;
+            case "Password": cellObj.textField.isSecureTextEntry = true
+            break;
+            case "Confirm Password": cellObj.textField.isSecureTextEntry = true
+            break;
             default:
                 break;
             }
@@ -107,13 +117,79 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
+          let cell:AddressTableViewCell = tableView.cellForRow(at: indexPath) as! AddressTableViewCell
+        
+                switch arrayofText[indexPath.row] as? String {
+                    
+                case "DOB":
+                
+                let vc = UIViewController()
+                vc.preferredContentSize = CGSize(width: 250,height: 300)
+                let pickerView = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 250, height: 300))
+                vc.view.addSubview(pickerView)
+                pickerView.datePickerMode = UIDatePickerMode.date
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyyy"
+                let today = Date()
+                if let tomorrow = today.tomorrow {
+                    tomorrowString = dateFormatter.string(from: tomorrow)
+                    print("\(tomorrowString)")
+                }
+                pickerView.maximumDate = dateFormatter.date(from: tomorrowString)
+                
+                pickerView.addTarget(self, action: #selector(EditProfileViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
+                
+                let editRadiusAlert = UIAlertController(title: "Choose Date", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                editRadiusAlert.setValue(vc, forKey: "contentViewController")
+                
+                editRadiusAlert.addAction(UIAlertAction(title: "Set Date", style: .default, handler: {(action) -> Void in
+                    
+                    let dateFormatter = DateFormatter()
+//                    2010-08-29 02:04:51
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    let dateInString = dateFormatter.string(from: pickerView.date);
+                    
+                    self.strDate = dateInString
+                    cell.textField.text = self.strDate;
+                    
+                }))
+                editRadiusAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(editRadiusAlert, animated: true)
+                    break;
+                    
+                case "Gender":
+                    
+                     break;
+                    
+                default:
+                    break;
+               
+        }
+        
+        
     }
     
-    //MARK: - API Call
+    
+    // Make a dateFormatter in which format you would like to display the selected date in the textfield.
+    @objc func datePickerValueChanged(sender:UIDatePicker) -> String {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        
+        dateFormatter.timeStyle = DateFormatter.Style.none
+        DateString = dateFormatter.string(from: sender.date)
+        return DateString
+    }
+
+    //--------------------------------
+    // MARK: - Get Edit Profile API Call
+    //--------------------------------
     
     func UpdateUserInfo()  {
         
-        let urlString = "http://user8.itsindev.com/medibox/index.php/rest/V1/customers/me"
+        let urlString =  BASEURL + "/index.php/rest/V1/customers/me"
         
         print(urlString)
         
@@ -160,11 +236,11 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
                 print(dictionary)
                 
                 if (dictionary["id"] != nil) {
-                    self.userProfileData = SignUpModelClass(signupModel: dictionary)
+                    self.userProfileData = SignUpModelClass(signupModel: dictionary as NSDictionary)
                     self.showToast(message : "Profile updated successfully")
                 }else{
                     print(dictionary["message"] ?? "")
-                    self.showToast(message : dictionary["message"] as! String)
+                    self.showToast(message : dictionary["message"] as? String ?? "")
                 }
                 break
             case .failure( _):
@@ -175,4 +251,53 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    
+    //--------------------------------
+    // MARK: - Get My Profile API Call
+    //--------------------------------
+    
+    func GetUserInfo()  {
+        
+        let urlString = kKeyGetUserProfileData
+        print(urlString)
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken() ]
+        
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        
+                        print(responseDict);
+                        let jsonString = responseDict.value(forKey: "response")as? String
+                        let jsonData = jsonString?.data(using: .utf8)!
+                        let dictionary: NSDictionary = try! JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves)as! NSDictionary
+                        print(dictionary as Any)
+                        self.userProfileData = SignUpModelClass(signupModel: dictionary)
+                        let signup = SignUpModelClass(signupModel: dictionary )
+                        self.myProfileData.append(signup)
+                        
+                     
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+                }
+            })
+        }
+    }
+    
 }

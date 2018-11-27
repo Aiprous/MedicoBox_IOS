@@ -20,6 +20,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtEmail: DesignableUITextField!
     @IBOutlet weak var txtMobile: DesignableUITextField!
     @IBOutlet weak var txtPassword: DesignableUITextField!
+    @IBOutlet weak var txtConfirmPassword: DesignableUITextField!
     var signupData = [SignUpModelClass]()
 
     override func viewDidLoad() {
@@ -46,8 +47,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     
                     if ((self.txtPassword.text != nil) && (self.txtPassword.text?.isEmpty != true)){
                         
-                            self.callSignUpAPI();
+                         if ((self.txtConfirmPassword.text != nil) && (self.txtConfirmPassword.text?.isEmpty != true)){
+                        
+                                self.callSignUpAPI();
 
+                         }else{
+                            
+                            alertWithMessage(title: "Alert", message: "Enter Confirm Password", vc: self)
+                        }
                      }else{
                         
                         alertWithMessage(title: "Alert", message: "Enter Password", vc: self)
@@ -129,9 +136,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         var customerArr = NSDictionary()
         
         customerArr = ["email":self.txtEmail.text!,"firstname":self.txtName.text!,"lastname":"Geet","store_id":"0"]
-        paraDict =  ["customer": customerArr, "password": self.txtPassword.text!] as NSMutableDictionary
+        paraDict =  ["customer": customerArr, "password": self.txtPassword.text!, "mobile": self.txtMobile.text!] as NSMutableDictionary
     
-        let urlString = BASEURL+"/customers"
+        let urlString =  kKeyRegisterAPI;
       
         print(urlString, paraDict)
         SVProgressHUD.show()
@@ -154,8 +161,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
                         self.navigationController?.popViewController(animated: true)
                         print(responseDict);
-                        
-                        let signup = SignUpModelClass(signupModel: responseDict as! Dictionary<String, Any>)
+                        let logindata =  responseDict.value(forKey: "response")as? NSDictionary ?? [:]
+                        let signup = SignUpModelClass(signupModel: logindata)
                         self.signupData.append(signup)
                         
                     }

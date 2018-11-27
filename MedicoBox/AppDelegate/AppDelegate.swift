@@ -15,19 +15,48 @@ import GooglePlaces
 import Firebase
 import Fabric
 import Crashlytics
+import Alamofire
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     var window: UIWindow?
-
+    var userProfileData: SignUpModelClass?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
         navigationBarAppearace.barTintColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
         UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
-
+        self.callAPIGetCartData()
+        self.callAPIGetCartID()
+        
+ /*
+        //Get Cart Id only once
+        let returnValue: String = (UserDefaults.standard.object(forKey: "kKeyUserCartID") as? String)!
+        kKeyUserCartID = returnValue;
+        
+        if(kKeyUserCartID == ""){
+            
+            self.callAPIGetCartID()
+            
+        }else{
+            
+        }
+ */
+        
+        if(kAppDelegate.getLoginToken() == ""){
+            
+            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignInVC)
+            self.window?.rootViewController = Controller
+            self.window?.makeKeyAndVisible()
+        }
+        else{
+            
+            createMenuView()
+        }
+        
         FIRApp.configure()
         Fabric.with([Crashlytics.self])
         // TODO: Move this to where you establish a user session
@@ -35,13 +64,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
-    GMSServices.provideAPIKey("AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec")
-    GMSPlacesClient.provideAPIKey("AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec")
+        GMSServices.provideAPIKey("AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec")
+        GMSPlacesClient.provideAPIKey("AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec")
         
-      FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        //Create menu from home screen
-//        self.createMenuView()
+
         return true
     }
 
@@ -165,7 +193,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                 UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
             
                 leftViewController.homeViewController = nvc
-            
+                if self.userProfileData != nil {
+                    leftViewController.userProfileData = self.userProfileData;
+                }
                 let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
                 slideMenuController.automaticallyAdjustsScrollViewInsets = true
                 slideMenuController.delegate = homeViewController as? SlideMenuControllerDelegate
@@ -182,9 +212,95 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         kUserDefault.synchronize()
         
     }
+    
     func getLoginToken() -> String {
         return UserDefaults.standard.value(forKey: "loginToken") as! String
     }
+    
+  
+    
+    //--------------------------------
+    // MARK: - Get Cart Data API Call
+    //--------------------------------
+    
+    func callAPIGetCartData() {
+        
+        let urlString = kKeyGetCartDataAPI;
+        print(urlString)
+//        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "authorization": "Bearer " + kAppDelegate.getLoginToken()]
+        
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+//                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        
+                        if((responseDict.value(forKey: "res")) != nil){
+
+                         let productsListArray = (responseDict.value(forKey: "res") as? NSArray ?? [] )!;
+                        kKeyCartCount = String((productsListArray.count) as? Int ?? 0);
+//                        UserDefaults.standard.set(productsListArray, forKey: "CartArray")
+                        print(responseDict);
+                            
+                        }else {
+                            
+                            print("Your cart is empty. Please add items in your cart ")
+                        }
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        
+                    }
+                }
+            })
+        }
+    }
+    
+    //--------------------------------
+    // MARK: - Get Cart ID API Call
+    //--------------------------------
+    
+    func callAPIGetCartID() {
+        
+        let urlString = kKeyGetCartID
+        print(urlString)
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken() ]
+        
+        Alamofire.request(urlString, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                //                SVProgressHUD.dismiss()
+                if let responseDict: String = resposeData.result.value as? String ?? "" {
+
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        kKeyUserCartID = responseDict;
+                        UserDefaults.standard.set(kKeyUserCartID, forKey: "kKeyUserCartID")
+                    }
+                    else{
+                        
+                    }
+                }
+            })
+        }
+    }
+    
 
 }
 extension UIApplication {

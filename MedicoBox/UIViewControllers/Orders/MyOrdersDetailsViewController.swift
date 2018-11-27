@@ -15,6 +15,11 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBOutlet weak var tblOrderItems: UITableView!
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
+    @IBOutlet weak var mainViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomView: DesignableShadowView!
+    @IBOutlet weak var bottomViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnAttachedPresription: UIButton!
     @IBOutlet weak var lblBillingAddressView: UILabel!
     @IBOutlet weak var lblDeliveryAddressView: UILabel!
 
@@ -63,6 +68,8 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
         footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         tblOrderItems.tableFooterView = footerView
         
+        
+        
     }
     
     
@@ -74,6 +81,8 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
         super.viewWillAppear(animated)
         self.setNavigationBarItemBackButton()
         callAPIGetProductsList()
+        bottomViewHightConstraint.constant = 50;
+        self.mainViewHightConstraint.constant = -157;
     }
     
     override func didReceiveMemoryWarning() {
@@ -181,13 +190,37 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
         self.navigationController?.pushViewController(Controller!, animated: true)
     }
     
+    @IBAction func btnAttachedPresriptionAction(_ sender: Any) {
+        
+        if(btnAttachedPresription.isSelected == false){
+            
+            bottomViewHightConstraint.constant = 207;
+            collectionViewHightConstraint.constant = 147;
+           
+            self.mainViewHightConstraint.constant = +157;
+
+            self.prescriptionCollectionView.isHidden = false;
+            self.btnAttachedPresription.isSelected = true;
+            
+        }else {
+            
+            bottomViewHightConstraint.constant = 50;
+            collectionViewHightConstraint.constant = 0;
+           
+            self.mainViewHightConstraint.constant = -157;
+ 
+            self.prescriptionCollectionView.isHidden = true;
+            self.btnAttachedPresription.isSelected = false;
+            
+        }
+    }
+    
     func callAPIGetProductsList() {
       
             var paraDict = NSMutableDictionary()
             paraDict =  ["category_id": "38"] as NSMutableDictionary
             
-            let urlString = "http://user8.itsindev.com/medibox/API/products.php"
-            //        let urlString = BASEURL + "/integration/customer/token"
+            let urlString =  BASEURL + "/API/products.php"
             print(urlString, paraDict)
             SVProgressHUD.show()
             

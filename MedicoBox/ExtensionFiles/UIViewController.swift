@@ -12,7 +12,6 @@ extension UIViewController {
     
     func setNavigationBarItem() {
         
-//        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
         self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
         self.addRightBarButtonWithImage(UIImage(named: "cart")!)
         self.addTitleSearchBar()
@@ -24,7 +23,6 @@ extension UIViewController {
     
     func setNavigationBarItemPharm() {
         
-        //        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
         self.addLeftBarButtonWithBackImagePharm(UIImage(named: "ic_menu_black_24dp")!)
         self.addRightBarButtonWithImage(UIImage(named: "ic_notifications_black_24dp")!)
         self.addTitleImageView()
@@ -36,14 +34,19 @@ extension UIViewController {
 
     func setNavigationBarItemBackButton() {
         
-        //        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
         self.addLeftBarButtonWithBackImage(UIImage(named: "back-arrow")!)
-        self.addRightBarButtonWithImage(UIImage(named: "cart")!)
+        
+        if(kKeyCartCount != "0" && kKeyCartCount != ""){
+
+            self.addRightBarButtonWithImage(UIImage(named: "cart")!)
+
+        }else{
+            
+            self.addRightBarButtonWithImage(UIImage(named: "cart")!)
+            self.showToast(message: "Your cart is empty");
+        }
         self.addTitleSearchBar()
-//        self.slideMenuController()?.removeLeftGestures()
-//        self.slideMenuController()?.removeRightGestures()
-//        self.slideMenuController()?.addLeftGestures()
-//        self.slideMenuController()?.addRightGestures()
+
     }
     
     public func addLeftBarButtonWithBackImage(_ buttonImage: UIImage) {

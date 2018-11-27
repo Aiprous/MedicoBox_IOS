@@ -41,7 +41,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     @IBOutlet weak var tableView: UITableView!
     //    var menus = ["Main", "Swift", "NonMenu"]
     var iconArray = ["home","box","capsules","syringe","user","cart","bell","settings","logout"]
-    
+    var userProfileData: SignUpModelClass?
     var homeViewController: UIViewController!
     var diabetesCareViewController: UIViewController!
     var productDetailAViewController: UIViewController!
@@ -49,6 +49,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var myProfileViewController: UIViewController!
     var notificationViewController: UIViewController!
     var cartViewControlle: UIViewController!
+    var signInViewController: UIViewController!
+    var settingsViewController: UIViewController!
+    
     
     
     var imageHeaderView: ImageHeaderView!
@@ -89,6 +92,13 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let productDetailViewController = kMainStoryboard.instantiateViewController(withIdentifier: kProductDetailAVC)
         self.productDetailAViewController = UINavigationController(rootViewController: productDetailViewController)
         
+        
+        let signInViewController = kMainStoryboard.instantiateViewController(withIdentifier: kSignInVC)
+        self.signInViewController = UINavigationController(rootViewController: signInViewController)
+        
+        let settingsViewController = kMainStoryboard.instantiateViewController(withIdentifier: kSettingsVC)
+        self.settingsViewController = UINavigationController(rootViewController: settingsViewController)
+        
         let myOrderViewController = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kMyOrdersVC)
         self.myOrdersViewController = UINavigationController(rootViewController: myOrderViewController)
         
@@ -117,10 +127,30 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     
     func changeViewController(_ menu: LeftMenuUser) {
         switch menu {
-        case .home, .labtests,  .settings, .logout :
+        case .home, .labtests:
             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
             
-
+        case.settings:
+            self.slideMenuController()?.changeMainViewController(self.settingsViewController, close: true)
+           
+        case.logout:
+            
+            _ = SweetAlert().showAlert("Are you sure?", subTitle: "You want to logout", style: AlertStyle.warning, buttonTitle:"No", buttonColor:UIColor.colorFromRGB(0xD0D0D0) , otherButtonTitle:  "Yes", otherButtonColor: UIColor.colorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+                
+                if isOtherButton == true {
+                    
+                    print("Cancel Button  Pressed", terminator: "")
+                }
+                else {
+                    
+                    let kUserDefault = UserDefaults.standard
+                    kUserDefault.removeObject(forKey: "loginToken");
+                    kUserDefault.synchronize()
+//                    set(loginToken, forKey: "loginToken");
+                    self.slideMenuController()?.changeMainViewController(self.signInViewController, close: true)
+                }
+            }
+            
         case .medicines: self.slideMenuController()?.changeMainViewController(self.myOrdersViewController, close: true)
 
         case .account:             self.slideMenuController()?.changeMainViewController(self.myProfileViewController, close: true)
@@ -203,9 +233,12 @@ extension LeftViewController : UITableViewDataSource {
         let section = getSectionIndex(indexPath.row)
         let row = getRowIndex(indexPath.row)
         
-//        var objModel : SignUpModelClass = SignUpModelClass()
-//        imageHeaderView.lblName.text = objModel.firstname + objModel.lastname
-//        imageHeaderView.lblEmailID.text = objModel.email
+        if (userProfileData != nil) {
+            
+            imageHeaderView.lblName.text  = (userProfileData?.firstname)! //+ (userProfileData?.lastname)!
+            imageHeaderView.lblEmailID.text = userProfileData?.email
+            
+        }
         imageHeaderView.profileImage.image = #imageLiteral(resourceName: "1")
  
                 if row == 0 {

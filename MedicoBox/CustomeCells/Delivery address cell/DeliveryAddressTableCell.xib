@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -96,22 +96,24 @@
                                             <constraint firstAttribute="height" constant="1" id="nfa-yK-JYl"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uql-Bu-4Lw">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uql-Bu-4Lw">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="zTx-3W-F63"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                                        <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Edit" image="edit_pencil">
+                                        <inset key="titleEdgeInsets" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title=" Edit" image="edit_pencil">
                                             <color key="titleColor" red="0.47450980390000003" green="0.47843137250000001" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laQ-eK-Dve">
-                                        <rect key="frame" x="0.0" y="29" width="110" height="28"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laQ-eK-Dve">
+                                        <rect key="frame" x="0.0" y="33" width="110" height="28"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
-                                        <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Delete">
+                                        <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Delete" image="delete_button">
                                             <color key="titleColor" red="0.47450980390000003" green="0.47843137250000001" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
@@ -119,11 +121,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="laQ-eK-Dve" firstAttribute="centerX" secondItem="uql-Bu-4Lw" secondAttribute="centerX" id="2Qt-cA-jqU"/>
-                                    <constraint firstAttribute="bottom" secondItem="laQ-eK-Dve" secondAttribute="bottom" constant="3" id="5Gl-jq-hSu"/>
+                                    <constraint firstAttribute="bottom" secondItem="laQ-eK-Dve" secondAttribute="bottom" constant="-1" id="5Gl-jq-hSu"/>
                                     <constraint firstItem="uql-Bu-4Lw" firstAttribute="leading" secondItem="Xep-Bw-6Cs" secondAttribute="leading" id="6Ox-s9-apA"/>
                                     <constraint firstItem="laQ-eK-Dve" firstAttribute="trailing" secondItem="uql-Bu-4Lw" secondAttribute="trailing" id="KJc-jk-PPy"/>
                                     <constraint firstAttribute="height" constant="60" id="L07-W1-p7N"/>
-                                    <constraint firstItem="laQ-eK-Dve" firstAttribute="top" secondItem="OU9-dp-zcm" secondAttribute="bottom" id="MJq-HT-NoG"/>
+                                    <constraint firstItem="laQ-eK-Dve" firstAttribute="top" secondItem="OU9-dp-zcm" secondAttribute="bottom" constant="4" id="MJq-HT-NoG"/>
                                     <constraint firstItem="OU9-dp-zcm" firstAttribute="leading" secondItem="Xep-Bw-6Cs" secondAttribute="leading" id="Q5F-E9-I0w"/>
                                     <constraint firstItem="uql-Bu-4Lw" firstAttribute="top" secondItem="Xep-Bw-6Cs" secondAttribute="top" id="TcC-ha-P3P"/>
                                     <constraint firstItem="laQ-eK-Dve" firstAttribute="leading" secondItem="uql-Bu-4Lw" secondAttribute="leading" id="XTU-fU-lKH"/>
@@ -177,14 +179,21 @@
             <color key="backgroundColor" name="BackgroundColor"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnAddressSelect" destination="3vt-dz-d5P" id="5ar-9f-24s"/>
+                <outlet property="btnCall" destination="J78-re-uIi" id="IdL-yc-joh"/>
+                <outlet property="btnDelete" destination="laQ-eK-Dve" id="n7Q-pb-VIa"/>
+                <outlet property="btnEdit" destination="uql-Bu-4Lw" id="Mvx-Ph-nx1"/>
+                <outlet property="btnMenuOption" destination="CXT-Xx-kpb" id="Es3-y3-W3m"/>
                 <outlet property="lblAddress" destination="GSy-ZG-Flt" id="X7k-oA-Ceb"/>
+                <outlet property="menuOptionView" destination="Xep-Bw-6Cs" id="LsI-8e-PUi"/>
             </connections>
-            <point key="canvasLocation" x="310" y="26"/>
+            <point key="canvasLocation" x="310" y="25.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="circle-outline" width="16" height="16"/>
-        <image name="edit_pencil" width="16" height="16"/>
+        <image name="circle-outline" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="delete_button" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="edit_pencil" width="24" height="24"/>
         <namedColor name="BackgroundColor">
             <color red="0.84299999475479126" green="0.87800002098083496" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

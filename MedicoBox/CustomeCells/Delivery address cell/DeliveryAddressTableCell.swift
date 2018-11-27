@@ -11,6 +11,13 @@ import UIKit
 class DeliveryAddressTableCell: UITableViewCell {
 
     @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var menuOptionView: DesignableShadowView!
+    @IBOutlet weak var btnEdit: UIButton!
+    @IBOutlet weak var btnDelete: UIButton!
+    @IBOutlet weak var btnMenuOption: UIButton!
+    @IBOutlet weak var btnAddressSelect: UIButton!
+    @IBOutlet weak var btnCall: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

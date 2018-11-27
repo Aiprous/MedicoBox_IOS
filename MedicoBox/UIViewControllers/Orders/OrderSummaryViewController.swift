@@ -13,6 +13,13 @@ class OrderSummaryViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
     
     @IBOutlet weak var lblAddressView: UILabel!
+    
+    @IBOutlet weak var bottomView: DesignableShadowView!
+    @IBOutlet weak var bottomViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnAttachedPresription: UIButton!
+    @IBOutlet weak var mainViewHightConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +31,10 @@ class OrderSummaryViewController: UIViewController, UICollectionViewDelegate, UI
         self.navigationController?.isNavigationBarHidden = false;
         
         lblAddressView.text = "Flat No 104, A Wing \nGreen Olive Apartments,\nHinjawadi \nPune - 411057\nMaharashtra \nIndia"
+        
+        self.bottomViewHightConstraint.constant = 50;
+        self.mainViewHightConstraint.constant = -157;
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,5 +83,26 @@ class OrderSummaryViewController: UIViewController, UICollectionViewDelegate, UI
         
         return CGSize(width: 112, height: 133)
         
+    }
+    
+    
+    @IBAction func btnAttachedPresriptionAction(_ sender: Any) {
+        
+        if(btnAttachedPresription.isSelected == false){
+            
+            bottomViewHightConstraint.constant = 207;
+            collectionViewHightConstraint.constant = 147;
+            self.mainViewHightConstraint.constant = +157;
+            self.prescriptionCollectionView.isHidden = false;
+            self.btnAttachedPresription.isSelected = true;
+            
+        }else {
+            
+            bottomViewHightConstraint.constant = 50;
+            collectionViewHightConstraint.constant = 0;
+            self.prescriptionCollectionView.isHidden = true;
+            self.btnAttachedPresription.isSelected = false;
+            self.mainViewHightConstraint.constant = -157;
+        }
     }
 }

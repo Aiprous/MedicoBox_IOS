@@ -103,6 +103,10 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         cellObj.btnDropDown.tag = indexPath.section
         let headerTapped = UITapGestureRecognizer(target: self, action:#selector(InstaOrdersListViewController.sectionHeaderTapped(_:)))
         cellObj.btnDropDown.addGestureRecognizer(headerTapped)
+        cellObj.btnPlus.tag = indexPath.row;
+        cellObj.btnPlus.addTarget(self, action: #selector(btnPlusAction(button:)), for: UIControlEvents.touchUpInside);
+        cellObj.btnMinus.tag = indexPath.row;
+        cellObj.btnMinus.addTarget(self, action: #selector(btnMinusAction(button:)), for: UIControlEvents.touchUpInside);
         //        cellObj.bottomCellView.isHidden = true
         
         cellObj.selectionStyle = .none
@@ -266,6 +270,67 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         self.navigationController?.pushViewController(Controller!, animated: true)
         self.tblInstaOrdersList.reloadData()
     }
+    
+    @objc func btnPlusAction(button: UIButton) {
+        
+        let position: CGPoint = button.convert(.zero, to: self.tblInstaOrdersList)
+        let indexPath = self.tblInstaOrdersList.indexPathForRow(at: position)
+        let cell:InstaOrdersListTableViewCell = tblInstaOrdersList.cellForRow(at: indexPath!) as! InstaOrdersListTableViewCell
+        
+        var i = Int()
+        i = Int(cell.lblInstaOrderCount.text!)!
+        i = i + 1;
+        cell.lblInstaOrderCount.text = String(i);
+        
+       /* for dictObjCart in cartArray {
+            
+            if((cell.lblTabletName.text! == ((dictObjCart as AnyObject).value(forKey: "name")as? String ?? "")!) && (cell.lblSku.text! == ((dictObjCart as AnyObject).value(forKey: "sku")as? String ?? "")!)){
+                
+                self.productItem_Id = String((dictObjCart as AnyObject).value(forKey: "item_id")as? Int ?? 0)
+                self.qty = String(cell.lblProductQty.text!)
+                self.callAPIEditCart()
+                
+            }
+        }*/
+    }
+    
+    @objc func btnMinusAction(button: UIButton) {
+        
+        let position: CGPoint = button.convert(.zero, to: self.tblInstaOrdersList)
+        let indexPath = self.tblInstaOrdersList.indexPathForRow(at: position)
+        let cell:InstaOrdersListTableViewCell = tblInstaOrdersList.cellForRow(at: indexPath!) as! InstaOrdersListTableViewCell
+        
+        var i = Int()
+        i = Int(cell.lblInstaOrderCount.text!)!
+        
+        if( i > 1 ){
+            
+            i = i - 1;
+            cell.btnMinus.isEnabled = true;
+            cell.lblInstaOrderCount.text = String(i);
+            
+        }else {
+            
+            i = 1
+            cell.btnMinus.isEnabled = false;
+            cell.lblInstaOrderCount.text = String(i);
+            
+        }
+        
+       /* for dictObjCart in cartArray {
+            
+            if((cell.lblTabletName.text! == ((dictObjCart as AnyObject).value(forKey: "name")as? String ?? "")!) && (cell.lblSku.text! == ((dictObjCart as AnyObject).value(forKey: "sku")as? String ?? "")!)){
+                
+                self.productItem_Id = String((dictObjCart as AnyObject).value(forKey: "item_id")as? Int ?? 0)
+                self.qty = String(cell.lblProductQty.text!)
+                self.callAPIEditCart()
+                
+            }
+        }*/
+        
+    }
+    
+    
     
     @IBAction func btnNewInstaListAction(_ sender: Any) {
         

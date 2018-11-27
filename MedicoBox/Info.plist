@@ -18,6 +18,32 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>250490452280914</string>
+	<key>FacebookDisplayName</key>
+	<string>MedicoBox</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Program requires GPS to track cars and job orders</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Program requires GPS to track cars and job orders</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Program requires GPS to track cars and job orders</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>This app will use camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You can select photos to attach to reports.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Please allow access to save photo in your photo library</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -61,8 +87,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>CFBundleVersion</key>
-	<string>1</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -77,10 +101,6 @@
 			</dict>
 		</array>
 	</dict>
-	<key>FacebookAppID</key>
-	<string>250490452280914</string>
-	<key>FacebookDisplayName</key>
-	<string>MedicoBox</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -88,8 +108,6 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -105,12 +123,11 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Program requires GPS to track cars and job orders</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Program requires GPS to track cars and job orders</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Program requires GPS to track cars and job orders</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>location-services</string>
+		<string>gps</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Calibri.ttf</string>
@@ -129,17 +146,6 @@
 		<string>OpenSans-Semibold.ttf</string>
 		<string>OpenSans-SemiboldItalic.ttf</string>
 	</array>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>location-services</string>
-		<string>gps</string>
-	</array>
-	<key>UIRequiresFullScreen</key>
-	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

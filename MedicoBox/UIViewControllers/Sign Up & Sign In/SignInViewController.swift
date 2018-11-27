@@ -33,7 +33,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     @IBOutlet weak var txtMobileEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     var loginTokenArray = NSArray();
-    var signupData = [SignUpModelClass]()
+    var signupData : SignUpModelClass?
     var responseToken = String();
 
     override func viewDidLoad() {
@@ -42,6 +42,8 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
         // Do any additional setup after loading the view.
       
         self.navigationController?.isNavigationBarHidden = true;
+        self.txtMobileEmail.text = "geetbasakare@gmail.com"
+        self.txtPassword.text = "Geet@789"
 
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -65,7 +67,9 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
 //            let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //            appDelegate.createMenuView()
         
-        self.callLoginAPI()
+        
+            self.callLoginAPI()
+        
     }
     
     @IBAction func btnSignInWithOTPAction(_ sender: Any) {
@@ -274,7 +278,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
         var paraDict = NSMutableDictionary()
 
         paraDict =  ["username": self.txtMobileEmail.text!, "password": self.txtPassword.text!] as NSMutableDictionary
-        let urlString = "https://user8.itsindev.com/medibox/API/login.php"
+        let urlString = kKeyGetLoginTokenAPI;
         print(urlString, paraDict, self.txtMobileEmail.text!, self.txtPassword.text!)
         SVProgressHUD.show()
         
@@ -315,7 +319,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     
     func callLoginWithTokenAPI() {
         
-        let urlString = "http://user8.itsindev.com/medibox/index.php/rest/V1/customers/me"
+        let urlString =  kKeyGetLoginUserData;
         print(urlString)
         SVProgressHUD.show()
         
@@ -330,20 +334,30 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
             DispatchQueue.main.async(execute: {() -> Void in
                 SVProgressHUD.dismiss()
                 
-                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                if let responseDict : NSDictionary = resposeData.result.value  as? NSDictionary ??  [:] {
                 
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
+                        let jsonString = responseDict.value(forKey: "response")as? String
+
+                        let jsonData = jsonString?.data(using: .utf8)!
+                        let dictionary = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves)
+                        print(dictionary as Any)
+                        self.signupData = SignUpModelClass(signupModel: dictionary as! NSDictionary)
+                        if self.signupData != nil {
+                            kAppDelegate.userProfileData = self.signupData;
+                        }
+                        
                         kAppDelegate.createMenuView()
+                       
+
                         print(responseDict)
-                        let signup = SignUpModelClass(signupModel: responseDict as! Dictionary<String, Any>)
-                        self.signupData.append(signup)
-                        NSLog("First Name - %@ , %@", signup.firstname,self.signupData[0].firstname)
+                       
                     }
                     else{
                         
-                        print(responseDict.value(forKey: "message")as! String)
-                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                        print(responseDict["message"] as? String ?? "" )
+                        self.showToast(message : responseDict["message"] as? String ?? "" )
                     }
                 }
             })

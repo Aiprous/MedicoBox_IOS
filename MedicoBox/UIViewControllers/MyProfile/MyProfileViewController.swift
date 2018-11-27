@@ -12,8 +12,19 @@ import Alamofire
 
 class MyProfileViewController: UIViewController {
     
-    
+    @IBOutlet weak var lblUserName: UILabel!
+    @IBOutlet weak var lblBillingUserName: UILabel!
+    @IBOutlet weak var lblDeliveryUserName: UILabel!
+    @IBOutlet weak var btnCallUserName: UIButton!
+    @IBOutlet weak var btnBillingUserName: UIButton!
+    @IBOutlet weak var btnDeliveryUserName: UIButton!
+    @IBOutlet weak var lblBillingAddress: UILabel!
+    @IBOutlet weak var lblDeliveryAddress: UILabel!
+    @IBOutlet weak var lblDOB: UILabel!
+    @IBOutlet weak var lblEmail: UILabel!
     var signupData : SignUpModelClass?
+    var myProfileData = [SignUpModelClass]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +44,7 @@ class MyProfileViewController: UIViewController {
         
     }
     
-    //    func getCustomerInfo() {
-    //        SVProgressHUD.show()
-    //          signupData = customerInfo.callLoginWithTokenAPI()
-    //    }
-    
+   
     @IBAction func editProfileAction(_ sender: Any) {
         
         let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kEditProfileVC) as! EditProfileViewController
@@ -46,40 +53,72 @@ class MyProfileViewController: UIViewController {
         }
         self.navigationController?.pushViewController(Controller, animated: true)
     }
+   
     
-    //MARK: - API Call
+    @IBAction func btnChangeAction(_ sender: Any) {
+
+        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kSelectAddressVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+        
+        
+    }
     
+    @IBAction func editBillingAddressAction(_ sender: Any) {
+        
+        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kEditBillingAddressVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
+    //--------------------------------
+    // MARK: - Get My Profile API Call
+    //--------------------------------
+
     func GetUserInfo()  {
-        
-        let urlString = "http://user8.itsindev.com/medibox/index.php/rest/V1/customers/me"
-        
+
+        let urlString = kKeyGetUserProfileData
         print(urlString)
-        
         SVProgressHUD.show()
         
-        let param = [String: Any] ()
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken()]
         
-        CustomerInfo .dataTask_GET(Foundation.URL(string: urlString)!, method: .get, param: param) { (response) in
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
             
-            SVProgressHUD.dismiss()
-            switch response{
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
                 
-            case .success(let dictionary as [String: Any]):
-                
-                print(dictionary)
-                
-                if (dictionary["id"] != nil) {
-                    self.signupData = SignUpModelClass(signupModel: dictionary)
-                }else{
-                    print(dictionary["message"] ?? "")
-                    self.showToast(message : dictionary["message"] as! String)
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        
+                        print(responseDict);
+                        let jsonString = responseDict.value(forKey: "response")as? String
+                        
+                        let jsonData = jsonString?.data(using: .utf8)!
+                        let dictionary: NSDictionary = try! JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves)as! NSDictionary
+                        print(dictionary as Any)
+                        self.signupData = SignUpModelClass(signupModel: dictionary)
+                        
+                        let signup = SignUpModelClass(signupModel: dictionary )
+                        self.myProfileData.append(signup)
+                        
+                        self.lblEmail.text = dictionary.value(forKey: "email")as? String;
+                            self.lblUserName.text = dictionary.value(forKey: "firstname")as? String;
+                        self.lblBillingUserName.text = dictionary.value(forKey: "firstname")as? String;
+                        self.lblDeliveryUserName.text = dictionary.value(forKey: "firstname")as? String;
+                        
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
                 }
-                break
-            case .failure( _):
-                break
-            default:
-                break
-            }
+            })
         }
     }
     

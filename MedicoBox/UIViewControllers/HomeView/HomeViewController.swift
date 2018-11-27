@@ -35,6 +35,18 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true;
+        
+        if(kKeyCartCount != "0" && kKeyCartCount != ""){
+
+            // badge label
+            self.btnCart.isHidden = false;
+            self.addBadgeLabel()
+            
+        }else{
+            
+            self.btnCart.isHidden = true;
+            self.showToast(message: "Your cart is empty");
+        }
         /// Search Bar Design Style
         if let textfield = medicoSearchBar.value(forKey: "searchField") as? UITextField {
             
@@ -47,11 +59,6 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
                 backgroundview.clipsToBounds = true
             }
         }
-        
-        
-        // badge label
-        self.addBadgeLabel()
-        
         //Collection View Add delegate and view Design
         self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
         
@@ -71,11 +78,12 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        self.navigationController?.isNavigationBarHidden = true;
         super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true;
+        callAPIGetCartData()
         callAPIGetProducts()
         callAPIGetBannerImages()
+        
     }
     
     func addBadgeLabel() {
@@ -89,7 +97,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         label.textColor = .white
         label.font = label.font.withSize(10)
         label.backgroundColor = .red
-        label.text = "3"
+        label.text = kKeyCartCount
         btnCart.addSubview(label);
     }
     
@@ -124,12 +132,36 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
              let dictObj = featuredProductsArray.object(at: indexPath.row) as! NSDictionary
             
-            cellObj.lblTitleFeaturedProducts.text = (dictObj.value(forKey: "name") as? String)!;
-            cellObj.lblPriceFeaturedProducts.text =  "\u{20B9} " + (dictObj.value(forKey: "final_price") as? String)!;
+            cellObj.lblTitleFeaturedProducts.text = (dictObj.value(forKey: "name") as? String ?? "")!;
+            cellObj.lblPriceFeaturedProducts.text =  "\u{20B9} " + (dictObj.value(forKey: "final_price") as? String ?? "")!;
+            
+            let price = Float(dictObj.value(forKey: "price") as? String ?? "")!
+            let finalPrice  = Float(dictObj.value(forKey: "final_price") as? String ?? "")!
+            //Calculate Discount 
+                let offer: Float = price  - finalPrice;
+                let discount: Float = offer / price * 100;
+                let intdiscount = Int(discount);
+            
+            if(intdiscount == 0){
                 
-//                String((dictObj.value(forKey: "final_price") as? Int)!);
-            /*
-            let URLstr = "http://user8.itsindev.com/medibox" + (dictObj.value(forKey: "small_image") as? String)!
+                cellObj.lblOfferPriceFeaturedProducts.text =  "No Offer";
+                
+            }else {
+                
+                cellObj.lblOfferPriceFeaturedProducts.isHidden = false;
+                cellObj.lblOfferPriceFeaturedProducts.text =  String(intdiscount) + "% Off";
+            }
+                //strikeOnLabel
+                let strikePrice = price
+                let currencyFormatter = NumberFormatter()
+                currencyFormatter.numberStyle = .currency
+                currencyFormatter.currencyCode = "INR"
+                let priceInINR = currencyFormatter.string(from: strikePrice as NSNumber)
+                let attributedString = NSMutableAttributedString(string: priceInINR!)
+                attributedString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSMakeRange(0, attributedString.length))
+                cellObj.lblOfferFeaturedProducts.attributedText = attributedString;
+            
+            let URLstr =  (dictObj.value(forKey: "small_image") as? String ?? "")!
             let url = URL.init(string: URLstr )
             if url != nil
             {
@@ -139,8 +171,6 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
                     
                 })
             }
- */
-            
             return cellObj;
         }
         
@@ -166,6 +196,32 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         
         return value;
     }
+    
+ /*   func strikeOnLabel(price: String){
+        
+        var priceNumber = NSNumber()
+        if let myInteger = Int(price) {
+             priceNumber = NSNumber(value:myInteger)
+        }
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.currencyCode = "INR"
+        let priceInINR = currencyFormatter.string(from: priceNumber as NSNumber)
+        
+        let attributedString = NSMutableAttributedString(string: priceInINR!)
+        
+        // Swift 4.2 and above
+        //        attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedString.length))
+        
+        // Swift 4.1 and below
+        attributedString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSMakeRange(0, attributedString.length))
+        
+        let priceAttributedString = attributedString.string
+        return priceAttributedString;
+        
+    }
+    */
+    
     
     //MARK:- FSPager Delegate And DataSource
     
@@ -283,11 +339,10 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         {
         didSet {
             self.firstPageControl.numberOfPages = self.imageArray.count
-            //            self.pageControl.contentHorizontalAlignment = .center
             self.firstPageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             self.firstPageControl.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
-            self.firstPageControl.setFillColor(.gray, for: .normal)
-            self.firstPageControl.setFillColor(.white, for: .selected)
+            self.firstPageControl.setStrokeColor(.gray, for: .normal)
+            self.firstPageControl.setFillColor(.gray, for: .selected)
             
         }
     }
@@ -296,7 +351,6 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         {
         didSet {
             self.firstPageControl.numberOfPages = self.imageArray.count
-            //            self.pageControl.contentHorizontalAlignment = .center
             self.firstPageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             self.firstPageControl.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
             self.firstPageControl.setFillColor(.gray, for: .normal)
@@ -415,6 +469,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)-> Void in
+            
             if (error != nil) {
                 print("Reverse geocoder failed with error: \(String(describing: error?.localizedDescription))")
                 return
@@ -458,10 +513,13 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         }
     }
     
-//
+    //-------------------------------------------
+    // MARK: - Get Featured Products API Call
+    //-------------------------------------------
+    
     func callAPIGetProducts() {
         
-        let urlString = "http://user8.itsindev.com/medibox/featured-products.php"
+        let urlString = BASEURL +  "/API/featured-products.php"
         SVProgressHUD.show()
         Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (resposeData) in
             
@@ -489,10 +547,14 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         }
     }
     
+    //-------------------------------------------
+    // MARK: - Get Banners Images API Call
+    //-------------------------------------------
     
     func callAPIGetBannerImages() {
         
-        let urlString = "http://user8.itsindev.com/medibox/API/home-banners.php"
+        let urlString = BASEURL +  "/API/home-banners.php"
+        print(urlString);
         SVProgressHUD.show()
         Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (resposeData) in
             
@@ -521,11 +583,61 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             })
         }
     }
+    
+    
+    //--------------------------------
+    // MARK: - Get Cart Data API Call
+    //--------------------------------
+    
+    func callAPIGetCartData() {
+        
+        let urlString = kKeyGetCartDataAPI;
+        print(urlString)
+        //        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "authorization": "Bearer " + kAppDelegate.getLoginToken()]
+        
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                //                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        
+                        if((responseDict.value(forKey: "res")) != nil){
+                            
+                            let productsListArray = (responseDict.value(forKey: "res") as? NSArray ?? [] )!;
+                            kKeyCartCount = String((productsListArray.count) as? Int ?? 0);
+                            print(responseDict);
+                            self.viewDidLoad()
+                            
+                        }else {
+                            
+                            print("Your cart is empty. Please add items in your cart ")
+                        }
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        
+                    }
+                }
+            })
+        }
+    }
+    
 }
 
-//----------------------------------------------------------
+//-----------------------------------------------------------------
 // MARK: - GMSAutocompleteViewControllerDelegate For Location
-//----------------------------------------------------------
+//-----------------------------------------------------------------
 
 
 extension HomeViewController: GMSAutocompleteViewControllerDelegate {

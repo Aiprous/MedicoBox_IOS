@@ -15,6 +15,12 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     
     @IBOutlet weak var tblOrderItems: UITableView!
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
+    
+    @IBOutlet weak var mainViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomView: DesignableShadowView!
+    @IBOutlet weak var bottomViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnAttachedPresription: UIButton!
     @IBOutlet weak var lblAddressView: UILabel!
    
     @IBOutlet weak var lblMrpTotalOrder: UILabel!
@@ -55,6 +61,11 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         footerView.frame = CGRect(x: 0, y: 0, width: tblOrderItems.frame.size.width, height: 1)
         footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         tblOrderItems.tableFooterView = footerView
+        
+        bottomViewHightConstraint.constant = 50;
+        self.mainViewHightConstraint.constant = -157;
+
+
     }
     
     
@@ -169,19 +180,41 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     }
     @IBAction func btnGoToMyOrdersAction(_ sender: Any) {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.createMenuView()
+        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kMyOrdersVC)
+        self.navigationController?.pushViewController(Controller!, animated: true)
+       
         
     }
     
+    @IBAction func btnAttachedPresriptionAction(_ sender: Any) {
+        
+        if(btnAttachedPresription.isSelected == false){
+            
+            bottomViewHightConstraint.constant = 207;
+            collectionViewHightConstraint.constant = 147;
+            self.mainViewHightConstraint.constant = +157;
+
+            self.prescriptionCollectionView.isHidden = false;
+            self.btnAttachedPresription.isSelected = true;
+            
+        }else {
+            
+            bottomViewHightConstraint.constant = 50;
+            collectionViewHightConstraint.constant = 0;
+           
+            self.mainViewHightConstraint.constant = -157;
+            self.prescriptionCollectionView.isHidden = true;
+            self.btnAttachedPresription.isSelected = false;
+            
+        }
+    }
     
     func callAPIGetProductsList() {
         
         var paraDict = NSMutableDictionary()
         paraDict =  ["category_id": "38"] as NSMutableDictionary
         
-        let urlString = "http://user8.itsindev.com/medibox/API/products.php"
-        //        let urlString = BASEURL + "/integration/customer/token"
+        let urlString = BASEURL +  "/API/products.php"
         print(urlString, paraDict)
         SVProgressHUD.show()
         

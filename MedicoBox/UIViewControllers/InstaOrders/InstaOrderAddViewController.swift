@@ -73,9 +73,20 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
         
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "DiabetesCareCell") as! DiabetesCareCell
         
+        cellObj.btnLike.setImage(#imageLiteral(resourceName: "heart-inactive"), for: .normal)
         cellObj.btnAdd.setTitle("ADD TO INSTA LIST", for: .normal);
         cellObj.lblMRP.text = "\u{20B9}" + "135.00"
         cellObj.selectionStyle = .none
+        cellObj.btnLike.tag = indexPath.row;
+        cellObj.btnLike.addTarget(self, action: #selector(btnLikeAction(button:)), for: UIControlEvents.touchUpInside);
+        cellObj.btnAdd.isHidden = false;
+        cellObj.cartView.isHidden = true;
+        cellObj.btnAdd.tag = indexPath.row;
+        cellObj.btnAdd.addTarget(self, action: #selector(btnAddAction(button:)), for: UIControlEvents.touchUpInside);
+        cellObj.btnPlus.tag = indexPath.row;
+        cellObj.btnPlus.addTarget(self, action: #selector(btnPlusAction(button:)), for: UIControlEvents.touchUpInside);
+        cellObj.btnMinus.tag = indexPath.row;
+        cellObj.btnMinus.addTarget(self, action: #selector(btnMinusAction(button:)), for: UIControlEvents.touchUpInside);
         return cellObj
     }
     
@@ -91,8 +102,81 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
         
         let cell:DiabetesCareCell = tableView.cellForRow(at: indexPath) as! DiabetesCareCell
      
-        
     }
 
 
+    @objc func btnAddAction(button: UIButton) {
+        
+        let position: CGPoint = button.convert(.zero, to: self.tblInstaOrderAdd)
+        let indexPath = self.tblInstaOrderAdd.indexPathForRow(at: position)
+        let cell:DiabetesCareCell = tblInstaOrderAdd.cellForRow(at: indexPath!) as! DiabetesCareCell
+        cell.cartView.isHidden = false;
+        cell.btnAdd.isHidden = true;
+        cell.lblProductQty.text = "1";
+        
+    }
+    
+    @objc func btnPlusAction(button: UIButton) {
+        
+        let position: CGPoint = button.convert(.zero, to: self.tblInstaOrderAdd)
+        let indexPath = self.tblInstaOrderAdd.indexPathForRow(at: position)
+        let cell:DiabetesCareCell = tblInstaOrderAdd.cellForRow(at: indexPath!) as! DiabetesCareCell
+        
+        var i = Int()
+        i = Int(cell.lblProductQty.text!)!
+        i = i + 1;
+        cell.lblProductQty.text = String(i);
+        
+    }
+    
+    @objc func btnMinusAction(button: UIButton) {
+        
+        let position: CGPoint = button.convert(.zero, to: self.tblInstaOrderAdd)
+        let indexPath = self.tblInstaOrderAdd.indexPathForRow(at: position)
+        let cell:DiabetesCareCell = tblInstaOrderAdd.cellForRow(at: indexPath!) as! DiabetesCareCell
+        
+        var i = Int()
+        i = Int(cell.lblProductQty.text!)!
+        
+        if( i > 1 ){
+            
+            i = i - 1;
+            cell.btnMinus.isEnabled = true;
+            cell.lblProductQty.text = String(i);
+            cell.cartView.isHidden = false;
+            cell.btnAdd.isHidden = true;
+            
+        }else {
+            
+            i = 1
+            cell.btnMinus.isEnabled = false;
+            cell.lblProductQty.text = String(i);
+            cell.cartView.isHidden = false;
+            cell.btnAdd.isHidden = true;
+        }
+        
+        
+    }
+    
+    @objc func btnLikeAction(button: UIButton) {
+        
+        let position: CGPoint = button.convert(.zero, to: self.tblInstaOrderAdd)
+        let indexPath = self.tblInstaOrderAdd.indexPathForRow(at: position)
+        let cell:DiabetesCareCell = tblInstaOrderAdd.cellForRow(at: indexPath!) as! DiabetesCareCell
+        
+        if(button.isSelected != true){
+            
+            cell.btnLike.setImage(#imageLiteral(resourceName: "heart-active"), for: .normal)
+            button.isSelected = true;
+            
+        }else {
+            
+            cell.btnLike.setImage(#imageLiteral(resourceName: "heart-inactive"), for: .normal)
+            button.isSelected = false;
+            
+        }
+        
+    }
+    
+    
 }
