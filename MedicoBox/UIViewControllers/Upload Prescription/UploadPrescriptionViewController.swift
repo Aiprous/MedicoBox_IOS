@@ -21,10 +21,10 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
     @IBOutlet weak var btnYes: UIButton!
     @IBOutlet weak var btnNo: UIButton!
     @IBOutlet weak var youOrderingView: UIView!
+    
     var imagePicker: UIImagePickerController!
     var collectionImageArray = [UIImage]()
-    
-
+    var flagViewWillAppear = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,16 +39,34 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
          self.navigationController?.isNavigationBarHidden = false;
         btnYes.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
         btnNo.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
-        
+        flagViewWillAppear = "true";
 
-        
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        youOrderingView.isHidden = true;
-        youOrderingForViewHightConstraint.constant = 50;
-        patientNameViewHightConstraint.constant = 0;
-        self.mainViewHightConstraint.constant = -157;
+         if(flagViewWillAppear == "true"){
+            
+            youOrderingView.isHidden = true;
+            youOrderingForViewHightConstraint.constant = 50;
+            patientNameViewHightConstraint.constant = 0;
+            
+            if(collectionImageArray.count == 0){
+                
+                self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant - 157;
+                prescriptionCollectionView.isHidden = true;
+                collectionViewHightConstraint.constant = 0;
+                UIView.animate(withDuration: 0.5) {
+                    self.view.updateConstraints()
+                    self.view.layoutIfNeeded()
+                }
+            }
+            flagViewWillAppear = "false";
+
+         }else {
+            
+
+        }
         
     }
     override func didReceiveMemoryWarning() {
@@ -126,6 +144,29 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
                 }
                 self.prescriptionCollectionView.reloadData()
                 _ = SweetAlert().showAlert("Deleted!", subTitle: "Your file has been deleted!", style: AlertStyle.success)
+                
+                if(self.collectionImageArray.count == 0){
+                    
+                    self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant - 157;
+                    self.prescriptionCollectionView.isHidden = true;
+                    self.collectionViewHightConstraint.constant = 0;
+                    UIView.animate(withDuration: 0.5) {
+                        self.view.updateConstraints()
+                        self.view.layoutIfNeeded()
+                    }
+                }else {
+                    
+                    
+                    self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant + 157;
+                    self.prescriptionCollectionView.isHidden = false;
+                    self.collectionViewHightConstraint.constant = 157;
+                    UIView.animate(withDuration: 0.5) {
+                        self.view.updateConstraints()
+                        self.view.layoutIfNeeded()
+                    }
+                    self.prescriptionCollectionView.reloadData()
+                }
+                
             }
         }
         
@@ -209,11 +250,22 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
             
             if(collectionImageArray.count != 0){
                 
-                self.mainViewHightConstraint.constant = +157;
+                self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant + 157;
+                self.prescriptionCollectionView.isHidden = false;
+                self.collectionViewHightConstraint.constant = 157;
+                UIView.animate(withDuration: 0.5) {
+                    self.view.updateConstraints()
+                    self.view.layoutIfNeeded()
+                }
+                self.prescriptionCollectionView.reloadData()
 
-            }else {
-                
             }
+//            }else {
+//
+//                self.mainViewHightConstraint.constant = -157;
+//                prescriptionCollectionView.isHidden = true;
+//                collectionViewHightConstraint.constant = 0;
+//            }
 
 
         }
@@ -239,7 +291,10 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
             youOrderingView.isHidden = false;
             youOrderingForViewHightConstraint.constant = 136;
             patientNameViewHightConstraint.constant = 76;
-
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
             self.btnYes.isSelected = true;
             
         }else {
@@ -248,7 +303,10 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
             youOrderingView.isHidden = true;
             youOrderingForViewHightConstraint.constant = 50;
             patientNameViewHightConstraint.constant = 0;
-
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
             self.btnYes.isSelected = false;
             
         }
@@ -264,7 +322,10 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
             youOrderingView.isHidden = true;
             youOrderingForViewHightConstraint.constant = 50;
             patientNameViewHightConstraint.constant = 0;
-
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
             self.btnNo.isSelected = true;
             
         }else {
@@ -273,7 +334,10 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
             youOrderingView.isHidden = true;
             youOrderingForViewHightConstraint.constant = 50;
             patientNameViewHightConstraint.constant = 0;
-
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
             self.btnNo.isSelected = false;
             
         }

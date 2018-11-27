@@ -122,7 +122,6 @@ class ProductDrugInfoViewController: UIViewController, UITableViewDelegate, UITa
             header.img.image = #imageLiteral(resourceName: "downArrow_yellow");
         }else{
             header.img.image = #imageLiteral(resourceName: "up-arrow-yellow");
-
             sections[0].collapsed = false;
             sections[1].collapsed = false;
             sections[2].collapsed = false;

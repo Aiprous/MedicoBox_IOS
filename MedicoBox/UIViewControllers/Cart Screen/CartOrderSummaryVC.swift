@@ -28,7 +28,8 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var lblTotalSavedOrder: UILabel!
     
     @IBOutlet weak var lblAmountPaidOrder: UILabel!
-    
+    var flagViewWillAppear = "";
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,11 +58,25 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
         
         prescriptionCollectionView.dataSource = self
         prescriptionCollectionView.delegate = self
-        
-        bottomViewHightConstraint.constant = 50;
+        flagViewWillAppear = "true";
+
 //        self.mainViewHightConstraint.constant = -157;
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if(flagViewWillAppear == "true"){
+
+            bottomViewHightConstraint.constant = 50;
+            flagViewWillAppear = "false";
+            
+        }else {
+            
+            
+        }
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -99,6 +114,10 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
             self.prescriptionCollectionView.isHidden = false;
             self.btnAttachedPresription.isSelected = true;
             
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
         }else {
             
             bottomViewHightConstraint.constant = 50;
@@ -107,7 +126,10 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
             self.prescriptionCollectionView.isHidden = true;
             self.btnAttachedPresription.isSelected = false;
             
-        }
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }        }
     }
     
     

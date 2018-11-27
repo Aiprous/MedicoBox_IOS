@@ -43,7 +43,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 
                 if ((self.txtEmail.text != nil) && (self.txtEmail.text?.isEmpty != true)) {
                     
-                    if  isValidEmailID(txtEmail: self.txtEmail.text!)   {
+                    if isValidEmailID(txtEmail: self.txtEmail.text!)   {
                     
                     if ((self.txtPassword.text != nil) && (self.txtPassword.text?.isEmpty != true)){
                         

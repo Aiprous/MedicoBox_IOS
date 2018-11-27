@@ -72,16 +72,7 @@ class DesignableUITextField: UITextField {
         
         return (self.text?.trimmingCharacters(in: NSCharacterSet.whitespaces).count)! >= 1
     }
-    public func isValidPassword() -> Bool {
-        let passwordRegex = "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8}$"
-        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
-
-    }
-    public func isValidEmail() -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: self)
-    }
+    
 }
 extension UIColor {
     public convenience init?(hexString: String) {
@@ -119,6 +110,57 @@ extension String{
         }
         
         return ""
+    }
+    
+    func isValidPassword() -> Bool {
+        let passwordRegex = "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8}$"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
+        
+    }
+    
+    func capitalizingFirstLetter() -> String {
+        let first = String(characters.prefix(1)).capitalized
+        let other = String(characters.dropFirst())
+        return first + other
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+    
+    func isUppercased(at: Index) -> Bool {
+        let range = at..<self.index(after: at)
+        return self.rangeOfCharacter(from: .uppercaseLetters, options: [], range: range) != nil
+    }
+    
+    enum RegularExpressions: String {
+        case phone = "^\\s*(?:\\+?(\\d{1,3}))?([-. (]*(\\d{3})[-. )]*)?((\\d{3})[-. ]*(\\d{2,4})(?:[-.x ]*(\\d+))?)\\s*$"
+    }
+    
+    func isValid(regex: RegularExpressions) -> Bool {
+        return isValid(regex: regex.rawValue)
+    }
+    
+    func isValid(regex: String) -> Bool {
+        let matches = range(of: regex, options: .regularExpression)
+        return matches != nil
+    }
+    
+    func onlyDigits() -> String {
+        let filtredUnicodeScalars = unicodeScalars.filter{CharacterSet.decimalDigits.contains($0)}
+        return String(String.UnicodeScalarView(filtredUnicodeScalars))
+    }
+    
+    func makeACall() {
+        if isValid(regex: .phone) {
+            if let url = URL(string: "tel://\(self.onlyDigits())"), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
     }
 }
 extension UIView {
@@ -334,29 +376,14 @@ extension NSMutableData {
     }
 }
 
-extension String {
-    func capitalizingFirstLetter() -> String {
-        let first = String(characters.prefix(1)).capitalized
-        let other = String(characters.dropFirst())
-        return first + other
-    }
-    
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
-    }
-}
+
 extension StringProtocol {
     var firstUppercased: String {
         guard let first = first else { return "" }
         return String(first).uppercased() + dropFirst()
     }
 }
-extension String {
-    func isUppercased(at: Index) -> Bool {
-        let range = at..<self.index(after: at)
-        return self.rangeOfCharacter(from: .uppercaseLetters, options: [], range: range) != nil
-    }
-}
+
 
 extension Character {
     var isUppercase: Bool {
@@ -486,38 +513,7 @@ extension Calendar {
     static let gregorian = Calendar(identifier: .gregorian)
 }
 
-extension String {
-    
-    enum RegularExpressions: String {
-        case phone = "^\\s*(?:\\+?(\\d{1,3}))?([-. (]*(\\d{3})[-. )]*)?((\\d{3})[-. ]*(\\d{2,4})(?:[-.x ]*(\\d+))?)\\s*$"
-    }
-    
-    func isValid(regex: RegularExpressions) -> Bool {
-        return isValid(regex: regex.rawValue)
-    }
-    
-    func isValid(regex: String) -> Bool {
-        let matches = range(of: regex, options: .regularExpression)
-        return matches != nil
-    }
-    
-    func onlyDigits() -> String {
-        let filtredUnicodeScalars = unicodeScalars.filter{CharacterSet.decimalDigits.contains($0)}
-        return String(String.UnicodeScalarView(filtredUnicodeScalars))
-    }
-    
-    func makeACall() {
-        if isValid(regex: .phone) {
-            if let url = URL(string: "tel://\(self.onlyDigits())"), UIApplication.shared.canOpenURL(url) {
-                if #available(iOS 10, *) {
-                    UIApplication.shared.open(url)
-                } else {
-                    UIApplication.shared.openURL(url)
-                }
-            }
-        }
-    }
-}
+
 extension Date {
     
     var tomorrow: Date? {

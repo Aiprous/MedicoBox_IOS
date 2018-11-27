@@ -35,6 +35,7 @@ class ExpandableHeaderView: UITableViewHeaderFooterView {
     
     func customInit(title: String, section: Int, delegate: ExpandableHeaderViewDelegate) {
         self.textLabel?.text = title
+//        let width: CGFloat = textLabel?.frame.size.width ?? 0;
         img = UIImageView(frame: CGRect(x: 325, y: 12, width: 25, height: 25))
         img.image = #imageLiteral(resourceName: "downArrow_yellow");
         self.addSubview(img);

@@ -11,11 +11,8 @@ import UIKit
 class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
-    
     @IBOutlet weak var durationDosageViewHightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var medicineNameViewHightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var btnCallMeForDetails: UIButton!
     @IBOutlet weak var btnMedicinesAndQuantity: UIButton!
     @IBOutlet weak var btnOrderEverything: UIButton!
@@ -25,9 +22,10 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var bottomView: DesignableShadowView!
     @IBOutlet weak var bottomViewHightConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionViewHightConstraint: NSLayoutConstraint!
-  
     @IBOutlet weak var collectionViewAttachedPresription: UICollectionView!
     @IBOutlet weak var btnAttachedPresription: UIButton!
+    
+    var flagViewWillAppear = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +40,32 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
         btnOrderEverything.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
         btnMedicinesAndQuantity.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
         btnCallMeForDetails.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
-        topViewHightConstraint.constant = 165;
-        durationDosageViewHightConstraint.constant = 0;
-        medicineNameViewHightConstraint.constant = 0;
-        durationOfDosageView.isHidden = true;
-        medicinesAndQuantityView.isHidden = true;
-        bottomViewHightConstraint.constant = 50;
+        flagViewWillAppear = "true";
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if(flagViewWillAppear == "true"){
+            
+            topViewHightConstraint.constant = 165;
+            durationDosageViewHightConstraint.constant = 0;
+            medicineNameViewHightConstraint.constant = 0;
+            durationOfDosageView.isHidden = true;
+            medicinesAndQuantityView.isHidden = true;
+            bottomViewHightConstraint.constant = 50;
+            
+                UIView.animate(withDuration: 0.5) {
+                    self.view.updateConstraints()
+                    self.view.layoutIfNeeded()
+                }
+            flagViewWillAppear = "false";
 
+        }else {
+            
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,6 +132,11 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
             durationOfDosageView.isHidden = false;
             medicinesAndQuantityView.isHidden = true;
             self.btnOrderEverything.isSelected = true;
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
 
             
         }else {
@@ -126,6 +148,11 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
             medicineNameViewHightConstraint.constant = 0;
             durationDosageViewHightConstraint.constant = 0;
             self.btnOrderEverything.isSelected = false;
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
 
             
         }
@@ -143,6 +170,11 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
             durationDosageViewHightConstraint.constant = 0;
             medicineNameViewHightConstraint.constant = 76;
             self.btnMedicinesAndQuantity.isSelected = true;
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
 
             
         }else {
@@ -154,6 +186,11 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
             medicineNameViewHightConstraint.constant = 0;
             durationDosageViewHightConstraint.constant = 0;
             self.btnMedicinesAndQuantity.isSelected = false;
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
 
             
         }
@@ -174,6 +211,11 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
             medicineNameViewHightConstraint.constant = 0;
             self.btnMedicinesAndQuantity.isSelected = true;
             
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
+            
         }else {
             
             btnCallMeForDetails.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
@@ -183,6 +225,11 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
             medicineNameViewHightConstraint.constant = 0;
             durationDosageViewHightConstraint.constant = 0;
             self.btnMedicinesAndQuantity.isSelected = false;
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
             
         }
     }
@@ -195,6 +242,10 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
             collectionViewHightConstraint.constant = 147;
             self.collectionViewAttachedPresription.isHidden = false;
             self.btnAttachedPresription.isSelected = true;
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
             
         }else {
             
@@ -202,6 +253,10 @@ class UploadPresriptionSecondVC: UIViewController, UICollectionViewDelegate, UIC
             collectionViewHightConstraint.constant = 0;
             self.collectionViewAttachedPresription.isHidden = true;
             self.btnAttachedPresription.isSelected = false;
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
 
         }
     }

@@ -29,8 +29,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         navigationBarAppearace.tintColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
         navigationBarAppearace.barTintColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
         UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 1, green: 0.7843137255, blue: 0, alpha: 1)
-        self.callAPIGetCartData()
-        self.callAPIGetCartID()
+        
+        
+        if(UserDefaults.standard.value(forKey: "loginToken") as? String ?? "" == ""){
+            
+            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignInVC)
+            self.window?.rootViewController = Controller
+            self.window?.makeKeyAndVisible()
+        }
+        else{
+            
+            self.callAPIGetCartData()
+            self.callAPIGetCartID()
+            createMenuView()
+        }
+        
+       
         
  /*
         //Get Cart Id only once
@@ -45,17 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             
         }
  */
-        
-        if(kAppDelegate.getLoginToken() == ""){
-            
-            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignInVC)
-            self.window?.rootViewController = Controller
-            self.window?.makeKeyAndVisible()
-        }
-        else{
-            
-            createMenuView()
-        }
+       
         
         FIRApp.configure()
         Fabric.with([Crashlytics.self])

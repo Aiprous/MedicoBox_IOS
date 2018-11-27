@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditBillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class EditBillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var tblAddressField: UITableView!
     @IBOutlet weak var btnOther: UIButton!
@@ -51,12 +51,97 @@ class EditBillingAddressVC: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     
+    func getTextFeildValuesFromTableView() ->[String:String]?{
+        var values = [String:String]()
+        for (index, value) in arrayofText.enumerated() {
+            let indexPath = IndexPath(row: index, section: 0)
+            guard let cell = tblAddressField.cellForRow(at: indexPath) as? AddressTableViewCell else{
+                return nil
+            }
+            if let text = cell.textField.text {
+                values[value as! String] = text
+                //                values[value] = text
+            }
+        }
+        return values
+    }
+    
+    func validateForm() -> Bool {
+        let arrayofValues:[String:String] = getTextFeildValuesFromTableView() ?? [:]
+        if !arrayofValues.isEmpty {
+            if (arrayofValues["Name"] != nil) && (arrayofValues["Name"]?.isEmpty)!{
+                print("Name is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter name", vc: self)
+                return false;
+            }else if (arrayofValues["Phone*"] != nil) && (arrayofValues["Phone*"]?.isEmpty)!{
+                print("Phone* is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter Phone", vc: self)
+                return false
+            }else if ( arrayofValues["Phone*"]?.count != 10){
+                print("Please enter valid 10 digit mobile number")
+                alertWithMessage(title: "Alert", message: "Please enter valid 10 digit phone number", vc: self)
+                return false
+            }else if (arrayofValues["Flat Number"] != nil) && (arrayofValues["Flat Number"]?.isEmpty)!{
+                print("Flat number is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter flat number", vc: self)
+                return false
+            }else if (arrayofValues["Building Name*"] != nil) && (arrayofValues["Building Name*"]?.isEmpty)!{
+                print("Building name is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter building name", vc: self)
+                return false
+            }else if (arrayofValues["Street / Road Name"] != nil) && (arrayofValues["Street / Road Name"]?.isEmpty)!{
+                print("Street / road name is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter street / road name", vc: self)
+                return false
+            }else if (arrayofValues["Landmark"] != nil) && (arrayofValues["Landmark"]?.isEmpty)!{
+                print("Landmark is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter landmark", vc: self)
+                return false
+            }else if (arrayofValues["Pincode*"] != nil) && (arrayofValues["Pincode*"]?.isEmpty)!{
+                print("Pincode is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter pincode", vc: self)
+                return false
+            }else if (arrayofValues["State"] != nil) && (arrayofValues["State"]?.isEmpty)!{
+                print("State is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter state", vc: self)
+                return false
+            }else if (arrayofValues["City"] != nil) && (arrayofValues["City"]?.isEmpty)!{
+                print("City is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter city", vc: self)
+                return false
+            }else{
+                return true
+            }
+        }
+        return false
+    }
+    
+    
+    //MARK: - Textfield delegate
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let maxLength = 10
+        var indexPath = IndexPath(row: 1, section: 0)
+        let cell = tblAddressField.cellForRow(at: indexPath) as? AddressTableViewCell
+        if  textField == cell?.textField {
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }
+        
+        
+        return true
+    }
     
     @IBAction func saveBtnAction(_ sender: Any) {
         
-        let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kOrderSummaryVC)
-        self.navigationController?.pushViewController(Controller, animated: true)
-        
+        if validateForm() {
+
+            self.navigationController?.popViewController(animated: true)
+
+        }
     }
     
     //MARK:- Table View Delegate And DataSource
@@ -69,9 +154,14 @@ class EditBillingAddressVC: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "AddressTableViewCell") as! AddressTableViewCell
+        
         cellObj.textField.text = ""
         cellObj.textField.placeholder = arrayofText[indexPath.row] as? String
+        if (arrayofText[indexPath.row] as? String == "Phone*") || (arrayofText[indexPath.row] as? String == "Pincode*") {
+            cellObj.textField.keyboardType = .numberPad
+        }
         
+        cellObj.textField.delegate = self;
         cellObj.selectionStyle = .none
         return cellObj
     }

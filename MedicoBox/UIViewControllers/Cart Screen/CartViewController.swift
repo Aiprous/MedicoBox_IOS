@@ -73,6 +73,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.cartTblView.isHidden = true;
             self.btnUploadTopLayoutConstraint.constant = 20;
             self.priceViewHightLayoutConstraint.constant = 191;
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
             self.lblItems.isHidden = true;
         }else {
             
@@ -318,7 +323,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 self.btnUploadTopLayoutConstraint.constant = 20;
                                 self.priceViewHightLayoutConstraint.constant = 191;
                                 
-                            }else {
+                                UIView.animate(withDuration: 0.5) {
+                                    self.view.updateConstraints()
+                                    self.view.layoutIfNeeded()
+                                }                            }else {
                                 
                                 self.cartTblView.isHidden = false;
                                 self.lblItems.isHidden = false;

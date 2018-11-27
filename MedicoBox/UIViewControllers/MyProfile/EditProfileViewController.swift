@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 
-class EditProfileViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+class EditProfileViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate {
     
     var userProfileData: SignUpModelClass?
     var myProfileData = [SignUpModelClass]()
@@ -20,7 +20,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
     
     
     @IBOutlet weak var tblAddressField: UITableView!
-    let arrayofText:NSArray = ["First name","Last name","Mobile number", "Email ID"]//,"Gender", "DOB", "Password", "Confirm Password"]
+    let arrayofText:NSArray = ["First name","Last name","Mobile number", "Email ID","Gender", "DOB"]//, "Password", "Confirm Password"]
     var userProfileDataArray = NSArray();
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +55,139 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
         }
         
     }
+    
+    func getTextFeildValuesFromTableView() ->[String:String]?{
+        var values = [String:String]()
+        for (index, value) in arrayofText.enumerated() {
+            let indexPath = IndexPath(row: index, section: 0)
+            guard let cell = tblAddressField.cellForRow(at: indexPath) as? AddressTableViewCell else{
+                return nil
+            }
+            if let text = cell.textField.text {
+                values[value as! String] = text
+                //                values[value] = text
+            }
+        }
+        return values
+    }
+    
+    func validateForm() -> Bool {
+        let arrayofValues:[String:String] = getTextFeildValuesFromTableView() ?? [:]
+        if !arrayofValues.isEmpty {
+            if (arrayofValues["First name"] != nil) && (arrayofValues["First name"]?.isEmpty)!{
+                print("First Name is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter first name", vc: self)
+                return false;
+            }else if (arrayofValues["Last name"] != nil) && (arrayofValues["Last name"]?.isEmpty)!{
+                print("Last name is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter last name", vc: self)
+                return false
+            }else if ( arrayofValues["Mobile number"]?.count != 10){
+                print("Please enter valid 10 digit mobile number")
+                alertWithMessage(title: "Alert", message: "Please enter valid 10 digit mobile number", vc: self)
+                return false
+            }else if !(isValidMobileNo(mobileNo: arrayofValues["Mobile number"]!)){
+                alertWithMessage(title: "Alert", message: "Please enter valid mobile number", vc: self)
+                print("Please enter valid mobile number")
+                return false
+            }else if (arrayofValues["Email ID"] != nil) && (arrayofValues["Email ID"]?.isEmpty)!{
+                print("Email ID is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter email id", vc: self)
+                return false
+            }else if !( isValidEmailID(txtEmail: arrayofValues["Email ID"]!)){
+                print("Please enter valid email id")
+                alertWithMessage(title: "Alert", message: "Please enter valid email id", vc: self)
+                return false
+            }else if (arrayofValues["Gender"] != nil) && (arrayofValues["Gender"]?.isEmpty)!{
+                print("Gender is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter gender", vc: self)
+                return false
+            }else if (arrayofValues["DOB"] != nil) && (arrayofValues["DOB"]?.isEmpty)!{
+                print("DOB is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter DOB", vc: self)
+                return false
+            }else{
+                return true
+            }
+        }
+        return false
+    }
+    
+    
+    //MARK: - Textfield delegate
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let maxLength = 10
+        var indexPath = IndexPath(row: 2, section: 0)
+        let cell = tblAddressField.cellForRow(at: indexPath) as? AddressTableViewCell
+        if  textField == cell?.textField {
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }
+       
+        
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        var indexPath = IndexPath(row: 5, section: 0)
+        let cell = tblAddressField.cellForRow(at: indexPath) as? AddressTableViewCell
+        
+        if  textField == cell?.textField {
+            
+            let vc = UIViewController()
+            vc.preferredContentSize = CGSize(width: 250,height: 300)
+            let pickerView = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 250, height: 300))
+            vc.view.addSubview(pickerView)
+            pickerView.datePickerMode = UIDatePickerMode.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            let today = Date()
+            if let tomorrow = today.tomorrow {
+                tomorrowString = dateFormatter.string(from: tomorrow)
+                print("\(tomorrowString)")
+            }
+            pickerView.maximumDate = dateFormatter.date(from: tomorrowString)
+            
+            pickerView.addTarget(self, action: #selector(EditProfileViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
+            
+            let editRadiusAlert = UIAlertController(title: "Choose Date", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            editRadiusAlert.setValue(vc, forKey: "contentViewController")
+            
+            editRadiusAlert.addAction(UIAlertAction(title: "Set Date", style: .default, handler: {(action) -> Void in
+                
+                let dateFormatter = DateFormatter()
+                //                    2010-08-29 02:04:51
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateInString = dateFormatter.string(from: pickerView.date);
+                
+                self.strDate = dateInString
+                cell?.textField.text = self.strDate;
+                
+            }))
+            editRadiusAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(editRadiusAlert, animated: true)
+            
+        }
+        indexPath = IndexPath(row: 4, section: 0)
+        let cell1 = tblAddressField.cellForRow(at: indexPath) as? AddressTableViewCell
+        
+        if  textField == cell1?.textField {
+            
+        }
+        
+        return true
+    }
+    
     @IBAction func SaveBtnAction(_ sender: Any) {
         
-        UpdateUserInfo()
-        //        self.navigationController?.popViewController(animated: true)
+        if validateForm() {
+            UpdateUserInfo()
+        }
     }
     
     //MARK:- Table View Delegate And DataSource
@@ -72,6 +201,8 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
         
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "AddressTableViewCell") as! AddressTableViewCell
         
+        cellObj.textField.text = ""
+
         cellObj.textField.placeholder = arrayofText[indexPath.row] as? String
         if (userProfileData != nil) {
             switch arrayofText[indexPath.row] as? String {
@@ -96,6 +227,14 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
             }
         }
         
+        if (arrayofText[indexPath.row] as? String == "Mobile number") {
+            cellObj.textField.keyboardType = .numberPad
+        }
+        if (arrayofText[indexPath.row] as? String == "Email ID")  {
+            cellObj.textField.keyboardType = .emailAddress
+        }
+        cellObj.textField.delegate = self;
+        
         
         cellObj.selectionStyle = .none
         return cellObj
@@ -118,44 +257,13 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-          let cell:AddressTableViewCell = tableView.cellForRow(at: indexPath) as! AddressTableViewCell
+        /*  let cell:AddressTableViewCell = tableView.cellForRow(at: indexPath) as! AddressTableViewCell
         
                 switch arrayofText[indexPath.row] as? String {
                     
                 case "DOB":
                 
-                let vc = UIViewController()
-                vc.preferredContentSize = CGSize(width: 250,height: 300)
-                let pickerView = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 250, height: 300))
-                vc.view.addSubview(pickerView)
-                pickerView.datePickerMode = UIDatePickerMode.date
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd-MM-yyyy"
-                let today = Date()
-                if let tomorrow = today.tomorrow {
-                    tomorrowString = dateFormatter.string(from: tomorrow)
-                    print("\(tomorrowString)")
-                }
-                pickerView.maximumDate = dateFormatter.date(from: tomorrowString)
-                
-                pickerView.addTarget(self, action: #selector(EditProfileViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
-                
-                let editRadiusAlert = UIAlertController(title: "Choose Date", message: "", preferredStyle: UIAlertControllerStyle.alert)
-                editRadiusAlert.setValue(vc, forKey: "contentViewController")
-                
-                editRadiusAlert.addAction(UIAlertAction(title: "Set Date", style: .default, handler: {(action) -> Void in
-                    
-                    let dateFormatter = DateFormatter()
-//                    2010-08-29 02:04:51
-                    dateFormatter.dateFormat = "yyyy-MM-dd"
-                    let dateInString = dateFormatter.string(from: pickerView.date);
-                    
-                    self.strDate = dateInString
-                    cell.textField.text = self.strDate;
-                    
-                }))
-                editRadiusAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                self.present(editRadiusAlert, animated: true)
+               
                     break;
                     
                 case "Gender":
@@ -165,7 +273,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
                 default:
                     break;
                
-        }
+        }*/
         
         
     }
@@ -210,17 +318,19 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
          "websiteId": 1
          }
          }*/
+        
+        let arrayofValues:[String:String] = getTextFeildValuesFromTableView() ?? [:]
         var param = [String: Any] ()
-        param["websiteId"]         = 1
+        param["websiteId"]         = self.userProfileData?.website_id ?? 0
         param["id"]                = self.userProfileData?.id ?? 0
-        param["email"]             = self.userProfileData?.email ?? ""
-        param["dob"]               = "2010-08-29 02:04:51"
-        param["firstname"]         = self.userProfileData?.firstname ?? ""
-        param["lastname"]          = self.userProfileData?.lastname ?? ""
+        param["email"]             = arrayofValues["Email ID"]
+        param["dob"]               = arrayofValues["DOB"]
+        param["firstname"]         = arrayofValues["First name"]
+        param["lastname"]          = arrayofValues["Last name"]
         param["confirmation"]      = "string"
-        param["prefix"]            = "MS"
-        param["gender"]            = 0
-        param["store_Id"]          = 1
+        param["prefix"]            = self.userProfileData?.prefix ?? ""
+        param["gender"]            = self.userProfileData?.gender ?? 0
+        param["store_Id"]          = self.userProfileData?.store_id ?? 0
         param["taxvat"]            = "string"
         
         var customerParam = [String: Any] ()

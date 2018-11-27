@@ -32,6 +32,7 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     
     @IBOutlet weak var lblAmountPaidOrder: UILabel!
     var productsListArray =  NSArray();
+    var flagViewWillAppear = "";
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +63,7 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         tblOrderItems.tableFooterView = footerView
         
-        bottomViewHightConstraint.constant = 50;
-        self.mainViewHightConstraint.constant = -157;
+        flagViewWillAppear = "true";
 
 
     }
@@ -77,6 +77,23 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         super.viewWillAppear(animated)
         self.setNavigationBarItemBackButton()
         callAPIGetProductsList()
+        
+        if(flagViewWillAppear == "true"){
+
+            bottomViewHightConstraint.constant = 50;
+            self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant - 157;
+            self.prescriptionCollectionView.isHidden = true;
+
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
+            flagViewWillAppear = "false";
+            
+        }else {
+            
+            
+        }
 
     }
     
@@ -192,20 +209,30 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
             
             bottomViewHightConstraint.constant = 207;
             collectionViewHightConstraint.constant = 147;
-            self.mainViewHightConstraint.constant = +157;
-
+            self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant + 157;
             self.prescriptionCollectionView.isHidden = false;
             self.btnAttachedPresription.isSelected = true;
+            
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
+
             
         }else {
             
             bottomViewHightConstraint.constant = 50;
             collectionViewHightConstraint.constant = 0;
-           
-            self.mainViewHightConstraint.constant = -157;
+            self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant - 157;
             self.prescriptionCollectionView.isHidden = true;
             self.btnAttachedPresription.isSelected = false;
             
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
+
         }
     }
     
