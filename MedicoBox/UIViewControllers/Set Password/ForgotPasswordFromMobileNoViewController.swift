@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import SVProgressHUD
+import Alamofire
 
 class ForgotPasswordFromMobileNoViewController: UIViewController {
     
 @IBOutlet weak var txtMobileNumber: UITextField!
+    var isComeforVerifyOTP: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,9 +73,69 @@ class ForgotPasswordFromMobileNoViewController: UIViewController {
     }
 
     @IBAction func btnProceedAction(_ sender: Any) {
+        if ((self.txtMobileNumber.text != nil) && (self.txtMobileNumber.text?.isEmpty != true)){
+            
+            if (self.txtMobileNumber.text?.count == 10)  {
+                
+                if (isValidMobileNo(mobileNo: self.txtMobileNumber.text!))  {
+                         callLoginWithTokenAPI()
+                }else{
+                    alertWithMessage(title: "Alert", message: "Please enter valid 10 digits mobile number", vc: self)
+                }
+            }else{
+                
+                alertWithMessage(title: "Alert", message: "Please enter 10 digit mobile number", vc: self)
+            }
+            
+        }else{
+            
+            alertWithMessage(title: "Alert", message: "Please enter mobile number", vc: self)
+        }
+    }
+    
+    func callLoginWithTokenAPI() {
         
-        let Controller = self.storyboard?.instantiateViewController(withIdentifier: kSetNewPasswordVC)
-        self.navigationController?.pushViewController(Controller!, animated: true)
+        let urlString =  kKeyLoginOTP;
+        print(urlString)
+        SVProgressHUD.show()
+         let paraDict =  ["mobile": self.txtMobileNumber.text]
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken() ]
         
+        Alamofire.request(urlString, method: .post, parameters: paraDict as Parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict = resposeData.result.value  as? NSDictionary  {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        if let jsonDict = responseDict.value(forKey: "response") as? NSDictionary {
+
+                            if  jsonDict.value(forKey: "status") as? String == "success" {
+                                self.showToast(message : jsonDict.value(forKey:"message") as? String ?? "" )
+                      
+                            let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kVerifyOTPVC) as! VerifyOTPViewController
+                            Controller.isComeforVerifyOTP = self.isComeforVerifyOTP
+                            Controller.mobileNumber = self.txtMobileNumber.text
+                      self.navigationController?.pushViewController(Controller, animated: true)
+                    
+                        print(responseDict)
+                        
+                            }else{
+                               
+                                print(jsonDict.value(forKey: "message") as? String ?? "" )
+                                self.showToast(message : jsonDict.value(forKey:"message") as? String ?? "" )
+                            }
+                        }
+                    }
+
+                }
+            })
+        }
     }
 }

@@ -34,7 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         if(UserDefaults.standard.value(forKey: "loginToken") as? String ?? "" == ""){
             
             let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignInVC)
-            self.window?.rootViewController = Controller
+              let nvc: UINavigationController = UINavigationController(rootViewController: Controller)
+            self.window?.rootViewController = nvc
             self.window?.makeKeyAndVisible()
         }
         else{
@@ -218,7 +219,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     }
     
     func getLoginToken() -> String {
-        return UserDefaults.standard.value(forKey: "loginToken") as! String
+        if let token = UserDefaults.standard.value(forKey: "loginToken")  {
+            return token as! String
+        }
+        return ""
     }
     
   

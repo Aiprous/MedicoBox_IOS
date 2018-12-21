@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SelectAddressViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class SelectAddressViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate {
+    var searchBar :UISearchBar?
 
     @IBOutlet weak var tblAddress: UITableView!
     
@@ -27,7 +28,9 @@ class SelectAddressViewController: UIViewController,UITableViewDelegate,UITableV
         tblAddress.tableFooterView = footerView
         
         //show navigationbar with back button
-        self.setNavigationBarItemBackButton()
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         self.navigationController?.isNavigationBarHidden = false;
     }
 

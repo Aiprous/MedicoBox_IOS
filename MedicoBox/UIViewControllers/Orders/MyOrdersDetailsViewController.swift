@@ -11,7 +11,8 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource , UIScrollViewDelegate{
+class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource , UIScrollViewDelegate, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
     @IBOutlet weak var tblOrderItems: UITableView!
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
@@ -43,9 +44,10 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
         prescriptionCollectionView.dataSource = self
         prescriptionCollectionView.delegate = self
         //show navigationbar with back button
-        self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;
-        
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         lblPriceOrder.text = "\u{20B9}" + " 350.00"
         lblMrpTotalOrder.text = "\u{20B9}" + " 350.00"
         lblPriceDiscountOrder.text = "- "  + "\u{20B9}" + " 35.00"
@@ -80,8 +82,7 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()
+        self.navigationController?.isNavigationBarHidden = false;
         callAPIGetProductsList()
         
         if(flagViewWillAppear == "true"){

@@ -112,11 +112,7 @@ extension String{
         return ""
     }
     
-    func isValidPassword() -> Bool {
-        let passwordRegex = "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8}$"
-        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
-        
-    }
+    
     
     func capitalizingFirstLetter() -> String {
         let first = String(characters.prefix(1)).capitalized
@@ -286,10 +282,14 @@ extension UIViewController {
         
     }
 
+    public func isValidPassword(txtPass : String) -> Bool {
+        let passwordRegex = "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8,15}$"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: txtPass)
+    }
+    
    public func isValidEmailID(txtEmail : String) -> Bool {
         
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         if emailTest.evaluate(with: txtEmail) {
             return true
@@ -308,9 +308,7 @@ extension UIViewController {
         if result == false {
             return false
         }
-        
         return result
-        
     }
     
    public func isValidMobileNo(mobileNo : String) -> Bool {

@@ -11,7 +11,8 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class ProductDescriptionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UITableViewDelegate, UITableViewDataSource {
+class ProductDescriptionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var tblProductDesc: UITableView!
@@ -20,7 +21,9 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false;
-        self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self; self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
         
         FeaturedProductsCollectionView.dataSource = self
         FeaturedProductsCollectionView.delegate = self
@@ -42,8 +45,7 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()
+        self.navigationController?.isNavigationBarHidden = false;
     }
     //MARK:- Collection View Delegate And DataSource
     

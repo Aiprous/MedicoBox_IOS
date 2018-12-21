@@ -191,7 +191,6 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     override open func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         //automatically called
         //self.mainViewController?.viewWillAppear(animated)
     }
@@ -1111,37 +1110,6 @@ extension UIViewController {
     @objc public func showCartView() {
         let Controller = kCartStoryBoard.instantiateViewController(withIdentifier: kCartViewController)
         self.navigationController?.pushViewController(Controller, animated: true)
-    }
-    
-    public func addTitleSearchBar() {
-        
-        let searchBar = UISearchBar(frame: CGRect.zero)
-        navigationItem.titleView?.layer.cornerRadius = 10
-        navigationItem.titleView?.layer.masksToBounds = true
-        searchBar.barStyle = .default;
-        searchBar.searchBarStyle = .minimal;
-        searchBar.showsCancelButton = false;
-        searchBar.showsBookmarkButton = false;
-        searchBar.showsScopeBar = false;
-        searchBar.showsBookmarkButton = false;
-        searchBar.resignFirstResponder()
-        searchBar.endEditing(true)
-        
-        /// Search Bar Design Style
-        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            
-            textfield.resignFirstResponder();
-            textfield.endEditing(true)
-            textfield.textColor = UIColor.gray
-            searchBar.placeholder = "Search Medicines"
-            textfield.backgroundColor = UIColor.white
-            if let backgroundview = textfield.subviews.first {
-                backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
-                backgroundview.layer.cornerRadius = 20
-                backgroundview.clipsToBounds = true
-            }
-        }
-        navigationItem.titleView = searchBar
     }
     
     public func addTitleImageView() {

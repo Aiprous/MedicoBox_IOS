@@ -10,7 +10,8 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 
-class MyProfileViewController: UIViewController {
+class MyProfileViewController: UIViewController, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblBillingUserName: UILabel!
@@ -31,7 +32,9 @@ class MyProfileViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        self.setNavigationBarItem()
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItem(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         self.navigationController?.isNavigationBarHidden = false;
     }
     
@@ -41,7 +44,8 @@ class MyProfileViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         GetUserInfo()
-        
+        self.navigationController?.isNavigationBarHidden = false;
+
     }
     
    

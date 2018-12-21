@@ -8,7 +8,8 @@
 
 import UIKit
 
-class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
+class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
     @IBOutlet weak var tblInstaOrderAdd: UITableView!
     @IBOutlet weak var instaOrderAddSearchBar: UISearchBar!
@@ -17,7 +18,9 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = false;
-        
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         /// Search Bar Design Style
         if let textfield = instaOrderAddSearchBar.value(forKey: "searchField") as? UITextField {
             
@@ -53,8 +56,7 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()        
+        self.navigationController?.isNavigationBarHidden = false;
     }
     
     //MARK:- Table View Delegate And DataSource

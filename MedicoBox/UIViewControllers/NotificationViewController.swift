@@ -8,7 +8,8 @@
 
 import UIKit
 
-class NotificationViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+class NotificationViewController: UIViewController, UITableViewDelegate,UITableViewDataSource , UISearchBarDelegate {
+    var searchBar :UISearchBar?
 
     @IBOutlet weak var tblNotification: UITableView!
     override func viewDidLoad() {
@@ -26,7 +27,10 @@ class NotificationViewController: UIViewController, UITableViewDelegate,UITableV
         tblNotification.tableFooterView = footerView
         
         //show navigationbar with back button
-         self.setNavigationBarItem()
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItem(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
+        
          self.navigationController?.isNavigationBarHidden = false;
     }
 

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import OpalImagePicker
 
-class UploadPrescriptionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var youOrderingForViewHightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var patientNameViewHightConstraint: NSLayoutConstraint!
+class UploadPrescriptionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , UIImagePickerControllerDelegate, UINavigationControllerDelegate, UISearchBarDelegate {
+    var searchBar :UISearchBar? 
+
+   
     @IBOutlet weak var collectionViewHightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainViewHightConstraint: NSLayoutConstraint!
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
@@ -21,13 +23,12 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
     @IBOutlet weak var btnYes: UIButton!
     @IBOutlet weak var btnNo: UIButton!
     @IBOutlet weak var youOrderingView: UIView!
-    
     var imagePicker: UIImagePickerController!
     var collectionImageArray = [UIImage]()
     var flagViewWillAppear = "";
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+//        super.viewDidLoad()
 
         // Do any additional setup after loading the view.
  
@@ -35,7 +36,9 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
         prescriptionCollectionView.delegate = self
         
         //show navigationbar with back button
-         self.setNavigationBarItemBackButton()
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
          self.navigationController?.isNavigationBarHidden = false;
         btnYes.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
         btnNo.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
@@ -43,13 +46,10 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
          if(flagViewWillAppear == "true"){
             
-            youOrderingView.isHidden = true;
-            youOrderingForViewHightConstraint.constant = 50;
-            patientNameViewHightConstraint.constant = 0;
+            
             
             if(collectionImageArray.count == 0){
                 
@@ -67,7 +67,7 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
             
 
         }
-        
+       self.navigationController?.isNavigationBarHidden = false;
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -182,7 +182,12 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
 
     @IBAction func btnChooseFromGalleryAction(_ sender: Any) {
         
-        openGallery()
+//        openGallery()
+        //Example instantiating OpalImagePickerController with delegate
+        let imagePicker = OpalImagePickerController()
+        imagePicker.imagePickerDelegate = self
+        imagePicker.maximumSelectionsAllowed = 10
+        present(imagePicker, animated: true, completion: nil)
         
     }
     
@@ -248,7 +253,7 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
             collectionImageArray.append(imageTake!.image!)
             print(collectionImageArray)
             
-            if(collectionImageArray.count != 0){
+            if(self.prescriptionCollectionView.isHidden){
                 
                 self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant + 157;
                 self.prescriptionCollectionView.isHidden = false;
@@ -283,63 +288,71 @@ class UploadPrescriptionViewController: UIViewController, UICollectionViewDelega
     }
     
     @IBAction func btnYesAction(_ sender: Any) {
-        
-        if(btnYes.isSelected == false){
-            
+      
             btnYes.setImage(#imageLiteral(resourceName: "radio-active-button"), for: .normal)
             btnNo.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
-            youOrderingView.isHidden = false;
-            youOrderingForViewHightConstraint.constant = 136;
-            patientNameViewHightConstraint.constant = 76;
-            UIView.animate(withDuration: 0.5) {
-                self.view.updateConstraints()
-                self.view.layoutIfNeeded()
-            }
+        
             self.btnYes.isSelected = true;
-            
-        }else {
-            
-            btnYes.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
-            youOrderingView.isHidden = true;
-            youOrderingForViewHightConstraint.constant = 50;
-            patientNameViewHightConstraint.constant = 0;
             UIView.animate(withDuration: 0.5) {
                 self.view.updateConstraints()
                 self.view.layoutIfNeeded()
             }
-            self.btnYes.isSelected = false;
-            
-        }
+
     }
+    
     
     
     @IBAction func btnNoAction(_ sender: Any) {
         
-        if(btnNo.isSelected == false){
-            
             btnNo.setImage(#imageLiteral(resourceName: "radio-active-button"), for: .normal)
             btnYes.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
-            youOrderingView.isHidden = true;
-            youOrderingForViewHightConstraint.constant = 50;
-            patientNameViewHightConstraint.constant = 0;
+        
+            self.btnNo.isSelected = true
             UIView.animate(withDuration: 0.5) {
                 self.view.updateConstraints()
                 self.view.layoutIfNeeded()
             }
-            self.btnNo.isSelected = true;
-            
-        }else {
-            
-            btnNo.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
-            youOrderingView.isHidden = true;
-            youOrderingForViewHightConstraint.constant = 50;
-            patientNameViewHightConstraint.constant = 0;
+        
+    }
+}
+
+extension UploadPrescriptionViewController: OpalImagePickerControllerDelegate {
+    func imagePickerDidCancel(_ picker: OpalImagePickerController) {
+        //Cancel action?
+    }
+    
+    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
+        //Save Images, update UI
+        collectionImageArray.append(contentsOf: images)
+//         if let jpegData = image.jpegData(compressionQuality: 0.8)
+        
+        //Dismiss Controller
+        presentedViewController?.dismiss(animated: true, completion: nil)
+        if(collectionImageArray.count != 0){
+            if(self.prescriptionCollectionView.isHidden){
+            self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant + 157;
+            self.prescriptionCollectionView.isHidden = false;
+            self.collectionViewHightConstraint.constant = 157;
             UIView.animate(withDuration: 0.5) {
                 self.view.updateConstraints()
                 self.view.layoutIfNeeded()
             }
-            self.btnNo.isSelected = false;
-            
+          }
+            self.prescriptionCollectionView.reloadData()
         }
+        
+        
+    }
+    
+    func imagePickerNumberOfExternalItems(_ picker: OpalImagePickerController) -> Int {
+        return 1
+    }
+    
+    func imagePickerTitleForExternalItems(_ picker: OpalImagePickerController) -> String {
+        return NSLocalizedString("External", comment: "External (title for UISegmentedControl)")
+    }
+    
+    func imagePicker(_ picker: OpalImagePickerController, imageURLforExternalItemAtIndex index: Int) -> URL? {
+        return URL(string: "https://placeimg.com/500/500/nature")
     }
 }

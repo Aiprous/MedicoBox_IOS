@@ -11,7 +11,8 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     @IBOutlet weak var btnUploadTopLayoutConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -41,7 +42,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         // Do any additional setup after loading the view.
         self.navigationController?.isNavigationBarHidden = false;
-        self.setNavigationBarItem()
+         searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItem(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         
         self.MRPTotal = 0;
         self.DiscountTotal =  0;
@@ -65,7 +68,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false;
         self.callAPIGetCartData()
         
         if(kKeyCartCount == "0"){

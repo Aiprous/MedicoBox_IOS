@@ -21,7 +21,8 @@ struct SectionInfo {
     }
 }
 
-class ProductDrugInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExpandableHeaderViewDelegate {
+class ProductDrugInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExpandableHeaderViewDelegate, UISearchBarDelegate {
+    var searchBar :UISearchBar?
 
     @IBOutlet weak var tblProductDrugInfo: UITableView!
     var sections = [SectionInfo]()
@@ -29,6 +30,9 @@ class ProductDrugInfoViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         // set attributed text on a UILabel
 //        let title = "Usage & Work"
         let subTitle = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
@@ -66,8 +70,7 @@ class ProductDrugInfoViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()
+        self.navigationController?.isNavigationBarHidden = false;
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,7 +10,8 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 
-class EditProfileViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate {
+class EditProfileViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
     var userProfileData: SignUpModelClass?
     var myProfileData = [SignUpModelClass]()
@@ -36,9 +37,9 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
         tblAddressField.tableFooterView = footerView
         
         //show navigationbar with back button
-        self.setNavigationBarItemBackButton()
-        self.navigationController?.isNavigationBarHidden = false;
-        GetUserInfo()
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;        self.navigationController?.isNavigationBarHidden = false;
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,7 +47,12 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false;
+        GetUserInfo()
+    }
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         //        tblAddressField.frame = CGRect(x: tblAddressField.frame.origin.x, y: tblAddressField.frame.origin.y, width: tblAddressField.frame.size.width, height: (CGFloat(65*arrayofText.count)));
         //
         //        self.view.setNeedsUpdateConstraints()
@@ -201,7 +207,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
         
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "AddressTableViewCell") as! AddressTableViewCell
         
-        cellObj.textField.text = ""
+//        cellObj.textField.text = ""
 
         cellObj.textField.placeholder = arrayofText[indexPath.row] as? String
         if (userProfileData != nil) {

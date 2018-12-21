@@ -8,11 +8,16 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UISearchBarDelegate {
+    var searchBar :UISearchBar?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //show navigationbar with back button
+        self.navigationController?.isNavigationBarHidden = false;
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItem(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         // Do any additional setup after loading the view.
     }
 
@@ -26,8 +31,8 @@ class SettingsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        
+       
         self.navigationController?.isNavigationBarHidden = false;
     }
 }

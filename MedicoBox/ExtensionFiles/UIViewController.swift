@@ -10,15 +10,17 @@ import UIKit
 
 extension UIViewController {
     
-    func setNavigationBarItem() {
+    
+    func setNavigationBarItem(searchBar:UISearchBar) {
         
         self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
         self.addRightBarButtonWithImage(UIImage(named: "cart")!)
-        self.addTitleSearchBar()
+       
         self.slideMenuController()?.removeLeftGestures()
         self.slideMenuController()?.removeRightGestures()
         self.slideMenuController()?.addLeftGestures()
         self.slideMenuController()?.addRightGestures()
+        self.addTitleSearchBar(searchBar1: searchBar)
     }
     
     func setNavigationBarItemPharm() {
@@ -32,7 +34,7 @@ extension UIViewController {
         self.slideMenuController()?.addRightGestures()
     }
 
-    func setNavigationBarItemBackButton() {
+    func setNavigationBarItemBackButton(searchBar:UISearchBar) {
         
         self.addLeftBarButtonWithBackImage(UIImage(named: "back-arrow")!)
         
@@ -45,8 +47,37 @@ extension UIViewController {
             self.addRightBarButtonWithImage(UIImage(named: "cart")!)
             self.showToast(message: "Your cart is empty");
         }
-        self.addTitleSearchBar()
-
+         self.addTitleSearchBar(searchBar1: searchBar)
+        
+    }
+   
+    public func addTitleSearchBar(searchBar1:UISearchBar) {
+        navigationItem.titleView?.layer.cornerRadius = 10
+        navigationItem.titleView?.layer.masksToBounds = true
+        searchBar1.barStyle = .default;
+        searchBar1.searchBarStyle = .minimal;
+        searchBar1.showsCancelButton = false;
+        searchBar1.showsBookmarkButton = false;
+        searchBar1.showsScopeBar = false;
+        searchBar1.showsBookmarkButton = false;
+        searchBar1.resignFirstResponder()
+        searchBar1.endEditing(true)
+        
+        /// Search Bar Design Style
+        if let textfield = searchBar1.value(forKey: "searchField") as? UITextField {
+            
+            textfield.resignFirstResponder();
+            textfield.endEditing(true)
+            textfield.textColor = UIColor.gray
+            searchBar1.placeholder = "Search Medicines"
+            textfield.backgroundColor = UIColor.white
+            if let backgroundview = textfield.subviews.first {
+                backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
+                backgroundview.layer.cornerRadius = 20
+                backgroundview.clipsToBounds = true
+            }
+        }
+        navigationItem.titleView = searchBar1
     }
     
     public func addLeftBarButtonWithBackImage(_ buttonImage: UIImage) {
@@ -65,8 +96,10 @@ extension UIViewController {
         
     }
     
-    @objc public func backView(){
+    @objc public func backView() {
+        self.view.endEditing(true)
         self.navigationController?.popViewController(animated: true)
+        
     }
     func removeNavigationBarItem() {
         self.navigationItem.leftBarButtonItem = nil

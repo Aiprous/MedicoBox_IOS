@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableViewCell" rowHeight="72" id="KGk-i7-Jjw" customClass="CategoryTableViewCell" customModule="MedicoBox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="71.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZjV-rA-uKZ" customClass="DesignableShadowView" customModule="MedicoBox" customModuleProvider="target">
+                        <rect key="frame" x="7" y="7" width="305" height="60"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="capsules" translatesAutoresizingMaskIntoConstraints="NO" id="RrK-7v-Juf">
+                                <rect key="frame" x="5" y="5" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="H1m-zO-ufz"/>
+                                    <constraint firstAttribute="width" constant="48" id="YhF-BA-XF5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prescription Drugs" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pr-A5-wKZ">
+                                <rect key="frame" x="64" y="6" width="212" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow-yellow" translatesAutoresizingMaskIntoConstraints="NO" id="FTZ-f3-89g">
+                                <rect key="frame" x="278" y="19" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="9XZ-9T-CR8"/>
+                                    <constraint firstAttribute="height" constant="22" id="DWX-7D-97T"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FTZ-f3-89g" firstAttribute="leading" secondItem="5pr-A5-wKZ" secondAttribute="trailing" constant="2" id="0Kx-aP-uKU"/>
+                            <constraint firstAttribute="bottom" secondItem="5pr-A5-wKZ" secondAttribute="bottom" constant="6" id="32N-Cg-499"/>
+                            <constraint firstItem="RrK-7v-Juf" firstAttribute="leading" secondItem="ZjV-rA-uKZ" secondAttribute="leading" constant="5" id="9Z4-ax-GQv"/>
+                            <constraint firstItem="5pr-A5-wKZ" firstAttribute="top" secondItem="ZjV-rA-uKZ" secondAttribute="top" constant="6" id="J1b-HK-UNw"/>
+                            <constraint firstItem="RrK-7v-Juf" firstAttribute="top" secondItem="ZjV-rA-uKZ" secondAttribute="top" constant="5" id="RX0-CH-Bq3"/>
+                            <constraint firstItem="FTZ-f3-89g" firstAttribute="centerY" secondItem="ZjV-rA-uKZ" secondAttribute="centerY" id="Ria-ZC-FzD"/>
+                            <constraint firstItem="5pr-A5-wKZ" firstAttribute="leading" secondItem="RrK-7v-Juf" secondAttribute="trailing" constant="11" id="gu7-j2-6If"/>
+                            <constraint firstAttribute="trailing" secondItem="FTZ-f3-89g" secondAttribute="trailing" constant="5" id="p40-4j-IKl"/>
+                            <constraint firstAttribute="bottom" secondItem="RrK-7v-Juf" secondAttribute="bottom" constant="7" id="xjO-Ts-S6o"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerradius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ZjV-rA-uKZ" secondAttribute="bottom" constant="4.5" id="16b-1d-8Uv"/>
+                    <constraint firstItem="ZjV-rA-uKZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="C0P-iG-dgZ"/>
+                    <constraint firstAttribute="trailing" secondItem="ZjV-rA-uKZ" secondAttribute="trailing" constant="8" id="Lyh-Pc-Oqm"/>
+                    <constraint firstItem="ZjV-rA-uKZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="mTx-lH-MTj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblCategoryName" destination="5pr-A5-wKZ" id="dqx-fR-8An"/>
+            </connections>
+            <point key="canvasLocation" x="-43.200000000000003" y="106.14692653673164"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="capsules" width="57" height="57"/>
+        <image name="right-arrow-yellow" width="24" height="24"/>
+    </resources>
+</document>

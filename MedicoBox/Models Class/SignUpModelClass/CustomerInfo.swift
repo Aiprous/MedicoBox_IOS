@@ -9,14 +9,17 @@
 import UIKit
 import Alamofire
 import SVProgressHUD
-
+class Connectivity {
+    class var isConnectedToInternet:Bool {
+        return NetworkReachabilityManager()!.isReachable
+    }
+}
 
 class CustomerInfo: NSObject {
 
         
    class func dataTask_GET(_ path: URL, method: HTTPMethod, param: Dictionary<String, Any>, compilationBlock:@escaping (_ result: Result<Any, NSError> ) -> Void){
-        
-       
+    
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
@@ -61,7 +64,6 @@ class CustomerInfo: NSObject {
     }
     
     class func dataTask_POST(_ path: URL, method: HTTPMethod, param: Dictionary<String, Any>, compilationBlock:@escaping (_ result: Result<Any, NSError> ) -> Void){
-        
         
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",

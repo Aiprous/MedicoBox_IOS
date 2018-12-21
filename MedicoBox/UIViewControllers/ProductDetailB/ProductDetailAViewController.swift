@@ -12,7 +12,8 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPagerViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource , UISearchBarDelegate {
+    var searchBar :UISearchBar?
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var lblOffer: UILabel!
@@ -31,7 +32,9 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self; self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
         
         FeaturedProductsCollectionView.dataSource = self
         FeaturedProductsCollectionView.delegate = self
@@ -46,8 +49,8 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()
+        self.navigationController?.isNavigationBarHidden = false;
+
         self.callAPIGetProductData()
         
         if(kKeyProductQty == ""){
@@ -57,12 +60,10 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
             self.btnAddToCart.alpha = 1;
             
         }else {
-            
             self.lblProductQty.text = kKeyProductQty;
             self.qtyEditCartView.isHidden = false;
             self.btnAddToCart.alpha = 0.8;
             self.btnAddToCart.isEnabled = false;
-
         }
     }
 

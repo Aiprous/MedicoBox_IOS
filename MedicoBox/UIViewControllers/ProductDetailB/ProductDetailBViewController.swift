@@ -13,7 +13,8 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class ProductDetailBViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, FSPagerViewDelegate, FSPagerViewDataSource {
+class ProductDetailBViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, FSPagerViewDelegate, FSPagerViewDataSource, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
     
@@ -57,11 +58,13 @@ class ProductDetailBViewController: UIViewController,UITableViewDataSource,UITab
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()
+        self.navigationController?.isNavigationBarHidden = false;
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         self.callAPIGetProductData()
         self.imgAlertBackView.isHidden = true;
-        
+        self.navigationController?.isNavigationBarHidden = false
         if(kKeyProductQty == ""){
             
             self.btnAddToCart.isEnabled = true;

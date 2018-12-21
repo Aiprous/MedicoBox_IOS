@@ -10,6 +10,7 @@ import UIKit
 
 class HeaderCell: UITableViewCell {
 
+    @IBOutlet weak var viewLine: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var toggleButton: UIButton!
     @IBOutlet weak var iconImageView: UIImageView!

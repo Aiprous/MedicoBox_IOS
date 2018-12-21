@@ -11,7 +11,8 @@ import CoreLocation
 import GoogleMaps
 import GooglePlaces
 
-class OrderTrackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , CLLocationManagerDelegate, GMSMapViewDelegate,UIGestureRecognizerDelegate{
+class OrderTrackingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , CLLocationManagerDelegate, GMSMapViewDelegate,UIGestureRecognizerDelegate, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
     @IBOutlet weak var tblOrderItems: UITableView!
     @IBOutlet weak var lblPriceOrder: UILabel!
@@ -50,7 +51,9 @@ class OrderTrackingViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         
 //        tblOrderItems.separatorStyle = .none
-    self.setNavigationBarItemBackButton()
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
        
         lblPriceOrder.text = "\u{20B9}" + " 350.00"
 
@@ -90,8 +93,7 @@ class OrderTrackingViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()
+        self.navigationController?.isNavigationBarHidden = false;
         drowSourceToDestinationRoute()
         
     }
@@ -434,5 +436,19 @@ class OrderTrackingViewController: UIViewController, UITableViewDelegate, UITabl
         
         let Controller = self.storyboard?.instantiateViewController(withIdentifier: kOrderCancelVC)
         self.navigationController?.pushViewController(Controller!, animated: true)
+    }
+    
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
 }

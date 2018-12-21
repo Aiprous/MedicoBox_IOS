@@ -8,7 +8,8 @@
 
 import UIKit
 
-class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource , UISearchBarDelegate {
+    var searchBar :UISearchBar?
 
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
     
@@ -53,8 +54,9 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
         footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         itemTableView.tableFooterView = footerView
         
-        self.setNavigationBarItemBackButton()
-        self.navigationController?.isNavigationBarHidden = false;
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;        self.navigationController?.isNavigationBarHidden = false;
         
         prescriptionCollectionView.dataSource = self
         prescriptionCollectionView.delegate = self
@@ -64,8 +66,8 @@ class CartOrderSummaryVC: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+        self.navigationController?.isNavigationBarHidden = false;
+
         if(flagViewWillAppear == "true"){
 
             bottomViewHightConstraint.constant = 50;

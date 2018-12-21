@@ -54,7 +54,6 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                                                name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
                                                object: nil)
         
- 
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,27 +73,25 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     
     @IBAction func btnSignInWithOTPAction(_ sender: Any) {
 
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kVerifyOTPVC)
- self.navigationController?.pushViewController(Controller, animated: true)
-        
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kForgotPasswordFromMobileNoVC) as! ForgotPasswordFromMobileNoViewController
+        Controller.isComeforVerifyOTP = true
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     @IBAction func btnSignUpHereAction(_ sender: Any) {
         
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignUpVC)
- self.navigationController?.pushViewController(Controller, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignUpVC) as? SignUpViewController
+        self.navigationController?.pushViewController(Controller!, animated: true)
     }
     
     @IBAction func btnForgotPasswordAction(_ sender: Any) {
         
-
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kForgotPasswordFromMobileNoVC)
-
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kForgotPasswordFromMobileNoVC) as! ForgotPasswordFromMobileNoViewController
+          Controller.isComeforVerifyOTP = false
         self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     @IBAction func btnSignInWithFacebookAction(_ sender: Any) {
         self.startExecutionForFacebookLogin()
-
     }
     
     @IBAction func btnSignInWithGoogleAction(_ sender: Any) {
@@ -245,7 +242,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     @objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
         if notification.name.rawValue == "ToggleAuthUINotification" {
             if notification.userInfo != nil {
-                guard let userInfo = notification.userInfo as? [String:String] else { return }
+                guard (notification.userInfo as? [String:String]) != nil else { return }
 //                self.statusText.text = userInfo["statusText"]!
             }
         }
@@ -314,27 +311,35 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
         }
     }
 
-    
-    
-    
     func callLoginWithTokenAPI() {
-        
+        if Connectivity.isConnectedToInternet {
+            print("Yes! internet is available.")
+            
         let urlString =  kKeyGetLoginUserData;
         print(urlString)
+        
         SVProgressHUD.show()
+//        "Content-Type": "application/json",
+//        "Content-Type":"application/x-www-form-urlencoded"
+//        let headers: HTTPHeaders = [
+//            "Content-Type": "application/x-www-form-urlencoded",
+//            "X-Requested-With": "XMLHttpRequest",
+//            "Cache-Control": "no-cache",
+//            "Authorization": "Bearer " + kAppDelegate.getLoginToken()]
+        let headers = [
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken(),
+            "content-type": "application/x-www-form-urlencoded",
+            "cache-control": "no-cache"
+        ]
         
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "X-Requested-With": "XMLHttpRequest",
-            "Cache-Control": "no-cache",
-            "Authorization": "Bearer " + kAppDelegate.getLoginToken() ]
-        
-        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+        print(kAppDelegate.getLoginToken())
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseJSON { (resposeData) in
             
             DispatchQueue.main.async(execute: {() -> Void in
                 SVProgressHUD.dismiss()
                 
-                if let responseDict : NSDictionary = resposeData.result.value  as? NSDictionary ??  [:] {
+                
+                if let responseDict : NSDictionary = resposeData.result.value  as? NSDictionary  {
                 
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
@@ -347,23 +352,49 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                         if self.signupData != nil {
                             kAppDelegate.userProfileData = self.signupData;
                         }
-                        
                         kAppDelegate.createMenuView()
-                       
-
                         print(responseDict)
-                       
                     }
                     else{
-                        
+                     
                         print(responseDict["message"] as? String ?? "" )
                         self.showToast(message : responseDict["message"] as? String ?? "" )
                     }
                 }
             })
         }
+        
+      /*  let headers = [
+            "authorization": "Bearer " + kAppDelegate.getLoginToken(),
+            "content-type": "application/x-www-form-urlencoded",
+            "cache-control": "no-cache",
+            "postman-token": "2f8ed32d-93b4-7e88-b042-24e373106d5d"
+        ]
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://user8.itsindev.com/medibox/API/customer_self.php")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+            }
+             SVProgressHUD.dismiss()
+        })
+        
+        dataTask.resume()
+    }*/
+        }else{
+            print("No internet connection")
+            self.showToast(message : "No internet connection")
+        }
     }
-
 }
 
 extension Collection where Iterator.Element == [String:AnyObject] {

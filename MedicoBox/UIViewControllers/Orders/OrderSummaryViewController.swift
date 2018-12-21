@@ -8,7 +8,8 @@
 
 import UIKit
 
-class OrderSummaryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class OrderSummaryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
+    var searchBar :UISearchBar? 
 
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
     @IBOutlet weak var lblAddressView: UILabel!
@@ -27,17 +28,19 @@ class OrderSummaryViewController: UIViewController, UICollectionViewDelegate, UI
         prescriptionCollectionView.dataSource = self
         prescriptionCollectionView.delegate = self
         //show navigationbar with back button
-        self.setNavigationBarItemBackButton()
-        self.navigationController?.isNavigationBarHidden = false;
         
+        self.navigationController?.isNavigationBarHidden = false;
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         lblAddressView.text = "Flat No 104, A Wing \nGreen Olive Apartments,\nHinjawadi \nPune - 411057\nMaharashtra \nIndia"
         flagViewWillAppear = "true";
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+        self.navigationController?.isNavigationBarHidden = false;
+
         if(flagViewWillAppear == "true"){
 
             self.bottomViewHightConstraint.constant = 50;

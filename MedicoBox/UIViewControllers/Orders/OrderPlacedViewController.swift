@@ -8,16 +8,18 @@
 
 import UIKit
 
-class OrderPlacedViewController: UIViewController {
+class OrderPlacedViewController: UIViewController, UISearchBarDelegate {
+    var searchBar :UISearchBar?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
 
-        self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;
-
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
 
     }
 

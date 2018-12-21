@@ -15,7 +15,7 @@ import SVProgressHUD
 import SDWebImage
 import CoreLocation
 
-class HomeViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, FSPagerViewDataSource,FSPagerViewDelegate, CLLocationManagerDelegate, GMSMapViewDelegate {
+class HomeViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, FSPagerViewDataSource,FSPagerViewDelegate, CLLocationManagerDelegate, GMSMapViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var medicoSearchBar: UISearchBar!
     @IBOutlet weak var FeaturedProductsCollectionView: UICollectionView!
@@ -35,7 +35,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true;
-        
+        medicoSearchBar.delegate = self;
         if(kKeyCartCount != "0" && kKeyCartCount != ""){
 
             // badge label
@@ -52,13 +52,14 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
             textfield.textColor = UIColor.gray
             textfield.backgroundColor = UIColor.white
-            
+//            textfield.delegate = self
             if let backgroundview = textfield.subviews.first {
                 backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
                 backgroundview.layer.cornerRadius = 20
                 backgroundview.clipsToBounds = true
             }
         }
+        
         //Collection View Add delegate and view Design
         self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
         
@@ -78,12 +79,9 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true;
+        self.view.isUserInteractionEnabled = false
         callAPIGetCartData()
-        callAPIGetProducts()
-        callAPIGetBannerImages()
-        
     }
     
     func addBadgeLabel() {
@@ -106,7 +104,20 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         // Dispose of any resources that can be recreated.
     }
     
-   
+   //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
     
     //MARK:- Collection View Delegate And DataSource
     
@@ -425,7 +436,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     
     @IBAction func btnMEDICINESAction(_ sender: Any) {
         
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kDiabetesCareListVC)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kCategoryVC)
  self.navigationController?.pushViewController(Controller, animated: true)
         
     }
@@ -525,9 +536,10 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
             DispatchQueue.main.async(execute: {() -> Void in
                 SVProgressHUD.dismiss()
-                
+                self.view .isUserInteractionEnabled = true
+
                 if let responseDict : NSArray = resposeData.result.value as? NSArray {
-                    
+                    self.callAPIGetBannerImages()
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
                         print(responseDict);
@@ -560,7 +572,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
             DispatchQueue.main.async(execute: {() -> Void in
                 SVProgressHUD.dismiss()
-                
+                self.view .isUserInteractionEnabled = true
                 if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
                     
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
@@ -575,10 +587,10 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
                     else{
                         
                         self.showToast(message: responseDict.value(forKey: "message") as! String)
-                        
                         print(responseDict.value(forKey: "message") as! String );
                         
                     }
+                    
                 }
             })
         }
@@ -593,7 +605,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
         
         let urlString = kKeyGetCartDataAPI;
         print(urlString)
-        //        SVProgressHUD.show()
+        SVProgressHUD.show()
         
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
@@ -605,6 +617,7 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
             
             DispatchQueue.main.async(execute: {() -> Void in
                 //                SVProgressHUD.dismiss()
+                self.callAPIGetProducts()
                 
                 if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
                     

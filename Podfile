@@ -21,5 +21,23 @@ target 'MedicoBox' do
     pod 'GooglePlaces'
     pod 'FSPagerView'
     pod 'IQKeyboardManager'
+    pod 'OpalImagePicker'
+end
 
+swift4 = ['OpalImagePicker']
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        swift_version = nil
+        
+        if swift4.include?(target.name)
+            swift_version = '4.2'
+        end
+        
+        if swift_version
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = swift_version
+            end
+        end
+    end
 end

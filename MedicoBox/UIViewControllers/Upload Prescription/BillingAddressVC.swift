@@ -8,7 +8,8 @@
 
 import UIKit
 
-class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate {
+class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate,  UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
     @IBOutlet weak var tblAddressField: UITableView!
     @IBOutlet weak var btnOther: UIButton!
@@ -31,7 +32,9 @@ class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSour
         tblAddressField.tableFooterView = footerView
         
         //show navigationbar with back button
-        self.setNavigationBarItemBackButton()
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         self.navigationController?.isNavigationBarHidden = false;
         
         btnOffice.setImage(#imageLiteral(resourceName: "circle-outline"), for: .normal)
@@ -81,13 +84,9 @@ class BillingAddressVC: UIViewController,UITableViewDelegate,UITableViewDataSour
                 print("Please enter valid 10 digit mobile number")
                 alertWithMessage(title: "Alert", message: "Please enter valid 10 digit phone number", vc: self)
                 return false
-            }else if (arrayofValues["Flat Number"] != nil) && (arrayofValues["Flat Number"]?.isEmpty)!{
-                print("Flat number is Empty")
-                alertWithMessage(title: "Alert", message: "Please enter flat number", vc: self)
-                return false
-            }else if (arrayofValues["Building Name*"] != nil) && (arrayofValues["Building Name*"]?.isEmpty)!{
-                print("Building name is Empty")
-                alertWithMessage(title: "Alert", message: "Please enter building name", vc: self)
+            }else if (arrayofValues["Flat Number, Building Name*"] != nil) && (arrayofValues["Flat Number, Building Name*"]?.isEmpty)!{
+                print("Flat Number, Building Name* is Empty")
+                alertWithMessage(title: "Alert", message: "Please enter flat number, building name", vc: self)
                 return false
             }else if (arrayofValues["Street / Road Name"] != nil) && (arrayofValues["Street / Road Name"]?.isEmpty)!{
                 print("Street / road name is Empty")

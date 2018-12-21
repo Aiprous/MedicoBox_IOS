@@ -11,12 +11,14 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
     @IBOutlet weak var diabetesTblView: UITableView!
     
     var productsListArray =  NSArray();
     var cartArray = NSArray();
+    var category_id : NSString?
     var product_Id = "";
     var sku_id = "";
     var productItem_id = "";
@@ -25,7 +27,9 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = false;
-        self.setNavigationBarItemBackButton()
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         
         // Do any additional setup after loading the view.
         diabetesTblView.register(UINib(nibName: "DiabetesCareCell", bundle: nil), forCellReuseIdentifier: "DiabetesCareCell")
@@ -36,6 +40,7 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
         footerView.frame = CGRect(x: 0, y: 0, width: diabetesTblView.frame.size.width, height: 1)
         footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         diabetesTblView.tableFooterView = footerView
+        self.callAPIGetProductsList()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -43,10 +48,9 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+           self.navigationController?.isNavigationBarHidden = false;
         self.callAPIGetCartData()
-        self.callAPIGetProductsList()
+        
         
     }
     override func didReceiveMemoryWarning() {
@@ -54,6 +58,19 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
     
     //MARK:- Table View Delegate And DataSource
     
@@ -76,8 +93,12 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
         
         let dictObj = self.productsListArray.object(at: indexPath.row) as! NSDictionary
         
+        if dictObj.value(forKey: "wishlist") as? String == "1" {
+            cellObj.btnLike.setImage(#imageLiteral(resourceName: "heart-active"), for: .normal)
+        }else{
+            cellObj.btnLike.setImage(#imageLiteral(resourceName: "heart-inactive"), for: .normal)
+        }
         
-        cellObj.btnLike.setImage(#imageLiteral(resourceName: "heart-inactive"), for: .normal)
         cellObj.lblTabletName.text = (dictObj.value(forKey: "title") as? String ?? "")!;
         cellObj.lblSku.text = (dictObj.value(forKey: "sku") as? String ?? "")!;
         cellObj.lblDescription.text = (dictObj.value(forKey: "short_description") as? String ?? "")!;
@@ -279,9 +300,17 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
         let position: CGPoint = button.convert(.zero, to: self.diabetesTblView)
         let indexPath = self.diabetesTblView.indexPathForRow(at: position)
         let cell:DiabetesCareCell = diabetesTblView.cellForRow(at: indexPath!) as! DiabetesCareCell
-        
+        let dict = self.productsListArray[button.tag] as! NSDictionary
         if(button.isSelected != true){
             
+            let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "CustomAlertID") as! CustomAlertView
+            customAlert.productId = (dict.value(forKey: "id") as? String)
+            customAlert.providesPresentationContextTransitionStyle = true
+            customAlert.definesPresentationContext = true
+            customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            customAlert.delegate = self
+            self.present(customAlert, animated: true, completion: nil)
             cell.btnLike.setImage(#imageLiteral(resourceName: "heart-active"), for: .normal)
             button.isSelected = true;
             
@@ -301,7 +330,9 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
     func callAPIGetProductsList() {
         
         var paraDict = NSMutableDictionary()
-        paraDict =  ["category_id": "38"] as NSMutableDictionary
+        
+            paraDict =  ["category_id": category_id ?? "38", "user_id": "226"] as NSMutableDictionary
+        
         
         let urlString = BASEURL + "/API/products.php"
         print(urlString, paraDict)
@@ -322,10 +353,13 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
                     
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
-                        
-                        self.productsListArray = (responseDict.value(forKey: "response") as? NSArray ?? [])!;
-                        print(self.productsListArray)
-                        self.diabetesTblView.reloadData();
+                        let dict = responseDict.value(forKey: "response") as? NSDictionary
+                        if dict?.value(forKey: "status") as? String  == "success" {
+                            self.productsListArray = (dict?.value(forKey: "products") as? NSArray ?? [])!;
+//                            print(self.productsListArray)
+                            self.diabetesTblView.reloadData();
+                        }
+                       
                         
                     }else{
                         
@@ -407,11 +441,14 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
                     {
                         if((responseDict.value(forKey: "res")) != nil){
                             
-                           self.cartArray = (responseDict.value(forKey: "res") as? NSArray)!;
+                            if let val = responseDict.value(forKey: "res") as? NSArray {
+                                self.cartArray = val;
+                            }
+                           
 //                            UserDefaults.standard.set(cartAllArray, forKey: "CartArray")
                             print(responseDict);
                             kKeyCartCount = String(self.cartArray.count);
-                            self.viewDidLoad();
+//                            self.viewDidLoad();
                             self.diabetesTblView.reloadData()
                             
                         }else {
@@ -474,4 +511,16 @@ class DiabetesCareList: UIViewController,UITableViewDelegate,UITableViewDataSour
         }
     }
     
+}
+extension DiabetesCareList: CustomAlertViewDelegate {
+    
+    func okButtonTapped(selectedOption: String, textFieldValue: String) {
+        print("okButtonTapped with \(selectedOption) option selected")
+        print("TextField has value: \(textFieldValue)")
+    }
+    
+    func saveButtonTapped(wishlist_name_id:String) {
+        print("SaveButtonTapped")
+        self.callAPIGetProductsList()
+    }
 }

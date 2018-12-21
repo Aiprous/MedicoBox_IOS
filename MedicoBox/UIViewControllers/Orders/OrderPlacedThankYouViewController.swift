@@ -11,8 +11,8 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource , UIScrollViewDelegate{
-    
+class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource , UIScrollViewDelegate, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     @IBOutlet weak var tblOrderItems: UITableView!
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
     
@@ -40,8 +40,10 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
         prescriptionCollectionView.dataSource = self
         prescriptionCollectionView.delegate = self
         //show navigationbar with back button
-        self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         
         lblMrpTotalOrder.text = "\u{20B9}" + " 350.00"
         lblPriceDiscountOrder.text = "- "  + "\u{20B9}" + " 35.00"
@@ -74,8 +76,7 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()
+        self.navigationController?.isNavigationBarHidden = false;
         callAPIGetProductsList()
         
         if(flagViewWillAppear == "true"){

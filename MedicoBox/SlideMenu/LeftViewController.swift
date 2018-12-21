@@ -10,10 +10,10 @@ import UIKit
 enum LeftMenuUser: Int {
     case home = 0
     case orders
-    case medicines
-    case labtests
+//    case medicines
+//    case labtests
     case account
-    case cart
+    case wishlist
     case notifications
     case settings
     case logout
@@ -48,12 +48,9 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     var myOrdersViewController: UIViewController!
     var myProfileViewController: UIViewController!
     var notificationViewController: UIViewController!
-    var cartViewControlle: UIViewController!
+    var wishListViewControlle: UIViewController!
     var signInViewController: UIViewController!
     var settingsViewController: UIViewController!
-    
-    
-    
     var imageHeaderView: ImageHeaderView!
     var sections = [Section]()
     required init?(coder aDecoder: NSCoder) {
@@ -64,10 +61,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         super.viewDidLoad()
 
                 sections = [
-                    Section(name: "Home", items: []),
-                    Section(name: "Orders", items: ["Medicines", "Lab Tests"]),
+                    Section(name: "Home", items: []), Section(name: "Orders", items:[]),
+//                    Section(name: "Orders", items: ["Medicines", "Lab Tests"]),
                     Section(name: "Account", items: []),
-                    Section(name: "Cart", items: []),
+                    Section(name: "Wishlist", items: []),
                     Section(name: "Notifications", items: []),
                     Section(name: "Settings", items: []),
                     Section(name: "Logout", items: []),
@@ -102,8 +99,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let myOrderViewController = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kMyOrdersVC)
         self.myOrdersViewController = UINavigationController(rootViewController: myOrderViewController)
         
-        let cartViewControlle = kCartStoryBoard.instantiateViewController(withIdentifier: kCartViewController)
-        self.cartViewControlle = UINavigationController(rootViewController: cartViewControlle)
+        let wishlistViewControlle = kMainStoryboard.instantiateViewController(withIdentifier: kInstaOrdersListVC)
+        self.wishListViewControlle = UINavigationController(rootViewController: wishlistViewControlle)
         
      
         let notificationVC = kMainStoryboard.instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
@@ -127,7 +124,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
     
     func changeViewController(_ menu: LeftMenuUser) {
         switch menu {
-        case .home, .labtests:
+        case .home:
             self.slideMenuController()?.changeMainViewController(self.homeViewController, close: true)
             
         case.settings:
@@ -151,7 +148,7 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
                 }
             }
             
-        case .medicines: self.slideMenuController()?.changeMainViewController(self.myOrdersViewController, close: true)
+        case .orders: self.slideMenuController()?.changeMainViewController(self.myOrdersViewController, close: true)
 
         case .account:             self.slideMenuController()?.changeMainViewController(self.myProfileViewController, close: true)
 
@@ -159,8 +156,8 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         case .notifications:
             self.slideMenuController()?.changeMainViewController(self.notificationViewController, close: true)
             
-        case .cart:
-            self.slideMenuController()?.changeMainViewController(self.cartViewControlle, close: true)
+        case .wishlist:
+            self.slideMenuController()?.changeMainViewController(self.wishListViewControlle, close: true)
 
         default: break
         }
@@ -192,28 +189,27 @@ extension LeftViewController : UITableViewDelegate {
         let section = getSectionIndex(indexPath.row)
         let row = getRowIndex(indexPath.row)
 
-        if sections[section].name == "Orders" {
-            
-            if let menu = LeftMenuUser(rawValue: sections[section].collapsed! ? section : section+row) {
-                self.changeViewController(menu)
-            }
-        }else {
-            if section > 1 {
-                if let menu = LeftMenuUser(rawValue: section+2) {
-                    self.changeViewController(menu)
-                }
-            }else{
+//        if sections[section].name == "Orders" {
+//
+//            if let menu = LeftMenuUser(rawValue: sections[section].collapsed! ? section : section+row) {
+//                self.changeViewController(menu)
+//            }
+//        }else {
+//            if section > 1 {
+//                if let menu = LeftMenuUser(rawValue: section+2) {
+//                    self.changeViewController(menu)
+//                }
+//            }else{
                 if let menu = LeftMenuUser(rawValue: section) {
                     self.changeViewController(menu)
-                }
-            }
+//                }
+//            }
         }
         
     }
    
 }
 extension LeftViewController : UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -239,7 +235,7 @@ extension LeftViewController : UITableViewDataSource {
             imageHeaderView.lblEmailID.text = userProfileData?.email
             
         }
-        imageHeaderView.profileImage.image = #imageLiteral(resourceName: "1")
+//        imageHeaderView.profileImage.image = #imageLiteral(resourceName: "take-photo")
  
                 if row == 0 {
                     
@@ -250,10 +246,16 @@ extension LeftViewController : UITableViewDataSource {
                     if section > 1 {
                         cell.iconImageView.image = UIImage.init(named: iconArray[section+2])
                     }
+                    
                     if sections[section].items.count > 0 {
-                        
-                        cell.toggleButton.isHidden = false;
-                        cell.toggleButton.addTarget(self, action: #selector(LeftViewController.toggleCollapse), for: .touchUpInside)
+//                        cell.toggleButton.isHidden = false
+                        cell.toggleButton.isHidden = true;
+//                        cell.toggleButton.addTarget(self, action: #selector(LeftViewController.toggleCollapse), for: .touchUpInside)
+                    }
+                    if section == 3 {
+                        cell.viewLine.isHidden = false
+                    }else{
+                        cell.viewLine.isHidden = true
                     }
                     return cell
                 } else {

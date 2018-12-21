@@ -38,9 +38,11 @@ let kKeyEditCartAPI = BASEURL  + "/index.php/rest/V1/carts/mine/items/"
 let kKeyDeleteCartAPI = BASEURL + "/index.php/rest/V1/carts/mine/items/"
 let kKeyGetCartID = BASEURL + "/index.php/rest/V1/carts/mine"
 
-
-
-
+//LoginWithOTP
+//http://user8.itsindev.com/medibox/API/otp_login.php
+let kKeyLoginOTP = BASEURL + "/API/otp_login.php"
+let kKeyVerifyOTP = BASEURL + "/API/verify-login-otp.php"
+let kKeySetNewPassword = BASEURL + "/API/set-new-password.php"
 
 //Google APIs
 let cinstantbaseUrl1 = "https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec=true"
@@ -101,8 +103,9 @@ let kUsageAndWorkVC =  "UsageAndWorkViewController"
 let kInteractionsAndSideEffectsVC =  "InteractionsAndSideEffectsViewController"
 let kSettingsVC = "SettingsViewController"
 let kProductDrugInfoVC = "ProductDrugInfoViewController"
-
-
+let kSearchVC = "SearchViewController"
+let kCategoryVC = "CategoryViewController"
+let kSubCategoryVC = "SubCategoryViewController"
 
 // MARK: Image Constant
 let kbackgroundColor  =  UIColor.init(hexString: "#d7e0e7")

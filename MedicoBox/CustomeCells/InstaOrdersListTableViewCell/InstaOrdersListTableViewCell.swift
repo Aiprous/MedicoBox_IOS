@@ -16,20 +16,21 @@ class InstaOrdersListTableViewCell: UITableViewCell {
     @IBOutlet weak var optionView: UIView!
     @IBOutlet weak var btnEdit: UIButton!
     @IBOutlet weak var btnAddItem: UIButton!
-    @IBOutlet weak var lblSelectAll: UILabel!
+    
     @IBOutlet weak var lblOrderName: UILabel!
     @IBOutlet weak var bottomCellView: UIView!
     @IBOutlet weak var topHeaderCellView: UIView!
     @IBOutlet weak var btnPlus: UIButton!
     @IBOutlet weak var btnMinus: UIButton!
-    @IBOutlet weak var btnCheckboxCell: UIButton!
-    @IBOutlet weak var btnSelectAll: UIButton!
     @IBOutlet weak var lblInstaOrderCount: UILabel!
 //    var headerTitle = String()
-    @IBOutlet weak var bottonCellViewHeight: NSLayoutConstraint!
+
+    @IBOutlet weak var btnPtoductDetail: UIButton!
     
-     @IBOutlet weak var SelectAllCellViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var bottonCellViewTop: NSLayoutConstraint!
+    @IBOutlet weak var btnAddToCart: DesignableButton!
+    
+    @IBOutlet weak var btnShareWishlist: DesignableButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
       
@@ -74,6 +75,8 @@ class InstaOrdersListTableViewCell: UITableViewCell {
         super.layoutSubviews()
         let bounds: CGRect = self.bounds.insetBy(dx: 5, dy: 0)
         selectedBackgroundView?.frame = bounds
+        selectedBackgroundView?.backgroundColor = UIColor.clear
+
     }
 }
 

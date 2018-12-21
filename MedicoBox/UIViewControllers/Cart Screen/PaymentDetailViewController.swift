@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PaymentDetailViewController: UIViewController {
+class PaymentDetailViewController: UIViewController, UISearchBarDelegate {
+    var searchBar :UISearchBar?
 
     @IBOutlet weak var lblMrpTotalOrder: UILabel!
     @IBOutlet weak var lblPriceDiscountOrder: UILabel!
@@ -24,8 +25,9 @@ class PaymentDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.setNavigationBarItemBackButton()
-        self.navigationController?.isNavigationBarHidden = false;
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;        self.navigationController?.isNavigationBarHidden = false;
         
 //        lblPriceOrder.text = "\u{20B9}" + " 350.00"
         
