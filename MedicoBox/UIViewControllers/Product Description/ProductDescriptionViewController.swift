@@ -47,6 +47,20 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false;
     }
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
     //MARK:- Collection View Delegate And DataSource
     
     // tell the collection view how many cells to make

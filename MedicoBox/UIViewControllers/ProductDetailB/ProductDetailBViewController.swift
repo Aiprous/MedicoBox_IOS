@@ -50,7 +50,7 @@ class ProductDetailBViewController: UIViewController,UITableViewDataSource,UITab
         footerView.frame = CGRect(x: 0, y: 0, width: prodTblView.frame.size.width, height: 1)
         footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         prodTblView.tableFooterView = footerView
-        
+        self.navigationController?.isNavigationBarHidden = false;
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -87,11 +87,26 @@ class ProductDetailBViewController: UIViewController,UITableViewDataSource,UITab
         }
     }
     
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
     
     //MARK:- Table View Delegate And DataSource
     

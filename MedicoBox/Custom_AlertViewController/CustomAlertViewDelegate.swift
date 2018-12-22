@@ -8,5 +8,5 @@
 
 protocol CustomAlertViewDelegate: class {
     func okButtonTapped(selectedOption: String, textFieldValue: String)
-    func saveButtonTapped(wishlist_name_id:String)
+    func saveButtonTapped()
 }

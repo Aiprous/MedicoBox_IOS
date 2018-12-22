@@ -13,6 +13,7 @@ extension UIViewController {
     
     func setNavigationBarItem(searchBar:UISearchBar) {
         
+        self.addTitleSearchBar(searchBar1: searchBar)
         self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
         self.addRightBarButtonWithImage(UIImage(named: "cart")!)
        
@@ -20,7 +21,7 @@ extension UIViewController {
         self.slideMenuController()?.removeRightGestures()
         self.slideMenuController()?.addLeftGestures()
         self.slideMenuController()?.addRightGestures()
-        self.addTitleSearchBar(searchBar1: searchBar)
+        
     }
     
     func setNavigationBarItemPharm() {
@@ -35,9 +36,7 @@ extension UIViewController {
     }
 
     func setNavigationBarItemBackButton(searchBar:UISearchBar) {
-        
-        self.addLeftBarButtonWithBackImage(UIImage(named: "back-arrow")!)
-        
+
         if(kKeyCartCount != "0" && kKeyCartCount != ""){
 
             self.addRightBarButtonWithImage(UIImage(named: "cart")!)
@@ -49,6 +48,7 @@ extension UIViewController {
         }
          self.addTitleSearchBar(searchBar1: searchBar)
         
+         self.addLeftBarButtonWithBackImage(UIImage(named: "back-arrow")!)
     }
    
     public func addTitleSearchBar(searchBar1:UISearchBar) {

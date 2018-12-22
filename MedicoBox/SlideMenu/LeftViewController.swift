@@ -99,8 +99,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
         let myOrderViewController = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kMyOrdersVC)
         self.myOrdersViewController = UINavigationController(rootViewController: myOrderViewController)
         
-        let wishlistViewControlle = kMainStoryboard.instantiateViewController(withIdentifier: kInstaOrdersListVC)
-        self.wishListViewControlle = UINavigationController(rootViewController: wishlistViewControlle)
+        let wishlistViewControlle = kMainStoryboard.instantiateViewController(withIdentifier: kInstaOrdersListVC) as? InstaOrdersListViewController
+            wishlistViewControlle?.isComefromMenu = false
+
+        self.wishListViewControlle = UINavigationController(rootViewController: wishlistViewControlle!)
         
      
         let notificationVC = kMainStoryboard.instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
@@ -143,7 +145,10 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
                     let kUserDefault = UserDefaults.standard
                     kUserDefault.removeObject(forKey: "loginToken");
                     kUserDefault.synchronize()
-//                    set(loginToken, forKey: "loginToken");
+                    
+                    let recovedUserJsonData = UserDefaults.standard.object(forKey: "loginUserData")
+                    let recovedUserJson = NSKeyedUnarchiver.unarchiveObject(with: recovedUserJsonData as! Data)
+                    
                     self.slideMenuController()?.changeMainViewController(self.signInViewController, close: true)
                 }
             }

@@ -60,9 +60,9 @@ class DesignableUITextField: UITextField {
     }
     
     public func isEmpty() -> Bool {
-    
-    return ((self.text?.trimmingCharacters(in: NSCharacterSet.whitespaces).count)! > 0)
-       
+        
+        return ((self.text?.trimmingCharacters(in: NSCharacterSet.whitespaces).count)! > 0)
+        
     }
     public func isValidPhoneNumberCount() -> Bool {
         
@@ -158,6 +158,8 @@ extension String{
             }
         }
     }
+    
+    
 }
 extension UIView {
     
@@ -192,25 +194,25 @@ extension UIView {
         self.layer.borderWidth = 1
         self.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         self.layer.masksToBounds = false
-      
+        
     }
     // OUTPUT 3
-        func ViewdropShadow() {
-            
-            self.layer.masksToBounds = false
-            self.layer.shadowColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            self.layer.shadowOpacity = 1.0
-            self.layer.shadowOffset = CGSize(width: 0.5, height: 3.0)
-            self.layer.shadowRadius = 0.5
-            self.layer.borderWidth = 1
-            self.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-            self.layer.shouldRasterize = true
-            self.layer.rasterizationScale = UIScreen.main.scale
-            self.layer.masksToBounds = false
-            self.layer.cornerRadius = 8.0
-            
-        }
+    func ViewdropShadow() {
+        
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowOffset = CGSize(width: 0.5, height: 3.0)
+        self.layer.shadowRadius = 0.5
+        self.layer.borderWidth = 1
+        self.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+        self.layer.masksToBounds = false
+        self.layer.cornerRadius = 8.0
+        
+    }
     
 }
 extension UIButton {
@@ -281,13 +283,13 @@ extension UIViewController {
         (vc as? UIViewController)?.present(alert, animated: true, completion: nil)
         
     }
-
+    
     public func isValidPassword(txtPass : String) -> Bool {
         let passwordRegex = "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8,15}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: txtPass)
     }
     
-   public func isValidEmailID(txtEmail : String) -> Bool {
+    public func isValidEmailID(txtEmail : String) -> Bool {
         
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
@@ -299,7 +301,7 @@ extension UIViewController {
         }
     }
     
-   public func isValidName(txtName: String) -> Bool {
+    public func isValidName(txtName: String) -> Bool {
         
         let firstNameRegex = "[a-zA-z]+([ '-][a-zA-Z]+)*$"
         let firstNameTest = NSPredicate(format: "SELF MATCHES %@", firstNameRegex)
@@ -311,13 +313,13 @@ extension UIViewController {
         return result
     }
     
-   public func isValidMobileNo(mobileNo : String) -> Bool {
+    public func isValidMobileNo(mobileNo : String) -> Bool {
         
         let noRegex = "[0-9]{6,14}$"
         let noTest = NSPredicate(format: "SELF MATCHES %@", noRegex)
         
         let result = noTest.evaluate(with: mobileNo)
-    
+        
         if result == false {
             
             return false
@@ -325,7 +327,23 @@ extension UIViewController {
         return result
         
     }
-
+    public  func callNumber(phoneNumber:String) {
+        
+        if let phoneCallURL = URL(string: "telprompt://\(phoneNumber)") {
+            
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                if #available(iOS 10.0, *) {
+                    application.open(phoneCallURL, options: [:], completionHandler: nil)
+                } else {
+                    // Fallback on earlier versions
+                    application.openURL(phoneCallURL as URL)
+                    
+                }
+            }
+        }
+    }
+    
 }
 extension UIButton {
     func underline() {
@@ -345,7 +363,7 @@ extension UILabel {
             attributedString.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: NSMakeRange(0, textString.length))
             attributedText = attributedString
         }
-
+        
     }
 }
 

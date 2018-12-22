@@ -9,7 +9,7 @@
 import UIKit
 
 class DeliveryAddressTableCell: UITableViewCell {
-
+    
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var menuOptionView: DesignableShadowView!
     @IBOutlet weak var btnEdit: UIButton!
@@ -17,6 +17,7 @@ class DeliveryAddressTableCell: UITableViewCell {
     @IBOutlet weak var btnMenuOption: UIButton!
     @IBOutlet weak var btnAddressSelect: UIButton!
     @IBOutlet weak var btnCall: UIButton!
+    @IBOutlet weak var lblUserName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,10 +25,10 @@ class DeliveryAddressTableCell: UITableViewCell {
         
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

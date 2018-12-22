@@ -64,7 +64,7 @@ class CustomAlertView: UIViewController, UITableViewDelegate, UITableViewDataSou
         //Save button action
         alertTextField.resignFirstResponder()
         self.saveProductToWishListAPI()
-        delegate?.saveButtonTapped(wishlist_name_id: "67")
+        delegate?.saveButtonTapped()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -270,7 +270,14 @@ class CustomAlertView: UIViewController, UITableViewDelegate, UITableViewDataSou
 //            "wishlist_name_id":65,
 //            "item_id": 66
 //        }
-        paraDict =  ["user_id": "226", "wishlist_name_id" : "65", "item_id": productId ?? ""] as NSMutableDictionary
+        
+       
+        for dict in selectedwishListArray ?? []{
+            if ((dict as AnyObject).value(forKey: "selectedFlag") as! Bool) {
+             paraDict =  ["user_id": "226", "wishlist_name_id" : (dict as AnyObject).value(forKey: "wishlist_name_id") as! String, "item_id": productId ?? ""] as NSMutableDictionary
+            }
+        }
+       
         //        https://user8.itsindev.com/medibox/API/add_item_wishlist.php
         
         let urlString = BASEURL + "/API/add_item_wishlist.php"
@@ -296,13 +303,15 @@ class CustomAlertView: UIViewController, UITableViewDelegate, UITableViewDataSou
                         
                         if responseDict.value(forKey: "response") != nil {
                             
-                            self.wishListArray = responseDict.value(forKey: "response") as? NSArray
-                            self.selectedwishListArray = [];
-                            for dict in self.wishListArray! {
-                                var dict1:NSMutableDictionary = (dict as! NSDictionary).mutableCopy() as! NSMutableDictionary
-                                dict1.setObject(false, forKey: "selectedFlag" as NSCopying)
-                                self.selectedwishListArray?.add(dict1)
-                            }
+//                            self.wishListArray = responseDict.value(forKey: "response") as? NSDictionary
+//                            self.selectedwishListArray = [];
+//                            for dict in self.wishListArray! {
+//                                var dict1:NSMutableDictionary = (dict as! NSDictionary).mutableCopy() as! NSMutableDictionary
+//                                dict1.setObject(false, forKey: "selectedFlag" as NSCopying)
+//                                self.selectedwishListArray?.add(dict1)
+                                self.showToast(message : responseDict.value(forKeyPath: "response.msg") as! String)
+                            print(responseDict.value(forKeyPath: "response.msg") as! String)
+//                            }
                         }
                         self.tblWishList.reloadData();
                         

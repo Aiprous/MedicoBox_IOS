@@ -21,12 +21,19 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     @IBOutlet weak var lblTabletSRProductInfoView: UILabel!
     var wishListArray: NSArray?
     var displayList = NSMutableArray()
+    var isComefromMenu:Bool?
     //    var destinationData: [DestinationData?]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar = UISearchBar(frame: CGRect.zero);
-        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        if isComefromMenu ?? false {
+            self.setNavigationBarItem(searchBar: searchBar!)
+        }else{
+            self.setNavigationBarItemBackButton(searchBar: searchBar!)
+
+        }
+        self.setNavigationBarItem(searchBar: searchBar!)
         self.searchBar?.delegate = self;
         //        destinationData = getData()
         self.btnBackView.isHidden = true;
@@ -58,7 +65,22 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         // Get wishlist
+        self.navigationController?.isNavigationBarHidden = false;
         self.getInstaOrderListAPI()
+    }
+    
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     //MARK:- Table View Delegate And DataSource
@@ -90,13 +112,18 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
                  cellObj.btnAddToCart.isHidden = true
                  cellObj.btnShareWishlist.isHidden = true
                  cellObj.btnDropDown.isHidden = true
+                 cellObj.lblEmptyMessage.isHidden = false
             }else{
+                let arrayItems = dict.value(forKey: "items") as! NSArray
+                cellObj.lblOrderName.text = (arrayItems[indexPath.row] as AnyObject).value(forKey: "name") as? String
                  cellObj.bottomCellView.isHidden = false
                  cellObj.btnAddToCart.isHidden = false
                  cellObj.btnShareWishlist.isHidden = false
-                 cellObj.btnDropDown.isHidden = false
+                 cellObj.btnDropDown.isHidden = true
+                 cellObj.lblEmptyMessage.isHidden = true
             }
             cellObj.topHeaderCellView.isHidden = false
+            cellObj.headerTopHeightConstant.constant = 112
 //            cellObj.btnSelectAll.isHidden = false
 //            cellObj.lblSelectAll.isHidden = false
             
@@ -108,10 +135,17 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
 //            cellObj.SelectAllCellViewHeight.constant = 0;
 //            cellObj.btnSelectAll.isHidden = true
 //            cellObj.lblSelectAll.isHidden = true
-            cellObj.bottomCellView.isHidden = false
+            cellObj.headerTopHeightConstant.constant = 1
             cellObj.topHeaderCellView.isHidden = true
+            cellObj.bottomCellView.isHidden = false
+            let arrayItems = dict.value(forKey: "items") as! NSArray
+            cellObj.lblOrderName.text = (arrayItems[indexPath.row] as AnyObject).value(forKey: "name") as? String
+          
         }
       
+        cellObj.btnEdit.tag = indexPath.row;
+        cellObj.btnShareWishlist.addTarget(self, action: #selector(btnShareWishlistAction(button:)), for: UIControlEvents.touchUpInside);
+
         cellObj.optionView.isHidden = true;
         cellObj.btnOptions.tag = indexPath.row;
         cellObj.btnOptions.addTarget(self, action: #selector(btnOptionAction(button:)), for: UIControlEvents.touchUpInside);
@@ -126,8 +160,8 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
 //        cellObj.btnCheckboxCell.tag = indexPath.row;
 //        cellObj.btnCheckboxCell.addTarget(self, action: #selector(btnSelectProductAction(button:)), for: UIControlEvents.touchUpInside);
         cellObj.btnDropDown.tag = indexPath.section
-        let headerTapped = UITapGestureRecognizer(target: self, action:#selector(InstaOrdersListViewController.sectionHeaderTapped(_:)))
-        cellObj.btnDropDown.addGestureRecognizer(headerTapped)
+//        let headerTapped = UITapGestureRecognizer(target: self, action:#selector(btnDropDownAction(button:)))
+        cellObj.btnDropDown.addTarget(self, action: #selector(btnDropDownAction(button:)), for: UIControlEvents.touchUpInside);
         cellObj.btnPlus.tag = indexPath.row;
         cellObj.btnPlus.addTarget(self, action: #selector(btnPlusAction(button:)), for: UIControlEvents.touchUpInside);
         cellObj.btnMinus.tag = indexPath.row;
@@ -298,9 +332,52 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
         let cell:InstaOrdersListTableViewCell = tblInstaOrdersList.cellForRow(at: indexPath!) as! InstaOrdersListTableViewCell
          cell.optionView.isHidden = true
     }
-    @objc func btnSelectAllAction(button: UIButton) {
-        //        let position: CGPoint = button.convert(.zero, to: self.tblInstaOrdersList)
-        //        let indexPath = self.tblInstaOrdersList.indexPathForRow(at: position)
+    @objc func btnDropDownAction(button: UIButton) {
+        let position: CGPoint = button.convert(.zero, to: self.tblInstaOrdersList)
+        let indexPath = self.tblInstaOrdersList.indexPathForRow(at: position)
+        let cell:InstaOrdersListTableViewCell = tblInstaOrdersList.cellForRow(at: indexPath!) as! InstaOrdersListTableViewCell
+        if cell.bottomCellView.isHidden {
+            cell.bottomCellView.isHidden = false
+        }else{
+            cell.bottomCellView.isHidden = true
+        }
+    }
+    
+    @objc func btnShareWishlistAction(button: UIButton) {
+                let position: CGPoint = button.convert(.zero, to: self.tblInstaOrdersList)
+                let indexPath = self.tblInstaOrdersList.indexPathForRow(at: position)
+        
+        let alert = UIAlertController(title: "Share Wishlist", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Please enter email id"
+            textField.keyboardType = UIKeyboardType.emailAddress
+        })
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Please enter message"
+        })
+        //the cancel action doing nothing
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        let submitAction = UIAlertAction(title: "Share", style: .default) { [unowned alert] _ in
+            let answer = alert.textFields![0]
+            let answer1 = alert.textFields![1]
+            if answer.text != "" {
+                if self.isValidEmailID(txtEmail: answer.text!) {
+                    self.shareWishListAPI(wishListId:  (indexPath?.section)! , email: answer.text!, message: answer1.text ?? "")
+                }else{
+                    self.alertWithMessage(title: "Alert", message: "Please enter valid email address", vc: self)
+                }
+            }else{
+                self.alertWithMessage(title: "Alert", message: "Please enter valid email address", vc: self)
+            }
+            // do something interesting with "answer" here
+        }
+        
+        alert.addAction(submitAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+        
         //        let cell:InstaOrdersListTableViewCell = tblInstaOrdersList.cellForRow(at: indexPath!) as! InstaOrdersListTableViewCell
         
     }
@@ -478,8 +555,7 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
             })
         }
     }
-    func deleteWishListAPI(
-        wishListId: Int) {
+    func deleteWishListAPI(wishListId: Int) {
 //    {
 //        "wishlist_name_id" :57,
 //        "user_id": 184
@@ -528,5 +604,58 @@ class InstaOrdersListViewController: UIViewController,UITableViewDelegate, UITab
             })
         }
     }
+    
+    func shareWishListAPI(wishListId: Int , email: String , message: String) {
+        //   {
+       //        "user_id":184,
+       //        "wishlistname_id":64,
+       //        "emails": "peters@mitash.com, joyk@mitash.com",
+      //        "message": "test sharing"
+      //    }
+        let dict = self.wishListArray![wishListId] as! NSDictionary
+        
+        var paraDict = NSMutableDictionary()
+        paraDict =  ["user_id": "226", "wishlistname_id" : dict.value(forKey: "wishlist_name_id") as! String, "emails" : email, "message": message] as NSMutableDictionary
+        //        https://user8.itsindev.com/medibox/API/share-wishlist.php
+        
+        let urlString = BASEURL + "/API/share-wishlist.php"
+        
+        print(urlString, paraDict)
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken()]
+        
+        Alamofire.request(urlString, method: .post, parameters: (paraDict as! [String : Any]), encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        
+                        //                        self.cartegoryArray = (responseDict.value(forKey: "response") as? NSArray ?? [])!;
+                        //                        //                        print(self.productsListArray)
+                        if responseDict.value(forKey: "response") != nil {
+                            self.getInstaOrderListAPI()
+                            //                            self.wishListArray = responseDict.value(forKey: "response") as? NSArray
+                        }
+                        self.tblInstaOrdersList.reloadData();
+                        
+                    }else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+                }
+            })
+        }
+    }
+
 
 }

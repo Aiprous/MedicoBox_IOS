@@ -30,6 +30,7 @@ class ProductDrugInfoViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isNavigationBarHidden = false;
         searchBar = UISearchBar(frame: CGRect.zero);
         self.setNavigationBarItemBackButton(searchBar: searchBar!)
         self.searchBar?.delegate = self;
@@ -77,6 +78,21 @@ class ProductDrugInfoViewController: UIViewController, UITableViewDelegate, UITa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count

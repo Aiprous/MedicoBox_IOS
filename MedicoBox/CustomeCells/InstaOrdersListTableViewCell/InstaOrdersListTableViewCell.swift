@@ -29,6 +29,8 @@ class InstaOrdersListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var btnAddToCart: DesignableButton!
     
+    @IBOutlet weak var headerTopHeightConstant: NSLayoutConstraint!
+    @IBOutlet weak var lblEmptyMessage: UILabel!
     @IBOutlet weak var btnShareWishlist: DesignableButton!
     
     override func awakeFromNib() {

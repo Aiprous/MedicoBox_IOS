@@ -14,10 +14,12 @@
     
     @IBOutlet weak var tblMyOrders: UITableView!
     @IBOutlet weak var myOrdersSearchBar: UISearchBar!
-    var wishListArray: NSArray?
-     var searchBar : UISearchBar?
+    var searchBar : UISearchBar?
+    var userOrderArray: NSArray?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchBar = UISearchBar(frame: CGRect.zero);
         self.setNavigationBarItem(searchBar: searchBar!)
         self.searchBar?.delegate = self;
@@ -49,10 +51,9 @@
         let footerView = UIView()
         footerView.frame = CGRect(x: 0, y: 0, width: tblMyOrders.frame.size.width, height: 1)
         footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-        tblMyOrders.tableFooterView = footerView
-        self.getOrderListAPI()
+        tblMyOrders.tableFooterView = footerView;
+        
     }
-    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -60,9 +61,9 @@
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false;
+        self.getOrderListAPI()
         
     }
-    
     
     //MARK:- SearchBar Delegate And DataSource
     
@@ -86,13 +87,22 @@
     
     func numberOfSections(in tableView: UITableView) -> Int{
         
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        var cellRow : Int = Int();
         
-        return 3;
+        if (self.userOrderArray != nil){
+            
+            cellRow = (self.userOrderArray?.count)!;
+            
+        }else
+        {
+            cellRow = 3;
+        }
+        return cellRow;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
@@ -168,19 +178,26 @@
                     
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
-                       
-//                        self.cartegoryArray = (responseDict.value(forKey: "response") as? NSArray ?? [])!;
-//                        //                        print(self.productsListArray)
-                        self.tblMyOrders.reloadData();
+                        print(responseDict)
+                        if let val = responseDict.value(forKey: "response") as? NSArray {
+                            
+                            self.userOrderArray = val;
+                            //                            self.userOrderArray = (responseDict.value(forKey: "response") as? NSArray ?? [:])!;
+                            //                            self.showToast(message : self.userOrderArray!.value(forKey: "msg")as! String)
+                            self.tblMyOrders.reloadData();
+                        }else {
+                            
+                        }
+                        
                         
                     }else{
                         
-                        print(responseDict.value(forKey: "message")as! String)
-                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                        print(responseDict.value(forKey: "msg")as! String)
+                        self.showToast(message : responseDict.value(forKey: "msg")as! String)
                     }
                 }
             })
         }
     }
  }
-
+ 

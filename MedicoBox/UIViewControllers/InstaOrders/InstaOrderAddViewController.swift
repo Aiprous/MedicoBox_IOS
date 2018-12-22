@@ -21,18 +21,7 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
         searchBar = UISearchBar(frame: CGRect.zero);
         self.setNavigationBarItemBackButton(searchBar: searchBar!)
         self.searchBar?.delegate = self;
-        /// Search Bar Design Style
-        if let textfield = instaOrderAddSearchBar.value(forKey: "searchField") as? UITextField {
-            
-            textfield.textColor = UIColor.gray
-            textfield.backgroundColor = UIColor.white
-            
-            if let backgroundview = textfield.subviews.first {
-                backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
-                backgroundview.layer.cornerRadius = 20
-                backgroundview.clipsToBounds = true
-            }
-        }
+       
         
         self.tblInstaOrderAdd.register(UINib(nibName: "DiabetesCareCell", bundle: nil), forCellReuseIdentifier: "DiabetesCareCell")
         tblInstaOrderAdd.delegate = self
@@ -57,6 +46,20 @@ class InstaOrderAddViewController: UIViewController , UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false;
+    }
+    
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     //MARK:- Table View Delegate And DataSource

@@ -162,6 +162,12 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Wishlist is empty." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSP-DK-wfp">
+                                        <rect key="frame" x="8" y="76.5" width="170" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -178,7 +184,9 @@
                                     <constraint firstAttribute="height" constant="112" id="U55-8t-Ntq"/>
                                     <constraint firstItem="PNp-xr-rqH" firstAttribute="trailing" secondItem="VhB-Op-ji9" secondAttribute="trailing" id="Vci-Td-rZo"/>
                                     <constraint firstItem="sg9-R5-RnN" firstAttribute="top" secondItem="X2T-Xv-qAa" secondAttribute="top" constant="15" id="ZeT-1v-8Hj"/>
+                                    <constraint firstItem="sSP-DK-wfp" firstAttribute="leading" secondItem="X2T-Xv-qAa" secondAttribute="leading" constant="8" id="aCm-BN-nD3"/>
                                     <constraint firstItem="0hv-tX-5V0" firstAttribute="leading" secondItem="U95-e2-U1c" secondAttribute="trailing" constant="21" id="cyc-aG-CwT"/>
+                                    <constraint firstAttribute="bottom" secondItem="sSP-DK-wfp" secondAttribute="bottom" constant="15" id="gmF-8D-ANr"/>
                                     <constraint firstItem="PNp-xr-rqH" firstAttribute="height" secondItem="VhB-Op-ji9" secondAttribute="height" id="hYC-Mp-B5W"/>
                                     <constraint firstItem="PNp-xr-rqH" firstAttribute="leading" secondItem="VhB-Op-ji9" secondAttribute="leading" id="o7x-2c-KXR"/>
                                     <constraint firstItem="e5K-Uc-CHT" firstAttribute="top" secondItem="X2T-Xv-qAa" secondAttribute="top" constant="18" id="oGS-h5-vRK"/>
@@ -206,13 +214,6 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYR-DM-5Xv">
                                                 <rect key="frame" x="0.0" y="0.0" width="349" height="37"/>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="information" translatesAutoresizingMaskIntoConstraints="NO" id="VcE-ak-wWT">
-                                                <rect key="frame" x="207.5" y="5.5" width="25" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="Xbl-nz-oNH"/>
-                                                    <constraint firstAttribute="width" constant="25" id="ap8-gj-zrp"/>
-                                                </constraints>
-                                            </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJi-Pv-VVf" userLabel="ValueView">
                                                 <rect key="frame" x="240.5" y="2" width="104" height="32"/>
                                                 <subviews>
@@ -274,7 +275,7 @@
                                                 </variation>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tab Evion 400mg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEd-pk-yfq">
-                                                <rect key="frame" x="13" y="5.5" width="187" height="25"/>
+                                                <rect key="frame" x="13" y="5.5" width="110.5" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="YRr-g1-oKt"/>
                                                 </constraints>
@@ -282,13 +283,19 @@
                                                 <color key="textColor" red="0.14117647059999999" green="0.1450980392" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="information" translatesAutoresizingMaskIntoConstraints="NO" id="VcE-ak-wWT">
+                                                <rect key="frame" x="315" y="5.5" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="Xbl-nz-oNH"/>
+                                                    <constraint firstAttribute="width" constant="25" id="ap8-gj-zrp"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="dJi-Pv-VVf" firstAttribute="top" secondItem="hQe-Q8-uZb" secondAttribute="top" constant="2" id="4qw-rx-2SR"/>
-                                            <constraint firstItem="dJi-Pv-VVf" firstAttribute="leading" secondItem="VcE-ak-wWT" secondAttribute="trailing" constant="8" id="HyP-jS-55L"/>
-                                            <constraint firstItem="VcE-ak-wWT" firstAttribute="leading" secondItem="kEd-pk-yfq" secondAttribute="trailing" constant="7.5" id="OIf-fc-Nxz"/>
+                                            <constraint firstAttribute="trailing" secondItem="VcE-ak-wWT" secondAttribute="trailing" constant="9" id="7zk-uj-RQF"/>
                                             <constraint firstAttribute="bottom" secondItem="VcE-ak-wWT" secondAttribute="bottom" constant="6.5" id="RkD-PP-7Oi"/>
                                             <constraint firstItem="VcE-ak-wWT" firstAttribute="top" secondItem="hQe-Q8-uZb" secondAttribute="top" constant="5.5" id="Tbk-de-RcH"/>
                                             <constraint firstAttribute="trailing" secondItem="MYR-DM-5Xv" secondAttribute="trailing" id="Uzl-32-zxR"/>
@@ -301,6 +308,11 @@
                                             <constraint firstItem="kEd-pk-yfq" firstAttribute="top" secondItem="hQe-Q8-uZb" secondAttribute="top" constant="5.5" id="i9u-zC-B9D"/>
                                             <constraint firstAttribute="bottom" secondItem="MYR-DM-5Xv" secondAttribute="bottom" id="uYE-I0-iUO"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="RkD-PP-7Oi"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -360,13 +372,15 @@
                 <outlet property="btnPlus" destination="k50-p6-UVF" id="4aa-wS-2lZ"/>
                 <outlet property="btnPtoductDetail" destination="MYR-DM-5Xv" id="sk9-2f-8JU"/>
                 <outlet property="btnShareWishlist" destination="0hv-tX-5V0" id="RkP-au-pO6"/>
+                <outlet property="headerTopHeightConstant" destination="U55-8t-Ntq" id="ieF-a5-trb"/>
+                <outlet property="lblEmptyMessage" destination="sSP-DK-wfp" id="4jB-9Q-I3U"/>
                 <outlet property="lblInstaOrderCount" destination="lhA-iC-e36" id="Nj4-iW-thk"/>
                 <outlet property="lblInstaOrderTitle" destination="e5K-Uc-CHT" id="7NN-w8-d8J"/>
                 <outlet property="lblOrderName" destination="kEd-pk-yfq" id="0RP-Mq-0Yx"/>
                 <outlet property="optionView" destination="sg9-R5-RnN" id="wvq-xo-TCP"/>
                 <outlet property="topHeaderCellView" destination="X2T-Xv-qAa" id="kW3-Mh-AZo"/>
             </connections>
-            <point key="canvasLocation" x="167" y="358"/>
+            <point key="canvasLocation" x="165.59999999999999" y="357.57121439280365"/>
         </tableViewCell>
     </objects>
     <resources>

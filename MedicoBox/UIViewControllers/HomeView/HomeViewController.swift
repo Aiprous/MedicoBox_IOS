@@ -447,8 +447,9 @@ class HomeViewController: UIViewController , UICollectionViewDataSource, UIColle
     
     @IBAction func btnINSTAORDERSAction(_ sender: Any) {
         
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kInstaOrdersListVC)
- self.navigationController?.pushViewController(Controller, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kInstaOrdersListVC) as? InstaOrdersListViewController
+        Controller?.isComefromMenu = false
+        self.navigationController?.pushViewController(Controller!, animated: true)
     }
     
     @IBAction func btnECONSULTATIONAction(_ sender: Any) {

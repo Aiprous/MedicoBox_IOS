@@ -40,6 +40,20 @@ class NotificationViewController: UIViewController, UITableViewDelegate,UITableV
     }
     
 
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
     //MARK:- Table View Delegate And DataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int

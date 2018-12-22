@@ -519,7 +519,7 @@ extension DiabetesCareList: CustomAlertViewDelegate {
         print("TextField has value: \(textFieldValue)")
     }
     
-    func saveButtonTapped(wishlist_name_id:String) {
+    func saveButtonTapped() {
         print("SaveButtonTapped")
         self.callAPIGetProductsList()
     }

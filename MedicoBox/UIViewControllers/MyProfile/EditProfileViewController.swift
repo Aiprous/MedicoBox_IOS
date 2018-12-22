@@ -61,6 +61,20 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
         }
         
     }
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
     
     func getTextFeildValuesFromTableView() ->[String:String]?{
         var values = [String:String]()
@@ -216,13 +230,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
             break;
             case "Last name": cellObj.textField.text = userProfileData?.lastname
             break;
-            case "Mobile number": cellObj.textField.text = userProfileData?.mobileNumber
-            break;
             case "Email ID": cellObj.textField.text = userProfileData?.email
-            break;
-            case "Gender": cellObj.textField.text = "\(String(describing: userProfileData!.gender))"
-            break;
-            case "DOB": cellObj.textField.text = userProfileData?.dob
             break;
             case "Password": cellObj.textField.isSecureTextEntry = true
             break;
@@ -334,8 +342,6 @@ class EditProfileViewController: UIViewController, UITableViewDelegate,UITableVi
         param["firstname"]         = arrayofValues["First name"]
         param["lastname"]          = arrayofValues["Last name"]
         param["confirmation"]      = "string"
-        param["prefix"]            = self.userProfileData?.prefix ?? ""
-        param["gender"]            = self.userProfileData?.gender ?? 0
         param["store_Id"]          = self.userProfileData?.store_id ?? 0
         param["taxvat"]            = "string"
         

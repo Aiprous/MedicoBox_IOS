@@ -31,6 +31,7 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.isNavigationBarHidden = false;
         // Do any additional setup after loading the view.
         searchBar = UISearchBar(frame: CGRect.zero);
         self.setNavigationBarItemBackButton(searchBar: searchBar!)
@@ -44,6 +45,20 @@ class ProductDetailAViewController: UIViewController, FSPagerViewDelegate, FSPag
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
     }

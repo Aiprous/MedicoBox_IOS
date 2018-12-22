@@ -20,7 +20,7 @@ import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
-
+    
     var window: UIWindow?
     var userProfileData: SignUpModelClass?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         if(UserDefaults.standard.value(forKey: "loginToken") as? String ?? "" == ""){
             
             let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignInVC)
-              let nvc: UINavigationController = UINavigationController(rootViewController: Controller)
+            let nvc: UINavigationController = UINavigationController(rootViewController: Controller)
             self.window?.rootViewController = nvc
             self.window?.makeKeyAndVisible()
         }
@@ -45,28 +45,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             createMenuView()
         }
         
-       
         
- /*
-        //Get Cart Id only once
-        let returnValue: String = (UserDefaults.standard.object(forKey: "kKeyUserCartID") as? String)!
-        kKeyUserCartID = returnValue;
         
-        if(kKeyUserCartID == ""){
-            
-            self.callAPIGetCartID()
-            
-        }else{
-            
-        }
- */
-       
+        /*
+         //Get Cart Id only once
+         let returnValue: String = (UserDefaults.standard.object(forKey: "kKeyUserCartID") as? String)!
+         kKeyUserCartID = returnValue;
+         
+         if(kKeyUserCartID == ""){
+         
+         self.callAPIGetCartID()
+         
+         }else{
+         
+         }
+         */
+        
         
         FIRApp.configure()
         Fabric.with([Crashlytics.self])
         // TODO: Move this to where you establish a user session
         self.logUser()
-
+        
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         GMSServices.provideAPIKey("AIzaSyA6zN2d9EifRnGoBTVX_dSvOJ5I7jg2Sec")
@@ -74,28 +74,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-
+        
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
-//        FBSDKAppEvents.activateApp()
+        //        FBSDKAppEvents.activateApp()
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
@@ -104,11 +104,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     func logUser() {
         // TODO: Use the current user's information
         // You can call any combination of these three methods
-    Crashlytics.sharedInstance().setUserEmail("support@medicobox.com")
-    Crashlytics.sharedInstance().setUserIdentifier("mbsupport@24 ")
+        Crashlytics.sharedInstance().setUserEmail("support@medicobox.com")
+        Crashlytics.sharedInstance().setUserIdentifier("mbsupport@24 ")
         Crashlytics.sharedInstance().setUserName("Test User")
     }
-
+    
     
     ///// GOOGLE LOGIN
     
@@ -185,30 +185,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     }
     
     //    Pragma Mark: create menu
-     func createMenuView() {
+    func createMenuView() {
         
         // create viewController code...
         
         let homeViewController = kMainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-       
+        
         let leftViewController = kMainStoryboard.instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
         
-                let nvc: UINavigationController = UINavigationController(rootViewController: homeViewController)
-            
-                UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
-            
-                leftViewController.homeViewController = nvc
-                if self.userProfileData != nil {
-                    leftViewController.userProfileData = self.userProfileData;
-                }
-                let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
-                slideMenuController.automaticallyAdjustsScrollViewInsets = true
-                slideMenuController.delegate = homeViewController as? SlideMenuControllerDelegate
-            
-                self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
-                self.window?.rootViewController = slideMenuController
-                self.window?.makeKeyAndVisible()
-       
+        let nvc: UINavigationController = UINavigationController(rootViewController: homeViewController)
+        
+        UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
+        
+        leftViewController.homeViewController = nvc
+        if self.userProfileData != nil {
+            leftViewController.userProfileData = self.userProfileData;
+        }
+        let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
+        slideMenuController.automaticallyAdjustsScrollViewInsets = true
+        slideMenuController.delegate = homeViewController as? SlideMenuControllerDelegate
+        
+        self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
+        self.window?.rootViewController = slideMenuController
+        self.window?.makeKeyAndVisible()
+        
     }
     
     func setLoginToken(loginToken:String)  {
@@ -225,7 +225,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         return ""
     }
     
-  
+    func setLoginUserData(loginUserData:SignUpModelClass)  {
+        let myData = NSKeyedArchiver.archivedData(withRootObject: loginUserData)
+        let kUserDefault = UserDefaults.standard
+        kUserDefault.set(myData, forKey: "loginUserData")
+        //        kUserDefault.set(loginUserData, forKey: "loginUserData")
+        kUserDefault.synchronize()
+    }
+    
+    func getLoginUserData() -> SignUpModelClass {
+        
+        let unarchivedObject = UserDefaults.standard.object(forKey: "loginUserData") as? NSData
+        let loginUserData = NSKeyedUnarchiver.unarchiveObject(with: unarchivedObject! as Data) as? SignUpModelClass
+        return loginUserData as! SignUpModelClass
+        
+    }
+    
+    
     
     //--------------------------------
     // MARK: - Get Cart Data API Call
@@ -235,7 +251,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         
         let urlString = kKeyGetCartDataAPI;
         print(urlString)
-//        SVProgressHUD.show()
+        //        SVProgressHUD.show()
         
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
@@ -246,7 +262,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
             
             DispatchQueue.main.async(execute: {() -> Void in
-//                SVProgressHUD.dismiss()
+                //                SVProgressHUD.dismiss()
                 
                 if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
                     
@@ -254,11 +270,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                     {
                         
                         if((responseDict.value(forKey: "res")) != nil){
-
-                         let productsListArray = (responseDict.value(forKey: "res") as? NSArray ?? [] )!;
-                        kKeyCartCount = String((productsListArray.count) as? Int ?? 0);
-//                        UserDefaults.standard.set(productsListArray, forKey: "CartArray")
-                        print(responseDict);
+                            
+                            let productsListArray = (responseDict.value(forKey: "res") as? NSArray ?? [] )!;
+                            kKeyCartCount = String((productsListArray.count) as? Int ?? 0);
+                            //                        UserDefaults.standard.set(productsListArray, forKey: "CartArray")
+                            print(responseDict);
                             
                         }else {
                             
@@ -295,7 +311,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             DispatchQueue.main.async(execute: {() -> Void in
                 //                SVProgressHUD.dismiss()
                 if let responseDict: String = resposeData.result.value as? String ?? "" {
-
+                    
                     if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
                     {
                         kKeyUserCartID = responseDict;
@@ -309,7 +325,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         }
     }
     
-
+    
 }
 extension UIApplication {
     

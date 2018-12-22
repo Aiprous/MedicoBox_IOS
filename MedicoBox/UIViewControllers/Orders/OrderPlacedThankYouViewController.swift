@@ -37,13 +37,14 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+       
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         prescriptionCollectionView.dataSource = self
         prescriptionCollectionView.delegate = self
         //show navigationbar with back button
         self.navigationController?.isNavigationBarHidden = false;
-        searchBar = UISearchBar(frame: CGRect.zero);
-        self.setNavigationBarItemBackButton(searchBar: searchBar!)
-        self.searchBar?.delegate = self;
         
         lblMrpTotalOrder.text = "\u{20B9}" + " 350.00"
         lblPriceDiscountOrder.text = "- "  + "\u{20B9}" + " 35.00"
@@ -96,6 +97,20 @@ class OrderPlacedThankYouViewController: UIViewController , UITableViewDelegate,
             
         }
 
+    }
+    
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
