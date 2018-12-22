@@ -56,6 +56,8 @@ PODS:
   - GTMSessionFetcher/Core (1.2.0)
   - GTMSessionFetcher/Full (1.2.0):
     - GTMSessionFetcher/Core (= 1.2.0)
+  - IQKeyboardManager (6.1.1)
+  - OpalImagePicker (2.0.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -73,6 +75,8 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - GoogleSignIn
+  - IQKeyboardManager
+  - OpalImagePicker
   - SDWebImage (~> 3.8)
   - SVProgressHUD
   - SwiftyJSON
@@ -95,6 +99,8 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GTMOAuth2
     - GTMSessionFetcher
+    - IQKeyboardManager
+    - OpalImagePicker
     - SDWebImage
     - SVProgressHUD
     - SwiftyJSON
@@ -114,12 +120,14 @@ SPEC CHECKSUMS:
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   GoogleSignIn: 591e46382014e591269f862ba6e7bc0fbd793532
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
+  GTMOAuth2: e8b6512c896235149df975c41d9a36c868ab7fba
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  OpalImagePicker: efc91612ef5b3849314801f68fddc26200da9435
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 008e6ab2853145e65f7c0d315b2eaf051d48fc6f
+PODFILE CHECKSUM: 560bc13a29d5dd873db047d2aa2edb71301c992b
 
 COCOAPODS: 1.5.3

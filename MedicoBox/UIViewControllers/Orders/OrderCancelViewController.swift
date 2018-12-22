@@ -8,13 +8,16 @@
 
 import UIKit
 
-class OrderCancelViewController: UIViewController {
-
+class OrderCancelViewController: UIViewController, UISearchBarDelegate {
+    var searchBar :UISearchBar?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //show navigationbar with back button
-        self.setNavigationBarItemBackButton()
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar!.delegate = self
         self.navigationController?.isNavigationBarHidden = false;
         // Do any additional setup after loading the view.
     }
@@ -28,7 +31,22 @@ class OrderCancelViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+          self.navigationController?.isNavigationBarHidden = false;
+    }
+    
+    
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     @IBAction func btnConfirmAction(_ sender: Any) {

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SignUpDeliveryBoyViewController: UIViewController , UITableViewDelegate,UITableViewDataSource {
+class SignUpDeliveryBoyViewController: UIViewController , UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
     @IBOutlet weak var tblSignUpDeliveryBoy: UITableView!
     
@@ -25,15 +26,18 @@ class SignUpDeliveryBoyViewController: UIViewController , UITableViewDelegate,UI
         
         
         //show navigationbar with back button
-        self.setNavigationBarItemBackButton()
-        self.navigationController?.isNavigationBarHidden = false;
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;        self.navigationController?.isNavigationBarHidden = false;
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false;
+    }
     
     //MARK:- Table View Delegate And DataSource
     

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PaymentDetailViewController: UIViewController {
+class PaymentDetailViewController: UIViewController, UISearchBarDelegate {
+    var searchBar :UISearchBar?
 
     @IBOutlet weak var lblMrpTotalOrder: UILabel!
     @IBOutlet weak var lblPriceDiscountOrder: UILabel!
@@ -24,8 +25,9 @@ class PaymentDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.setNavigationBarItemBackButton()
-        self.navigationController?.isNavigationBarHidden = false;
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;        self.navigationController?.isNavigationBarHidden = false;
         
 //        lblPriceOrder.text = "\u{20B9}" + " 350.00"
         
@@ -37,12 +39,28 @@ class PaymentDetailViewController: UIViewController {
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false;
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
     @IBAction func placeOrderAction(_ sender: Any) {
         
         let Controller = kPrescriptionStoryBoard.instantiateViewController(withIdentifier: kOrderPlacedThankYouVC)

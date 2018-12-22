@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import Alamofire
+import SVProgressHUD
+import SDWebImage
 
-class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource , UIScrollViewDelegate, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
+    @IBOutlet weak var btnOrderStatus: UIButton!
+    @IBOutlet weak var lblOrderDate: UILabel!
+    @IBOutlet weak var lblOrderID: UILabel!
     @IBOutlet weak var tblOrderItems: UITableView!
     @IBOutlet weak var prescriptionCollectionView: UICollectionView!
+    @IBOutlet weak var mainViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomView: DesignableShadowView!
+    @IBOutlet weak var bottomViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnAttachedPresription: UIButton!
     @IBOutlet weak var lblBillingAddressView: UILabel!
     @IBOutlet weak var lblDeliveryAddressView: UILabel!
-
+    
     @IBOutlet weak var lblPriceOrder: UILabel!
     
     @IBOutlet weak var lblMrpTotalOrder: UILabel!
@@ -26,30 +38,40 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBOutlet weak var lblAmountPaidOrder: UILabel!
     
+    var productsDetailsArray =  NSDictionary();
+    var itemListArray =  NSArray();
+    var flagViewWillAppear = "";
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         prescriptionCollectionView.dataSource = self
         prescriptionCollectionView.delegate = self
         //show navigationbar with back button
-        self.setNavigationBarItemBackButton()
         self.navigationController?.isNavigationBarHidden = false;
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
         
-        lblPriceOrder.text = "\u{20B9}" + " 350.00"
-        lblMrpTotalOrder.text = "\u{20B9}" + " 350.00"
-        lblPriceDiscountOrder.text = "- "  + "\u{20B9}" + " 35.00"
-        lblShippingChargesOrder.text =  "0"
-        lblTotalSavedOrder.text = "\u{20B9}" + " 30.00"
-        lblAmountPaidOrder.text = "\u{20B9}" + " 350.00"
         lblBillingAddressView.text = "Flat No 104, A Wing \nGreen Olive Apartments,\nHinjawadi \nPune - 411057\nMaharashtra \nIndia"
         
         lblDeliveryAddressView.text = "Flat No 104, A Wing \nGreen Olive Apartments,\nHinjawadi \nPune - 411057\nMaharashtra \nIndia"
+        
         self.tblOrderItems.register(UINib(nibName: "OrderItemsTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderItemsTableViewCell")
         tblOrderItems.delegate = self
         tblOrderItems.dataSource = self
         tblOrderItems.estimatedRowHeight = 130
         tblOrderItems.separatorStyle = .singleLine
         tblOrderItems.separatorColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblOrderItems.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblOrderItems.tableFooterView = footerView
+        
+        flagViewWillAppear = "true";
+        
+        
     }
     
     
@@ -58,8 +80,27 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()
+        self.navigationController?.isNavigationBarHidden = false;
+        callAPIGetProductsList()
+        
+        if(flagViewWillAppear == "true"){
+            //self.itemListArray
+            self.bottomViewHightConstraint.constant = 50;
+            self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant - 157;
+            
+            self.prescriptionCollectionView.isHidden = true;
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
+            
+            flagViewWillAppear = "false";
+            
+        }else {
+            
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,7 +108,23 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
         // Dispose of any resources that can be recreated.
     }
     
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
     //MARK:- Table View Delegate And DataSource
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int{
         
@@ -76,45 +133,30 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 3;
+        return self.itemListArray.count;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cellObj = tableView.dequeueReusableCell(withIdentifier: "OrderItemsTableViewCell") as! OrderItemsTableViewCell
         
-        //        cellObj.lblOrderPrice.text = "\u{20B9}" + " 278.00"
+        let dictObj = self.itemListArray.object(at: indexPath.row) as! NSDictionary
         
-        if(indexPath.row == 0){
-            
-            cellObj.lblTitleOrderItems.text = "Horicks Lite Badam Jar 450 gm"
-            cellObj.lblSubTitleOrderItems.text = "box of 450 gm Powder"
-            cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 200.00"
-            cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
-            cellObj.lblTrasOrderItems.isHidden = true;
-
-            //            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
-            
-        }
-        else if(indexPath.row == 1){
-            
-            cellObj.lblTitleOrderItems.text = "Combiflam Lcy Hot Fast Pain Relief Spray"
-            cellObj.lblSubTitleOrderItems.text = "bottle of 35 gm Spray"
-            cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 92.00"
-            cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
-            cellObj.lblTrasOrderItems.isHidden = true;
-
-            //            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
-            
-        }
-        else if(indexPath.row == 2){
-            
-            cellObj.lblTitleOrderItems.text = "Horicks Lite Badam Jar 450 gm"
-            cellObj.lblSubTitleOrderItems.text = "box of 450 gm Powder"
-            cellObj.lblPriceOrderItems.text = "\u{20B9}" + " 200.00"
-            cellObj.imgOrderItems.image = #imageLiteral(resourceName: "capsules-icon")
-            cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
-            cellObj.lblTrasOrderItems.isHidden = true;
-
+        cellObj.lblTrasOrderItems.isHidden = true;
+        cellObj.lblTitleOrderItems.text = (dictObj.value(forKey: "name") as? String)!;
+        cellObj.lblPriceOrderItems.text =  "\u{20B9} " + (dictObj.value(forKey: "original_price") as? String)!;
+        //         cellObj.lblMRPRateOrderItems.text =  (dictObj.value(forKey: "sale_price") as? String)!;
+        //        cellObj.lblSubTitleOrderItems.text = (dictObj.value(forKey: "short_description") as? String)!;
+        //        cellObj.logoOrderItems.image = #imageLiteral(resourceName: "rx_logo")
+        
+        let URLstr =  (dictObj.value(forKey: "image") as? String)!
+        let url = URL.init(string: URLstr )
+        if url != nil
+        {
+            cellObj.imgOrderItems.sd_setImage(with: url! , completed: { (image, error, cacheType, imageURL) in
+                
+                cellObj.imgOrderItems.image = image
+                
+            })
         }
         
         cellObj.selectionStyle = .none
@@ -125,10 +167,9 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         
-        return 98
+        return UITableViewAutomaticDimension
         
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cell:OrderItemsTableViewCell = tableView.cellForRow(at: indexPath) as! OrderItemsTableViewCell
@@ -137,7 +178,6 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
         //        self.navigationController?.pushViewController(Controller!, animated: true)
         //
     }
-    
     
     //MARK:- Collection View Delegate And DataSource
     
@@ -159,7 +199,6 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
         
         return cellObj;
         
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -180,4 +219,96 @@ class MyOrdersDetailsViewController: UIViewController, UITableViewDelegate, UITa
         let Controller = self.storyboard?.instantiateViewController(withIdentifier: kOrderTrackingVC)
         self.navigationController?.pushViewController(Controller!, animated: true)
     }
+    
+    @IBAction func btnAttachedPresriptionAction(_ sender: Any) {
+        
+        if(btnAttachedPresription.isSelected == false){
+            
+            bottomViewHightConstraint.constant = 207;
+            collectionViewHightConstraint.constant = 147;
+            
+            self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant + 157;
+            
+            self.prescriptionCollectionView.isHidden = false;
+            self.btnAttachedPresription.isSelected = true;
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
+            
+        }else {
+            
+            bottomViewHightConstraint.constant = 50;
+            collectionViewHightConstraint.constant = 0;
+            
+            self.mainViewHightConstraint.constant = self.mainViewHightConstraint.constant - 157;
+            
+            self.prescriptionCollectionView.isHidden = true;
+            self.btnAttachedPresription.isSelected = false;
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    func callAPIGetProductsList() {
+        
+        var paraDict = NSMutableDictionary()
+        paraDict =  ["order_id": "76"] as NSMutableDictionary
+        
+        let urlString =  BASEURL + "/API/single-order.php"
+        print(urlString, paraDict)
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "bearer " + "KJF73RWHFI23R" ]
+        
+        Alamofire.request(urlString, method: .post, parameters: (paraDict as! [String : Any]), encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        if(responseDict.value(forKey: "status") as? String == "success"){
+                            
+                            self.productsDetailsArray = (responseDict.value(forKey: "order_data") as? NSDictionary)!;
+                            self.itemListArray = (self.productsDetailsArray.value(forKey: "items") as? NSArray)!;
+                            
+                            self.lblPriceOrder.text = "\u{20B9}" + (self.productsDetailsArray.value(forKey: "price") as? String ?? "")!;
+                            self.lblMrpTotalOrder.text = "\u{20B9}" + (self.productsDetailsArray.value(forKey: "base_price") as? String ?? "")!;
+                            self.lblPriceDiscountOrder.text = "- "  + "\u{20B9}" + (self.productsDetailsArray.value(forKey: "discount_amount") as? String ?? "")!;
+                            self.lblShippingChargesOrder.text =  (self.productsDetailsArray.value(forKey: "shipping_amount") as? String ?? "")!;
+                            
+                            let amountPaid: Float = Float(self.productsDetailsArray.value(forKey: "grand_total") as? String ?? "")! - Float(self.productsDetailsArray.value(forKey: "total_due") as? String ?? "")!
+                            
+                            self.lblTotalSavedOrder.text = "\u{20B9}"  + (self.productsDetailsArray.value(forKey: "total_due") as? String ?? "")!;
+                            self.lblAmountPaidOrder.text = "\u{20B9}" + String(amountPaid);
+                            
+                            self.lblOrderID.text = (self.productsDetailsArray.value(forKey: "increment_id") as? String ?? "")!;
+                            //  shipping_address_id, billing_address_id
+                            self.tblOrderItems.reloadData();
+                        }else {
+                            
+                        }
+                        
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+                }
+            })
+        }
+    }
+    
 }

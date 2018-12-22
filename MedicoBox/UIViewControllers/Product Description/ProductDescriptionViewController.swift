@@ -11,7 +11,8 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 
-class ProductDescriptionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UITableViewDelegate, UITableViewDataSource {
+class ProductDescriptionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    var searchBar :UISearchBar?
     
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var tblProductDesc: UITableView!
@@ -20,12 +21,19 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false;
-        self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItemBackButton(searchBar: searchBar!)
+        self.searchBar?.delegate = self; self.FeaturedProductsCollectionView.register(UINib(nibName: "FeaturedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedProductsCollectionCellID")
         
         FeaturedProductsCollectionView.dataSource = self
         FeaturedProductsCollectionView.delegate = self
         tblProductDesc.delegate = self
         tblProductDesc.dataSource = self
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblProductDesc.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblProductDesc.tableFooterView = footerView
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,9 +45,22 @@ class ProductDescriptionViewController: UIViewController, UICollectionViewDataSo
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItemBackButton()
+        self.navigationController?.isNavigationBarHidden = false;
     }
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
     //MARK:- Collection View Delegate And DataSource
     
     // tell the collection view how many cells to make

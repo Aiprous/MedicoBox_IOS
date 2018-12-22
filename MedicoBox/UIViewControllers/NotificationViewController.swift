@@ -8,7 +8,8 @@
 
 import UIKit
 
-class NotificationViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+class NotificationViewController: UIViewController, UITableViewDelegate,UITableViewDataSource , UISearchBarDelegate {
+    var searchBar :UISearchBar?
 
     @IBOutlet weak var tblNotification: UITableView!
     override func viewDidLoad() {
@@ -20,9 +21,16 @@ class NotificationViewController: UIViewController, UITableViewDelegate,UITableV
         tblNotification.estimatedRowHeight = 90
         tblNotification.separatorStyle = .none
         
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblNotification.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblNotification.tableFooterView = footerView
         
         //show navigationbar with back button
-         self.setNavigationBarItem()
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItem(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
+        
          self.navigationController?.isNavigationBarHidden = false;
     }
 
@@ -32,6 +40,20 @@ class NotificationViewController: UIViewController, UITableViewDelegate,UITableV
     }
     
 
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
+    
     //MARK:- Table View Delegate And DataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int

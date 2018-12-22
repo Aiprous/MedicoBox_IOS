@@ -191,7 +191,6 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     override open func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         //automatically called
         //self.mainViewController?.viewWillAppear(animated)
     }
@@ -1056,7 +1055,22 @@ extension UIViewController {
         navigationItem.leftBarButtonItems = [leftBarButtomItem, leftIconBarButtonItem]
         
     }
-    
+    public func addLeftBarButtonWithBackImagePharm(_ buttonImage: UIImage) {
+        
+        // button
+        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        leftButton.setBackgroundImage(buttonImage, for: .normal)
+        leftButton.addTarget(self, action: #selector(self.toggleLeft), for: .touchUpInside)
+        let leftBarButtomItem = UIBarButtonItem(customView: leftButton)
+        
+        //Label
+        let tittleText = UILabel ()
+        tittleText.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        tittleText.text = self.title;
+        let leftIconBarLabelItem:UIBarButtonItem = UIBarButtonItem(customView: tittleText)
+        navigationItem.leftBarButtonItems = [leftBarButtomItem]
+        
+    }
     public func addRightBarButtonWithImage(_ buttonImage: UIImage) {
         
         // badge label
@@ -1069,7 +1083,7 @@ extension UIViewController {
         label.textColor = .white
         label.font = label.font.withSize(11)
         label.backgroundColor = .red
-        label.text = "3"
+        label.text = kKeyCartCount
         
         // button
         let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
@@ -1079,38 +1093,32 @@ extension UIViewController {
         
         // Bar button item
         let rightBarButtomItem = UIBarButtonItem(customView: rightButton)
-        navigationItem.rightBarButtonItem = rightBarButtomItem
+        
+        if(kKeyCartCount != "0" && kKeyCartCount != ""){
+            
+            navigationItem.rightBarButtonItem = rightBarButtomItem
+
+        }else{
+            
+            navigationItem.setRightBarButton(rightBarButtomItem, animated: false)
+            label.isHidden = true;
+            rightButton.isHidden = true;
+            self.showToast(message: "Your cart is empty");
+        }
     }
     
     @objc public func showCartView() {
         let Controller = kCartStoryBoard.instantiateViewController(withIdentifier: kCartViewController)
         self.navigationController?.pushViewController(Controller, animated: true)
     }
-    public func addTitleSearchBar() {
+    
+    public func addTitleImageView() {
         
-        let searchBar = UISearchBar(frame: CGRect.zero)
-        navigationItem.titleView?.layer.cornerRadius = 10
-        navigationItem.titleView?.layer.masksToBounds = true
-        searchBar.barStyle = .default;
-        searchBar.searchBarStyle = .minimal;
-        searchBar.showsCancelButton = false;
-        searchBar.showsBookmarkButton = false;
-        searchBar.showsScopeBar = false;
-        searchBar.showsBookmarkButton = false;
-
-        /// Search Bar Design Style
-        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            
-            textfield.textColor = UIColor.gray
-            searchBar.text = "Search Medicines"
-            textfield.backgroundColor = UIColor.white
-            if let backgroundview = textfield.subviews.first {
-                backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 1)
-                backgroundview.layer.cornerRadius = 20
-                backgroundview.clipsToBounds = true
-            }
-        }
-        navigationItem.titleView = searchBar
+        let imageview = UIImageView(frame: CGRect(x: 20, y: 0, width: 10, height: 7))
+        imageview.image = #imageLiteral(resourceName: "medicobox")
+        imageview.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageview
+        
     }
     
     @objc public func toggleLeft() {
@@ -1126,7 +1134,10 @@ extension UIViewController {
     }
     
     @objc public func openRight() {
-        slideMenuController()?.openRight()    }
+        
+        slideMenuController()?.openRight()
+        
+    }
     
     @objc public func closeLeft() {
         slideMenuController()?.closeLeft()

@@ -7,14 +7,26 @@
  //
  
  import UIKit
+ import Alamofire
+ import SVProgressHUD
  
- class MyOrdersViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
+ class MyOrdersViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var tblMyOrders: UITableView!
     @IBOutlet weak var myOrdersSearchBar: UISearchBar!
+    var searchBar : UISearchBar?
+    var userOrderArray: NSArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.setNavigationBarItem(searchBar: searchBar!)
+        self.searchBar?.delegate = self;
+        searchBar = UISearchBar(frame: CGRect.zero);
+        self.addTitleSearchBar(searchBar1: searchBar!)
+        self.searchBar?.delegate = self;
+        
         self.navigationController?.isNavigationBarHidden = false;
         /// Search Bar Design Style
         
@@ -35,18 +47,37 @@
         tblMyOrders.dataSource = self
         tblMyOrders.estimatedRowHeight = 130
         tblMyOrders.separatorStyle = .none
+        
+        let footerView = UIView()
+        footerView.frame = CGRect(x: 0, y: 0, width: tblMyOrders.frame.size.width, height: 1)
+        footerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        tblMyOrders.tableFooterView = footerView;
+        
     }
-    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBarItem()
+        self.navigationController?.isNavigationBarHidden = false;
+        self.getOrderListAPI()
+        
     }
     
+    //MARK:- SearchBar Delegate And DataSource
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.view .endEditing(true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSearchVC)
+        self.navigationController?.pushViewController(Controller, animated: true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,7 +92,17 @@
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 3;
+        var cellRow : Int = Int();
+        
+        if (self.userOrderArray != nil){
+            
+            cellRow = (self.userOrderArray?.count)!;
+            
+        }else
+        {
+            cellRow = 3;
+        }
+        return cellRow;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
@@ -108,6 +149,55 @@
         
     }
     
+    //--------------------------------
+    // MARK: - Product List API Call
+    //--------------------------------
     
+    func getOrderListAPI() {
+        
+        var paraDict = NSMutableDictionary()
+        paraDict =  ["token": "38"] as NSMutableDictionary
+        //        http://user8.itsindev.com/medibox/API/categories_new.php
+        
+        let urlString = BASEURL + "/API/user_orders.php"
+        print(urlString, paraDict)
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "Bearer " + kAppDelegate.getLoginToken()]
+        
+        Alamofire.request(urlString, method: .post, parameters: (paraDict as! [String : Any]), encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        print(responseDict)
+                        if let val = responseDict.value(forKey: "response") as? NSArray {
+                            
+                            self.userOrderArray = val;
+                            //                            self.userOrderArray = (responseDict.value(forKey: "response") as? NSArray ?? [:])!;
+                            //                            self.showToast(message : self.userOrderArray!.value(forKey: "msg")as! String)
+                            self.tblMyOrders.reloadData();
+                        }else {
+                            
+                        }
+                        
+                        
+                    }else{
+                        
+                        print(responseDict.value(forKey: "msg")as! String)
+                        self.showToast(message : responseDict.value(forKey: "msg")as! String)
+                    }
+                }
+            })
+        }
+    }
  }
-
+ 

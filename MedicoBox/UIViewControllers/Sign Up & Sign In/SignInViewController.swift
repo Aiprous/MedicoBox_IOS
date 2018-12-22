@@ -11,12 +11,14 @@ import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Alamofire
+import SVProgressHUD
+import SDWebImage
 
 class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelegate,GIDSignInUIDelegate, UIGestureRecognizerDelegate {
-
+    
     @IBOutlet weak var btnSignIn: UIButton!
     
-     @IBOutlet weak var btnForgotPassword: UIButton!
+    @IBOutlet weak var btnForgotPassword: UIButton!
     
     @IBOutlet weak var btnSignInwithOTP: UIButton!
     
@@ -28,14 +30,21 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     
     @IBOutlet var popUpBG: UIImageView!
     @IBOutlet var popUpView: UIView!
+    @IBOutlet weak var txtMobileEmail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    var loginTokenArray = NSArray();
+    var signupData : SignUpModelClass?
+    var responseToken = String();
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-      
+        
         self.navigationController?.isNavigationBarHidden = true;
-
+        self.txtMobileEmail.text = "geetbasakare@gmail.com"
+        self.txtPassword.text = "Geet@789"
+        
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         // TODO(developer) Configure the sign-in button look/feel
@@ -45,53 +54,51 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                                                name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
                                                object: nil)
         
-//        statusText.text = "Initialized Swift app..."
-        toggleAuthUI()
- 
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
+    
     @IBAction func btnSignInAction(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.createMenuView()
+        
+        //            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //            appDelegate.createMenuView()
+        
+        
+        self.callLoginAPI()
+        
     }
     
     @IBAction func btnSignInWithOTPAction(_ sender: Any) {
         
-
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kVerifyOTPVC)
- self.navigationController?.pushViewController(Controller, animated: true)
-        
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kForgotPasswordFromMobileNoVC) as! ForgotPasswordFromMobileNoViewController
+        Controller.isComeforVerifyOTP = true
+        self.navigationController?.pushViewController(Controller, animated: true)
     }
     @IBAction func btnSignUpHereAction(_ sender: Any) {
         
-
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignUpVC)
- self.navigationController?.pushViewController(Controller, animated: true)
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kSignUpVC) as? SignUpViewController
+        self.navigationController?.pushViewController(Controller!, animated: true)
     }
     
     @IBAction func btnForgotPasswordAction(_ sender: Any) {
         
-
-        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kForgotPasswordFromMobileNoVC)
-
+        let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kForgotPasswordFromMobileNoVC) as! ForgotPasswordFromMobileNoViewController
+        Controller.isComeforVerifyOTP = false
         self.navigationController?.pushViewController(Controller, animated: true)
     }
     
     @IBAction func btnSignInWithFacebookAction(_ sender: Any) {
         self.startExecutionForFacebookLogin()
-
     }
     
     @IBAction func btnSignInWithGoogleAction(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
-
+        
     }
-   
+    
     // MARK: - Facebook Login Implementation
     func startExecutionForFacebookLogin() -> Void
     {
@@ -128,21 +135,20 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                         
                         print(responseDict);
                         
-//                        self.firstNameString = responseDict.value(forKey: "first_name") as! String
-//                        self.lastNameString = responseDict.value(forKey: "last_name") as! String
-//                        self.emailIdString = responseDict.value(forKey: "email") as! String
+                        //                        self.firstNameString = responseDict.value(forKey: "first_name") as! String
+                        //                        self.lastNameString = responseDict.value(forKey: "last_name") as! String
+                        //                        self.emailIdString = responseDict.value(forKey: "email") as! String
                         
                         let a = responseDict.value(forKey: "picture") as! NSDictionary
                         let b = a.value(forKey: "data") as! NSDictionary
                         
-//                        USER_FIRST_NAME = self.firstNameString
-//                        USER_LAST_NAME = self.lastNameString
-//                        USERNAME = self.emailIdString
-//                        ACCOUNT_TYPE = "facebook"
-//
+                        //                        USER_FIRST_NAME = self.firstNameString
+                        //                        USER_LAST_NAME = self.lastNameString
+                        //                        USERNAME = self.emailIdString
+                        //                        ACCOUNT_TYPE = "facebook"
+                        //
                         //                        USER_PROFILE = b.value(forKey: "url") as! String
                         
-                       
                     }
                     
                     
@@ -151,7 +157,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
                     })
                     self.fbLoginSuccessCall(userInfo: userData, token: fbAccessToken!)
                     
-//                    self.callAPI_getLoginAPI()
+                    //                    self.callLoginAPI()
                 }
                 else {
                     print("Error in getting token")
@@ -169,7 +175,7 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
         print(dataDict)
         
     }
- 
+    
     
     //MARK: - GIDSignInDelegate and GIDSignInUIDelegate
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
@@ -198,16 +204,11 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
             dataDict["social_email"] = email
             dataDict["social_site_name"] = "Google"
             
-//            USER_FIRST_NAME = givenName! //first Name
-//            USER_LAST_NAME = familyName! //last Name
-//            USERNAME = email!
-//            ACCOUNT_TYPE = "google"
             print(dataDict)
-//            self.callAPI_getLoginAPI()
+            //            self.callLoginAPI()
             
-
             let Controller = kMainStoryboard.instantiateViewController(withIdentifier: kHomeVC)
-
+            
             self.navigationController?.pushViewController(Controller, animated: true)
             
         } else {
@@ -228,23 +229,6 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
         self.dismiss(animated: true, completion: nil)
     }
     
-    // [START toggle_auth]
-    func toggleAuthUI() {
-        /*
-         if GIDSignIn.sharedInstance().hasAuthInKeychain() {
-         // Signed in
-         signInButton.isHidden = true
-         signOutButton.isHidden = false
-         disconnectButton.isHidden = false
-         } else {
-         signInButton.isHidden = false
-         signOutButton.isHidden = true
-         disconnectButton.isHidden = true
-         statusText.text = "Google Sign in\niOS Demo"
-         }
-         */
-    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
@@ -257,10 +241,9 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     
     @objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
         if notification.name.rawValue == "ToggleAuthUINotification" {
-            self.toggleAuthUI()
             if notification.userInfo != nil {
-                guard let userInfo = notification.userInfo as? [String:String] else { return }
-//                self.statusText.text = userInfo["statusText"]!
+                guard (notification.userInfo as? [String:String]) != nil else { return }
+                //                self.statusText.text = userInfo["statusText"]!
             }
         }
     }
@@ -283,4 +266,113 @@ class SignInViewController: UIViewController,UITextFieldDelegate,GIDSignInDelega
     }
     
     
+    //--------------------------
+    // MARK: - Login API Call
+    //--------------------------
+    
+    func callLoginAPI() {
+        
+        var paraDict = NSMutableDictionary()
+        
+        paraDict =  ["username": self.txtMobileEmail.text!, "password": self.txtPassword.text!] as NSMutableDictionary
+        let urlString = kKeyGetLoginTokenAPI;
+        print(urlString, paraDict, self.txtMobileEmail.text!, self.txtPassword.text!)
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Cache-Control": "no-cache",
+            "Authorization": "bearer " + "KJF73RWHFI23R" ]
+        
+        Alamofire.request(urlString, method: .post, parameters: (paraDict as! [String : Any]), encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+            
+            DispatchQueue.main.async(execute: {() -> Void in
+                SVProgressHUD.dismiss()
+                
+                if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                    
+                    if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                    {
+                        //                        kAppDelegate.createMenuView()
+                        print(responseDict)
+                        self.responseToken = responseDict.value(forKey: "response")as! String;
+                        kAppDelegate.setLoginToken(loginToken: self.responseToken)
+                        self.callLoginWithTokenAPI()
+                        
+                    }
+                    else{
+                        
+                        print(responseDict.value(forKey: "message")as! String)
+                        self.showToast(message : responseDict.value(forKey: "message")as! String)
+                    }
+                }
+            })
+        }
+    }
+    
+    func callLoginWithTokenAPI() {
+        if Connectivity.isConnectedToInternet {
+            
+            let urlString = kKeyGetUserProfileData
+            print(urlString)
+            SVProgressHUD.show()
+            
+            let headers: HTTPHeaders = [
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest",
+                "Cache-Control": "no-cache",
+                "Authorization": "Bearer " + kAppDelegate.getLoginToken()]
+            
+            Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (resposeData) in
+                
+                DispatchQueue.main.async(execute: {() -> Void in
+                    SVProgressHUD.dismiss()
+                    
+                    if let responseDict : NSDictionary = resposeData.result.value as? NSDictionary {
+                        
+                        if ( resposeData.response!.statusCode == 200 || resposeData.response!.statusCode == 201)
+                        {
+                            
+                            print(responseDict);
+                            let response = responseDict.value(forKey: "response")as? NSDictionary ?? [:];
+                            if((response.value(forKey: "status")as! String) == "success"){
+                                let dictionary =  response.value(forKey: "data")as? NSDictionary ?? [:];
+                                self.signupData = SignUpModelClass(signupModel: dictionary)
+                                if self.signupData != nil {
+                                    kAppDelegate.setLoginUserData(loginUserData:self.signupData!);
+                                    kAppDelegate.userProfileData = self.signupData;
+                                }
+                                kAppDelegate.createMenuView()
+                                print(responseDict)
+                            }else{
+                                
+                                print(response.value(forKey: "msg")as! String)
+                                self.showToast(message : response.value(forKey: "msg")as! String)
+                            }
+                        }
+                        else{
+                            
+                            
+                        }
+                    }
+                })
+            }
+        }else {
+            
+            self.alertWithMessage(title: "Message", message: "Please check internet connection", vc: self)
+        }
+    }
+    
+}
+
+extension Collection where Iterator.Element == [String:AnyObject] {
+    func toJSONString(options: JSONSerialization.WritingOptions = .prettyPrinted) -> String {
+        if let arr = self as? [[String:AnyObject]],
+            let dat = try? JSONSerialization.data(withJSONObject: arr, options: []),
+            let str = String(data: dat, encoding: String.Encoding.utf8) {
+            return str
+        }
+        return "[]"
+    }
 }
